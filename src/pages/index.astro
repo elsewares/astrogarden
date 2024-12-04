@@ -1,0 +1,47 @@
+---
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import cozyweb from "../images/cozyweb.jpg";
+
+const essays = await getCollection("essays");
+const notes = await getCollection("notes");
+const patterns = await getCollection("patterns");
+---
+
+Maggie Appleton's Garden, V3
+
+<ul>
+	{
+		essays.map((essay) => (
+			<li>
+				<Image src={essay.data.cover} width={420} alt={essay.data.title} />
+				<a href={`/${essay.id}`}>{essay.data.title}</a>
+				<p>
+					{essay.data.description} <span>[essay]</span>
+				</p>
+			</li>
+		))
+	}
+	{
+		notes.map((note) => (
+			<li>
+				<a href={`/${note.id}`}>{note.data.title}</a>
+				<p>
+					{note.data.description} <span>[note]</span>
+				</p>
+			</li>
+		))
+	}
+	{
+		patterns.map((pattern) => (
+			<li>
+				<a href={`/${pattern.id}`}>{pattern.data.title}</a>
+				<p>
+					{pattern.data.description} <span>[pattern]</span>
+				</p>
+			</li>
+		))
+	}
+</ul>
+
+<Image src={cozyweb} width={400} alt="Cozyweb" />

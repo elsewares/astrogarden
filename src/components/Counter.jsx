@@ -1,4 +1,4 @@
-import { useState } from 'preact/hooks';
+import { useState } from "react";
 
 export default function Counter({ children }) {
 	const [count, setCount] = useState(0);
@@ -7,12 +7,12 @@ export default function Counter({ children }) {
 
 	return (
 		<>
-			<div class="counter">
+			<div className="counter">
 				<button onClick={subtract}>-</button>
 				<pre>{count}</pre>
 				<button onClick={add}>+</button>
 			</div>
-			<div class="counter-message">{children}</div>
+			<div className="counter-message">{children}</div>
 		</>
 	);
 }
