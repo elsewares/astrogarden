@@ -1,0 +1,58 @@
+---
+interface Props {
+	maxWidth?: string | number;
+}
+
+const { maxWidth = 320 } = Astro.props;
+---
+
+<span class="tooltip-trigger" data-maxwidth={maxWidth}>
+	<slot />
+	<template class="tooltip-content">
+		<slot name="content" />
+	</template>
+</span>
+
+<style>
+	.tippy-box {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		line-height: var(--leading-snug);
+		word-break: break-word;
+		white-space: pre-wrap;
+		padding: var(--space-3xs);
+		margin-bottom: var(--space-3xs);
+		background-color: white;
+		color: var(--color-gray-800);
+		box-shadow: var(--box-shadow-md);
+	}
+	.tippy-box .tippy-arrow {
+		color: white;
+	}
+</style>
+
+<script>
+	import tippy, { type Props } from "tippy.js";
+	import "tippy.js/dist/tippy.css";
+	import "tippy.js/animations/shift-away.css";
+
+	// Initialize tooltips
+	const tooltips = document.querySelectorAll(".tooltip-trigger");
+	tooltips.forEach((element) => {
+		const template = element.querySelector(
+			".tooltip-content"
+		) as HTMLTemplateElement;
+		tippy(
+			element as Element,
+			{
+				content: template.content.cloneNode(true),
+				maxWidth: parseInt(element.getAttribute("data-maxwidth") || "320"),
+				duration: 500,
+				arrow: true,
+				interactive: true,
+				animation: "shift-away",
+				allowHTML: true,
+			} as Partial<Props>
+		);
+	});
+</script>

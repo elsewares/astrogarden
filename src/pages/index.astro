@@ -2,13 +2,14 @@
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 import cozyweb from "../images/cozyweb.jpg";
+import "../global.css";
 
 const essays = await getCollection("essays");
 const notes = await getCollection("notes");
 const patterns = await getCollection("patterns");
 ---
 
-Maggie Appleton's Garden, V3
+<h1>Maggie Appleton's Garden, V3</h1>
 
 <ul>
 	{

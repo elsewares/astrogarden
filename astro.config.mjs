@@ -3,10 +3,12 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 
+import icon from "astro-icon";
+
 // https://astro.build/config
 export default defineConfig({
-	image: {
-		domains: ["res.cloudinary.com"],
-	},
-	integrations: [mdx(), react()],
+    image: {
+        domains: ["res.cloudinary.com"],
+    },
+    integrations: [mdx(), react(), icon()],
 });

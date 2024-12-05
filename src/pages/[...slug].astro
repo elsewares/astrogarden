@@ -1,44 +1,43 @@
 ---
-import { getCollection } from 'astro:content';
-import { render } from 'astro:content';
+import { getCollection } from "astro:content";
+import { render } from "astro:content";
+import "../global.css";
 
 // Get params from URL
 export async function getStaticPaths() {
-  const essays = await getCollection('essays');
-  const notes = await getCollection('notes');
-  const patterns = await getCollection('patterns');
-  
-  return [...essays, ...notes, ...patterns].map(entry => ({
-    params: { slug: entry.id },
-    props: { entry },
-  }));
+	const essays = await getCollection("essays");
+	const notes = await getCollection("notes");
+	const patterns = await getCollection("patterns");
+
+	return [...essays, ...notes, ...patterns].map((entry) => ({
+		params: { slug: entry.id },
+		props: { entry },
+	}));
 }
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{entry.data.title}</title>
-  <link rel="stylesheet" href="/path/to/your/styles.css">
-</head>
-<body>
-  <main>
-    <article>
-      <h1>{entry.data.title}</h1>
-      <p>{entry.data.description}</p>
-      <div>
-        <Content />
-      </div>
-    </article>
-  </main>
-  <footer>
-    <p>&copy; 2024 My Blog</p>
-    <!-- Add footer content here -->
-  </footer>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{entry.data.title}</title>
+	</head>
+	<body>
+		<main>
+			<article>
+				<h1>{entry.data.title}</h1>
+				<p>{entry.data.description}</p>
+				<div>
+					<Content />
+				</div>
+			</article>
+		</main>
+		<footer>
+			<p>&copy; 2024 My Blog</p>
+		</footer>
+	</body>
 </html>

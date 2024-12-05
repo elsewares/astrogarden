@@ -13,6 +13,7 @@ const notesCollection = defineCollection({
 			type: z.literal("note"),
 			topics: z.array(z.string()),
 			growthStage: z.string(),
+			draft: z.boolean().optional(),
 		}),
 });
 
@@ -29,6 +30,7 @@ const essaysCollection = defineCollection({
 			topics: z.array(z.string()),
 			growthStage: z.string(),
 			featured: z.boolean().optional(),
+			draft: z.boolean().optional(),
 		}),
 });
 
@@ -43,6 +45,7 @@ const patternsCollection = defineCollection({
 			type: z.literal("pattern"),
 			topics: z.array(z.string()),
 			growthStage: z.string(),
+			draft: z.boolean().optional(),
 		}),
 });
 
