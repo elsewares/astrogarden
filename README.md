@@ -2,6 +2,7 @@
 
 Built with Astro
 
-MDX
-Backlinks
-A light sprinkling of React
+MDX  
+Backlinks  
+Typed collections – essays, notes, pattern, talks, and podcasts  
+A light sprinkling of React  
