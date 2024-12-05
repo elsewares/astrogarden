@@ -10,6 +10,8 @@ growthStage: "seedling"
 ---
 
 import { Icon } from "astro-icon/components";
+import Accordion from "../../components/mdx/Accordion.astro";
+import Alert from "../../components/mdx/Alert.astro";
 
 <Icon name="heroicons:academic-cap" size={24} />
 
@@ -17,7 +19,24 @@ import { Icon } from "astro-icon/components";
 
 Nature is flourishing down at my local Sainsbury's. The mineral water is natural. The unrefined cane sugar is natural. The low-fat Greek style yogurt is natural. The gluten-free buckwheat toasted muesli is natural. The anti-oxidising cranberry, chocolate, and coconut vegan protein bars are natural.
 
+<Accordion header="What's a benchmark?">
+
+The industry uses “benchmarks” to measure the performance of machine learning models. Benchmarks are very large datasets (we're talking hundreds of thousands of data points) with sets of tasks and correct answers for those tasks.
+
+The task might be correctly labelling a set of images, completing a sentence with words that seem resonable to humans, or knowing the right answer to a trivia question. For example, the [WebQuestions](https://paperswithcode.com/dataset/webquestions) benchmark is a set of the most common questions asked online, such as:
+
+`{question: “What airport is in Kauai Hawaii?”, answer: "Lihue Airport"}`  
+`{question: “Who sang for Pink Floyd?”, answer: "David Gilmour"}`
+
+A model is given a score based on how closely its generates answers that match the ones provided in the benchmark. There are leaderboards that rank which models have performed best on each benchmark, and ML engineers compete to develop models that top these leaderboards.
+
+</Accordion>
+
 "Natural" has become both a ubiquitous and meaningless label on food packaging. This observation is nothing profound. Hundreds of op-ed authors have lamented the lack of governmental regulation stopping producers from putting "natural," "free-range," "wholegrain," "authentic," "superfood," and "organic" on their shiny cereal box of sugar puffs. We have all become comfortably jaded with the empty, hyperbolic language of our food. At least enough to not take it seriously.
+
+<Alert>
+	<p>Your alert content here</p>
+</Alert>
 
 But this is not a diatribe about food packaging. The bone I'm picking is not with the label on my chicken, but the chicken's supposed origin – **nature.**
 
