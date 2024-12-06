@@ -1,0 +1,145 @@
+---
+import type { MarkdownLayoutProps } from "astro";
+import Layout from "./Layout.astro";
+import { Icon } from "astro-icon/components";
+// You'll need to find Astro alternatives for these React components:
+// - BacklinkHover
+// - BackToTop
+// - TwitterReply
+// - WebMentions
+// - TableOfContents (You might want to use @astrojs/tableofcontents)
+
+type Props = {
+	frontmatter: {
+		title: string;
+		description: string;
+		startDate: Date;
+		updated: Date;
+		type: "note" | "essay" | "pattern";
+		topics: string[];
+		growthStage: string;
+		draft?: boolean;
+		cover?: ImageMetadata;
+		featured?: boolean;
+		aliases?: string[];
+	};
+};
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.title} desc={frontmatter.description}>
+	<header class="header-section">
+		<div class="above-title">
+			<a href="/essays">Essays</a>
+			<Icon name="heroicons:arrow-left" size={16} />
+			<!-- <GrowthIcon size="16" growthStage={frontmatter.growthStage} /> -->
+			<p>{frontmatter.growthStage}</p>
+		</div>
+		<div class="title-container">
+			<h1>{frontmatter.title}</h1>
+			{frontmatter.description && <p>{frontmatter.description}</p>}
+		</div>
+		<div class="metadata">
+			<!-- {frontmatter.topics && <Topics topics={frontmatter.topics} />} -->
+			<!-- <Dates startDate={frontmatter.startDate} updated={frontmatter.updated} /> -->
+		</div>
+	</header>
+
+	<main class="styled-main">
+		<!-- <BackToTop /> -->
+		<slot />
+	</main>
+	<!-- 
+	<TwitterReply
+		url={`https://maggieappleton.com/${url}/`}
+		title={frontmatter.title}
+	/>
+
+	{backlinks.length ? <Backlinks backlinks={backlinks} /> : null}
+	<WebMentions postSlug={url} hasBacklinks={backlinks.length > 0} /> -->
+</Layout>
+
+<style>
+	.title-container {
+		padding: var(--space-s) 0 var(--space-l);
+		border-bottom: 1px solid var(--color-tinted-cream);
+	}
+
+	.title-container h1 {
+		font-size: var(--font-size-2xl);
+		line-height: var(--leading-tighter);
+		max-width: 100%;
+	}
+
+	.title-container p {
+		font-size: var(--font-size-md);
+		margin: var(--space-s) 0 0 0;
+		color: var(--color-gray-600);
+	}
+
+	.header-section {
+		max-width: 800px;
+		margin: var(--space-l) auto 0;
+	}
+
+	.above-title a,
+	.above-title p {
+		display: inline-block;
+		font-family: var(--font-sans);
+		font-size: var(--font-size-xs);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		font-weight: bold;
+		padding-right: var(--space-xs);
+	}
+
+	.above-title p {
+		padding-left: var(--space-2xs);
+	}
+
+	.above-title svg {
+		position: relative;
+		top: 3px;
+	}
+
+	.metadata {
+		justify-content: space-between;
+		display: flex;
+		flex-direction: row;
+	}
+
+	.styled-main {
+		margin-top: var(--space-xs);
+		padding: var(--space-xl) 0;
+		background: linear-gradient(var(--color-cream) 0, white 110px);
+		/* grid-column: 1/4; */
+		width: 100%;
+	}
+
+	@media (max-width: 768px) {
+		.metadata {
+			flex-direction: column;
+			text-align: left;
+			align-items: flex-start;
+		}
+
+		.styled-main {
+			padding: var(--space-xl) var(--space-xs);
+		}
+
+		.header-section {
+			padding: 0 var(--space-xs);
+		}
+	}
+
+	@media screen and (max-width: 425px) {
+		.title-container h1 {
+			font-size: var(--font-size-xl);
+		}
+
+		.title-container p {
+			font-size: var(--font-size-base);
+		}
+	}
+</style>

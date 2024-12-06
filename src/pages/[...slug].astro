@@ -1,4 +1,6 @@
 ---
+import PostLayout from "../layouts/PostLayout.astro";
+import ProseWrapper from "../layouts/ProseWrapper.astro";
 import { getCollection } from "astro:content";
 import { render } from "astro:content";
 import "../global.css";
@@ -19,25 +21,10 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>{entry.data.title}</title>
-	</head>
-	<body>
-		<main>
-			<article>
-				<h1>{entry.data.title}</h1>
-				<p>{entry.data.description}</p>
-				<div>
-					<Content />
-				</div>
-			</article>
-		</main>
-		<footer>
-			<p>&copy; 2024 My Blog</p>
-		</footer>
-	</body>
-</html>
+<PostLayout frontmatter={entry.data}>
+	<ProseWrapper>
+		<div>Table of Contents</div>
+		<!-- {toc && <TableOfContents headings={headings} />} -->
+		<Content />
+	</ProseWrapper>
+</PostLayout>

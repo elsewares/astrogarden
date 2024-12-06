@@ -1,0 +1,67 @@
+---
+// Import Navbar
+// Import Footer
+import { SEO } from "astro-seo";
+
+export interface Props {
+	title?: string;
+	desc?: string;
+	ogimage?: string;
+}
+
+const { title, desc, ogimage = "/opengraph.jpg" } = Astro.props;
+
+// TODO: Add OG image
+// const resolvedOGImage = checkImageUrl(ogimage, Astro.site);
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<SEO
+			title={title}
+			description={desc ||
+				"Maggie's digital garden filled with visual essays on programming, design, and anthropology"}
+			canonical={canonicalURL}
+			openGraph={{
+				basic: {
+					type: "website",
+					url: "https://www.maggieappleton.com/",
+					title: "Maggie Appleton",
+					// TODO: Add OG image
+					image: "",
+				},
+				optional: {
+					locale: "en_GB",
+					description:
+						"Maggie's digital garden filled with visual essays on programming, design, and anthropology",
+				},
+				image: {
+					alt: "Maggie Appleton's digital garden",
+				},
+			}}
+			twitter={{
+				creator: "@mappletons",
+			}}
+		/>
+	</head>
+	<body>
+		<p>Header</p>
+		<!-- <Navbar /> -->
+		<slot />
+		<!-- <Footer /> -->
+		<p>Footer</p>
+		<style is:global>
+			/* Improve Page speed */
+			/* https://css-tricks.com/almanac/properties/c/content-visibility/ */
+			img {
+				content-visibility: auto;
+			}
+		</style>
+	</body>
+</html>
