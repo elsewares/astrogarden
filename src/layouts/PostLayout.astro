@@ -31,7 +31,11 @@ const { frontmatter } = Astro.props;
 <Layout title={frontmatter.title} desc={frontmatter.description}>
 	<header class="header-section">
 		<div class="above-title">
-			<a href="/essays">Essays</a>
+			<a href={`/${frontmatter.type}s`}
+				>{
+					frontmatter.type.charAt(0).toUpperCase() + frontmatter.type.slice(1)
+				}s</a
+			>
 			<Icon name="heroicons:arrow-left" size={16} />
 			<!-- <GrowthIcon size="16" growthStage={frontmatter.growthStage} /> -->
 			<p>{frontmatter.growthStage}</p>

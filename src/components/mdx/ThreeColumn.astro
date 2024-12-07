@@ -1,0 +1,47 @@
+---
+const { maxWidth, gridGap, margin } = Astro.props;
+---
+
+<div
+	class="three-column-container"
+	style={`
+  max-width: ${maxWidth || "1400px"}; 
+  margin: ${margin || "var(--space-s) auto var(--space-l)"};
+  grid-gap: ${gridGap || "var(--space-s)"};
+`}
+>
+	<slot />
+</div>
+
+<style>
+	.three-column-container {
+		width: 100%;
+		grid-column: 1 / 4 !important;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		justify-content: center;
+	}
+
+	.three-column-container :global(div),
+	.three-column-container :global(img),
+	.three-column-container :global(figure) {
+		margin: 0 auto;
+		grid-column: auto !important;
+	}
+
+	.three-column-container :global(img) {
+		margin: var(--space-s) auto 0;
+	}
+
+	@media (max-width: 768px) {
+		.three-column-container {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.three-column-container {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

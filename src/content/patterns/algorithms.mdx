@@ -9,7 +9,12 @@ topics: ["Machine Learning", "Design", "Artificial Intelligence"]
 ---
 
 import Tooltip from "../../components/mdx/Tooltip.astro";
-import { Fragment } from "astro/components";
+import BlockquoteCitation from "../../components/mdx/BlockquoteCitation.astro";
+import Center from "../../components/mdx/Center.astro";
+import ComingSoon from "../../components/mdx/ComingSoon.astro";
+import Disclaimer from "../../components/mdx/Disclaimer.astro";
+import Draft from "../../components/mdx/Draft.astro";
+import Footnote from "../../components/mdx/Footnote.astro";
 
 We are all familiar with the recommendation algorithm – the dark forces that shove fad-diet-shills, flat-earthers, and Jordan Peterson into our feeds.
 
@@ -23,17 +28,47 @@ We are all familiar with the recommendation algorithm – the dark forces that s
 
 They've become a modern myth. There are a thousand moral panic op-eds raising the alarms; algorithms are controlling us, manipulating us, radicalizing us, and preying on our insecurities and "secret desires." All just to sell us overengineered toothbrushes, vegan whey powder, and blow-up paddling pools, among other goodies.
 
-For a start, we aren't told what kinds of data go into our algorithmic systems, and have no visibility into why certain results come out. Most algorithm-driven interfaces blackbox their internal logic and decision-making rules. Faced with these opaque systems, we end up fetishising the algorithms – we attribute human agency and capacities to them, and in doing so hide the very real human agents designing and maintaining them. We call them "magic" to dismiss the need to make them legible to users.
+<BlockquoteCitation author="Murray Shanahan" title="Talking About Large Language Models" url="http://arxiv.org/abs/2212.03551">
+
+Humans are members of a community of language-users inhabiting a shared world, and this primal fact makes them essentially different to large language models. We can consult the world to settle our disagreements and update our beliefs. We can, so to speak, “triangulate” on objective reality.
+
+</BlockquoteCitation>
+
+For a start, we aren't told what kinds of data go into our algorithmic systems, and have no visibility into why certain results come out. Most algorithm-driven interfaces blackbox their internal logic and decision-making rules.<Footnote idName={1}>If you would like to learn how to do the shiny lighting stuff, take Sam Neilson's <a href="https://www.schoolism.com/school.php?id=3">Fundamentals of Lighting</a> on Schoolism. It will drown you in the minutiae of rendering light on surfaces.<br />Also check out the <a href="/resources">Resources</a> page.</Footnote> Faced with these opaque systems, we end up fetishising the algorithms – we attribute human agency and capacities to them, and in doing so hide the very real human agents designing and maintaining them. We call them "magic" to dismiss the need to make them legible to users.
+
+<Center>
+
+### Papers & Articles
+
+</Center>
 
 As an audience we have no visibility into what metrics the engineers are optimising for. The engineers themselves don't always understand how the algorithms choose what to recommend. The lack of transparency makes it difficult to understand why we're shown certain content. It hides the fact some algorithms maximise for qualities like emotional outrage, shock value, and political extremism. We lack the agency to evaluate and change the algorithms serving us content.
 
+<ComingSoon />
+
+# I'm an H1 heading
+
 When an automated system recommends a piece of content, it should include an [[Epistemic Disclosure]] message explaining **why** it suggested it, and what factors went into that decision.
+
+<Disclaimer>
+
+This essay has nothing to do with the blockchain or the Web3 movement and will not be available for purchase as an NFT. It's not that kind of block.
+
+</Disclaimer>
+
+## I'm an H2 heading
 
 Transparency tips integrated into user interfaces like “**Recomended because you liked Pride and Prejudice**" or “**Recommended because Mary Douglas read this**” help us see the chain of logic.
 
-Transparency alone isn't enough though. Users should have control over the data that feeds algorithmic systems they're subjected to. We should be able to to remove whole input sources, as well as individual pieces of content.
+<Draft />
+
+### I'm an H3 heading
+
+Transparency alone isn't enough though. Users should have control over the data that feeds algorithmic systems they're subjected to. We should be able to to remove [whole input sources](https://www.nytimes.com/2024/09/17/technology/twitter-algorithm-ai.html), as well as [individual](/essays) pieces of content.
 
 Pinterest does a good job of telling you why you're seeing certain pins, as well as giving you controls to remove the pin and see fewer like it:
 They also offer a "remove this video" option on your watch history page:
+
+#### I'm an H4 heading
 
 Letting users remove single videos/posts/tweets/whathaveyous from their algorithmic soup is the bare minimum for any platform. We're a long way from meaningful transparency that makes internal algorithmic decisions clear and empowers users to design their own feeds.

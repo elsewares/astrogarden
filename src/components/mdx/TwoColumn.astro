@@ -1,0 +1,58 @@
+---
+const {
+	maxWidth,
+	alignItems,
+	gridTemplateColumns,
+	gridTemplateColumnsMobile,
+	gridGap,
+	verticalGridGap,
+	justifyItems,
+	margin,
+} = Astro.props;
+---
+
+<div
+	class="two-column-container"
+	style={{
+		maxWidth: maxWidth || "1400px",
+		margin: margin || "var(--space-s) auto var(--space-l)",
+		justifyItems: justifyItems || "center",
+		gridTemplateColumns: gridTemplateColumns || "repeat(2, minmax(280px, 1fr))",
+		gridGap: gridGap || "var(--space-xs)",
+		alignItems: alignItems || "center",
+		gridTemplateColumnsMobile: gridTemplateColumnsMobile || "1fr",
+		verticalGridGap: verticalGridGap || "var(--space-m)",
+	}}
+>
+	<slot />
+</div>
+
+<style>
+	.two-column-container {
+		width: 100%;
+		grid-column: 1 / 4 !important;
+		display: grid;
+		padding: 0 var(--space-3xs);
+	}
+
+	@media (max-width: 768px) {
+		.two-column-container {
+			align-items: start;
+			justify-items: center;
+			grid-template-columns: var(--grid-template-columns-mobile);
+			grid-gap: var(--vertical-grid-gap);
+		}
+	}
+
+	.two-column-container :global(div),
+	.two-column-container :global(img),
+	.two-column-container :global(figure) {
+		grid-column: auto !important;
+		margin: 0 auto;
+		border-radius: var(--border-radius-base);
+	}
+
+	.two-column-container :global(img) {
+		margin: var(--space-s) auto 0;
+	}
+</style>

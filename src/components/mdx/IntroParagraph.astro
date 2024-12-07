@@ -1,0 +1,27 @@
+<p class="intro-paragraph">
+	<slot />
+</p>
+
+<style>
+	.intro-paragraph :global(:first-letter) {
+		float: left;
+		font-size: 5.2rem;
+		line-height: 2.5rem;
+		font-weight: bold;
+		margin: 1.15rem var(--space-2xs) 0 0;
+	}
+
+	.intro-paragraph :global(p) {
+		margin-bottom: 0;
+	}
+
+	@media (max-width: 768px) {
+		.intro-paragraph :global(:first-letter) {
+			float: left;
+			font-size: 4.6rem;
+			line-height: 2rem;
+			font-weight: bold;
+			margin: 1.15rem var(--space-3xs) 0 0;
+		}
+	}
+</style>

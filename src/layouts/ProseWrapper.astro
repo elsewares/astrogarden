@@ -10,39 +10,39 @@
 		font-size: var(--font-size-base);
 	}
 
-	.prose-wrapper :global(*) {
+	.prose-wrapper > :global(*) {
 		grid-column: 2;
 	}
 
-	.prose-wrapper p {
+	.prose-wrapper > :global(p) {
 		font-size: var(--font-size-base);
 		line-height: var(--leading-looser);
 		margin-bottom: var(--space-m);
 	}
 
 	@media (max-width: 767px) {
-		.prose-wrapper p {
+		.prose-wrapper > :global(p) {
 			line-height: var(--leading-loose);
 		}
 	}
 
-	.prose-wrapper p.subtext {
+	.prose-wrapper > :global(p.subtext) {
 		font-size: calc(var(--font-size-sm) * 1.1);
 		line-height: var(--leading-loose);
 	}
 
-	.prose-wrapper h1 {
+	.prose-wrapper > :global(h1) {
 		font-size: var(--font-size-2xl);
 		margin: var(--space-2xl) 0 var(--space-m);
 	}
 
-	.prose-wrapper h2 {
+	.prose-wrapper > :global(h2) {
 		font-size: var(--font-size-xl);
 		margin: var(--space-xl) 0 var(--space-m);
 		line-height: var(--leading-base);
 	}
 
-	.prose-wrapper h2.micro {
+	.prose-wrapper :global(h2.micro) {
 		font-family: var(--font-sans);
 		font-size: var(--font-size-sm);
 		color: var(--color-bright-crimson);
@@ -53,36 +53,36 @@
 		letter-spacing: 0.04rem;
 	}
 
-	.prose-wrapper h3 {
+	.prose-wrapper :global(h3) {
 		font-size: calc(var(--font-size-lg) / 1.1);
 		font-weight: 300;
 		line-height: var(--leading-base);
 		margin: var(--space-m) 0 var(--space-s);
 	}
 
-	.prose-wrapper h4 {
+	.prose-wrapper :global(h4) {
 		font-size: var(--font-size-base);
 		font-weight: 700;
 		margin: var(--space-s) 0 var(--space-xs);
 	}
 
-	.prose-wrapper ul,
-	.prose-wrapper ol {
+	.prose-wrapper :global(ul),
+	.prose-wrapper :global(ol) {
 		padding: 0;
 		margin-top: 0;
 	}
 
-	.prose-wrapper ul {
+	.prose-wrapper :global(ul) {
 		list-style: none;
 	}
 
-	.prose-wrapper ul > li {
+	.prose-wrapper :global(ul > li) {
 		margin-bottom: var(--space-xs);
 		line-height: var(--leading-looser);
 		margin-left: 2.5rem;
 	}
 
-	.prose-wrapper ul > li::before {
+	.prose-wrapper :global(ul > li::before) {
 		content: "";
 		display: inline-block;
 		width: 24px;
@@ -97,13 +97,13 @@
 		right: 2.5rem;
 	}
 
-	.prose-wrapper ol > li {
+	.prose-wrapper :global(ol > li) {
 		margin-bottom: var(--space-xs);
 		line-height: var(--leading-looser);
 		margin-left: 2.5rem;
 	}
 
-	.prose-wrapper hr {
+	.prose-wrapper :global(hr) {
 		margin: var(--space-2xl) auto;
 		height: 3px;
 		background-color: var(--color-salmon);
@@ -111,12 +111,12 @@
 		width: 20%;
 	}
 
-	.prose-wrapper blockquote {
+	.prose-wrapper :global(blockquote) {
 		text-align: center;
 		padding: var(--space-m) 0 var(--space-xl);
 	}
 
-	.prose-wrapper blockquote > p {
+	.prose-wrapper :global(blockquote > p) {
 		text-align: center;
 		max-width: 30ch;
 		margin: var(--space-m) auto;
@@ -125,8 +125,8 @@
 		display: inline-block;
 	}
 
-	.prose-wrapper blockquote::before,
-	.prose-wrapper blockquote::after {
+	.prose-wrapper :global(blockquote::before),
+	.prose-wrapper :global(blockquote::after) {
 		content: "";
 		display: block;
 		margin: 0 auto;
@@ -135,15 +135,15 @@
 	}
 
 	@media screen and (max-width: 767px) {
-		.prose-wrapper h1 {
+		.prose-wrapper :global(h1) {
 			margin: var(--space-xl) 0 var(--space-m);
 		}
 
-		.prose-wrapper h2 {
+		.prose-wrapper :global(h2) {
 			margin: var(--space-l) 0 var(--space-s);
 		}
 
-		.prose-wrapper hr {
+		.prose-wrapper :global(hr) {
 			margin: var(--space-l) auto;
 		}
 	}

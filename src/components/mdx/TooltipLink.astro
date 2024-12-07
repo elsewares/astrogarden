@@ -1,0 +1,168 @@
+---
+import { Icon } from "astro-icon/components";
+import Tooltip from "./Tooltip.astro";
+
+interface Props {
+	href: string;
+	noStyling?: boolean;
+	notes?: string;
+}
+
+const { href, noStyling, notes } = Astro.props;
+
+const isExternal = href.startsWith("http");
+const linkColor = isExternal
+	? "var(--color-bright-crimson)"
+	: "var(--color-medium-sea-blue)";
+const hoverColor = isExternal
+	? "var(--color-crimson)"
+	: "var(--color-dark-sea-blue)";
+---
+
+<Tooltip maxWidth={420}>
+	<a
+		class="link"
+		style={{
+			"--link-color": linkColor,
+			"--link-hover-color": hoverColor,
+			"--text-decoration": noStyling ? "none" : "underline",
+		}}
+		href={href}
+		data-internal={!isExternal}
+		data-no-styling={noStyling}><slot /></a
+	><div slot="content" class="tooltip-content">
+		{
+			notes && (
+				<>
+					<>
+						<div class="notes">{notes}</div>
+						<div class="divider" />
+					</>
+				</>
+			)
+		}<a class="external-url" href={href}
+			>{href}{
+				isExternal && (
+					<Icon name="heroicons:arrow-top-right-on-square" size={18} />
+				)
+			}</a
+		>
+	</div>
+</Tooltip>
+
+<style>
+	.link {
+		display: inline;
+		cursor: pointer;
+		position: relative;
+		white-space: nowrap;
+		outline: none;
+		text-decoration: none;
+		word-break: break-all;
+		color: var(--link-color);
+		transition: color 0.2s ease-in-out;
+	}
+
+	.link:focus {
+		outline: 2px solid darkblue;
+		border-radius: 2px;
+	}
+
+	.link:hover {
+		color: var(--link-hover-color);
+		transform: translate3d(0, -1px, 0);
+	}
+
+	/* Pseudo-element styles */
+	.link::before {
+		@media (min-width: 550px) {
+			content: "";
+			display: inline-block;
+			transform-origin: 50% 100%;
+			background: var(--color-gray-300);
+			transition:
+				clip-path 0.3s,
+				transform 0.3s cubic-bezier(0.2, 1, 0.8, 1);
+			position: absolute;
+			width: 100%;
+			height: 1px;
+			top: 105%;
+			left: 0;
+			pointer-events: none;
+			clip-path: polygon(
+				0% 0%,
+				0% 100%,
+				50% 100%,
+				50% 0,
+				50% 0,
+				50% 100%,
+				50% 100%,
+				0 100%,
+				100% 100%,
+				100% 0%
+			);
+		}
+	}
+
+	.link[data-no-styling="true"]::before {
+		display: none;
+	}
+
+	.link:hover::before {
+		@media (min-width: 550px) {
+			transform: translate3d(0, 3px, 0) scale3d(1, 2, 1);
+			background: var(--link-hover-color);
+			clip-path: polygon(
+				0% 0%,
+				0% 100%,
+				50% 100%,
+				50% 0,
+				50% 0,
+				50% 100%,
+				50% 100%,
+				0 100%,
+				100% 100%,
+				100% 0%
+			);
+		}
+	}
+
+	/* Rest of the styles remain the same */
+	.external-url {
+		color: var(--color-gray-600);
+		transition: color 0.2s ease-in-out;
+		text-align: center;
+		word-break: break-all;
+		max-width: 420px;
+	}
+
+	.external-url svg {
+		margin: 0 !important;
+		margin-left: 6px !important;
+	}
+
+	.external-url:hover {
+		color: var(--color-bright-crimson);
+	}
+
+	.tooltip-content {
+		padding: var(--space-3xs);
+	}
+
+	.divider {
+		width: calc(100% + 36px);
+		height: 1px;
+		background: var(--color-gray-300);
+		margin: var(--space-xs) 0;
+		margin-left: -18px;
+		margin-right: -18px;
+	}
+
+	.notes {
+		line-height: var(--leading-base);
+		font-family: var(--font-sans);
+		color: var(--color-gray-800);
+		margin: 0;
+		word-break: break-all;
+	}
+</style>
