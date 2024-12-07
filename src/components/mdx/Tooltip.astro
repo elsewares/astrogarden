@@ -13,20 +13,31 @@ const { maxWidth = 320 } = Astro.props;
 	</template>
 </span>
 
-<style>
-	.tippy-box {
+<style is:global>
+	.tippy-box[data-theme~="custom"] {
 		font-family: var(--font-sans);
 		font-size: var(--font-size-sm);
 		line-height: var(--leading-snug);
 		word-break: break-word;
-		white-space: pre-wrap;
 		padding: var(--space-3xs);
 		margin-bottom: var(--space-3xs);
 		background-color: white;
 		color: var(--color-gray-800);
 		box-shadow: var(--box-shadow-md);
 	}
-	.tippy-box .tippy-arrow {
+
+	.tippy-box[data-theme~="custom"] * {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		line-height: var(--leading-snug);
+		color: var(--color-gray-800);
+	}
+
+	.tippy-box[data-theme~="custom"] p {
+		margin: 0;
+	}
+
+	.tippy-box[data-theme~="custom"] .tippy-arrow {
 		color: white;
 	}
 </style>
@@ -52,6 +63,7 @@ const { maxWidth = 320 } = Astro.props;
 				interactive: true,
 				animation: "shift-away",
 				allowHTML: true,
+				theme: "custom",
 			} as Partial<Props>
 		);
 	});
