@@ -1,0 +1,234 @@
+---
+import { Icon } from "astro-icon/components";
+import UnderlineHoverLink from "../../mdx/UnderlineHoverLink.astro";
+---
+
+<div class="main">
+	<div class="popover">
+		<a href="/garden" class="hover-link">
+			<span>The Garden</span>
+		</a>
+		<button class="popover-button">
+			<Icon name="heroicons:chevron-down" size={24} class="chevron-icon" />
+		</button>
+
+		<div class="dropdown" id="garden-dropdown">
+			<a href="/essays">
+				<span class="dropdown-link">Essays</span>
+			</a>
+			<a href="/notes">
+				<span class="dropdown-link">Notes</span>
+			</a>
+			<a href="/patterns">
+				<span class="dropdown-link">Patterns</span>
+			</a>
+			<a href="/talks">
+				<span class="dropdown-link">Talks</span>
+			</a>
+			<a href="/podcasts">
+				<span class="dropdown-link">Podcasts</span>
+			</a>
+			<a href="/library">
+				<span class="dropdown-link">Library</span>
+			</a>
+			<a href="/antilibrary">
+				<span class="dropdown-link">Antilibrary</span>
+			</a>
+		</div>
+	</div>
+
+	<div class="outside-dropdown">
+		<UnderlineHoverLink href="/now">Now</UnderlineHoverLink>
+		<UnderlineHoverLink href="/about">About</UnderlineHoverLink>
+	</div>
+</div>
+
+<!-- <script>
+	import { animate } from "motion";
+
+	const button = document.querySelector(".popover-button");
+	const dropdown = document.getElementById("garden-dropdown");
+
+	if (button && dropdown) {
+		dropdown.style.display = "none";
+
+		button.addEventListener("click", () => {
+			if (dropdown.style.display === "none") {
+				dropdown.style.display = "flex";
+				animate(
+					dropdown,
+					{
+						opacity: [0, 1],
+						rotateX: ["90deg", "0deg"],
+					},
+					{
+						duration: 0.6,
+						easing: "ease-in-out",
+					}
+				);
+			} else {
+				animate(
+					dropdown,
+					{
+						opacity: [1, 0],
+						rotateX: ["0deg", "90deg"],
+					},
+					{
+						duration: 0.6,
+						easing: "ease-in-out",
+						onComplete: () => {
+							dropdown.style.display = "none";
+						},
+					}
+				);
+			}
+		});
+	}
+</script> -->
+
+<style>
+	.main {
+		display: flex;
+		flex-shrink: 0;
+	}
+
+	.popover {
+		position: relative;
+	}
+
+	.hover-link {
+		margin-left: var(--space-s);
+		text-decoration: none;
+		font-size: var(--font-size-xs);
+		font-family: var(--font-sans);
+		transition: color 0.2s ease-in-out;
+		cursor: pointer;
+		position: relative;
+		top: 1px;
+		white-space: nowrap;
+		padding-bottom: 0.25rem;
+	}
+
+	.hover-link span {
+		color: var(--color-gray-800);
+	}
+
+	.hover-link:hover span {
+		color: var(--color-crimson);
+	}
+
+	.hover-link:focus {
+		outline: 2px solid darkblue;
+		border-radius: 2px;
+	}
+
+	.hover-link::before {
+		content: "";
+		transform-origin: 50% 100%;
+		background: var(--color-sea-blue);
+		transition:
+			clip-path 0.3s,
+			transform 0.3s cubic-bezier(0.2, 1, 0.8, 1);
+		position: absolute;
+		width: 100%;
+		height: 1px;
+		top: 95%;
+		left: 0;
+		pointer-events: none;
+		clip-path: polygon(
+			0% 0%,
+			0% 100%,
+			0 100%,
+			0 0,
+			100% 0,
+			100% 100%,
+			0 100%,
+			0 100%,
+			100% 100%,
+			100% 0%
+		);
+	}
+
+	.hover-link:hover::before {
+		transform: translate3d(0, 2px, 0) scale3d(1, 2, 1);
+		clip-path: polygon(
+			0% 0%,
+			0% 100%,
+			100% 100%,
+			50% 0,
+			50% 0,
+			50% 100%,
+			50% 100%,
+			0 100%,
+			100% 100%,
+			100% 0%
+		);
+	}
+
+	.popover-button {
+		padding: 0;
+	}
+
+	.chevron-icon {
+		vertical-align: middle;
+		transition:
+			color 0.3s ease-in-out,
+			background-color 0.3s ease-in-out,
+			transform 0.8s ease-in-out;
+		color: var(--color-gray-600);
+		margin-left: var(--space-3xs);
+		position: relative;
+		top: 0;
+	}
+
+	.popover-button:hover .chevron-icon {
+		color: var(--color-bright-crimson);
+		transform: rotateY(180deg);
+		cursor: pointer;
+		background-color: var(--color-gray-100);
+		border-radius: 4px;
+	}
+
+	.dropdown {
+		display: flex;
+		flex-direction: column;
+		margin-top: 0.6rem;
+		background: var(--color-cream);
+		margin-left: 0.4rem;
+		border: 1px solid var(--color-tinted-cream);
+		border-radius: var(--border-radius-base);
+		box-shadow: var(--box-shadow-lg);
+		z-index: 1;
+		position: absolute;
+		transform-origin: top;
+	}
+
+	.dropdown-link {
+		margin: 0;
+		color: var(--color-gray-800);
+		text-decoration: none;
+		font-size: var(--font-size-xs);
+		font-family: var(--font-sans);
+		border-bottom: 1px solid var(--color-tinted-cream);
+		border-left: 2px solid var(--color-cream);
+		padding: var(--space-2xs) var(--space-l) var(--space-2xs) var(--space-xs);
+		transition: all 0.3s ease-in-out;
+		cursor: pointer;
+		display: block;
+	}
+
+	.dropdown-link:hover {
+		background: var(--color-light-cream);
+		color: var(--color-crimson);
+	}
+
+	.outside-dropdown :global(div) {
+		margin-left: var(--space-s);
+	}
+
+	@media screen and (max-width: 550px) {
+		.main {
+			display: none;
+		}
+	}
+</style>

@@ -1,0 +1,132 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<div class="mobile-menu">
+	<button class="styled-button" id="open-menu" aria-label="open menu">
+		<Icon name="heroicons:bars-3" size={24} />
+	</button>
+
+	<div class="full-page-menu" id="menu">
+		<div class="link-container">
+			<a href="/garden" class="link-button">The Garden</a>
+			<a href="/essays" class="link-button">Essays</a>
+			<a href="/notes" class="link-button">Notes</a>
+			<a href="/library" class="link-button">Library</a>
+			<a href="/now" class="link-button">Now</a>
+			<a href="/about" class="link-button">About</a>
+		</div>
+
+		<button class="styled-button" id="close-menu" aria-label="close menu">
+			<Icon name="heroicons:x-mark" size={21} />
+		</button>
+	</div>
+</div>
+
+<!-- <script>
+	import { animate } from "motion";
+
+	const menu = document.getElementById("menu");
+	const openButton = document.getElementById("open-menu");
+	const closeButton = document.getElementById("close-menu");
+	const links = document.querySelectorAll(".link-button");
+
+	openButton?.addEventListener("click", () => {
+		animate(
+			menu,
+			{ opacity: [0, 1] },
+			{ duration: 0.3, easing: "ease-in-out" }
+		);
+		menu?.classList.add("open");
+		animate(
+			links,
+			{ opacity: [0, 1], y: [20, 0] },
+			{ duration: 0.3, delay: stagger(0.1) }
+		);
+	});
+
+	closeButton?.addEventListener("click", () => {
+		animate(
+			menu,
+			{ opacity: [1, 0] },
+			{ duration: 0.3, easing: "ease-in-out" }
+		).finished.then(() => {
+			menu?.classList.remove("open");
+		});
+	});
+</script> -->
+
+<style>
+	.mobile-menu {
+		display: flex;
+	}
+	@media screen and (min-width: 550px) {
+		.mobile-menu {
+			display: none;
+		}
+	}
+
+	.link-container {
+		display: flex;
+		gap: var(--space-xs);
+		width: 100vw;
+		height: 100vh;
+		flex-direction: column;
+		align-items: center;
+		margin: var(--space-l) auto;
+	}
+
+	.link-button {
+		border: none;
+		background: none;
+		cursor: pointer;
+		color: var(--color-crimson);
+		font-size: var(--font-size-lg);
+		font-family: var(--font-serif);
+		transition: all 0.3s ease-in-out;
+		opacity: 0;
+	}
+
+	.link-button:hover {
+		color: var(--color-bright-crimson);
+	}
+
+	.full-page-menu {
+		position: absolute;
+		z-index: 20;
+		right: 0;
+		top: 0;
+		width: 100vw;
+		height: 100vh;
+		display: flex;
+		align-items: start;
+		background: var(--color-light-cream);
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	.full-page-menu.open {
+		pointer-events: all;
+	}
+
+	.styled-button {
+		border: none;
+		background: none;
+		cursor: pointer;
+		display: flex;
+		justify-items: center;
+		padding: 4px;
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+	}
+
+	.styled-button [data-icon] {
+		color: var(--color-gray-600);
+		transition: all 0.3s ease-in-out;
+	}
+
+	.styled-button:hover [data-icon] {
+		color: var(--color-gray-900);
+	}
+</style>

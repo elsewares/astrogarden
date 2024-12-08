@@ -1,6 +1,6 @@
 ---
-// Import Navbar
-// Import Footer
+import Footer from "../components/layouts/Footer.astro";
+import Navbar from "../components/layouts/navbar/navbar.astro";
 import { SEO } from "astro-seo";
 
 export interface Props {
@@ -51,11 +51,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 		/>
 	</head>
 	<body>
-		<a href="/">Header</a>
-		<!-- <Navbar /> -->
+		<Navbar />
 		<slot />
 		<!-- <Footer /> -->
-		<p>Footer</p>
+		<Footer />
 		<style is:global>
 			/* Improve Page speed */
 			/* https://css-tricks.com/almanac/properties/c/content-visibility/ */
