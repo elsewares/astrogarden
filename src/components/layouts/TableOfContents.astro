@@ -1,0 +1,192 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+	headings: {
+		text: string;
+		level: number;
+	}[];
+}
+
+const { headings } = Astro.props;
+---
+
+<div class="desktop-container">
+	<div class="title">
+		<svg width="8" height="8">
+			<circle r="4" cx="4" cy="4" fill="var(--color-sea-blue)"></circle>
+		</svg>
+		<h4>Table of Contents</h4>
+	</div>
+
+	{
+		headings.length > 0 &&
+			headings.map(({ text, level }) => {
+				const link = text
+					.toLowerCase()
+					.replace(/\s/g, "-")
+					.replace(/[.,?()]/gim, "")
+					.replace(/\*\*|__/g, "")
+					.replace(/<[^>]+>/g, "");
+				const href = `#${link}`;
+				const filteredText = text
+					.replace(/[\*_]/gim, "")
+					.replace(/<[^>]+>/g, "");
+				return (
+					<a href={href} class="toc-link" data-level={level}>
+						{filteredText}
+					</a>
+				);
+			})
+	}
+</div>
+
+<div class="mobile-container">
+	<div class="collapse-header">
+		<Icon name="heroicons:chevron-right" size={18} class="arrow-icon" />
+		<h4>Table of Contents</h4>
+	</div>
+	<div class="collapse-content">
+		<div>
+			{
+				headings.length > 0 &&
+					headings.map(({ text, level }) => {
+						const link = text
+							.toLowerCase()
+							.replace(/\s/g, "-")
+							.replace(/[.,?()]/gim, "")
+							.replace(/<[^>]+>/g, "");
+						const href = `#${link}`;
+						const filteredText = text
+							.replace(/[\*_]/gim, "")
+							.replace(/<[^>]+>/g, "");
+						return (
+							<a href={href} class="toc-link" data-level={level}>
+								{filteredText}
+							</a>
+						);
+					})
+			}
+		</div>
+	</div>
+</div>
+
+<style>
+	.arrow-icon.expanded {
+		transform: rotate(90deg);
+	}
+
+	.collapse-header {
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		border-bottom: 1px solid var(--color-gray-100);
+		padding-bottom: var(--space-xs);
+	}
+
+	.collapse-header .arrow-icon {
+		color: var(--color-sea-blue);
+		transition: all 0.3s cubic-bezier(0.2, 1, 0.8, 1);
+	}
+
+	.collapse-header h4 {
+		display: inline-block;
+		margin: 0;
+		font-size: 0.96rem;
+		color: var(--color-gray-800);
+		font-weight: 600;
+		transition: all 0.3s cubic-bezier(0.2, 1, 0.8, 1);
+	}
+
+	.collapse-header:hover h4 {
+		color: var(--color-medium-sea-blue);
+	}
+
+	.collapse-header:hover .arrow-icon {
+		fill: var(--color-medium-sea-blue);
+	}
+
+	.collapse-content {
+		padding-bottom: var(--space-xs);
+		margin-bottom: var(--space-s);
+		border-bottom: 1px solid var(--color-gray-100);
+		display: none;
+	}
+
+	.collapse-content.expanded {
+		display: block;
+	}
+
+	.mobile-container {
+		display: none;
+	}
+
+	@media (max-width: 1280px) {
+		.mobile-container {
+			display: block;
+			margin-bottom: var(--space-xs);
+		}
+	}
+
+	.desktop-container {
+		grid-column: 3;
+		height: 0;
+		max-width: 300px;
+		margin-left: var(--space-xl);
+	}
+
+	.desktop-container h4 {
+		margin: 0;
+		font-size: 0.96rem;
+		color: var(--color-gray-800);
+		transition: all 0.3s cubic-bezier(0.2, 1, 0.8, 1);
+	}
+
+	@media (max-width: 1280px) {
+		.desktop-container {
+			display: none;
+		}
+	}
+
+	.title {
+		display: flex;
+		gap: 0.85rem;
+		align-items: center;
+		margin-top: 0.5rem;
+	}
+
+	.toc-link {
+		font-family: var(--font-sans);
+		display: block;
+		font-size: 0.96rem;
+		padding-left: var(--space-s);
+		margin-top: 0.75rem;
+		cursor: pointer;
+		transition: all 0.3s cubic-bezier(0.2, 1, 0.8, 1);
+		color: var(--color-gray-600);
+	}
+
+	.toc-link[data-level="2"] {
+		margin-left: 0;
+	}
+
+	.toc-link:not([data-level="2"]) {
+		margin-left: calc((attr(data-level) - 2) * 24px);
+	}
+
+	.toc-link:hover {
+		color: var(--color-medium-sea-blue);
+	}
+</style>
+
+<script>
+	const header = document.querySelector(".collapse-header");
+	const content = document.querySelector(".collapse-content");
+	const arrow = document.querySelector(".arrow-icon");
+
+	header?.addEventListener("click", () => {
+		content?.classList.toggle("expanded");
+		arrow?.classList.toggle("expanded");
+	});
+</script>

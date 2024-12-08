@@ -1,0 +1,51 @@
+---
+const {
+	breakpointColumnsObj = {
+		default: 3,
+		1100: 2,
+		700: 1,
+	},
+	columnGapLeft = "0.8rem",
+	columnGapBottom = "0.8rem",
+	...props
+} = Astro.props;
+---
+
+<div
+	class="masonry-grid"
+	style={`--column-gap-left: ${columnGapLeft}; --column-gap-bottom: ${columnGapBottom};`}
+	{...props}
+>
+	<slot />
+</div>
+
+<script>
+	import Masonry from "masonry-layout";
+
+	// Initialize masonry on the grid
+	const grid = document.querySelector(".masonry-grid");
+	if (grid) {
+		const masonry = new Masonry(grid, {
+			itemSelector: ".masonry-grid-column",
+			columnWidth: ".masonry-grid-column",
+			percentPosition: true,
+		});
+	}
+</script>
+
+<style>
+	.masonry-grid {
+		display: flex;
+		width: auto;
+		margin-top: var(--space-m);
+	}
+
+	:global(.masonry-grid-column + .masonry-grid-column) {
+		margin-left: var(--column-gap-left);
+		background-clip: padding-box;
+	}
+
+	:global(.masonry-grid-column div:first-child) {
+		margin-bottom: var(--column-gap-bottom);
+	}
+</style>
