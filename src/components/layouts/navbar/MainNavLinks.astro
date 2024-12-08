@@ -3,17 +3,22 @@ import { Icon } from "astro-icon/components";
 import UnderlineHoverLink from "../../mdx/UnderlineHoverLink.astro";
 ---
 
-<div class="main">
+<div class="main" role="navigation" aria-label="Main">
 	<div class="popover">
 		<a href="/garden" class="hover-link">
 			<span>The Garden</span>
 		</a>
-		<button class="popover-button">
-			<Icon name="heroicons:chevron-down" size={24} class="chevron-icon" />
+		<button
+			class="popover-button"
+			aria-expanded="false"
+			aria-controls="garden-dropdown"
+			aria-label="Toggle Garden menu"
+		>
+			<Icon name="heroicons:chevron-down" size={20} class="chevron-icon" />
 		</button>
 
-		<div class="dropdown" id="garden-dropdown">
-			<a href="/essays">
+		<div class="dropdown" id="garden-dropdown" role="list">
+			<a href="/essays" role="listitem">
 				<span class="dropdown-link">Essays</span>
 			</a>
 			<a href="/notes">
@@ -43,7 +48,7 @@ import UnderlineHoverLink from "../../mdx/UnderlineHoverLink.astro";
 	</div>
 </div>
 
-<!-- <script>
+<script>
 	import { animate } from "motion";
 
 	const button = document.querySelector(".popover-button");
@@ -52,39 +57,67 @@ import UnderlineHoverLink from "../../mdx/UnderlineHoverLink.astro";
 	if (button && dropdown) {
 		dropdown.style.display = "none";
 
+		// Add Escape key handler
+		document.addEventListener("keydown", (e) => {
+			if (e.key === "Escape" && dropdown.style.display !== "none") {
+				closeDropdown();
+				button?.focus(); // Return focus to button
+			}
+		});
+
+		// Close dropdown when focus moves outside navigation
+		document.addEventListener("focusout", (e) => {
+			if (
+				!dropdown.contains(e.relatedTarget) &&
+				!button.contains(e.relatedTarget)
+			) {
+				closeDropdown();
+			}
+		});
+
 		button.addEventListener("click", () => {
 			if (dropdown.style.display === "none") {
-				dropdown.style.display = "flex";
-				animate(
-					dropdown,
-					{
-						opacity: [0, 1],
-						rotateX: ["90deg", "0deg"],
-					},
-					{
-						duration: 0.6,
-						easing: "ease-in-out",
-					}
-				);
+				openDropdown();
 			} else {
-				animate(
-					dropdown,
-					{
-						opacity: [1, 0],
-						rotateX: ["0deg", "90deg"],
-					},
-					{
-						duration: 0.6,
-						easing: "ease-in-out",
-						onComplete: () => {
-							dropdown.style.display = "none";
-						},
-					}
-				);
+				closeDropdown();
 			}
 		});
 	}
-</script> -->
+
+	function openDropdown() {
+		dropdown.style.display = "flex";
+		button.setAttribute("aria-expanded", "true");
+		animate(
+			dropdown,
+			{
+				opacity: [0, 1],
+				rotateX: ["90deg", "0deg"],
+			},
+			{
+				duration: 0.6,
+				easing: "ease-in-out",
+			}
+		);
+	}
+
+	function closeDropdown() {
+		button.setAttribute("aria-expanded", "false");
+		animate(
+			dropdown,
+			{
+				opacity: [1, 0],
+				rotateX: ["0deg", "90deg"],
+			},
+			{
+				duration: 0.6,
+				easing: "ease-in-out",
+				onComplete: () => {
+					dropdown.style.display = "none";
+				},
+			}
+		);
+	}
+</script>
 
 <style>
 	.main {
@@ -224,6 +257,12 @@ import UnderlineHoverLink from "../../mdx/UnderlineHoverLink.astro";
 
 	.outside-dropdown :global(div) {
 		margin-left: var(--space-s);
+	}
+
+	.outside-dropdown :global(div .styled-link span) {
+		font-size: var(--font-size-xs);
+		font-family: var(--font-sans);
+		color: var(--color-gray-800);
 	}
 
 	@media screen and (max-width: 550px) {
