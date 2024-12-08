@@ -1,10 +1,11 @@
 ---
 const { year } = Astro.props;
-const yearMatch = year.match(/\d{4}/);
+const yearText = year || (await Astro.slots.render("default"));
+const yearMatch = yearText?.match(/\d{4}/);
 const parsedYear = yearMatch ? parseInt(yearMatch[0]) : null;
 const currentYear = new Date().getFullYear();
 const yearsAgo = parsedYear ? currentYear - parsedYear : null;
-const hasParens = year.startsWith("(");
+const hasParens = yearText?.startsWith("(");
 ---
 
 <span class="container" title={`${parsedYear} was ${yearsAgo} years ago`}>

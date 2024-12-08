@@ -1,0 +1,80 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+	src: ImageMetadata;
+	alt: string;
+	width?: string;
+	margin?: string;
+	padding?: string;
+	showalt?: boolean;
+	sourceUrl?: string;
+	sourceTitle?: string;
+	srcSet?: string;
+}
+
+const {
+	src,
+	alt,
+	width,
+	margin,
+	padding,
+	showalt,
+	sourceUrl,
+	sourceTitle,
+	srcSet,
+	...props
+} = Astro.props;
+---
+
+<figure class="container" {...props}>
+	<div class="image-frame">
+		<Image
+			src={src}
+			alt={alt}
+			width={width ? parseInt(width) : 1100}
+			class="styled-image"
+		/>
+	</div>
+	{
+		showalt &&
+			(sourceUrl ? (
+				<figcaption>
+					{alt} – Source: <a href={sourceUrl}>{sourceTitle}</a>
+				</figcaption>
+			) : (
+				<figcaption>{alt}</figcaption>
+			))
+	}
+</figure>
+
+<style define:vars={{ margin, padding }}>
+	.container {
+		max-width: 100%;
+		grid-column: 1 / 4 !important;
+		margin: var(--margin, var(--space-s) auto var(--space-xl));
+		text-align: center;
+	}
+
+	figcaption {
+		margin-top: var(--space-xs);
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		color: var(--color-gray-600);
+		display: inline-block;
+		width: 800px;
+		max-width: 100%;
+		line-height: 1.75rem;
+	}
+
+	.styled-image {
+		width: var(--width, 1100px);
+		padding: var(--padding, 0);
+		max-width: 100%;
+		border-radius: var(--border-radius-base);
+		border: 1px solid var(--color-tinted-cream);
+		box-shadow: var(--box-shadow-lg);
+		margin-bottom: var(--space-xs);
+	}
+</style>
