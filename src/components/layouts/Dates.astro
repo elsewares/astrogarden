@@ -1,0 +1,64 @@
+---
+import { parse, differenceInDays } from "date-fns";
+import RelativeDate from "./RelativeDate.astro";
+
+interface Props {
+	startDate: string;
+	updated: string;
+}
+
+const { startDate, updated } = Astro.props;
+
+const relativeStartDate = parse(startDate, "yyyy-MM-dd", new Date());
+const relativeUpdatedDate = parse(updated, "yyyy-MM-dd", new Date());
+
+const dateDifference = differenceInDays(relativeUpdatedDate, relativeStartDate);
+---
+
+<div class="dates">
+	{
+		dateDifference < 3 ? (
+			<span>
+				Planted <RelativeDate postDate={updated} />
+			</span>
+		) : (
+			<>
+				{startDate && (
+					<span>
+						Planted <RelativeDate postDate={startDate} />
+					</span>
+				)}
+				{updated && (
+					<span>
+						Last tended <RelativeDate postDate={updated} />
+					</span>
+				)}
+			</>
+		)
+	}
+</div>
+
+<style>
+	.dates {
+		margin-top: var(--space-xs);
+		display: flex;
+		flex-direction: column;
+		text-align: left;
+	}
+
+	.dates span {
+		display: inline-block;
+		font-family: var(--font-sans);
+		font-size: var(--font-size-xs);
+		color: var(--color-gray-600);
+		letter-spacing: 0.01em;
+		font-weight: 400;
+	}
+
+	@media (max-width: 768px) {
+		.dates {
+			margin-top: var(--space-2xs);
+			text-align: left;
+		}
+	}
+</style>

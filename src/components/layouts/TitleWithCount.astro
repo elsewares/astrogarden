@@ -1,0 +1,45 @@
+---
+interface Props {
+	posts: any[];
+}
+
+const { posts } = Astro.props;
+const count = posts.length;
+const digits = count.toString().length;
+---
+
+<div class="styled-container" data-digits={digits}>
+	<span>{count}</span>
+	<h1><slot /></h1>
+</div>
+
+<style>
+	.styled-container {
+		margin-top: 0;
+	}
+
+	span {
+		position: relative;
+		top: 3.4rem;
+		left: calc(-1.2rem - var(--digits) ch);
+		font-size: var(--font-size-md);
+		color: var(--color-sea-blue);
+		font-weight: 400;
+	}
+
+	@media (max-width: 1440px) {
+		span {
+			top: 0;
+			left: 0;
+			display: block;
+		}
+	}
+
+	h1 {
+		font-size: var(--font-size-3xl);
+		font-family: var(--font-serif);
+		line-height: var(--leading-tighter);
+		font-weight: normal;
+		margin-bottom: var(--space-s);
+	}
+</style>
