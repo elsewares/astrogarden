@@ -1,0 +1,40 @@
+---
+interface Props {
+	src: string;
+	alt: string;
+	width?: string;
+	class?: string;
+}
+
+const { src, alt, width = "800px", class: className } = Astro.props;
+---
+
+<figure class:list={["container", className]}>
+	<div class="image-wrapper" style={`width: ${width}`}>
+		<img 
+			src={src}
+			alt={alt}
+			loading="lazy"
+		/>
+	</div>
+</figure>
+
+<style>
+	.container {
+		max-width: 100%;
+		grid-column: 1 / 4 !important;
+		text-align: center;
+	}
+
+	.image-wrapper {
+		max-width: 100%;
+		margin: 0 auto;
+	}
+
+	img {
+		width: 100%;
+		height: auto;
+		display: block;
+		border-radius: var(--border-radius-sm);
+	}
+</style> 
