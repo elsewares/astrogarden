@@ -1,6 +1,6 @@
 ---
 import PostLayout from "../layouts/PostLayout.astro";
-import ProseWrapper from "../components/layouts/ProseWrapper.astro"
+import ProseWrapper from "../components/layouts/ProseWrapper.astro";
 import { getCollection } from "astro:content";
 import { render } from "astro:content";
 import "../global.css";
@@ -11,6 +11,7 @@ import Title2 from "../components/mdx/typography/Title2.astro";
 import Title3 from "../components/mdx/typography/Title3.astro";
 import Title4 from "../components/mdx/typography/Title4.astro";
 import TooltipLink from "../components/mdx/TooltipLink.astro";
+import BasicImage from "../components/mdx/BasicImage.astro";
 
 // Get params from URL
 export async function getStaticPaths() {
@@ -33,6 +34,7 @@ const components = {
 	h3: Title3,
 	h4: Title4,
 	a: TooltipLink,
+	img: BasicImage,
 };
 ---
 

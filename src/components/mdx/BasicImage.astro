@@ -1,0 +1,109 @@
+---
+import { Picture } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+	src: ImageMetadata | string;
+	alt: string;
+	width?: string;
+	showalt?: boolean;
+	margin?: string;
+	sourceUrl?: string;
+	sourceTitle?: string;
+	framed?: boolean;
+}
+
+const {
+	src,
+	alt,
+	width = "1100",
+	showalt,
+	margin,
+	sourceUrl,
+	sourceTitle,
+	framed = false,
+	...props
+} = Astro.props;
+
+// Use glob import to get all images
+const images = import.meta.glob<{ default: ImageMetadata }>("/src/images/**/*");
+
+// If src is a string and starts with "/images", try to find it in the glob
+const imageSrc: ImageMetadata =
+	typeof src === "string" && src.startsWith("/images")
+		? (await images["/src" + src]()).default
+		: (src as ImageMetadata);
+
+// Define widths for responsive images
+const widths = [440, 800, 1100, 1300, 1800];
+---
+
+<figure
+	class:list={["container", { framed }]}
+	style={`margin: ${margin || "var(--space-l) auto"}`}
+	{...props}
+>
+	<div class:list={["image-wrapper", { "image-frame": framed }]}>
+		<Picture
+			src={imageSrc}
+			alt={alt}
+			widths={widths}
+			formats={["avif", "webp", "jpg"]}
+			width={parseInt(width)}
+			class="styled-image"
+			style={`width: ${width}px; max-width: 100%;`}
+		/>
+	</div>
+	{
+		showalt &&
+			(sourceUrl ? (
+				<figcaption>
+					{alt} – Source: <a href={sourceUrl}>{sourceTitle}</a>
+				</figcaption>
+			) : (
+				<figcaption>{alt}</figcaption>
+			))
+	}
+</figure>
+
+<style>
+	.container {
+		max-width: 100%;
+		grid-column: 1 / 4 !important;
+		text-align: center;
+	}
+
+	.image-wrapper {
+		display: flex;
+		justify-content: center;
+	}
+
+	.image-frame {
+		border: 1px solid var(--color-tinted-cream);
+		border-radius: var(--border-radius-base);
+		box-shadow: var(--box-shadow-lg);
+		margin-bottom: var(--space-xs);
+	}
+
+	.styled-image {
+		height: auto;
+		margin: 0 auto var(--space-xs);
+		border-radius: var(--border-radius-sm);
+	}
+
+	figcaption {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		color: var(--color-gray-600);
+		line-height: 1.5;
+		width: 100%;
+		max-width: 800px;
+		margin: var(--space-s) auto 0;
+	}
+
+	@media (max-width: 768px) {
+		.container {
+			margin: var(--space-s) auto;
+		}
+	}
+</style>
