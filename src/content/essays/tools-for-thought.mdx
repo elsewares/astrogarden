@@ -17,6 +17,27 @@ aliases:
 growthStage: "budding"
 ---
 
+import IntroParagraph from "../../components/mdx/IntroParagraph.astro";
+import Spacer from "../../components/mdx/Spacer.astro";
+import Footnote from "../../components/mdx/Footnote.astro";
+import AssumedAudience from "../../components/mdx/AssumedAudience.astro";
+import SimpleCard from "../../components/mdx/SimpleCard.astro";
+import TwoColumn from "../../components/mdx/TwoColumn.astro";
+import Draft from "../../components/mdx/Draft.astro";
+import BasicImage from "../../components/mdx/BasicImage.astro";
+import RemoteImage from "../../components/mdx/RemoteImage.astro";
+import YearsAgo from "../../components/mdx/YearsAgo.astro";
+import References from "../../components/mdx/References.astro";
+import ReferencesLink from "../../components/mdx/ReferencesLink.astro";
+import Video from "../../components/mdx/Video.astro";
+import ResourceBook from "../../components/mdx/ResourceBook.astro";
+import BlockquoteCitation from "../../components/mdx/BlockquoteCitation.astro";
+import ToolsThought from "../../images/books/toolsthought.webp";
+import Dealers from "../../images/books/dealers.webp";
+import NewMedia from "../../images/books/newmedia.webp";
+import IntuitionPumps from "../../images/books/intuitionpumps.webp";
+import Making from "../../images/books/making.webp";
+
 <AssumedAudience>
 
 People familiar with the _tools for thought_, personal knowledge management, and "note-taking" space / twitterverse
@@ -54,7 +75,8 @@ The term **tools for thought** has become a new rallying point over the last few
 
 There are [meetups](https://www.youtube.com/c/ToolsforThoughtRocks/videos) and research groups and thought leaders and [accelerators](https://www.betaworks.com/camp). But more than anything, people are using the term to describe a new class of software. _Tools for thought_ is now a category tag in the databases of venture capital firms. The phrase appears on the landing page of every hot new knowledge management app:
 
-<ImageFrame
+<RemoteImage
+	framed
 	showalt
 	width="1000px"
 	src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1637794932/maggieappleton.com/notes/tools-for-thought/Muse_your_tool_for_thought_cqkrxu.png"
@@ -62,7 +84,8 @@ There are [meetups](https://www.youtube.com/c/ToolsforThoughtRocks/videos) and r
 	margin="var(--space-s) auto"
 />
 
-<ImageFrame
+<RemoteImage
+	framed
 	showalt
 	width="1000px"
 	src="https://res.cloudinary.com/dxj9qr5gj/image/upload/v1661425097/maggieappleton.com/notes/tools-for-thought/Untitled_gm1f7n.jpg"
@@ -70,7 +93,8 @@ There are [meetups](https://www.youtube.com/c/ToolsforThoughtRocks/videos) and r
 	margin="var(--space-s) auto"
 />
 
-<ImageFrame
+<RemoteImage
+	framed
 	showalt
 	width="1000px"
 	src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1637794932/maggieappleton.com/notes/tools-for-thought/Roam_Research_A_note_taking_tool_for_networked_thought._nbtjab.png"
@@ -78,7 +102,8 @@ There are [meetups](https://www.youtube.com/c/ToolsforThoughtRocks/videos) and r
 	margin="var(--space-s) auto"
 />
 
-<ImageFrame
+<RemoteImage
+	framed
 	showalt
 	width="1000px"
 	src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1651220448/maggieappleton.com/notes/tools-for-thought/Kosmik_tntaqh.png"
@@ -87,7 +112,8 @@ There are [meetups](https://www.youtube.com/c/ToolsforThoughtRocks/videos) and r
 
 Even when it doesn't appear verbatim, we can see it in the subtext. These tools are here to help you “think better,” and “achieve more”.
 
-<ImageFrame
+<RemoteImage
+	framed
 	showalt
 	width="1000px"
 	src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1651220391/maggieappleton.com/notes/tools-for-thought/Reflect_ikucv8.png"
@@ -95,7 +121,8 @@ Even when it doesn't appear verbatim, we can see it in the subtext. These tools 
 	margin="var(--space-s) auto"
 />
 
-<ImageFrame
+<RemoteImage
+	framed
 	showalt
 	width="1000px"
 	src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1651220391/maggieappleton.com/notes/tools-for-thought/Clover_Notes_tasks_whiteboard_and_a_daily_planner_in_one_del_t84t8o.png"
@@ -416,7 +443,7 @@ I'm going to proceed with a generous definition of “tool” for the rest of th
 
 This gives us a mental model that looks something like this:
 
-<BasicImage
+<RemoteImage
 	margin="0 auto var(--space-s)"
 	width="800px"
 	alt="A diagram of the category of tools encompassing cultural practices, techniques, objects, and mediums"
@@ -443,7 +470,8 @@ This gives _tools for thought_ a distinctly computer-oriented, male, American, m
 
 The phrase itself is not that old. It was first used by Kenneth Iverson in his research work on programming notation throughout the 1950s and '60s.<Footnote idName={3}>Andy Matuschak and Michael Nielsen, <a href="https://numinous.productions/ttft/"><YearsAgo>(2019)</YearsAgo></a></Footnote>. His first public paper mentioning it is [Notation as a Tool for Thought](https://dl.acm.org/doi/10.1145/358896.358899) published by the ACM in <YearsAgo>1979</YearsAgo><Footnote isClosed idName={4}>The Association for Computing Machinery; the institutional big wigs of academic computer science</Footnote>.
 
-<ImageFrame
+<RemoteImage
+	framed
 	width="1000px"
 	src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1657921618/maggieappleton.com/notes/tools-for-thought/iverson_rvefej.png"
 	alt="Iverson's 1979 paper on mathematical notation as a tool for thought"
@@ -456,14 +484,14 @@ Notation is only one small aspect of the larger tools for thought vision. While 
 
 Back in <YearsAgo>1945</YearsAgo> [Vannevar Bush](https://en.wikipedia.org/wiki/Vannevar_Bush#cite_note-As_We_May_Think-85) published an essay titled [As We May Think](https://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/) in both _The Atlantic_ and _Life Magazine_ – two publications with a wide readership. In it, he proposed the [Memex](https://en.wikipedia.org/wiki/Memex), an imaginary “memory extension” machine that would help people explore information and craft their own hyperlinked research journeys through it. Many of the later thinkers in the tools for thought movement cite this article as a key influence.
 
-<ResponsiveImage
+<BasicImage
 	alt="The cover image for the original publication of 'As We May Think'"
 	margin="1rem auto 3rem"
 	width="800px"
-	src="/images/posts/tools-for-thought/aswemaythink.jpeg"
+	src="../../images/posts/tools-for-thought/aswemaythink.jpeg"
 />
 
-<BasicImage
+<RemoteImage
 	showalt
 	margin="0 auto 3rem"
 	alt="Vannevar's vision of a Memex machine – a desk with built-in microfilm displays"
@@ -481,17 +509,17 @@ But simply because we've drastically improved human-computer collaboration since
 
 <TwoColumn width="1000px" alignItems="top" margin="0 auto 4rem">
 
-<ResponsiveImage
+<BasicImage
 	framed
 	margin="0"
-	src="/images/posts/tools-for-thought/ahi.jpg"
+	src="../../images/posts/tools-for-thought/ahi.jpg"
 	alt="The original cover of Englebart's Augmenting Human Intellect essay"
 />
 
-<ResponsiveImage
+<BasicImage
 	framed
 	margin="0"
-	src="/images/posts/tools-for-thought/ahi3.jpg"
+	src="../../images/posts/tools-for-thought/ahi3.jpg"
 	alt="The first paragraph of Englebart's Augmenting Human Intellect essay"
 />
 
@@ -505,17 +533,17 @@ Kay would go on to become one of the leading voices of tools for thought. In ess
 
 <TwoColumn width="1000px" alignItems="top" margin="0 auto 4rem">
 
-<ResponsiveImage
+<BasicImage
 	framed
 	margin="0"
-	src="/images/posts/tools-for-thought/kay1.jpg"
+	src="../../images/posts/tools-for-thought/kay1.jpg"
 	alt="The cover of Kay's 1989 essay on User Interfaces"
 />
 
-<ResponsiveImage
+<BasicImage
 	framed
 	margin="0"
-	src="/images/posts/tools-for-thought/kay3.jpg"
+	src="../../images/posts/tools-for-thought/kay3.jpg"
 	alt="The cover of Kay and Goldberg's 1977 essay on Personal Dynamic Media"
 />
 
@@ -527,7 +555,7 @@ Much of the history I've just swept through is covered in Howard Rheingold's <Ye
 url="https://www.librarything.com/work/2127253"
 title="Tools for Thought"
 author="Howard Rheingold"
-image="/images/books/toolsthought.webp"
+image={ToolsThought}
 >
 
 Rheingold tells the story of what he calls the patriarchs, pioneers, and infonauts of the computer, focusing in particular on such pioneers as J. C. R. Licklider, Doug Engelbart, Bob Taylor, and Alan Kay
@@ -538,7 +566,7 @@ Rheingold tells the story of what he calls the patriarchs, pioneers, and infonau
 url="https://www.librarything.com/work/68418/covers"
 title="Dealers of Lightning"
 author="Michael Hiltzik"
-image="/images/books/dealers.webp"
+image={Dealers}
 >
 
 A historical tale of Xerox PARC throughout the 1970s and '80s. Traces the development of the first personal computer, the laser printer, and the graphical interface. Based on interviews with the scientists, engineers, administrators, and executives who were part of the lab.
@@ -549,7 +577,7 @@ A historical tale of Xerox PARC throughout the 1970s and '80s. Traces the develo
 url="https://www.librarything.com/work/54549"
 title="The New Media Reader"
 author="Noah Wardrip-Fruin and Nick Montfort"
-image="/images/books/newmedia.webp"
+image={NewMedia}
 >
 
 A collection of essays and papers documenting the history of the “new media” field. The contributors are a wide range of computer scientists, artists, architects, literary writers, interface designers, cultural critics, and interdisciplinary scholars.
@@ -619,7 +647,7 @@ The philosopher Daniel Dennett published Intuition Pumps and Other Tools for Thi
 url="https://www.librarything.com/work/13457191"
 title="Intuition Pumps and Other Tools for Thinking"
 author="Daniel Dennett"
-image="/images/books/intuitionpumps.webp"
+image={IntuitionPumps}
 >
 
 ...
@@ -632,7 +660,7 @@ Tim Ingold is both an anthropologist and philosopher who has written numerous bo
 	url=""
 	title="Making: Anthropology, Art, Architecture, and Archeology"
 	author="Tim Ingold"
-	image="/images/books/making.webp"
+	image={Making}
 />
 
 We'll return to these non-computational interpretations of “tools for thought” later on. They shouldn't be dismissed or cast as irrelevant to the narratives that computer nerds have written.
@@ -667,7 +695,8 @@ Bret Victor was the first to call attention to this historical gap in a series o
 
 [Andy Matuschak](https://andymatuschak.org/) and [Michael Nielsen](https://michaelnielsen.org/)'s <YearsAgo>2019</YearsAgo> essay on [transformative tools for thought](https://numinous.productions/ttft/) helped kick off the new popularity wave, as well as Andy's [continued research](https://www.patreon.com/quantumcountry) and writing advocating for TFT as a field.
 
-<ImageFrame
+<RemoteImage
+	framed
 	width="1200"
 	src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:best,w_1200/v1637795112/maggieappleton.com/notes/tools-for-thought/How_can_we_develop_transformative_tools_for_thought_i64mlz.png"
 	alt=""
