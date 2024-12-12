@@ -3,7 +3,6 @@ import Layout from "../layouts/Layout.astro";
 import PageWrapper from "../components/layouts/PageWrapper.astro";
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
-import cozyweb from "../images/cozyweb.jpg";
 import "../global.css";
 
 const essays = await getCollection("essays");
@@ -14,7 +13,6 @@ const patterns = await getCollection("patterns");
 <Layout>
 	<PageWrapper>
 		<h1>Maggie Appleton's Garden, V3</h1>
-
 		<ul>
 			{
 				essays.map((essay) => (
@@ -48,7 +46,5 @@ const patterns = await getCollection("patterns");
 				))
 			}
 		</ul>
-
-		<Image src={cozyweb} width={400} alt="Cozyweb" />
 	</PageWrapper>
 </Layout>
