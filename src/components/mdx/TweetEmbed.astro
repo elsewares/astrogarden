@@ -1,0 +1,15 @@
+---
+import { Tweet } from "astro-embed";
+
+const { tweetId } = Astro.props;
+---
+
+<div class="tweet-embed">
+	<Tweet id={`https://twitter.com/anyuser/status/${tweetId}`} />
+</div>
+
+<style>
+	.tweet-embed {
+		margin: 0 auto 1rem;
+	}
+</style>
