@@ -4,13 +4,25 @@ description: "Seventy years ago we dreamed up links that would allow us to creat
 startDate: "2020-05-04"
 updated: "2021-02-10"
 cover: "../../images/covers/bidilinks-cover@2x.png"
-aliases: ["Short History of Bi-Directional Links", "Bi-Directional Link","Bi-Directional Links"]
+aliases:
+  [
+    "Short History of Bi-Directional Links",
+    "Bi-Directional Link",
+    "Bi-Directional Links",
+  ]
 type: "essay"
 featured: true
 toc: true
 topics: ["The Web", "Digital Gardening", "Web Development", "Design"]
 growthStage: "evergreen"
 ---
+
+import IntroParagraph from "../../components/mdx/IntroParagraph.astro";
+import RemoteImage from "../../components/mdx/RemoteImage.astro";
+import YearsAgo from "../../components/mdx/YearsAgo.astro";
+import Footnote from "../../components/mdx/Footnote.astro";
+import Center from "../../components/mdx/Center.astro";
+import Spacer from "../../components/mdx/Spacer.astro";
 
 <IntroParagraph>
 
@@ -26,7 +38,7 @@ We set up all these single-direction paths, trying to signal relevance and conte
 
 Our monolinks are trying to establish relationships in vain.
 
-<BasicImage
+<RemoteImage
 	width="950px"
 	src="https://res.cloudinary.com/dg3gyk0gu/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1589455927/maggieappleton.com/notes/Hyperlinks.png"
 />
@@ -39,7 +51,7 @@ Manually interlinking content takes an awful lot of human curation and effort. E
 
 A _bi-directional_ link has **social awareness** - it knows about other pages or 'nodes' that point to it, and can make them visible to people. This means we get a two-way conversation flowing between our web locations.
 
-<BasicImage
+<RemoteImage
 	width="950px"
 	src="https://res.cloudinary.com/dg3gyk0gu/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1589455927/maggieappleton.com/notes/Hyperlinks_2.png"
 />
@@ -58,7 +70,7 @@ Suffice to say, the guy was driven by a belief that enabling people to connect i
 
 <br />
 
-<BasicImage
+<RemoteImage
 	showalt
 	alt="Vannevar even created a small informative diagram of this desk-bound vision. Marketing chops 101."
 	width="800px"
@@ -77,7 +89,8 @@ The Xanadu project was a hypertext system that imagined that every sentence, blo
 
 <br />
 
-<ImageFrame
+<RemoteImage
+	framed
 	showalt
 	alt="A design mockup of how Project Xanadu might visually connect pieces of text across multiple documents"
 	width="1050px"
@@ -89,7 +102,9 @@ The Xanadu project was a hypertext system that imagined that every sentence, blo
 		style={{ fontSize: "6rem", marginBottom: "1.5rem" }}
 		role="img"
 		aria-label="flushed emoji face"
-	>😳</span>
+	>
+		😳
+	</span>
 </Center>
 
 You'd be able to trace information back to its origin the way current web links do. But you'd also be able to see who had referenced, remixed, and expanded off that original. The full [[Pattern Language of Project Xanadu]] expands far beyond just bi-directional links to include features like [[Transclusions]], but we won't dive into it all here.
@@ -120,7 +135,8 @@ There's been a flurry of interest around bi-directionals among people involved i
 
 Much of this was originally sparked by <a href="https://notes.andymatuschak.org/">Andy Matuschak's notes</a>. Go have a good browse through them.
 
-<ImageFrame
+<RemoteImage
+	framed
 	showalt
 	alt="Andy's linked notes stack on top of one another, allowing you to browse to new notes while previous notes are still visible"
 	width="1050px"
@@ -136,7 +152,7 @@ the **"Links to this Note"** section at the bottom of each post.
 
 Anytime Andy links to another one of their notes on the site, it'll pop up as a related note at the bottom of the page. This is the bi-directional dream.
 
-<BasicImage
+<RemoteImage
 	width="1050px"
 	src="https://res.cloudinary.com/dg3gyk0gu/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1589483829/maggieappleton.com/notes/Hyperlinks_3.png"
 />

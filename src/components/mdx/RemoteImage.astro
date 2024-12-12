@@ -4,19 +4,46 @@ interface Props {
 	alt: string;
 	width?: string;
 	class?: string;
+	framed?: boolean;
+	showalt?: boolean;
+	sourceUrl?: string;
+	sourceTitle?: string;
+	margin?: string;
 }
 
-const { src, alt, width = "800px", class: className } = Astro.props;
+const {
+	src,
+	alt,
+	width = "800px",
+	class: className,
+	framed = false,
+	showalt = false,
+	sourceUrl,
+	sourceTitle,
+	margin,
+} = Astro.props;
 ---
 
-<figure class:list={["container", className]}>
-	<div class="image-wrapper" style={`width: ${width}`}>
-		<img 
-			src={src}
-			alt={alt}
-			loading="lazy"
-		/>
+<figure
+	class:list={["container", className, { framed }]}
+	style={`margin: ${margin || "var(--space-l) auto"}`}
+>
+	<div
+		class:list={["image-wrapper", { "image-frame": framed }]}
+		style={`width: ${width}`}
+	>
+		<img src={src} alt={alt} loading="lazy" />
 	</div>
+	{
+		showalt &&
+			(sourceUrl ? (
+				<figcaption>
+					{alt} – Source: <a href={sourceUrl}>{sourceTitle}</a>
+				</figcaption>
+			) : (
+				<figcaption>{alt}</figcaption>
+			))
+	}
 </figure>
 
 <style>
@@ -24,11 +51,21 @@ const { src, alt, width = "800px", class: className } = Astro.props;
 		max-width: 100%;
 		grid-column: 1 / 4 !important;
 		text-align: center;
+		margin: 1rem auto 2rem;
 	}
 
 	.image-wrapper {
 		max-width: 100%;
-		margin: 0 auto;
+		margin: 1rem auto;
+		display: flex;
+		justify-content: center;
+	}
+
+	.image-frame {
+		border: 1px solid var(--color-tinted-cream);
+		border-radius: var(--border-radius-base);
+		box-shadow: var(--box-shadow-lg);
+		margin-bottom: var(--space-xs);
 	}
 
 	img {
@@ -37,4 +74,14 @@ const { src, alt, width = "800px", class: className } = Astro.props;
 		display: block;
 		border-radius: var(--border-radius-sm);
 	}
-</style> 
+
+	figcaption {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		color: var(--color-gray-600);
+		line-height: 1.5;
+		width: 100%;
+		max-width: 800px;
+		margin: var(--space-s) auto 0;
+	}
+</style>
