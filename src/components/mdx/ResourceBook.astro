@@ -1,121 +1,128 @@
 ---
 import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
 
 const { url, title, author, image, small } = Astro.props;
 ---
+
 <div class:list={["book-card", { small }]}>
-  <div style={{
-    height: small ? "228px" : "319px",
-    width: small ? "158px" : "220px",
-    flexShrink: 0,
-    boxShadow: "var(--box-shadow-lg)",
-  }}>
-    <img 
-      width={small ? 158 : 220}
-      height={small ? 228 : 319}
-      alt={title}
-      src={image}
-    />
-  </div>
-  <div class="metadata">
-    <a href={url}>
-      <h3>{title}</h3>
-    </a>
-    <span>{author}</span>
-    <slot>
-      <Icon name="heroicons:minus" size={40} class="divider" />
-      <p><slot /></p>
-    </slot>
-  </div>
+	<div
+		style={{
+			height: small ? "228px" : "319px",
+			width: small ? "158px" : "220px",
+			flexShrink: 0,
+			boxShadow: "var(--box-shadow-lg)",
+		}}
+	>
+		<Image
+			width={small ? 158 : 220}
+			height={small ? 228 : 319}
+			alt={title}
+			src={image}
+			style={{
+				borderRadius: "var(--border-radius-sm)",
+			}}
+		/>
+	</div>
+	<div class="metadata">
+		<a href={url}>
+			<h3>{title}</h3>
+		</a>
+		<span>{author}</span>
+		<slot>
+			<Icon name="heroicons:minus" size={40} class="divider" />
+			<p><slot /></p>
+		</slot>
+	</div>
 </div>
 
 <style>
-  .book-card {
-    margin: var(--space-l) auto;
-    border-radius: var(--border-radius-lg);
-    display: flex;
-    flex-direction: row;
-    flex-shrink: 1;
-    justify-content: center;
-    gap: var(--space-l);
-    height: content-min;
-    cursor: pointer;
-  }
+	.book-card {
+		margin: var(--space-l) auto;
+		border-radius: var(--border-radius-lg);
+		display: flex;
+		flex-direction: row;
+		flex-shrink: 1;
+		justify-content: center;
+		gap: var(--space-l);
+		height: content-min;
+		cursor: pointer;
+	}
 
-  .book-card.small {
-    align-items: center;
-  }
+	.book-card.small {
+		align-items: center;
+	}
 
-  .book-card img {
-    border-radius: var(--border-radius-sm);
-  }
+	.book-card img {
+		border-radius: var(--border-radius-sm);
+	}
 
-  @media (max-width: 768px) {
-    .book-card {
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: var(--space-m);
-      height: content-min;
-      text-align: center;
-    }
-  }
+	@media (max-width: 768px) {
+		.book-card {
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			gap: var(--space-m);
+			height: content-min;
+			text-align: center;
+		}
+	}
 
-  .metadata {
-    display: flex;
-    flex-direction: column;
-    flex-shrink: 1;
-    width: 34ch;
-  }
+	.metadata {
+		display: flex;
+		flex-direction: column;
+		flex-shrink: 1;
+		width: 34ch;
+	}
 
-  @media (max-width: 768px) {
-    .metadata {
-      width: 100%;
-      max-width: 36ch;
-    }
-  }
+	@media (max-width: 768px) {
+		.metadata {
+			width: 100%;
+			max-width: 36ch;
+		}
+	}
 
-  .metadata h3,
-  .metadata p,
-  .metadata span {
-    margin: 0;
-    font-family: var(--font-body);
-  }
+	.metadata h3,
+	.metadata p,
+	.metadata span {
+		margin: 0;
+		font-family: var(--font-body);
+	}
 
-  .metadata span {
-    color: var(--color-gray-600);
-  }
+	.metadata span {
+		color: var(--color-gray-600);
+	}
 
-  .metadata h3 {
-    font-family: var(--font-body);
-    font-size: var(--font-size-md);
-    margin-bottom: var(--space-3xs);
-    color: var(--color-gray-800);
-    transition: all 0.2s ease-in-out;
-    line-height: var(--leading-tight);
-    flex-shrink: 1;
-  }
+	.metadata h3 {
+		font-family: var(--font-body);
+		font-size: var(--font-size-md);
+		margin-bottom: var(--space-3xs);
+		color: var(--color-gray-800);
+		transition: all 0.2s ease-in-out;
+		line-height: var(--leading-tight);
+		flex-shrink: 1;
+	}
 
-  .metadata p {
-    font-family: var(--font-sans);
-    font-size: var(--font-size-sm);
-    line-height: var(--leading-loose);
-    color: var(--color-gray-800);
-    flex-shrink: 1;
-  }
+	.metadata p {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		line-height: var(--leading-loose);
+		color: var(--color-gray-800);
+		flex-shrink: 1;
+	}
 
-  .metadata .divider {
-    margin: var(--space-s) 0;
-    fill: var(--color-gray-300);
-  }
+	.metadata .divider {
+		margin: var(--space-s) 0;
+		fill: var(--color-gray-300);
+	}
 
-  @media (max-width: 768px) {
-    .metadata .divider {
-      margin: var(--space-s) auto;
-    }
-  }
+	@media (max-width: 768px) {
+		.metadata .divider {
+			margin: var(--space-s) auto;
+		}
+	}
 
-  .metadata a:hover h3 {
-    color: var(--color-bright-crimson);
-  }
+	.metadata a:hover h3 {
+		color: var(--color-bright-crimson);
+	}
 </style>

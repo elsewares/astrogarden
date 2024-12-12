@@ -26,7 +26,7 @@ const {
 
 <figure
 	class:list={["container", className, { framed }]}
-	style={`margin: ${margin || "var(--space-l) auto"}`}
+	style={`margin: ${margin || ""}`}
 >
 	<div
 		class:list={["image-wrapper", { "image-frame": framed }]}
@@ -56,7 +56,6 @@ const {
 
 	.image-wrapper {
 		max-width: 100%;
-		margin: 1rem auto;
 		display: flex;
 		justify-content: center;
 	}
