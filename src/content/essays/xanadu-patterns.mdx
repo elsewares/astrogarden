@@ -11,6 +11,17 @@ cover: "../../images/covers/xanadu@2x.png"
 topics: ["Design", "The Web", "Digital Gardening", "Tools for Thought"]
 ---
 
+import IntroParagraph from "../../components/mdx/IntroParagraph.astro";
+import Footnote from "../../components/mdx/Footnote.astro";
+import YearsAgo from "../../components/mdx/YearsAgo.astro";
+import ResourceBook from "../../components/mdx/ResourceBook.astro";
+import RemoteImage from "../../components/mdx/RemoteImage.astro";
+import BasicImage from "../../components/mdx/BasicImage.astro";
+import Video from "../../components/mdx/Video.astro";
+import Draft from "../../components/mdx/Draft.astro";
+import TweetEmbed from "../../components/mdx/TweetEmbed.astro";
+import Patterns from "../../images/books/patterns.webp";
+
 <IntroParagraph>
 
 When it comes to visionary, before-its-time software, it's hard to find a better archetype than Ted Nelson's <a href="https://en.wikipedia.org/wiki/Project_Xanadu">Project Xanadu</a>.
@@ -50,7 +61,7 @@ In their book [A Pattern Language](https://en.wikipedia.org/wiki/A_Pattern_Langu
 
 <ResourceBook
 	url="https://en.wikipedia.org/wiki/A_Pattern_Language"
-	image="/images/books/patterns.webp"
+	image={Patterns}
 	title="A Pattern Language"
 	author="Christopher Alexander"
 >
@@ -84,7 +95,7 @@ Ted Nelson has many gripes, and **jump links** are one of his biggest. They're t
 
 We've found ways to adapt to this; Venkatesh Rao has a compelling exploration of how we've developed a [rhetoric of hyperlinking](https://www.ribbonfarm.com/2009/07/01/the-rhetoric-of-the-hyperlink/) to hint at where people are headed. Most browsers will do this more explicitly by showing you a URL preview, but they tuck them into the far corner in tiny text:
 
-<BasicImage
+<RemoteImage
 	src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1623585337/maggieappleton.com/notes/xanadu/hover-preview-url_shrink_kxvwtp.png"
 	width="1000px"
 	alt="URL hover previews showing in the left hand corner of page"
@@ -94,7 +105,8 @@ These can only tell you so much when modern URLs are often obscured by link shor
 
 Nelson's answer to jump links are **visible links** – links that show you the full context of where you're headed. These were an essential feature of Xanadu. In the original mockups for “_Xanadocs_" linked text would be connected to its source in a rather literal fashion: brightly colored highlights running between documents.
 
-<ImageFrame
+<RemoteImage
+	framed
 	width="1150px"
 	src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1623916915/maggieappleton.com/notes/xanadu/xanadu_au17yq_shrink_tqkdxs.png"
 	alt="One of the original UI mockups for a Xanadoc with visible links between text blocks"
@@ -107,7 +119,8 @@ In lieu of Xanadoc links, the modern web has landed on some fairly decent soluti
 
 **Hover previews** are when you can see a preview of the page you're headed to when you hover over a link. It's usually an excerpt that gives you the page title, the first few lines of text, and sometimes an image. Wikipedia was one of the first major sites to [add these](https://blog.wikimedia.org/2018/04/18/how-we-designed-page-previews-for-wikipedia/) in <YearsAgo>2018</YearsAgo>.
 
-<ImageFrame
+<RemoteImage
+	framed
 	width="1150px"
 	src="https://res.cloudinary.com/dg3gyk0gu/image/upload/c_scale,f_auto,q_auto:good,w_1000/v1592343673/maggieappleton.com/notes/Screenshot_-_2020-06-16_20.49.44.png"
 	alt="Wikipedia's interface showing one of the hover previews that appear over links"
@@ -116,7 +129,8 @@ In lieu of Xanadoc links, the modern web has landed on some fairly decent soluti
 
 Hover previews have also become popular in the [[Digital Gardening]] community as a way to help visitors quickly navigate through collections of public notes and essays that are deeply interlinked. <a href="https://notes.andymatuschak.org/">Andy Matuschak</a> and <a href="https://www.gwern.net/index">Gwern Branwen</a> are two gardeners with good examples of how these work in action.
 
-<ImageFrame
+<RemoteImage
+	framed
 	width="1150px"
 	src="https://res.cloudinary.com/dg3gyk0gu/image/upload/c_scale,f_auto,q_auto:good,w_1000/v1592343501/maggieappleton.com/notes/Screenshot_2020-06-16_at_22.38.06.png"
 	alt="Andy Matuschak's notes website featuring hover link previews"
@@ -125,13 +139,15 @@ Hover previews have also become popular in the [[Digital Gardening]] community a
 
 Similar to hover previews, **unfurls** are the preview cards that automagically appear when you paste a link into Twitter, Facebook, Notion, Miro, or any other richly-featured web app. If I paste a link to this great article on [building a more honest internet](https://www.cjr.org/special_report/building-honest-internet-public-interest.php) into a Tweet or Notion document, it automagically displays the feature image, title, and byline without any extra effort from me:
 
-<ImageFrame
+<RemoteImage
+	framed
 	width="600px"
 	src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:best,w_800/v1623916885/maggieappleton.com/notes/xanadu/tweet-opengraph_o6eecg.jpg"
 	alt="An open graph image preview appearing in a tweet"
 />
 
-<ImageFrame
+<RemoteImage
+	framed
 	width="850px"
 	src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:best,w_1000/v1623917579/maggieappleton.com/notes/xanadu/notion-ogpreview_shrink_ckiuyn.png"
 	alt="Open graph previews appear in Notion when you paste a link and select 'Create Bookmark'"
@@ -150,7 +166,7 @@ Ted's proposal for visible links relied on another key Xanadu pattern: **paralle
 
 It's also tricky to misquote someone and cherry-pick misleading excerpts when the reader has immediate, effortless access to the original.
 
-<BasicImage
+<RemoteImage
 	width="900px"
 	src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:good,w_900/v1640076312/maggieappleton.com/notes/xanadu/transclusion_6_shrink_sl0vcb_mtepgz.jpg"
 	alt="Three parallel documents with visible links between them"
@@ -161,8 +177,6 @@ This sounds great in theory. Being able to lay multiple sheets of paper down sid
 Ideally our digital mediums would lean into our ability to survey a large visual field. But the limitations of LCD screen sizes lead to some unsatisfying compromises. Instead, we end up squishing columns of documents onto our tiny screens.
 
 The existing prototypes of Xanadu don't gracefully solve this problem in any way. Some of them – like the <YearsAgo>2007</YearsAgo> _XanaduSpace_ demo – suggest launching into the disorienting world of 3D paper where documents tower over you like skyscrapers.
-
-<BasicImage width="" src="" alt="" />
 
 Here's Ted to give you an interactive tour:
 
@@ -193,7 +207,8 @@ Parts of documents visibly point to other parts
 
 LiquidText
 
-<ImageFrame
+<RemoteImage
+	framed
 	width="1150px"
 	src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:best,w_1100/v1623925818/maggieappleton.com/notes/xanadu/liquid_rrgru8.png"
 	alt="The interface of LiquidText with transpointing between sections of text"
@@ -288,7 +303,7 @@ Who knows, maybe Xanadu can still happen (if you clap for it) ✨
 
 <br />
 
-<BasicImage
+<RemoteImage
 	width="500px"
 	src="https://3.bp.blogspot.com/-s2BU-a7w2bc/VuNwBkwNSSI/AAAAAAAARDg/P_UuFud4PmIfKQoJLq4EHYxVL6YL8TQsw/s1600/XANADU.jpg"
 />
