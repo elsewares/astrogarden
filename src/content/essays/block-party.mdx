@@ -4,12 +4,36 @@ description: "The rise of interactive, editable blocks as the basic unit of docu
 updated: "2022-06-22"
 startDate: "2022-06-22"
 type: "essay"
-cover: "/images/covers/databases-cover@2x.png"
+cover: "../../images/covers/databases-cover@2x.png"
 topics: ["Design", "The Web"]
 featured: true
 growthStage: "seedling"
 draft: true
 ---
+
+import IntroParagraph from "../../components/mdx/IntroParagraph.astro";
+import TwoColumn from "../../components/mdx/TwoColumn.astro";
+import BasicImage from "../../components/mdx/BasicImage.astro";
+import Spacer from "../../components/mdx/Spacer.astro";
+import ListNumber from "../../components/mdx/ListNumber.astro";
+import FullWidthSection from "../../components/mdx/FullWidthSection.astro";
+import TextvBlocks from "../../components/mdx/TextvBlocks.astro";
+import Disclaimer from "../../components/mdx/Disclaimer.astro";
+import AssumedAudience from "../../components/mdx/AssumedAudience.astro";
+import References from "../../components/mdx/References.astro";
+import ReferencesLink from "../../components/mdx/ReferencesLink.astro";
+import RemoteImage from "../../components/mdx/RemoteImage.astro";
+import ThreeColumn from "../../components/mdx/ThreeColumn.astro";
+import Footnote from "../../components/mdx/Footnote.astro";
+import DemoBlock1 from "../../components/mdx/DemoBlock1.astro";
+import DemoBlock2 from "../../components/mdx/DemoBlock2.astro";
+import DemoBlock3 from "../../components/mdx/DemoBlock3.astro";
+import DemoBlock4 from "../../components/mdx/DemoBlock4.astro";
+import SimpleCard from "../../components/mdx/SimpleCard.astro";
+import BlockTimeline from "../../components/mdx/BlockTimeline.astro";
+import TweetEmbed from "../../components/mdx/TweetEmbed.astro";
+import BlockAge from "../../components/mdx/BlockAge.astro";
+import Video from "../../components/mdx/Video.astro";
 
 <Disclaimer>
 
@@ -76,11 +100,11 @@ Platforms that give small teams and companies the flexibilty to create their own
 
 We're now in the middle of a Cambrian explosion of these editors. Blocks are a core concept in almost every modern document editor and no-code website builder. In addition to those mentioned above there's also [Craft](https://www.craft.do/), [Clover](https://cloverapp.co/), [Microsoft Loop](https://www.microsoft.com/en-us/microsoft-loop?ms.url=microsoftcommicrosoft-loop), [Kosmik](https://www.kosmik.app/), [Roam Research](https://roamresearch.com/), [Logseq](https://logseq.com/), [Remnote](https://www.remnote.com/), [Thunknotes](https://www.thunknotes.com/), [Clarity](https://www.clarity.so/), [Fermat](https://fermat.ws/), [Muse](https://museapp.com/), [Reflect](https://reflect.app/), [Mem](https://get.mem.ai/), [Athens](https://www.athensresearch.org/), the list goes on.
 
-<BasicImage
-  width="960px"
-  src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1649596679/maggieappleton.com/essays/block-editors/BlockLogos_cktabl.png"
-  alt="A grid of logos of popular block-based editors"
-  margin="0 auto 1rem"
+<RemoteImage
+	width="960px"
+	src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1649596679/maggieappleton.com/essays/block-editors/BlockLogos_cktabl.png"
+	alt="A grid of logos of popular block-based editors"
+	margin="0 auto 1rem"
 />
 
 At last count I found 30 block-editors in active development, and I've certainly missed some. Two more will get seed funding while you're reading this.
@@ -147,34 +171,34 @@ In classic documents where text is the default format, you can sometimes add spe
 <div style={{display: "inline-block", marginTop: "3rem"}}>
 
 <svg
-  aria-labelledby="titleID"
-  width="120"
-  height="120"
-  viewBox="0 0 142 142"
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
-  style={{
-    float: "left",
-    display: "inline-block",
-    marginRight: "1.25rem",
-    top: "0.5rem",
-    position: "relative",
-  }}
+	aria-labelledby="titleID"
+	width="120"
+	height="120"
+	viewBox="0 0 142 142"
+	fill="none"
+	xmlns="http://www.w3.org/2000/svg"
+	style={{
+		float: "left",
+		display: "inline-block",
+		marginRight: "1.25rem",
+		top: "0.5rem",
+		position: "relative",
+	}}
 >
-  <title id="titleID">Pattern #2</title>
-  <rect width="142" height="142" fill="white" />
-  <rect
-    x="7"
-    y="7"
-    width="128"
-    height="128"
-    stroke="#04A5BB"
-    stroke-width="2"
-  />
-  <path
-    d="M92.81 112.17L100.73 85.44L99.08 84.89C94.68 91.49 87.53 97.21 77.3 97.21H57.72C83.57 79.83 97.21 66.63 97.21 51.67C97.21 39.35 88.08 30 67.4 30C57.83 30 51.56 31.98 47.6 33.52L44.63 55.41L46.39 55.96C52.33 42.98 59.7 33.63 66.85 33.63C73.45 33.63 77.41 40.67 77.41 52.11C77.41 68.39 68.28 84.12 41 110.19V112.17H92.81Z"
-    fill="#04A5BB"
-  />
+	<title id="titleID">Pattern #2</title>
+	<rect width="142" height="142" fill="white" />
+	<rect
+		x="7"
+		y="7"
+		width="128"
+		height="128"
+		stroke="#04A5BB"
+		stroke-width="2"
+	/>
+	<path
+		d="M92.81 112.17L100.73 85.44L99.08 84.89C94.68 91.49 87.53 97.21 77.3 97.21H57.72C83.57 79.83 97.21 66.63 97.21 51.67C97.21 39.35 88.08 30 67.4 30C57.83 30 51.56 31.98 47.6 33.52L44.63 55.41L46.39 55.96C52.33 42.98 59.7 33.63 66.85 33.63C73.45 33.63 77.41 40.67 77.41 52.11C77.41 68.39 68.28 84.12 41 110.19V112.17H92.81Z"
+		fill="#04A5BB"
+	/>
 </svg>
 
 <h3 style={{ margin: "0.25rem 0 0.5rem" }}>1-click block creation</h3>
@@ -185,36 +209,36 @@ All block-based editors allow you to quickly add a block to a document or canvas
 
 <ThreeColumn gridGap="0">
 
-<BasicImage
-  src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:good,w_600/v1643453676/maggieappleton.com/essays/block-editors/block-ed_slash_4_sj3kqe.png"
-  alt="Slash command menu with a list of blocks in Notion"
-  margin="0"
+<RemoteImage
+	src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:good,w_600/v1643453676/maggieappleton.com/essays/block-editors/block-ed_slash_4_sj3kqe.png"
+	alt="Slash command menu with a list of blocks in Notion"
+	margin="0"
 />
-<BasicImage
-  src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:good,w_600/v1643453676/maggieappleton.com/essays/block-editors/block-ed_slash_5_tfjmxu.png"
-  alt="Slash command menu with a list of blocks in Roam Research"
-  margin="0"
+<RemoteImage
+	src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:good,w_600/v1643453676/maggieappleton.com/essays/block-editors/block-ed_slash_5_tfjmxu.png"
+	alt="Slash command menu with a list of blocks in Roam Research"
+	margin="0"
 />
-<BasicImage
-  src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:good,w_600/v1643453676/maggieappleton.com/essays/block-editors/block-ed_slash_1_evqqr8.png"
-  alt="Slash command menu with a list of blocks in Wordpress Gutenberg"
-  margin="0"
+<RemoteImage
+	src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:good,w_600/v1643453676/maggieappleton.com/essays/block-editors/block-ed_slash_1_evqqr8.png"
+	alt="Slash command menu with a list of blocks in Wordpress Gutenberg"
+	margin="0"
 />
 
-<BasicImage
-  src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:good,w_600/v1643453676/maggieappleton.com/essays/block-editors/block-ed_slash_3_ivuxvv.png"
-  alt="Slash command menu with a list of blocks in Coda"
-  margin="0"
+<RemoteImage
+	src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:good,w_600/v1643453676/maggieappleton.com/essays/block-editors/block-ed_slash_3_ivuxvv.png"
+	alt="Slash command menu with a list of blocks in Coda"
+	margin="0"
 />
-<BasicImage
-  src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:good,w_600/v1643453676/maggieappleton.com/essays/block-editors/block-ed_slash_2_wwwsd8.png"
-  alt="Slash command menu with a list of blocks in Clover"
-  margin="0"
+<RemoteImage
+	src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:good,w_600/v1643453676/maggieappleton.com/essays/block-editors/block-ed_slash_2_wwwsd8.png"
+	alt="Slash command menu with a list of blocks in Clover"
+	margin="0"
 />
-<BasicImage
-  src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1643453676/maggieappleton.com/essays/block-editors/block-ed_slash_6_ggum0f.png"
-  alt="Slash command menu with a list of blocks in Wordpress Almanac"
-  margin="0"
+<RemoteImage
+	src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1643453676/maggieappleton.com/essays/block-editors/block-ed_slash_6_ggum0f.png"
+	alt="Slash command menu with a list of blocks in Wordpress Almanac"
+	margin="0"
 />
 
 </ThreeColumn>
@@ -228,38 +252,38 @@ Some of these applications that have a larger range of blocks have opted to put 
 <div style={{display: "inline-block", marginTop: "3rem"}}>
 
 <svg
-  aria-labelledby="titleID"
-  width="120"
-  height="120"
-  viewBox="0 0 142 142"
-  style={{
-    float: "left",
-    display: "inline-block",
-    marginRight: "1.25rem",
-    top: "0.5rem",
-    position: "relative",
-  }}
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
+	aria-labelledby="titleID"
+	width="120"
+	height="120"
+	viewBox="0 0 142 142"
+	style={{
+		float: "left",
+		display: "inline-block",
+		marginRight: "1.25rem",
+		top: "0.5rem",
+		position: "relative",
+	}}
+	fill="none"
+	xmlns="http://www.w3.org/2000/svg"
 >
-  <title id="titleID">Pattern #3</title>
-  <rect width="142" height="142" fill="white" />
-  <rect
-    x="7"
-    y="7"
-    width="128"
-    height="128"
-    stroke="#04A5BB"
-    stroke-width="2"
-  />
-  <path
-    d="M100.41 86.1C100.41 68.39 84.68 60.69 70.38 60.69C67.85 60.69 65.54 60.91 63.45 61.35L99.53 31.76V30H51.79L45.3 44.96H78.08L50.25 67.84L51.79 69.82C55.42 67.29 59.71 65.2 65.21 65.2C74.89 65.2 80.72 72.02 80.72 86.21C80.72 99.52 75.33 108.54 66.09 108.54C57.07 108.54 51.79 99.41 43.76 86.1L42 86.54L44.86 107.33C49.48 110.08 58.17 112.17 67.19 112.17C86.88 112.17 100.41 102.38 100.41 86.1Z"
-    fill="#04A5BB"
-  />
+	<title id="titleID">Pattern #3</title>
+	<rect width="142" height="142" fill="white" />
+	<rect
+		x="7"
+		y="7"
+		width="128"
+		height="128"
+		stroke="#04A5BB"
+		stroke-width="2"
+	/>
+	<path
+		d="M100.41 86.1C100.41 68.39 84.68 60.69 70.38 60.69C67.85 60.69 65.54 60.91 63.45 61.35L99.53 31.76V30H51.79L45.3 44.96H78.08L50.25 67.84L51.79 69.82C55.42 67.29 59.71 65.2 65.21 65.2C74.89 65.2 80.72 72.02 80.72 86.21C80.72 99.52 75.33 108.54 66.09 108.54C57.07 108.54 51.79 99.41 43.76 86.1L42 86.54L44.86 107.33C49.48 110.08 58.17 112.17 67.19 112.17C86.88 112.17 100.41 102.38 100.41 86.1Z"
+		fill="#04A5BB"
+	/>
 </svg>
 
 <h3 style={{ margin: "0.25rem 0 0.5rem" }}>
-  Each block has a unique, pre-formatted type
+	Each block has a unique, pre-formatted type
 </h3>
 
 Every block has a “type” – a specific format that determines what kind of content it will accept (some text, a set of numbers, an image, etc.), how it displays that data, and how the user can interact with it.
@@ -274,29 +298,32 @@ When you create a new block, the default interface elements and input fields usu
 
 Checklist blocks let you type in text, tap the checkbox to items as done, assign people to tasks, and add due dates.
 
-<ImageFrame
-  src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:best,w_1200/v1645048968/maggieappleton.com/essays/block-editors/Checklist_gadznt.png"
-  alt="A set of three different checklists in block-editor apps"
-  width="800px"
-  margin="0 auto 3rem"
+<RemoteImage
+	framed
+	src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:best,w_1200/v1645048968/maggieappleton.com/essays/block-editors/Checklist_gadznt.png"
+	alt="A set of three different checklists in block-editor apps"
+	width="800px"
+	margin="0 auto 3rem"
 />
 
 Image blocks let you upload files, embed images via URL, or search through popular creative commons libraries like Unsplash.
 
-<ImageFrame
-  src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:best,w_1200/v1645048968/maggieappleton.com/essays/block-editors/Images_hpreeg.png"
-  alt="A set of three different image inputs in block-editor apps"
-  width="800px"
-  margin="0 auto 3rem"
+<RemoteImage
+	framed
+	src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:best,w_1200/v1645048968/maggieappleton.com/essays/block-editors/Images_hpreeg.png"
+	alt="A set of three different image inputs in block-editor apps"
+	width="800px"
+	margin="0 auto 3rem"
 />
 
 Table blocks let you arrange data in spreadsheets where you can name columns, add extra rows, and sort and filter values.
 
-<ImageFrame
-  src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:best,w_1200/v1645048968/maggieappleton.com/essays/block-editors/Table_mfyqtj.png"
-  alt="A set of three different tables in block-editor apps"
-  width="800px"
-  margin="0 auto 3rem"
+<RemoteImage
+	framed
+	src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:best,w_1200/v1645048968/maggieappleton.com/essays/block-editors/Table_mfyqtj.png"
+	alt="A set of three different tables in block-editor apps"
+	width="800px"
+	margin="0 auto 3rem"
 />
 
 Each editor has their own set of block types they offer. While there’s no universally agreed upon list, there’s a set of basics that appear almost everywhere: text, header, checklist, bullet list, numbered list, image, video, callout, table, blockquote, embed, code block, divider, and file upload.
@@ -305,41 +332,41 @@ Beyond those essentials, its open game. Some editors distinguish themselves by o
 
 There seems to be no ceiling to the complexity level we're willing to wrap up into a single block. Some could be standalone apps in their own right. Kanban boards, image galleries, live coding environments, and fully decked-out spreadsheets that function as relational databases can all be encapsulated into a “block”. This extends to embeds which allow users to stick the whole of Google Maps, Figma, or Airtable into a document.
 
-<img width="" src="https://via.placeholder.com/600x300" alt="" />
+<BasicImage src="https://via.placeholder.com/600x300" alt="" />
 
-{spectrum of simple to complex blocks}
+[spectrum of simple to complex blocks]
 
 <div style={{display: "inline-block", marginTop: "3rem"}}>
 
 <svg
-  aria-labelledby="titleID"
-  width="120"
-  height="120"
-  viewBox="0 0 142 142"
-  style={{
-    float: "left",
-    display: "inline-block",
-    marginRight: "1.25rem",
-    top: "0.5rem",
-    position: "relative",
-  }}
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
+	aria-labelledby="titleID"
+	width="120"
+	height="120"
+	viewBox="0 0 142 142"
+	style={{
+		float: "left",
+		display: "inline-block",
+		marginRight: "1.25rem",
+		top: "0.5rem",
+		position: "relative",
+	}}
+	fill="none"
+	xmlns="http://www.w3.org/2000/svg"
 >
-  <title id="titleID">Pattern #4</title>
-  <rect width="142" height="142" fill="white" />
-  <rect
-    x="7"
-    y="7"
-    width="128"
-    height="128"
-    stroke="#04A5BB"
-    stroke-width="2"
-  />
-  <path
-    d="M67.93 111.52H96.97V111.3C93.34 105.47 92.57 102.28 92.57 94.36V90.62H102.25L103.46 86.44H92.57V65.54H72.33V86.44H44.61L97.85 31H74.64L39 88.64V90.62H72.33V94.36C72.33 102.17 71.56 105.47 67.93 111.3V111.52Z"
-    fill="#04A5BB"
-  />
+	<title id="titleID">Pattern #4</title>
+	<rect width="142" height="142" fill="white" />
+	<rect
+		x="7"
+		y="7"
+		width="128"
+		height="128"
+		stroke="#04A5BB"
+		stroke-width="2"
+	/>
+	<path
+		d="M67.93 111.52H96.97V111.3C93.34 105.47 92.57 102.28 92.57 94.36V90.62H102.25L103.46 86.44H92.57V65.54H72.33V86.44H44.61L97.85 31H74.64L39 88.64V90.62H72.33V94.36C72.33 102.17 71.56 105.47 67.93 111.3V111.52Z"
+		fill="#04A5BB"
+	/>
 </svg>
 
 <h3 style={{ margin: "0.25rem 0 0.5rem" }}>Directly manipulation of blocks</h3>
@@ -355,92 +382,92 @@ to restructure a document without faffing about with precise text selection.
 
 </div>
 
-{visual for drag and drop}
+[visual for drag and drop]
 
 <div style={{display: "inline-block", marginTop: "3rem"}}>
 
 <svg
-  aria-labelledby="titleID"
-  width="120"
-  height="120"
-  style={{
-    float: "left",
-    display: "inline-block",
-    marginRight: "1.25rem",
-    top: "0.5rem",
-    position: "relative",
-  }}
-  viewBox="0 0 142 142"
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
+	aria-labelledby="titleID"
+	width="120"
+	height="120"
+	style={{
+		float: "left",
+		display: "inline-block",
+		marginRight: "1.25rem",
+		top: "0.5rem",
+		position: "relative",
+	}}
+	viewBox="0 0 142 142"
+	fill="none"
+	xmlns="http://www.w3.org/2000/svg"
 >
-  <title id="titleID">Pattern #5</title>
-  <rect width="142" height="142" fill="white" />
-  <rect
-    x="7"
-    y="7"
-    width="128"
-    height="128"
-    stroke="#04A5BB"
-    stroke-width="2"
-  />
-  <path
-    d="M65.44 112.17C81.06 112.17 98.22 104.03 98.22 85C98.22 67.18 83.15 59.15 67.53 59.15C62.14 59.15 56.86 60.14 52.46 62.34L55.43 44.96H94.15L96.9 30H53.89L47.84 66.63L49.38 67.73C53.78 64.76 57.85 63.77 62.14 63.77C73.69 63.77 78.97 71.36 78.97 85.77C78.97 100.18 73.58 108.54 65.88 108.54C57.74 108.54 51.58 97.98 44.76 86.21L43 86.65L45.75 107.33C49.71 109.75 56.64 112.17 65.44 112.17Z"
-    fill="#04A5BB"
-  />
+	<title id="titleID">Pattern #5</title>
+	<rect width="142" height="142" fill="white" />
+	<rect
+		x="7"
+		y="7"
+		width="128"
+		height="128"
+		stroke="#04A5BB"
+		stroke-width="2"
+	/>
+	<path
+		d="M65.44 112.17C81.06 112.17 98.22 104.03 98.22 85C98.22 67.18 83.15 59.15 67.53 59.15C62.14 59.15 56.86 60.14 52.46 62.34L55.43 44.96H94.15L96.9 30H53.89L47.84 66.63L49.38 67.73C53.78 64.76 57.85 63.77 62.14 63.77C73.69 63.77 78.97 71.36 78.97 85.77C78.97 100.18 73.58 108.54 65.88 108.54C57.74 108.54 51.58 97.98 44.76 86.21L43 86.65L45.75 107.33C49.71 109.75 56.64 112.17 65.44 112.17Z"
+		fill="#04A5BB"
+	/>
 </svg>
 
 <h3 style={{ margin: "0.25rem 0 0.5rem" }}>
-  Seperation of data and formatting
+	Seperation of data and formatting
 </h3>
 
 The content a block holds and the way it displays that data isn't firmly tied together. This makes blocks interchangeable.
 
 </div>
 
-{diagram of content and view being separated}
+[diagram of content and view being separated]
 
 If you decide you want a different block, you can easily swap it out. The content adapts to fit its new format. Data and display aren't tied to one another in block land. You can flexibly play with multiple ways to show the same data.
 
 Checklists can become blockquotes. Headers can become collapsible toggles. Tables can become kanban boards. <Footnote idName={4}>There are of course sensible limitations to this. Most applications won't let you turn an image into a code block or a video block.</Footnote>
 
-{visual for swapping blocks}
+[visual for swapping blocks]
 
 <div style={{display: "inline-block", marginTop: "3rem"}}>
 
 <svg
-  aria-labelledby="titleID"
-  width="120"
-  height="120"
-  viewBox="0 0 142 142"
-  style={{
-    float: "left",
-    display: "inline-block",
-    marginRight: "1.25rem",
-    top: "0.5rem",
-    position: "relative",
-  }}
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
+	aria-labelledby="titleID"
+	width="120"
+	height="120"
+	viewBox="0 0 142 142"
+	style={{
+		float: "left",
+		display: "inline-block",
+		marginRight: "1.25rem",
+		top: "0.5rem",
+		position: "relative",
+	}}
+	fill="none"
+	xmlns="http://www.w3.org/2000/svg"
 >
-  <title id="titleID">Pattern #6</title>
-  <rect width="142" height="142" fill="white" />
-  <rect
-    x="7"
-    y="7"
-    width="128"
-    height="128"
-    stroke="#04A5BB"
-    stroke-width="2"
-  />
-  <path
-    d="M89.38 30.87L88.83 29C49.89 38.13 39 62.33 39 79.82C39 98.08 50.99 112.82 70.35 112.82C87.62 112.82 102.14 101.16 102.14 83.67C102.14 67.39 90.81 57.71 77.17 57.71C68.15 57.71 62.98 62.11 60.56 66.84C63.64 52.1 71.67 37.14 89.38 30.87ZM58.91 82.79C58.91 79.6 59.13 76.19 59.57 72.67C61.66 66.95 66.06 64.42 70.68 64.42C77.83 64.42 82.23 70.25 82.23 85.87C82.23 100.94 78.27 109.19 71.01 109.19C62.21 109.19 58.91 97.09 58.91 82.79Z"
-    fill="#04A5BB"
-  />
+	<title id="titleID">Pattern #6</title>
+	<rect width="142" height="142" fill="white" />
+	<rect
+		x="7"
+		y="7"
+		width="128"
+		height="128"
+		stroke="#04A5BB"
+		stroke-width="2"
+	/>
+	<path
+		d="M89.38 30.87L88.83 29C49.89 38.13 39 62.33 39 79.82C39 98.08 50.99 112.82 70.35 112.82C87.62 112.82 102.14 101.16 102.14 83.67C102.14 67.39 90.81 57.71 77.17 57.71C68.15 57.71 62.98 62.11 60.56 66.84C63.64 52.1 71.67 37.14 89.38 30.87ZM58.91 82.79C58.91 79.6 59.13 76.19 59.57 72.67C61.66 66.95 66.06 64.42 70.68 64.42C77.83 64.42 82.23 70.25 82.23 85.87C82.23 100.94 78.27 109.19 71.01 109.19C62.21 109.19 58.91 97.09 58.91 82.79Z"
+		fill="#04A5BB"
+	/>
 </svg>
 
 <h3 style={{ margin: "0.25rem 0 0.5rem" }}>
-  Data can be shared between blocks
+	Data can be shared between blocks
 </h3>
 
 The content we put into a block isn't necessarily constrained to that block. In some of the more advanced block-editors, blocks can reference data held inside other blocks.
@@ -491,7 +518,7 @@ To reduce any confusion, let's also make clear what blocks are _not_. Within the
 - An entry on a blockchain ledger, or anything to do with Web3 blockchain hype. Please take that party elsewhere.
 - A specific technical implementation; they are not the same as React components, Web Components, or software components. They are a conceptual idea about how we present editable content to end-users of the web.
 
-{cartoon sketch of a block as a higher interface concept, possibly implemented in WC/React/etc, but not concerned with implementation. And nothing to do with the blockchain}
+[cartoon sketch of a block as a higher interface concept, possibly implemented in WC/React/etc, but not concerned with implementation. And nothing to do with the blockchain]
 
 The blocks I am talking about here are an interface pattern. How that pattern is implemented is beyond the scope of this article and my limited knowledge as a pseudo-engineer. I'm interested in blocks from a user and interface designer perspective, rather than a web infrastructure perspective. <Footnote idName={6}>There is plenty to be said about the technical challenges of how we could/should build interoperable blocks built on solid web standards, but I'll leave that to someone else. Perhaps you?</Footnote>
 
@@ -547,7 +574,7 @@ In the case of documents in wikis and notes, we simply couldn't have created doc
 
 On the surface level, a page of linear text and a page of blocks seem identical. But _structurally_ and _functionally_ they are entirely different beasts.
 
-{description of how block-based documents are different to rich text editors}
+[description of how block-based documents are different to rich text editors]
 
 - Stylistic edits vs structural edits
 - Granular character level editing vs block-level editing
@@ -564,9 +591,9 @@ Classical documents might format at the character level, but they organise at th
 
 A block can be dragged and dropped into a new position on the page. It can be swapped for another type of block without changing its content. It can be copied and pasted into a different document without losing its content and structure.
 
-<img width="" src="https://via.placeholder.com/600x300" alt="" />
+<BasicImage src="https://via.placeholder.com/600x300" alt="" />
 
-{annotated diagram of swapping blocks and dragging and dropping blocks}
+[annotated diagram of swapping blocks and dragging and dropping blocks]
 
 Blocks open up a world of flexibility and interactive power within a scoped area. They're easier to move around – a key quality for anyone working with ideas who needs to arrange and rearrange information in relationships to find the right groupings and sequences – which is to say, all of us doing knowledge work.
 
@@ -626,13 +653,13 @@ In 1974 Nelson wrote Computer Lib / Dream Machines, where he laid out elaborate 
 
 That system involved documents made up of 'parts', which could be any data type, and could be freely moved around a document. Being able to insert a part into multiple documents, link parts to one another, and easily rearrange parts within a document were all essential to the concept.
 
-{image of xanadu's parts}
+[image of xanadu's parts]
 
 While Nelson is infamous for being the first to coin concepts, his projects are also infamous for never manifesting into real software. Xanadu is still a hypothetical proposal. Which makes it difficult to evaluate whether its elaborate architecture was truly feasible.
 
 Working in the same realm as Nelson was Douglas Engelbart. In 1968 Engelbart gave [the mother of all demos]() showcasing a graphical interface, hyperlinks, point and click interactions, and live video conferencing all at once. His NLS - oNLine System – used flexible parts of a document that could be rearranged. This feels tangentially related to the way blocks work now, but still set the precedent for flexible data structures and dynamic documents.
 
-{image of NLS}
+[image of NLS]
 
 These projects are all spiritual predecesors in this story. The interfaces patterns they established moved us closer to thinking in blocks.
 
@@ -644,13 +671,13 @@ By the late 1980s, the personal computing revolution was in full swing. Boxy whi
 
 The first meaningful project in this period was Hypercard which .
 
-{image of hypercard}
+[image of hypercard]
 
 The idea of creating stacks of uniquely typed blocks inside documents first emerged in the early 1990's.
 
 Microsoft developed a system that allowed users to select an “object” created in one Microsoft application and embed it in another. This **Object Linking and Embedding (OLE)** technology meant you could select a set of cells in Microsoft Excel, copy it, and then paste it into a Microsoft Word document. 'Embedding' the Excel object into Word.
 
-{OLE diagram}
+[OLE diagram]
 
 In the parlance of the time, these were called “compound documents"
 
@@ -658,7 +685,7 @@ Microsoft's OLE was the first implementation that made block-based documents pos
 
 Apple stepped up with a vision that aimed to compete with OLE, but took the idea to its full potential. OpenDoc was a programme that flipped the concept of how applications worked on its head. It proposed a compound document made up of multiple small applications, things it called “parts” – similar to our modern day blocks, but more ambitious.
 
-{OpenDoc diagram}
+[OpenDoc diagram]
 
 the first OpenDoc-based product release was Apple's CyberDog web browser in May 1996. It died along with Hypercard in 1997
 
@@ -772,19 +799,19 @@ The web was born as a text-first medium. Tim Berners Lee designed it to mimic te
 The text-first, document-based model comes with a lot of design implications. It presumes the document or page is the basic unit of the web. We store our metadata at the level of the page, usually in the `<head>` tag. We link at the page level, rather than at the word, paragraph, or section level. <Footnote idName={1}>This has improved slightly with #header-level links, but the vast majority of links are still to entire pages, not granular lines or sections within a page.</Footnote>
 
 <References>
-  <ReferencesLink
-    title="Rich text with Sarah 'Slim' Lim"
-    href="https://museapp.com/podcast/48-rich-text/"
-    author="Metamuse Podcast"
-  />
-  <ReferencesLink
-    title="Designing the OpenDoc Human Interface"
-    href="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.101.8&rep=rep1&type=pdf"
-    author="Dave Curbow and Elizabeth Dykstra-Erickson"
-  />
-  <ReferencesLink
-    title="Why OpenDoc failed, and then failed 3 more times?"
-    href="https://instadeq.com/blog/posts/why-opendoc-failed-and-then-failed-3-more-times/"
-    author="Instadeq Blog"
-  />
+	<ReferencesLink
+		title="Rich text with Sarah 'Slim' Lim"
+		href="https://museapp.com/podcast/48-rich-text/"
+		author="Metamuse Podcast"
+	/>
+	<ReferencesLink
+		title="Designing the OpenDoc Human Interface"
+		href="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.101.8&rep=rep1&type=pdf"
+		author="Dave Curbow and Elizabeth Dykstra-Erickson"
+	/>
+	<ReferencesLink
+		title="Why OpenDoc failed, and then failed 3 more times?"
+		href="https://instadeq.com/blog/posts/why-opendoc-failed-and-then-failed-3-more-times/"
+		author="Instadeq Blog"
+	/>
 </References>

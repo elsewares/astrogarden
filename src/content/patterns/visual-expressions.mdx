@@ -8,6 +8,9 @@ type: "pattern"
 draft: true
 ---
 
+import Spacer from "../../components/mdx/Spacer.astro";
+import BlockquoteCitation from "../../components/mdx/BlockquoteCitation.astro";
+
 <h2 className="micro">The Context</h2>
 
 When users can enter a value that may be calculated from other variables and formulas in the systems.
@@ -29,13 +32,13 @@ I settled on ”Visual expression editors” because it felt like it captured th
 _Expression_ is techically the correct term for the actual thing people are writing here. To cite the Wikipedia official definition:
 
 <BlockquoteCitation
-  author="Wikipedia"
-  title="Expressions (Computer Science)"
-  url="https://en.wikipedia.org/wiki/Expression_(computer_science)"
+	author="Wikipedia"
+	title="Expressions (Computer Science)"
+	url="https://en.wikipedia.org/wiki/Expression_(computer_science)"
 >
-  "A syntactic entity in a programming language that may be evaluated to
-  determine its value. It is a combination of one or more constants, variables,
-  functions, and operators that the programming language interprets"
+	"A syntactic entity in a programming language that may be evaluated to
+	determine its value. It is a combination of one or more constants, variables,
+	functions, and operators that the programming language interprets"
 </BlockquoteCitation>
 
 The other options were to call it a “formula” or “query” which are similar concepts, but not quite as accurate. Expressions can contain formulas. Expressions may end up being queries to a database, but they themselves are not the query.

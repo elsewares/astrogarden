@@ -31,6 +31,7 @@ const { frontmatter } = Astro.props;
 			<Icon name="heroicons:arrow-left" size={16} />
 			<!-- <GrowthIcon size="16" growthStage={frontmatter.growthStage} /> -->
 			<p>{frontmatter.growthStage}</p>
+			{frontmatter.draft && <span class="draft-label">Draft</span>}
 		</div>
 		<div class="title-container">
 			<h1>{frontmatter.title}</h1>
@@ -137,5 +138,19 @@ const { frontmatter } = Astro.props;
 		.title-container p {
 			font-size: var(--font-size-base);
 		}
+	}
+
+	.draft-label {
+		display: inline-block;
+		font-family: var(--font-sans);
+		font-size: var(--font-size-xs);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		font-weight: bold;
+		padding: 2px 6px;
+		border-radius: 4px;
+		background-color: var(--color-gray-200);
+		color: var(--color-gray-700);
+		margin-left: var(--space-xs);
 	}
 </style>

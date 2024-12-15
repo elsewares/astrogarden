@@ -5,10 +5,10 @@ import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 import "../global.css";
 
-const essays = await getCollection("essays");
-const notes = await getCollection("notes");
-const patterns = await getCollection("patterns");
-const talks = await getCollection("talks");
+const essays = await getCollection("essays", ({ data }) => !data.draft);
+const notes = await getCollection("notes", ({ data }) => !data.draft);
+const patterns = await getCollection("patterns", ({ data }) => !data.draft);
+const talks = await getCollection("talks", ({ data }) => !data.draft);
 ---
 
 <Layout>

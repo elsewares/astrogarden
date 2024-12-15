@@ -6,16 +6,33 @@ updated: "2023-03-01"
 type: "essay"
 topics:
   ["Machine Learning", "Design", "Artificial Intelligence", "Tools for Thought"]
-cover: "/images/covers/rubberduck@2x.png"
+cover: "../../images/covers/rubberduck@2x.png"
 growthStage: "budding"
 toc: true
 aliases: ["epistemic rubber ducks"]
 draft: true
 ---
 
+import Accordion from "../../components/mdx/Accordion.astro";
+import AssumedAudience from "../../components/mdx/AssumedAudience.astro";
+import BasicImage from "../../components/mdx/BasicImage.astro";
+import Center from "../../components/mdx/Center.astro";
+import Footnote from "../../components/mdx/Footnote.astro";
+import ImageFrame from "../../components/mdx/ImageFrame.astro";
+import IntroParagraph from "../../components/mdx/IntroParagraph.astro";
+import ResourceBook from "../../components/mdx/ResourceBook.astro";
+import Spacer from "../../components/mdx/Spacer.astro";
+import Subtext from "../../components/mdx/typography/Subtext.astro";
+import TweetEmbed from "../../components/mdx/TweetEmbed.astro";
+import TwoColumn from "../../components/mdx/TwoColumn.astro";
+
+// Book cover imports
+import NewBreed from "../../images/books/newbreed.webp";
+
 <AssumedAudience>
-  People who have heard plenty of hype about large language models like
-  GPT-3 and ChatGPT, but don't know the technical details of how they work, what they're capable of, or what to do with the text they produce.
+	People who have heard plenty of hype about large language models like GPT-3
+	and ChatGPT, but don't know the technical details of how they work, what
+	they're capable of, or what to do with the text they produce.
 </AssumedAudience>
 
 <Spacer size="small" />
@@ -29,10 +46,10 @@ Large language models like GPT-3 are notorious liars. Anyone who has played arou
 If I ask GPT-3 who the current prime minister of the UK is, it says Theresa May.
 
 <BasicImage
-  margin="0 auto 2rem"
-  src="/images/posts/epistemic-ducks/gpt3-may.jpg"
-  width="820px"
-  alt="GPT-3 responding that the current prime minister of the UK is Theresa May"
+	margin="0 auto 2rem"
+	src="/images/posts/epistemic-ducks/gpt3-may.jpg"
+	width="820px"
+	alt="GPT-3 responding that the current prime minister of the UK is Theresa May"
 />
 
 I'll admit this is a challenging question. Our most recent PM Liz Truss was outlived by a [now infamous lettuce](https://www.theguardian.com/politics/2022/oct/20/iceberg-lettuce-in-blonde-wig-outlasts-liz-truss), and we've only just sworn in the new Rishi Sunak. But it proves the point that GPT-3 is not a reliable source of up-to-date information. Even if we ask something that doesn't require keeping up with the fly-by-night incompetence of the UK government, it's pretty unreliable.
@@ -40,15 +57,15 @@ I'll admit this is a challenging question. Our most recent PM Liz Truss was outl
 It regularly fails at basic maths questions:
 
 <BasicImage
-  margin="0 auto 0.5rem"
-  src="/images/posts/epistemic-ducks/gpt3-maths.jpg"
-  width="820px"
-  alt="Asking GPT-3 this maths question: 'If a toy train costs three times as much as a rocket. The total cost of the train and rocket is £52. How much does the train cost?' It incorrectly answers £36"
+	margin="0 auto 0.5rem"
+	src="/images/posts/epistemic-ducks/gpt3-maths.jpg"
+	width="820px"
+	alt="Asking GPT-3 this maths question: 'If a toy train costs three times as much as a rocket. The total cost of the train and rocket is £52. How much does the train cost?' It incorrectly answers £36"
 />
 
 <Subtext>
-  The correct answer here is £39. We first divide 52 by 4 = 13, and then times
-  13 by 3 = 39.
+	The correct answer here is £39. We first divide 52 by 4 = 13, and then times
+	13 by 3 = 39.
 </Subtext>
 
 <Spacer size="xs" />
@@ -56,10 +73,10 @@ It regularly fails at basic maths questions:
 And it's more than happy to provide specific dates for when ancient aliens first visited earth:
 
 <BasicImage
-  margin="0 auto 2rem"
-  src="/images/posts/epistemic-ducks/gpt3-aliens.jpg"
-  width="820px"
-  alt="Asking GPT-3 'When did ancient aliens first come to earth?' It answers 'The first ancient aliens to visit Earth were the Anunnaki, who arrived around 430,000 years ago'"
+	margin="0 auto 2rem"
+	src="/images/posts/epistemic-ducks/gpt3-aliens.jpg"
+	width="820px"
+	alt="Asking GPT-3 'When did ancient aliens first come to earth?' It answers 'The first ancient aliens to visit Earth were the Anunnaki, who arrived around 430,000 years ago'"
 />
 
 This behaviour is well-known and well-documented. In the industry, we call it “hallucination.” As in “the model says there's a 73% chance a lettuce would be a more effective prime minister than any UK cabinet minister, but I suspect it's hallucinating.”
@@ -67,10 +84,10 @@ This behaviour is well-known and well-documented. In the industry, we call it �
 The model is not being intentionally bad or wrong or immoral. It's simply [making predictions](https://en.wikipedia.org/wiki/GPT-3#:~:text=meaning%20that%20it%20is%20trained%20to%20predict%20what%20the%20next%20token%20is) about what word might come next in your sentence. That's the only thing a GPT knows how to do. It predicts the next most likely word in a sequence.
 
 <BasicImage
-  width="1100px"
-  margin="0 auto 2rem"
-  src="/images/posts/epistemic-ducks/prediction.jpg"
-  alt="..."
+	width="1100px"
+	margin="0 auto 2rem"
+	src="/images/posts/epistemic-ducks/prediction.jpg"
+	alt="..."
 />
 
 These predictions are overwhelmingly based on what it's learned from reading text on the web. The model was trained on a large corpus of social media posts, blogs, comments, and Reddit threads written before 2020. <Footnote idName={2}>Over 80% of GPT-3's training data comes from two sources: The [CommonCrawl](https://paperswithcode.com/dataset/common-crawl) dataset and [WebText2](https://paperswithcode.com/dataset/webtext). These were developed by scraping massive amounts of text from the web. WebText2 in particular is the text from outbound links in Reddit threads.</Footnote>
@@ -78,11 +95,11 @@ These predictions are overwhelmingly based on what it's learned from reading tex
 This becomes apparent as soon as you ask it to complete a sentence on a political topic. It returns the statistical median of all the political opinions and hot takes encountered during training.
 
 <BasicImage
-  width="820px"
-  margin="0 auto 4rem"
-  src="/images/posts/epistemic-ducks/gpt3-prediction.jpg"
-  alt="GPT-3's word-by-word prediction scores when asked to complete a sentence about universal basic income"
-  showalt
+	width="820px"
+	margin="0 auto 4rem"
+	src="/images/posts/epistemic-ducks/gpt3-prediction.jpg"
+	alt="GPT-3's word-by-word prediction scores when asked to complete a sentence about universal basic income"
+	showalt
 />
 
 GPT-3 is not the only large language model plagued by incorrect facts and strong political views.<Footnote idName={3}>Other large language models like BLOOM, T5, and BERT have the same issues</Footnote> But I'm going to focus on it in this discussion because it's currently the most widely used and well-known. Many people who aren't part of the machine learning and AI industry are using it. Perhaps without fully understanding how it works and what it's capable of.
@@ -124,114 +141,114 @@ Before we jump to the results you should know the prompt you give a language mod
 Here's a breakdown of what percentage of questions GPT-3 answered correctly on each benchmark. I've included both zero- and few-shot prompts, and the percentage that humans got right on the same questions:
 
 <table>
-  <thead></thead>
-  <tr>
-    <th
-      style={{
-        borderBottom: "1px solid var(--color-gray-300)",
-        textAlign: "left",
-      }}
-    ></th>
-    <th
-      style={{
-        borderBottom: "1px solid var(--color-gray-300)",
-        textAlign: "left",
-      }}
-    >
-      <p style={{ marginBottom: "0.5rem" }}>Zero shot</p>
-    </th>
-    <th
-      style={{
-        borderBottom: "1px solid var(--color-gray-300)",
-        textAlign: "left",
-      }}
-    >
-      <p style={{ marginBottom: "0.5rem" }}>Few shot</p>
-    </th>
-    <th
-      style={{
-        borderBottom: "1px solid var(--color-gray-300)",
-        textAlign: "left",
-      }}
-    >
-      <p style={{ marginBottom: "0.5rem" }}>Humans</p>
-    </th>
-  </tr>
-  <tr>
-    <td>
-      <p style={{ marginTop: "0.5rem" }}>Natural Questions</p>
-    </td>
-    <td>
-      <p style={{ marginTop: "0.5rem", fontFamily: "var(--font-sans)" }}>15%</p>
-    </td>
-    <td>
-      <p style={{ fontFamily: "var(--font-sans)" }}>30%</p>
-    </td>
-    <td>
-      <p style={{ fontFamily: "var(--font-sans)" }}>90%</p>
-    </td>
-  </tr>
-  <tr>
-    <td>Web Questions</td>
-    <td>
-      <p style={{ fontFamily: "var(--font-sans)" }}>14%</p>
-    </td>
-    <td>
-      <p style={{ fontFamily: "var(--font-sans)" }}>42%</p>
-    </td>
-    <td>
-      <p role="img" style={{ fontSize: "2.25rem" }}>
-        🤷‍♀️
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td>TriviaQA</td>
-    <td>
-      <p style={{ fontFamily: "var(--font-sans)" }}>64%</p>
-    </td>
-    <td>
-      <p style={{ fontFamily: "var(--font-sans)" }}>71%</p>
-    </td>
-    <td>
-      <p style={{ fontFamily: "var(--font-sans)" }}>80%</p>
-    </td>
-  </tr>
-  <tr>
-    <td>CommonsenseQA</td>
-    <td>
-      <p role="img" style={{ fontSize: "2.25rem" }}>
-        🤷‍♀️
-      </p>
-    </td>
-    <td>
-      <p style={{ fontFamily: "var(--font-sans)" }}>53%</p>
-    </td>
-    <td>
-      <p style={{ fontFamily: "var(--font-sans)" }}>94%</p>
-    </td>
-  </tr>
-  <tr>
-    <td>TruthfulQA</td>
-    <td>
-      <p style={{ fontFamily: "var(--font-sans)" }}>20%</p>
-    </td>
-    <td>
-      <p role="img" style={{ fontSize: "2.25rem" }}>
-        🤷‍♀️
-      </p>
-    </td>
-    <td>
-      <p style={{ fontFamily: "var(--font-sans)" }}>94%</p>
-    </td>
-  </tr>
+	<thead></thead>
+	<tr>
+		<th
+			style={{
+				borderBottom: "1px solid var(--color-gray-300)",
+				textAlign: "left",
+			}}
+		></th>
+		<th
+			style={{
+				borderBottom: "1px solid var(--color-gray-300)",
+				textAlign: "left",
+			}}
+		>
+			<p style={{ marginBottom: "0.5rem" }}>Zero shot</p>
+		</th>
+		<th
+			style={{
+				borderBottom: "1px solid var(--color-gray-300)",
+				textAlign: "left",
+			}}
+		>
+			<p style={{ marginBottom: "0.5rem" }}>Few shot</p>
+		</th>
+		<th
+			style={{
+				borderBottom: "1px solid var(--color-gray-300)",
+				textAlign: "left",
+			}}
+		>
+			<p style={{ marginBottom: "0.5rem" }}>Humans</p>
+		</th>
+	</tr>
+	<tr>
+		<td>
+			<p style={{ marginTop: "0.5rem" }}>Natural Questions</p>
+		</td>
+		<td>
+			<p style={{ marginTop: "0.5rem", fontFamily: "var(--font-sans)" }}>15%</p>
+		</td>
+		<td>
+			<p style={{ fontFamily: "var(--font-sans)" }}>30%</p>
+		</td>
+		<td>
+			<p style={{ fontFamily: "var(--font-sans)" }}>90%</p>
+		</td>
+	</tr>
+	<tr>
+		<td>Web Questions</td>
+		<td>
+			<p style={{ fontFamily: "var(--font-sans)" }}>14%</p>
+		</td>
+		<td>
+			<p style={{ fontFamily: "var(--font-sans)" }}>42%</p>
+		</td>
+		<td>
+			<p role="img" style={{ fontSize: "2.25rem" }}>
+				🤷‍♀️
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td>TriviaQA</td>
+		<td>
+			<p style={{ fontFamily: "var(--font-sans)" }}>64%</p>
+		</td>
+		<td>
+			<p style={{ fontFamily: "var(--font-sans)" }}>71%</p>
+		</td>
+		<td>
+			<p style={{ fontFamily: "var(--font-sans)" }}>80%</p>
+		</td>
+	</tr>
+	<tr>
+		<td>CommonsenseQA</td>
+		<td>
+			<p role="img" style={{ fontSize: "2.25rem" }}>
+				🤷‍♀️
+			</p>
+		</td>
+		<td>
+			<p style={{ fontFamily: "var(--font-sans)" }}>53%</p>
+		</td>
+		<td>
+			<p style={{ fontFamily: "var(--font-sans)" }}>94%</p>
+		</td>
+	</tr>
+	<tr>
+		<td>TruthfulQA</td>
+		<td>
+			<p style={{ fontFamily: "var(--font-sans)" }}>20%</p>
+		</td>
+		<td>
+			<p role="img" style={{ fontSize: "2.25rem" }}>
+				🤷‍♀️
+			</p>
+		</td>
+		<td>
+			<p style={{ fontFamily: "var(--font-sans)" }}>94%</p>
+		</td>
+	</tr>
 </table>
 
 <Subtext>
-  <span role="img" style={{ fontSize: "1.5rem" }}>
-    🤷‍♀️
-  </span>
-  = these numbers weren't reported in the study
+	<span role="img" style={{ fontSize: "1.5rem" }}>
+		🤷‍♀️
+	</span>
+	= these numbers weren't reported in the study
 </Subtext>
 
 <Spacer size="xs" />
@@ -266,27 +283,30 @@ These issues aren't limited to people directly asking GPT-3 questions within the
 
 <TwoColumn margin="0 auto 4rem" maxWidth="800px">
 
-<ImageFrame
-  margin="0 auto"
-  src="/images/posts/epistemic-ducks/riff1.png"
-  alt="Asking Riff to answer as if it's a professor of anthropology"
+<BasicImage
+	framed
+	margin="0 auto"
+	src="/images/posts/epistemic-ducks/riff1.png"
+	alt="Asking Riff to answer as if it's a professor of anthropology"
 />
 
-<ImageFrame
-  margin="0 auto"
-  src="/images/posts/epistemic-ducks/riff2.png"
-  alt="Asking Riff questions about the anthropologist Clifford Geertz"
+<BasicImage
+	framed
+	margin="0 auto"
+	src="/images/posts/epistemic-ducks/riff2.png"
+	alt="Asking Riff questions about the anthropologist Clifford Geertz"
 />
 
 </TwoColumn>
 
 Riff is doing some prompt engineering behind the scenes and fetching extra information from the web and Wikipedia to make these answers more reliable. But in test-driving it still hallucinated. Here I've asked it for books on [[digital anthropology]] since I know the field well and have my own [[list of books]] I recommend to people:
 
-<ImageFrame
-  margin="0.5rem auto 2rem"
-  width="900px"
-  src="/images/posts/epistemic-ducks/riff-chat.jpg"
-  alt=""
+<BasicImage
+	framed
+	margin="0.5rem auto 2rem"
+	width="900px"
+	src="/images/posts/epistemic-ducks/riff-chat.jpg"
+	alt=""
 />
 
 At first, this seems pretty good! The "Hockings" it's telling me about is [Paul Hockings](https://en.wikipedia.org/wiki/Paul_Hockings), a real British anthropologist and professor emeritus at the University of Illinois. **But** he hasn't done any work in digital anthropology, and certainly hasn't written a book called “Digital Anthropology.” This blend of truth and fiction might be more dangerous than fiction alone. I might check one or two facts, find they're right, and assume the rest is also valid.
@@ -299,33 +319,23 @@ There's a different, and perhaps more troublesome, framing that I'm seeing pop u
 
 These writing apps want to help you pump out essays, emails, landing pages,
 and blog posts based on only a few bullet points and keywords. They do what
-I'm calling the
-
-<button
-  style={{
-    padding: "0px 12px 2px",
-    fontFamily: "var(--font-sans)",
-    background: "linear-gradient(to bottom, #15cf5b, #0ebe50)",
-    color: "white",
-    borderRadius: "8px",
-    margin: "0 8px",
-    display: "inline-block",
-  }}
->big green button</button> approach where you type in a few key points, then click a big green button that “magically” generates a full ream of text for you.
+I'm calling the <button style={{ padding: "0px 12px 2px", fontFamily: "var(--font-sans)", background: "linear-gradient(to bottom, #15cf5b, #0ebe50)", color: "white", borderRadius: "8px", margin: "0 8px", display: "inline-block",}}>big green button </button> approach where you type in a few key points, then click a big green button that “magically” generates a full ream of text for you.
 
 Here's an essay I “wrote” in [Moonbeam](https://app.gomoonbeam.com/) by typing in the title “Chinese Economic Influence” and then proceeding to click a series of big green buttons:
 
-<ImageFrame
-  width="900px"
-  margin="1rem auto 0"
-  src="/images/posts/epistemic-ducks/moonbeam.jpg"
-  alt=""
+<BasicImage
+	framed
+	width="900px"
+	margin="1rem auto 0"
+	src="/images/posts/epistemic-ducks/moonbeam.jpg"
+	alt=""
 />
-<ImageFrame
-  width="900px"
-  margin="0 auto 3rem"
-  src="/images/posts/epistemic-ducks/moonbeam2.jpg"
-  alt=""
+<BasicImage
+	framed
+	width="900px"
+	margin="0 auto 3rem"
+	src="/images/posts/epistemic-ducks/moonbeam2.jpg"
+	alt=""
 />
 
 I know next to nothing about Chinese economic influence, so I'm certainly not the source of any of these claims. At first glance, the output _looks_ quite impressive. On second glance you wonder if the statements it's making are so sweeping and vague that they can't really be fact-checked.
@@ -334,11 +344,12 @@ Who am I to say "Chinese economic influence is likely to continue to grow in the
 
 Here's me putting the same level of input into [Copy.ai](https://app.copy.ai/), then relying on their "create content" button to do the rest of the work:
 
-<ImageFrame
-  width="900px"
-  margin="0 auto 2rem"
-  src="/images/posts/epistemic-ducks/copyai1.jpg"
-  alt=""
+<BasicImage
+	framed
+	width="900px"
+	margin="0 auto 2rem"
+	src="/images/posts/epistemic-ducks/copyai1.jpg"
+	alt=""
 />
 
 Again, the output seems sensible and coherent. But with no sources or references to back these statements up, what value do they have? _Who_ believes these things about China's economy? What information do they have access to? **How do we know any of this is valid?**
@@ -349,11 +360,11 @@ Again, the output seems sensible and coherent. But with no sources or references
    The core problem is less that these models return outright falsehoods or misleading answers, but that we expect anything else from them. The decades-long [cultural](https://en.wikipedia.org/wiki/Superintelligence:_Paths,_Dangers,_Strategies) [narrative](https://en.wikipedia.org/wiki/Life_3.0) [we've been](https://www.theverge.com/2021/10/20/22734215/ai-ask-delphi-moral-ethical-judgement-demo) [weaving](https://www.wired.com/story/lamda-sentient-ai-bias-google-blake-lemoine/) about the all-knowing, dangerously super-intelligent machine that can absorb and resurface the collective wisdom of humanity has come back to bite us in the epistemic butt. Well-known figures in the industry speak about language models as [oracles](https://www.youtube.com/watch?v=cdiD-9MMpb0&t=3770s) and journalists present them as [magic](https://www.theguardian.com/technology/2022/sep/21/ais-dark-arts-come-into-their-own#:~:text=rogramming%20a%20computer,illusion%20of%20sentience.). We're currently in the awkward middle phase where we're unsure how to calibrate future premonitions against current realities. We've come to expect omniscience from them too soon.
 
 <BasicImage
-  src="/images/posts/epistemic-ducks/oracle3.png"
-  width="800px"
-  alt="A friendly, helpful AI oracle – Made with Midjourney"
-  showalt
-  margin="0 auto 2rem"
+	src="/images/posts/epistemic-ducks/oracle3.png"
+	width="800px"
+	alt="A friendly, helpful AI oracle – Made with Midjourney"
+	showalt
+	margin="0 auto 2rem"
 />
 
 ## Three Failure States
@@ -399,9 +410,9 @@ Several interesting metaphorical frames could lead us down very different pathwa
 We should instead think of them as rubber ducks.
 
 <BasicImage
-  src="/images/posts/epistemic-ducks/duck1.jpg"
-  width="550px"
-  margin="2rem auto 0"
+	src="/images/posts/epistemic-ducks/duck1.jpg"
+	width="550px"
+	margin="2rem auto 0"
 />
 
 ## Epistemic rubber ducking
@@ -417,9 +428,9 @@ And not just any rubber ducking...
 [decorate the text with floating rubber ducks and sparkles]
 
 <Center>
-  <span style={{ fontSize: "3rem", color: "goldenrod", marginBottom: "3rem" }}>
-    Epistemic rubber ducking
-  </span>
+	<span style={{ fontSize: "3rem", color: "goldenrod", marginBottom: "3rem" }}>
+		Epistemic rubber ducking
+	</span>
 </Center>
 
 Epistemology is the study of how we know what we know, also called “theory of knowledge.” It deals with issues like how valid a claim is, how strong its claims and counter-arguments are, whether the evidence came from a reliable source, and whether cognitive biases might be warping our opinions.
@@ -466,7 +477,7 @@ Kate Darling has [made this argument](https://www.penguin.co.uk/books/309409/the
   url="https://www.penguin.co.uk/books/309409/the-new-breed-by-darling-kate/9780141988641"
   title="The New Breed: How to Think About Robots"
   author="Kate Darling"
-  image="/images/books/newbreed.webp"
+  image={NewBreed}
 >
 
 Kate Darling argues we should look to our history with animals to help guide our relationship with robots. We've lived alongside many other species in mutually-beneficial relationships for centuries, giving us a long history of social, legal, and emotional insights. Rather than making robots that imitate and replace humans, we can instead develop their skills and abilities to complement our own.
@@ -480,18 +491,18 @@ An alternate analogy I've heard floating around is “aliens.” [Many AI](https
 <TwoColumn maxWidth="950px" alignItems="top">
 
 <BasicImage
-  src="/images/posts/epistemic-ducks/alien1.png"
-  alt="a scary alien"
+	src="/images/posts/epistemic-ducks/alien1.png"
+	alt="a scary alien"
 />
 <BasicImage
-  src="/images/posts/epistemic-ducks/alien2.png"
-  alt="a scary alien"
+	src="/images/posts/epistemic-ducks/alien2.png"
+	alt="a scary alien"
 />
 
 </TwoColumn>
 
 <Subtext>
-  A few friendly, helpful thinking partners – Made with Midjourney
+	A few friendly, helpful thinking partners – Made with Midjourney
 </Subtext>
 
 I think there's a lot more to explore here around the metaphors we use to talk about language models and AI systems, but I'll save it for another post.

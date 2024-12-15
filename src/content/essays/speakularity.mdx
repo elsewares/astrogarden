@@ -3,12 +3,25 @@ title: "Hitting the Speakularity"
 description: "Reaching the moment when voice transcription becomes accurate, fast, private, cheap, and convenient enough to become ubiquitous"
 updated: "2024-02-05"
 startDate: "2024-02-05"
-type: "note"
+cover: "../../images/covers/paleo@2x.png"
+type: "essay"
 topics: ["Design", "Artificial Intelligence", "Language Models"]
 growthStage: "budding"
 toc: true
 draft: true
 ---
+
+import IntroParagraph from "../../components/mdx/typography/IntroParagraph.astro";
+import Footnote from "../../components/mdx/Footnote.astro";
+import BasicImage from "../../components/mdx/images/BasicImage.astro";
+import TwoColumn from "../../components/mdx/TwoColumn.astro";
+import TranscriptionTimeline from "../../components/mdx/TranscriptionTimeline.astro";
+import AudioPlayer from "../../components/mdx/AudioPlayer.astro";
+import References from "../../components/mdx/References.astro";
+import ReferencesLink from "../../components/mdx/ReferencesLink.astro";
+import TweetEmbed from "../../components/mdx/TweetEmbed.astro";
+import Video from "../../components/mdx/Video.astro";
+import Accordion from "../../components/mdx/Accordion.astro";
 
 <IntroParagraph>
 
@@ -24,8 +37,22 @@ Because it was free and seamlessly integrated into a familiar task, they made it
 
 <TwoColumn maxWidth="1200px" gridTemplateColumns="3fr 2fr" margin="-2rem auto 4rem">
 
-<ImageFrame width="800px" src="/images/posts/speakularity/googlesearch.webp" alt="Voice input integrated into Google Search, 2011" showalt sourceUrl="https://googlesystem.blogspot.com/2011/01/voice-search-for-google-chrome.html" sourceTitle="Google Operating System" />
-<BasicImage src="/images/posts/speakularity/siri-screen.webp" alt="Siri's original interface, 2011" showalt sourceUrl="https://www.forbes.com/sites/nicoleperlroth/2011/10/12/siri-was-born-a-man-and-other-things-you-dont-know-about-apples-new-personal-assistant/" sourceTitle="Forbes" />
+<BasicImage
+	framed
+	width="800px"
+	src="/images/posts/speakularity/googlesearch.webp"
+	alt="Voice input integrated into Google Search, 2011"
+	showalt
+	sourceUrl="https://googlesystem.blogspot.com/2011/01/voice-search-for-google-chrome.html"
+	sourceTitle="Google Operating System"
+/>
+<BasicImage
+	src="/images/posts/speakularity/siri-screen.webp"
+	alt="Siri's original interface, 2011"
+	showalt
+	sourceUrl="https://www.forbes.com/sites/nicoleperlroth/2011/10/12/siri-was-born-a-man-and-other-things-you-dont-know-about-apples-new-personal-assistant/"
+	sourceTitle="Forbes"
+/>
 
 </TwoColumn>
 
@@ -34,13 +61,120 @@ This kicked off a decade of voice assistant hype and development as Amazon and M
 <TranscriptionTimeline />
 
 These voice assistants tend only accepted short, structured queries like:
-<div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginBottom: "1.75rem" }}>
-<p style={{ padding: "2px 24px 6px", border: "1px solid var(--color-gray-300)", borderRadius: "32px", textAlign: "center", margin: "0 auto 1rem", display: "flex", alignItems: "center", gridGap: "0.25rem" }}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style={{width:"20px", height:"20px", marginRight: "0.25rem", marginTop: "0.25rem", color: "var(--color-gray-600)"}}><path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z" /></svg>Nearby pharmacies open now</p>
-<p style={{ padding: "2px 24px 6px", border: "1px solid var(--color-gray-300)", borderRadius: "32px", textAlign: "center", margin: "0 auto 1rem", display: "flex", alignItems: "center", gridGap: "0.25rem" }}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style={{width:"20px", height:"20px", marginRight: "0.25rem", marginTop: "0.25rem", color: "var(--color-gray-600)"}}><path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z" /></svg>Hey Siri, remind me to buy yams tomorrow</p>
-<p style={{ padding: "2px 24px 6px", border: "1px solid var(--color-gray-300)", borderRadius: "32px", textAlign: "center", margin: "0 auto 0.5rem", display: "flex", alignItems: "center", gridGap: "0.25rem" }}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style={{width:"20px", height:"20px", marginRight: "0.25rem", marginTop: "0.25rem", color: "var(--color-gray-600)"}}><path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z" /></svg>Alexa, when is the winter solstice?</p>
+
+<div
+	style={{
+		display: "flex",
+		flexDirection: "column",
+		alignItems: "center",
+		marginBottom: "1.75rem",
+	}}
+>
+	<p
+		style={{
+			padding: "2px 24px 6px",
+			border: "1px solid var(--color-gray-300)",
+			borderRadius: "32px",
+			textAlign: "center",
+			margin: "0 auto 1rem",
+			display: "flex",
+			alignItems: "center",
+			gridGap: "0.25rem",
+		}}
+	>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			fill="none"
+			viewBox="0 0 24 24"
+			stroke-width="1.5"
+			stroke="currentColor"
+			style={{
+				width: "20px",
+				height: "20px",
+				marginRight: "0.25rem",
+				marginTop: "0.25rem",
+				color: "var(--color-gray-600)",
+			}}
+		>
+			<path
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z"
+			/>
+		</svg>
+		Nearby pharmacies open now
+	</p>
+	<p
+		style={{
+			padding: "2px 24px 6px",
+			border: "1px solid var(--color-gray-300)",
+			borderRadius: "32px",
+			textAlign: "center",
+			margin: "0 auto 1rem",
+			display: "flex",
+			alignItems: "center",
+			gridGap: "0.25rem",
+		}}
+	>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			fill="none"
+			viewBox="0 0 24 24"
+			stroke-width="1.5"
+			stroke="currentColor"
+			style={{
+				width: "20px",
+				height: "20px",
+				marginRight: "0.25rem",
+				marginTop: "0.25rem",
+				color: "var(--color-gray-600)",
+			}}
+		>
+			<path
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z"
+			/>
+		</svg>
+		Hey Siri, remind me to buy yams tomorrow
+	</p>
+	<p
+		style={{
+			padding: "2px 24px 6px",
+			border: "1px solid var(--color-gray-300)",
+			borderRadius: "32px",
+			textAlign: "center",
+			margin: "0 auto 0.5rem",
+			display: "flex",
+			alignItems: "center",
+			gridGap: "0.25rem",
+		}}
+	>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			fill="none"
+			viewBox="0 0 24 24"
+			stroke-width="1.5"
+			stroke="currentColor"
+			style={{
+				width: "20px",
+				height: "20px",
+				marginRight: "0.25rem",
+				marginTop: "0.25rem",
+				color: "var(--color-gray-600)",
+			}}
+		>
+			<path
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z"
+			/>
+		</svg>
+		Alexa, when is the winter solstice?
+	</p>
 </div>
 
-The brevity of these inputs was both a feature and a design limitation. They were quick to interact with, but masked a lot of the rough edges. When you're only saying a few words, you don't notice that the accuracy rate is less-than-perfect. They didn't need to be that _good_ at voice recognition. They didn't have to deal with an unlimited range of specialised vocabularies, speech acts, or contexts. 
+The brevity of these inputs was both a feature and a design limitation. They were quick to interact with, but masked a lot of the rough edges. When you're only saying a few words, you don't notice that the accuracy rate is less-than-perfect. They didn't need to be that _good_ at voice recognition. They didn't have to deal with an unlimited range of specialised vocabularies, speech acts, or contexts.
 
 At least not as good as systems that have to handle long, continous voice dictations or transcribe hours of audio. They also trained us to think about voice input as a short-form medium. Most people still associate voice input with short, directive commands Few people think about long-form transcription when they hear “voice input.”
 
@@ -54,14 +188,13 @@ Jump forward a dozen years and we're in a very different place.
 
 Voice is now my primary input method. A series of advancements over the last 18 months have made the Speakularity possible.
 
-
 ## Living in the Speakularity
 
 I was surprised at how quickly and easily voice became my primary input method. Every morning I sit at my desk and “write” my reflections, tasks, and top-of-mind concerns by speaking out loud to my Macbook. When I open Slack to catch-up on my co-worker's messages, I dash off responses with my voice. When I have an idea for a new essay, I create the first draft by talking out loud. When I have to reply to a particularly tiresome and beaurocratic email, I get over that resistance by verbalising it.
 
 How am I doing this articulated magic?
 
-I have a little app called [SuperWhisper](https://superwhisper.com/)<Footnote idName={4}>This is currently the best app on the market by a good margin, but I'll discuss different options and design considerations later on.</Footnote> that lives in my menu bar. It stays out of the way unless I summon it by hitting a keyboard shortcut. I use `Ctrl + W`, but you can set it to whatever you like. When called, it opens a small pop-over window and begins recording. 
+I have a little app called [SuperWhisper](https://superwhisper.com/)<Footnote idName={4}>This is currently the best app on the market by a good margin, but I'll discuss different options and design considerations later on.</Footnote> that lives in my menu bar. It stays out of the way unless I summon it by hitting a keyboard shortcut. I use `Ctrl + W`, but you can set it to whatever you like. When called, it opens a small pop-over window and begins recording.
 
 <BasicImage width="600px" src="/images/posts/speakularity/superwhisper0.jpg" />
 
@@ -71,7 +204,11 @@ I say what I want to say, and press the same keyboard shortcut. After a brief lo
 
 In that loading period, Superwhisper feeds my audio file into an AI model called [Whisper](https://openai.com/research/whisper). It's an [open source](https://github.com/openai/whisper) voice-to-text model created by [OpenAI](https://openai.com/) in 2022. SuperWhisper downloads Whisper onto my local machine and gives me an easy way to use it. It even lets me pick which size model I want – larger models are slower, but more accurate.
 
-<ImageFrame width="800px" src="/images/posts/speakularity/superwhisper1.jpg" />
+<BasicImage
+	framed
+	width="800px"
+	src="/images/posts/speakularity/superwhisper1.jpg"
+/>
 
 The inline paste feature is critical. It means I can transcribe my voice into any app without worrying about compatability. The single keyboard shortcut to record and paste is also important. It only takes me one swift motion to be in transcription mode.
 
@@ -132,8 +269,10 @@ This lack of fanfare is likely because, until _very_ recently, speech-to-text sy
 I ran a quick poll on Twitter to ask how many people regularly used voice input, and for people who never used it, what the main reason was.
 
 <TweetEmbed tweetId="1755556368893751475" />
- 
-Well over half (53.9%) of the 892 respondents never use voice. And a full 90% of people use it less than 20% of the time. This surprised me! My Twitter network is full of exploratory and highly technically literate nerds. Exactly the kind of people who might experiment with voice input.
+Well over half (53.9%) of the 892 respondents never use voice. And a full 90% of
+people use it less than 20% of the time. This surprised me! My Twitter network
+is full of exploratory and highly technically literate nerds. Exactly the kind
+of people who might experiment with voice input.
 
 The two main reasons people don't use it are that it would annoy people around them, and that it makes too many mistakes. I'll address noise and environment issues a bit later on, but lets talk about accuracy for a moment.
 
@@ -159,14 +298,30 @@ WERs started around 30-40% in the 1990's<Footnote idName={8}>Cite</Footnote>, bu
 It started in XXX when IBM announcced a WER of 5.9.
 Then in 2017 Google announced they'd achieved a WER of X, below the 5% mark taken as "human-level".
 
-
-<ImageFrame padding="3rem" src="/images/posts/speakularity/wer.svg" sourceTitle="Speech Recognition Is Not Solved – Awni Hannun" sourceUrl="https://awni.github.io/speech-recognition/" alt="WER improvements over time on the Switchboard benchmark. Switchboard is a dataset of 40 phone chats between two native English speakers" showalt width="1200px" />
+<BasicImage
+	framed
+	padding="3rem"
+	src="/images/posts/speakularity/wer.svg"
+	sourceTitle="Speech Recognition Is Not Solved – Awni Hannun"
+	sourceUrl="https://awni.github.io/speech-recognition/"
+	alt="WER improvements over time on the Switchboard benchmark. Switchboard is a dataset of 40 phone chats between two native English speakers"
+	showalt
+	width="1200px"
+/>
 
 So it turns out there is no such thing as a single WER rate for a given model. Its performance depends on the speaker, the amount of background noise, and the subject matter being talked about.
 
 Deepgram [measured](https://arc.net/l/quote/rxyldyks) the accuracy rate of the current most popular models across a range of tasks.<Footnote idName={9}>We should take this with some grains of salt, because Deepgram offers a paid speech-to-text API that competes with every model they've listed here. We'll give them the benefit of the doubt for this graph, but don't take it as Science.</Footnote> Podcasts had the lowest WER likely because it's one or two people speaking clearly into a good quality mic. Phone calls have a higher WER given that people on calls tend to speak faster, more casually, and talk over one another. Plus the audio quality is rarely stellar.
 
-<ImageFrame src="/images/posts/speakularity/wer-rates.webp" alt="Average WER rate for popular ASR models across a range of tasks" sourceUrl="https://arc.net/l/quote/atksqtsc" sourceTitle="Deepgram" showalt width={1400} />
+<BasicImage
+	framed
+	src="/images/posts/speakularity/wer-rates.webp"
+	alt="Average WER rate for popular ASR models across a range of tasks"
+	sourceUrl="https://arc.net/l/quote/atksqtsc"
+	sourceTitle="Deepgram"
+	showalt
+	width={1400}
+/>
 
 These models can fail because they don't have the same kind of context about us as someone we're speaking to. They don't know our professions, what tasks we're currently trying to do, or any of the specialised vocabulary we might use.
 
@@ -184,30 +339,36 @@ Now, I say this as someone who's voice meshes well with these systems. My Britis
 
 ---
 
-
-
 Before August, I never considered pure voice input a feasible option. Because, like all of you, my personal experience of native transcription was, in a word, shit.
 
 Let's compare a few sentences transcribed with Whisper versus with Apple's native TTS. I've picked some sentences from this piece and read them out loud to each system:
 
-
-<AudioPlayer title="Sample 1: Accents and speech recognition" src="/audio/speakularity/mag-sample-2.m4a" />
+<AudioPlayer
+	title="Sample 1: Accents and speech recognition"
+	src="/audio/speakularity/mag-sample-2.m4a"
+/>
 
 #### Whisper output
+
 My British-American hybrid accent is a little bit strange, but it's certainly not drastically different from the kinds of voices these systems are trained on, which are primarily American accents. These models are much less accurate for people who speak English as a second language, or have accents from anywhere else in the world.
 
-
 #### Apple native TTS output
+
 My British American hybrid accent is a little bit strange, but it certainly not drastically different from the kinds of voices. The systems are trained on which are primarily American accents. These models are much less accurate for people who speak English as a second language who who have accents from anywhere else in the wor?
 
 <Spacer size="small" />
 
-<AudioPlayer title="Sample 2: Blockers to the Speakularity" src="/audio/speakularity/mag-sample-1.m4a" />
+<AudioPlayer
+	title="Sample 2: Blockers to the Speakularity"
+	src="/audio/speakularity/mag-sample-1.m4a"
+/>
 
 #### Whisper output
+
 In Matt's original specularity prediction, they identified a few major blockers to the specularity happening, namely speed, cost and quality. While these are all important, they forget that one of the biggest blockers is design and ease of use.
 
 #### Apple native TTS output
+
 In maths, original, secularity prediction, they identified a few major blockers to the secularity happening, namely, speed cost and quality. All these more importantly, forget that one of the biggest blockers design and ease of use.
 
 ---
@@ -224,10 +385,12 @@ This is where the way Whisper is built makes a difference. Whisper is built off 
 
 How is Whisper doing this? Here's a simple diagram that clearly explains the whole system:
 
-<BasicImage width="1100px" src="/images/posts/speakularity/whisper-diagram.png" />
+<BasicImage
+	width="1100px"
+	src="/images/posts/speakularity/whisper-diagram.png"
+/>
 
 Oh, you're confused? Are you not familiar with Log-Mel Spectrograms? Did you get lost somewhere around the “Sinusoidal Positional Encoding” mark?
-
 
 But something meaningfully shifted over the last (18 months?). Namely, that we (pulled transformers, neural networks, and machine learning into the picture).
 
@@ -235,18 +398,13 @@ But something meaningfully shifted over the last (18 months?). Namely, that we (
 
 (Add diagram of neural networks and audio data?)
 
-
-
-You are not alone! I have only the fuzziest conceptual understanding of transformer models and self-attention. 
+You are not alone! I have only the fuzziest conceptual understanding of transformer models and self-attention.
 
 These advancements all led up to my inflection point over the summer. (I first tried Whisper in Tana and realised how much easier it was to capture thoughts with voice. I then found MurmurType via Setapp and that REALLY shifted my behaviour. The UX design and lack of friction was the turning point.)
-
 
 It's always been cheap enough – we all have free built-in voice-to-text features on Mac, Windows, or our smartphones. It's not that fast, but it's tolerable. The primary blocker up to now has been _accuracy_. It's just not very _good_ at recognising what we're saying.
 
 ( image of cheap, fast, and accurate )
-
-
 
 (!! I think this claim is correct but I have to double check it and I also have to figure out how I'm going to double check it. Hopefully someone has written a piece about why Whisper is such a different technology to previous transcription technologies and why it's so much more accurate. I'm fairly certain it's to do with language models and attention and transformers but I have to verify that!!
 
@@ -295,35 +453,32 @@ There's one blaring problem with switching to voice input; you have to make a bu
 
 Not only will you annoy them, you'll likely feel subconscious trying to talk to your machine in earshot of them. It's not a good time to explore anything private or sensitive.
 
-
-
 Subaudible microphone technology roundup.
 
 <References>
-  <ReferencesLink
-    title="Speech Recognition Through the Decades: How We Ended Up With Siri"
-    href="https://www.pcworld.com/article/477914/speech_recognition_through_the_decades_how_we_ended_up_with_siri.html"
-    author="Melanie Pinola, PC World, 2011"
-  />
-  <ReferencesLink
-    title="A Brief History of Speech to Text and How it Actually Works"
-    href="https://mythicalai.substack.com/p/a-brief-history-of-speech-to-text"
-    author="Josh Dance, 2023"
-  />
-  <ReferencesLink
-    title="Audrey, Alexa, Hal, and More"
-    href="https://computerhistory.org/blog/audrey-alexa-hal-and-more/"
-    author="Dag Spicer, Computer History Museum, 2021"
-  />
-  <ReferencesLink
-    title="Speech Recognition Is Not Solved"
-    href="https://awni.github.io/speech-recognition/"
-    author="Awni Hannun, 2017"
-  />
-  <ReferencesLink
-    title="The Future of Speech Recognition: Where Will We Be in 2030?"
-    href="https://thegradient.pub/the-future-of-speech-recognition/"
-    author="Migüel Jetté, The Gradient, 2022"
-  />
-  
+	<ReferencesLink
+		title="Speech Recognition Through the Decades: How We Ended Up With Siri"
+		href="https://www.pcworld.com/article/477914/speech_recognition_through_the_decades_how_we_ended_up_with_siri.html"
+		author="Melanie Pinola, PC World, 2011"
+	/>
+	<ReferencesLink
+		title="A Brief History of Speech to Text and How it Actually Works"
+		href="https://mythicalai.substack.com/p/a-brief-history-of-speech-to-text"
+		author="Josh Dance, 2023"
+	/>
+	<ReferencesLink
+		title="Audrey, Alexa, Hal, and More"
+		href="https://computerhistory.org/blog/audrey-alexa-hal-and-more/"
+		author="Dag Spicer, Computer History Museum, 2021"
+	/>
+	<ReferencesLink
+		title="Speech Recognition Is Not Solved"
+		href="https://awni.github.io/speech-recognition/"
+		author="Awni Hannun, 2017"
+	/>
+	<ReferencesLink
+		title="The Future of Speech Recognition: Where Will We Be in 2030?"
+		href="https://thegradient.pub/the-future-of-speech-recognition/"
+		author="Migüel Jetté, The Gradient, 2022"
+	/>
 </References>
