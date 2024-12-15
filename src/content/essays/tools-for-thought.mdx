@@ -17,26 +17,29 @@ aliases:
 growthStage: "budding"
 ---
 
-import IntroParagraph from "../../components/mdx/IntroParagraph.astro";
-import Spacer from "../../components/mdx/Spacer.astro";
-import Footnote from "../../components/mdx/Footnote.astro";
 import AssumedAudience from "../../components/mdx/AssumedAudience.astro";
-import SimpleCard from "../../components/mdx/SimpleCard.astro";
-import TwoColumn from "../../components/mdx/TwoColumn.astro";
-import Draft from "../../components/mdx/Draft.astro";
 import BasicImage from "../../components/mdx/BasicImage.astro";
-import RemoteImage from "../../components/mdx/RemoteImage.astro";
-import YearsAgo from "../../components/mdx/YearsAgo.astro";
-import References from "../../components/mdx/References.astro";
-import ReferencesLink from "../../components/mdx/ReferencesLink.astro";
-import Video from "../../components/mdx/Video.astro";
-import ResourceBook from "../../components/mdx/ResourceBook.astro";
 import BlockquoteCitation from "../../components/mdx/BlockquoteCitation.astro";
-import ToolsThought from "../../images/books/toolsthought.webp";
 import Dealers from "../../images/books/dealers.webp";
-import NewMedia from "../../images/books/newmedia.webp";
+import Draft from "../../components/mdx/Draft.astro";
+import Footnote from "../../components/mdx/Footnote.astro";
+import IntroParagraph from "../../components/mdx/IntroParagraph.astro";
 import IntuitionPumps from "../../images/books/intuitionpumps.webp";
 import Making from "../../images/books/making.webp";
+import NewMedia from "../../images/books/newmedia.webp";
+import References from "../../components/mdx/References.astro";
+import ReferencesLink from "../../components/mdx/ReferencesLink.astro";
+import RemoteImage from "../../components/mdx/RemoteImage.astro";
+import ResourceBook from "../../components/mdx/ResourceBook.astro";
+import SimpleCard from "../../components/mdx/SimpleCard.astro";
+import Spacer from "../../components/mdx/Spacer.astro";
+import ToolsThought from "../../images/books/toolsthought.webp";
+import TwoColumn from "../../components/mdx/TwoColumn.astro";
+import Video from "../../components/mdx/Video.astro";
+import YearsAgo from "../../components/mdx/YearsAgo.astro";
+import Intuition from "../../images/books/intuition.webp";
+import Supersize from "../../images/books/supersize.webp";
+import TFTWaddington from "../../images/books/tftwaddington.webp";
 
 <AssumedAudience>
 
@@ -194,7 +197,7 @@ Looking a these, it's easy to think of plenty of examples from human history of 
 			Hard to overstate this one. Allows us to precisely record and communicate
 			our ideas across vast amounts of time and areas of space. Both to
 			ourselves and to others.
-			<BasicImage
+			<RemoteImage
 				src="https://live.staticflickr.com/8621/16401549471_24905d23e3_b.jpg"
 				alt="A cuneiform tablet – the earliest form of writing"
 				showalt
@@ -215,7 +218,7 @@ Looking a these, it's easy to think of plenty of examples from human history of 
 			wall. Since then it's been one of the primary ways we represent thought
 			and communicate meaning through spatial relationships and symbols. It did
 			all the heavy lifting before written language emerged.
-			<BasicImage
+			<RemoteImage
 				src="https://www.arthipo.com/artblog/wp-content/uploads/2021/09/Altamira_bisons-cave-magarasi-Magara-Resimleri-Anlamlari-Nicin-Yapiliyordu.jpg"
 				alt="Bison paintings in the Cave of Altamira in Spain"
 				showalt
@@ -238,7 +241,7 @@ Looking a these, it's easy to think of plenty of examples from human history of 
 			Tversky's
 			[research](http://gjgreenberg.bol.ucla.edu/docs/rpp/04_tversky.pdf) for
 			more on visual explanations and maps as tools for thought.
-			<BasicImage
+			<RemoteImage
 				src="https://www.geographyrealm.com/wp-content/uploads/2014/11/Baylonianmaps.jpg"
 				alt="Oldest known map of the world; carved into a Babylonian clay tablet"
 				showalt
@@ -258,7 +261,7 @@ Looking a these, it's easy to think of plenty of examples from human history of 
 			calculating on paper rather than using an abacus. Enabled us to store,
 			share, reference, and calculate precise amounts. Great for record keeping
 			and bureaucracy.
-			<BasicImage
+			<RemoteImage
 				src="https://www.gutenberg.org/files/22599/22599-h/images/029a.png"
 				alt="Early notational symbols found in southern India"
 				showalt
@@ -278,7 +281,7 @@ Looking a these, it's easy to think of plenty of examples from human history of 
 			and myths to memory. Bards passed these to many people as they travelled
 			through song. The most famous examples are the Epic of Gilgamesh and The
 			Mahabharata which survived long enough to be written down.
-			<BasicImage
+			<RemoteImage
 				src="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781683839200/mahabharata-9781683839200_hr.jpg"
 				alt="Modern printed version of the Mahabharata epic"
 				showalt
@@ -297,7 +300,7 @@ Looking a these, it's easy to think of plenty of examples from human history of 
 			Socrates' classical inquiry method of engaging in cooperative dialogue and
 			responding to everything with a question. Enabled critical thinking and
 			scepticism of every possible assumption and presupposition in an argument.
-			<BasicImage
+			<RemoteImage
 				src="https://upload.wikimedia.org/wikipedia/commons/7/73/The_Debate_Of_Socrates_And_Aspasia_%282%29.jpg"
 				alt="Monsiaux's painting; 'The Debate of Socrates and Aspasia'"
 				showalt
@@ -317,7 +320,7 @@ Looking a these, it's easy to think of plenty of examples from human history of 
 			shared cumulative facts fundamentally changed our ability to understand
 			the physical world around us. Allowed us to harness that information in
 			the service of disciplines like engineering and medicine.
-			<BasicImage
+			<RemoteImage
 				src="https://nbi.ku.dk/hhh/videnskaben_i_kunsten/kapitler/barokken/astronomen750.jpg"
 				alt="Vermeer's 'The Astronomer'"
 				showalt
@@ -338,7 +341,7 @@ Looking a these, it's easy to think of plenty of examples from human history of 
 			measurements. Enabled us to draw up plans for objects and structures that
 			don't yet exist. Also enabled mapping latitude and longitude points on
 			earth, and eventually GPS
-			<BasicImage
+			<RemoteImage
 				src="https://mathinsight.org/media/applet/image/large/cartesian_coordinate_axes_3d.png"
 				alt="The X, Y, Z axes of the cartesian mapping system"
 				showalt
@@ -360,7 +363,7 @@ Looking a these, it's easy to think of plenty of examples from human history of 
 			allows researchers to collect and organise large amounts of information,
 			and create many flexible 'chains' of cards to synthesise into original
 			arguments.
-			<BasicImage
+			<RemoteImage
 				src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:good,w_600/v1651423819/maggieappleton.com/notes/tools-for-thought/Screenshot_-_2022-05-01_17.49.35_sq18zi.png"
 				alt="A single index card from Niklas Luhmann's Zettelkasten"
 				width="400px"
@@ -383,7 +386,7 @@ Looking a these, it's easy to think of plenty of examples from human history of 
 			cultural knowledge. Similar to [method of
 			loci](https://en.wikipedia.org/wiki/Method_of_loci), but shown to be more
 			effective in memorising vast quantities of information.
-			<BasicImage
+			<RemoteImage
 				src="https://live.staticflickr.com/2020/2215146239_134cd88113_b.jpg"
 				alt="Aboriginal art painting"
 				width="400px"
@@ -403,7 +406,7 @@ Looking a these, it's easy to think of plenty of examples from human history of 
 			volumes of income, costs, taxes, etc. The power of spreadsheets undeniably
 			exploded when they made the jump to digital mediums, but the base format
 			has been around for hundreds of years.
-			<BasicImage
+			<RemoteImage
 				src="https://ils.unc.edu/courses/2017_spring/inls161_002/site/assets/files/1068/hg142395_alt1.jpg"
 				alt="A paper notebook spreadsheet"
 				width="400px"
@@ -421,7 +424,7 @@ Looking a these, it's easy to think of plenty of examples from human history of 
 			Visuals that map quantitative data onto shapes, lines, colour, and spatial
 			relationships. Allows us to visually compare, contrast, and see patterns
 			in a large amount of data.
-			<BasicImage
+			<RemoteImage
 				src="https://upload.wikimedia.org/wikipedia/commons/5/52/Playfair_TimeSeries-2.png"
 				alt="The first data viz; William Playfair's map of the Bank of England's balance over time"
 				showalt
@@ -488,7 +491,7 @@ Back in <YearsAgo>1945</YearsAgo> [Vannevar Bush](https://en.wikipedia.org/wiki/
 	alt="The cover image for the original publication of 'As We May Think'"
 	margin="1rem auto 3rem"
 	width="800px"
-	src="../../images/posts/tools-for-thought/aswemaythink.jpeg"
+	src="/images/posts/tools-for-thought/aswemaythink.jpeg"
 />
 
 <RemoteImage
@@ -512,14 +515,14 @@ But simply because we've drastically improved human-computer collaboration since
 <BasicImage
 	framed
 	margin="0"
-	src="../../images/posts/tools-for-thought/ahi.jpg"
+	src="/images/posts/tools-for-thought/ahi.jpg"
 	alt="The original cover of Englebart's Augmenting Human Intellect essay"
 />
 
 <BasicImage
 	framed
 	margin="0"
-	src="../../images/posts/tools-for-thought/ahi3.jpg"
+	src="/images/posts/tools-for-thought/ahi3.jpg"
 	alt="The first paragraph of Englebart's Augmenting Human Intellect essay"
 />
 
@@ -536,14 +539,14 @@ Kay would go on to become one of the leading voices of tools for thought. In ess
 <BasicImage
 	framed
 	margin="0"
-	src="../../images/posts/tools-for-thought/kay1.jpg"
+	src="/images/posts/tools-for-thought/kay1.jpg"
 	alt="The cover of Kay's 1989 essay on User Interfaces"
 />
 
 <BasicImage
 	framed
 	margin="0"
-	src="../../images/posts/tools-for-thought/kay3.jpg"
+	src="/images/posts/tools-for-thought/kay3.jpg"
 	alt="The cover of Kay and Goldberg's 1977 essay on Personal Dynamic Media"
 />
 
@@ -600,7 +603,7 @@ Seven years before Rheingold published his book “Tools for Thought,” another
 url="https://g.co/kgs/Jvcmfo"
 title="Tools for Thought"
 author="C. H. Waddington"
-image="/images/books/tftwaddington.webp"
+image={TFTWaddington}
 >
 
 Waddington presents a set of philosophies and problem-solving tools for dealing with complex systems. The book covers classical systems thinking topics like hierarchical dynamics, feedback loops, zero-sum games, and forecasting.
@@ -619,7 +622,7 @@ He expanded on this idea in a follow-on book called [Supersizing the Mind](https
 url="https://www.google.co.uk/books/edition/Supersizing_the_Mind/n5wRDAAAQBAJ?hl=en&gbpv=0"
 title="Supersizing the Mind"
 author="Andy Clark"
-image="/images/books/supersize.webp"
+image={Supersize}
 >
 
 Clark presents the emerging field of embodied cognition, which explores the ways that our thoughts and actions are intertwined with our physical bodies and the world around us. He explored the importance of context, timing, biomechanics, and dynamics in how humans think with the world around them.
@@ -647,7 +650,7 @@ The philosopher Daniel Dennett published Intuition Pumps and Other Tools for Thi
 url="https://www.librarything.com/work/13457191"
 title="Intuition Pumps and Other Tools for Thinking"
 author="Daniel Dennett"
-image={IntuitionPumps}
+image={Intuition}
 >
 
 ...
@@ -657,7 +660,6 @@ image={IntuitionPumps}
 Tim Ingold is both an anthropologist and philosopher who has written numerous books about our relationship to and perception of our physical environment.
 
 <ResourceBook
-	url=""
 	title="Making: Anthropology, Art, Architecture, and Archeology"
 	author="Tim Ingold"
 	image={Making}
