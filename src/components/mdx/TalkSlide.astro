@@ -1,10 +1,58 @@
 ---
-const { imgSrc, video } = Astro.props;
+import { Picture } from "astro:assets";
+import type { ImageMetadata } from "astro";
 import Video from "./Video.astro";
+
+const { imgSrc, video } = Astro.props;
+
+// Use glob import to get all images
+const images = import.meta.glob<{ default: ImageMetadata }>("/src/images/**/*");
+
+// If imgSrc is a string and starts with "/images", try to find it in the glob
+const imageSrc =
+	typeof imgSrc === "string" && imgSrc.startsWith("/images")
+		? (await images["/src" + imgSrc]()).default
+		: imgSrc;
+
+// Check if the image is remote (starts with http/https)
+const isRemoteImage =
+	typeof imgSrc === "string" &&
+	(imgSrc.startsWith("http://") || imgSrc.startsWith("https://"));
+
+// Define widths for responsive images
+const widths = [440, 800, 1100, 1300, 1800];
+
+// Check if the image is a GIF
+const isGif =
+	typeof imageSrc === "string"
+		? imageSrc.toLowerCase().endsWith(".gif")
+		: imageSrc.src?.toLowerCase().endsWith(".gif");
 ---
 
 <div class="styled-slide">
-	{!video && <img class="styled-basic-image" src={imgSrc} />}
+	{
+		!video && (
+			<>
+				{isRemoteImage ? (
+					<img class="styled-basic-image" src={imgSrc} alt="" loading="lazy" />
+				) : isGif ? (
+					<img
+						class="styled-basic-image"
+						src={typeof imageSrc === "string" ? "/src" + imgSrc : imageSrc.src}
+						alt=""
+					/>
+				) : (
+					<Picture
+						src={imageSrc as ImageMetadata}
+						alt=""
+						widths={widths}
+						formats={["avif", "webp", "jpg"]}
+						class="styled-basic-image"
+					/>
+				)}
+			</>
+		)
+	}
 	{video && <Video class="styled-video" src={imgSrc} title="Slide video" />}
 	<div class="text-container">
 		<p><slot /></p>

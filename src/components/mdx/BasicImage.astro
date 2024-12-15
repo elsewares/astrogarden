@@ -31,16 +31,16 @@ const images = import.meta.glob<{ default: ImageMetadata }>("/src/images/**/*");
 const imageSrc =
 	typeof src === "string" && src.startsWith("/images")
 		? (await images["/src" + src]()).default
-		: (src as ImageMetadata);
+		: src;
 
 // Define widths for responsive images
 const widths = [440, 800, 1100, 1300, 1800];
 
 // Check if the image is a GIF
 const isGif =
-	typeof src === "string"
-		? src.toLowerCase().endsWith(".gif")
-		: src.toString().toLowerCase().endsWith(".gif");
+	typeof imageSrc === "string"
+		? imageSrc.toLowerCase().endsWith(".gif")
+		: imageSrc.src.toLowerCase().endsWith(".gif");
 ---
 
 <figure
@@ -51,7 +51,7 @@ const isGif =
 		{
 			isGif ? (
 				<img
-					src={typeof src === "string" ? "/src" + src : imageSrc.src}
+					src={typeof imageSrc === "string" ? "/src" + src : imageSrc.src}
 					alt={alt}
 					width={width}
 					class="styled-image"
@@ -59,7 +59,7 @@ const isGif =
 				/>
 			) : (
 				<Picture
-					src={imageSrc}
+					src={imageSrc as ImageMetadata}
 					alt={alt}
 					widths={widths}
 					formats={["avif", "webp", "jpg"]}
