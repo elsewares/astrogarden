@@ -8,6 +8,7 @@ import "../global.css";
 const essays = await getCollection("essays");
 const notes = await getCollection("notes");
 const patterns = await getCollection("patterns");
+const talks = await getCollection("talks");
 ---
 
 <Layout>
@@ -41,6 +42,17 @@ const patterns = await getCollection("patterns");
 						<a href={`/${pattern.id}`}>{pattern.data.title}</a>
 						<p>
 							{pattern.data.description} <span>[pattern]</span>
+						</p>
+					</li>
+				))
+			}
+			{
+				talks.map((talk) => (
+					<li>
+						<Image src={talk.data.cover} width={420} alt={talk.data.title} />
+						<a href={`/${talk.id}`}>{talk.data.title}</a>
+						<p>
+							{talk.data.description} <span>[talk]</span>
 						</p>
 					</li>
 				))

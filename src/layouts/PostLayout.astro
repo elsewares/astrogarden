@@ -1,5 +1,5 @@
 ---
-import type { MarkdownLayoutProps } from "astro";
+import type { CollectionEntry } from "astro:content";
 import Layout from "./Layout.astro";
 import { Icon } from "astro-icon/components";
 // You'll need to find Astro alternatives for these React components:
@@ -10,19 +10,11 @@ import { Icon } from "astro-icon/components";
 // - TableOfContents (You might want to use @astrojs/tableofcontents)
 
 type Props = {
-	frontmatter: {
-		title: string;
-		description: string;
-		startDate: Date;
-		updated: Date;
-		type: "note" | "essay" | "pattern";
-		topics: string[];
-		growthStage: string;
-		draft?: boolean;
-		cover?: ImageMetadata;
-		featured?: boolean;
-		aliases?: string[];
-	};
+	frontmatter:
+		| CollectionEntry<"essays">["data"]
+		| CollectionEntry<"notes">["data"]
+		| CollectionEntry<"patterns">["data"]
+		| CollectionEntry<"talks">["data"];
 };
 
 const { frontmatter } = Astro.props;

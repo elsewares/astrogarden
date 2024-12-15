@@ -49,13 +49,27 @@ const patternsCollection = defineCollection({
 		}),
 });
 
-// const talksCollection = defineCollection({
-// 	type: "content",
-// 	schema: () =>
-// 		z.object({
-// 			// to do
-// 		}),
-// });
+const talksCollection = defineCollection({
+	loader: glob({ pattern: "**/*.mdx", base: "./src/content/talks" }),
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			description: z.string(),
+			updated: z.coerce.date(),
+			type: z.literal("talk"),
+			topics: z.array(z.string()),
+			growthStage: z.string(),
+			conferences: z.array(
+				z.object({
+					name: z.string(),
+					date: z.string(),
+					location: z.string(),
+				})
+			),
+			cover: image(),
+			draft: z.boolean().optional(),
+		}),
+});
 
 // const podcastsCollection = defineCollection({
 // 	type: "data",
@@ -70,4 +84,5 @@ export const collections = {
 	notes: notesCollection,
 	essays: essaysCollection,
 	patterns: patternsCollection,
+	talks: talksCollection,
 };

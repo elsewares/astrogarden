@@ -18,8 +18,9 @@ export async function getStaticPaths() {
 	const essays = await getCollection("essays");
 	const notes = await getCollection("notes");
 	const patterns = await getCollection("patterns");
+	const talks = await getCollection("talks");
 
-	return [...essays, ...notes, ...patterns].map((entry) => ({
+	return [...essays, ...notes, ...patterns, ...talks].map((entry) => ({
 		params: { slug: entry.id },
 		props: { entry },
 	}));
@@ -40,7 +41,6 @@ const components = {
 
 <PostLayout frontmatter={entry.data}>
 	<ProseWrapper>
-		<div>Table of Contents</div>
 		<!-- {toc && <TableOfContents headings={headings} />} -->
 		<Content components={components} />
 	</ProseWrapper>
