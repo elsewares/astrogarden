@@ -1,0 +1,77 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageWrapper from "../components/layouts/PageWrapper.astro";
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+
+const essays = await getCollection("essays", ({ data }) => !data.draft);
+const notes = await getCollection("notes", ({ data }) => !data.draft);
+const patterns = await getCollection("patterns", ({ data }) => !data.draft);
+const talks = await getCollection("talks", ({ data }) => !data.draft);
+const books = await getCollection("books");
+
+console.log(books);
+---
+
+<Layout>
+	<PageWrapper>
+		<h1>Maggie Appleton's Garden, V3</h1>
+		<ul>
+			{
+				essays.map((essay) => (
+					<li>
+						<Image src={essay.data.cover} width={420} alt={essay.data.title} />
+						<a href={`/${essay.id}`}>{essay.data.title}</a>
+						<p>
+							{essay.data.description} <span>[essay]</span>
+						</p>
+					</li>
+				))
+			}
+			{
+				notes.map((note) => (
+					<li>
+						<a href={`/${note.id}`}>{note.data.title}</a>
+						<p>
+							{note.data.description} <span>[note]</span>
+						</p>
+					</li>
+				))
+			}
+			{
+				patterns.map((pattern) => (
+					<li>
+						<a href={`/${pattern.id}`}>{pattern.data.title}</a>
+						<p>
+							{pattern.data.description} <span>[pattern]</span>
+						</p>
+					</li>
+				))
+			}
+			{
+				talks.map((talk) => (
+					<li>
+						<Image src={talk.data.cover} width={420} alt={talk.data.title} />
+						<a href={`/${talk.id}`}>{talk.data.title}</a>
+						<p>
+							{talk.data.description} <span>[talk]</span>
+						</p>
+					</li>
+				))
+			}
+		</ul>
+		<h2>Books</h2>
+		<ul>
+			{
+				books.slice(0, 6).map((book) => (
+					<li>
+						<Image src={book.data.cover} width={200} alt={book.data.title} />
+						<a href={book.data.link}>{book.data.title}</a>
+						{book.data.subtitle && <p>{book.data.subtitle}</p>}
+						<p>by {book.data.author}</p>
+					</li>
+				))
+			}
+		</ul>
+	</PageWrapper>
+</Layout>

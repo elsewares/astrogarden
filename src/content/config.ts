@@ -72,23 +72,22 @@ const talksCollection = defineCollection({
 		}),
 });
 
-// const podcastsCollection = defineCollection({
-// 	loader: file("src/content/podcasts/podcasts.json"),
-// 	schema: ({ image }) =>
-// 		z.object({
-// 			type: z.literal("podcast"),
-// 			podcastName: z.string(),
-// 			episodeName: z.string(),
-// 			updated: z.coerce.date(),
-// 			url: z.string().url(),
-// 			coverImage: image(),
-// 			topics: z.array(z.string()).optional(),
-// 			id: z.number(),
-// 		}),
-// });
+const podcastsCollection = defineCollection({
+	loader: file("src/content/podcasts.json"),
+	schema: ({ image }) =>
+		z.object({
+			podcastName: z.string(),
+			episodeName: z.string(),
+			updated: z.coerce.date(),
+			url: z.string().url(),
+			coverImage: image(),
+			topics: z.array(z.string()).optional(),
+			id: z.number(),
+		}),
+});
 
 const booksCollection = defineCollection({
-	loader: file("src/content/books/books.json"),
+	loader: file("src/content/books.json"),
 	schema: ({ image }) =>
 		z.object({
 			title: z.string(),
@@ -100,18 +99,18 @@ const booksCollection = defineCollection({
 		}),
 });
 
-// const antibooksCollection = defineCollection({
-// 	loader: file("src/content/antibooks/antibooks.json"),
-// 	schema: ({ image }) =>
-// 		z.object({
-// 			title: z.string(),
-// 			subtitle: z.string().optional(),
-// 			author: z.string(),
-// 			cover: image(),
-// 			link: z.string().url(),
-// 			id: z.number(),
-// 		}),
-// });
+const antibooksCollection = defineCollection({
+	loader: file("src/content/antibooks.json"),
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			subtitle: z.string().optional(),
+			author: z.string(),
+			cover: image(),
+			link: z.string().url(),
+			id: z.number(),
+		}),
+});
 
 // This key should match your collection directory name in "src/content"
 export const collections = {
@@ -119,7 +118,7 @@ export const collections = {
 	essays: essaysCollection,
 	patterns: patternsCollection,
 	talks: talksCollection,
-	// podcasts: podcastsCollection,
+	podcasts: podcastsCollection,
 	books: booksCollection,
-	// antibooks: antibooksCollection,
+	antibooks: antibooksCollection,
 };

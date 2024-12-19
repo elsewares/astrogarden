@@ -321,8 +321,8 @@
 			var(--fluid-bp)
 	);
 
-	--f-5-min: 57.6;
-	--f-5-max: 81.8;
+	--f-5-min: 55;
+	--f-5-max: 78;
 	--font-size-3xl: calc(
 		((var(--f-5-min) / 16) * 1rem) + (var(--f-5-max) - var(--f-5-min)) *
 			var(--fluid-bp)
@@ -437,7 +437,7 @@ h2 {
 }
 
 h1 {
-	font-size: var(--font-size-2xl);
+	font-size: var(--font-size-3xl);
 	font-family: var(--font-serif);
 	line-height: var(--leading-tighter);
 	font-weight: normal;
