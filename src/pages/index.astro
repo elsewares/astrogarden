@@ -10,10 +10,12 @@ import EssayCard from "../components/cards/EssayCard.astro";
 import BookCard from "../components/cards/BookCard.astro";
 import PatternCard from "../components/cards/PatternCard.astro";
 import UnderlineHoverLink from "../components/mdx/UnderlineHoverLink.astro";
+import GrowthIcon from "../components/layouts/GrowthIcon.astro";
+import PageWrapper from "../components/layouts/PageWrapper.astro";
 
 const essays = await getCollection(
 	"essays",
-	({ data }) => data.featured === true
+	({ data }) => data.featured === true && !data.draft
 );
 const notes = await getCollection("notes", ({ data }) => !data.draft);
 const patterns = await getCollection("patterns", ({ data }) => !data.draft);
@@ -21,160 +23,172 @@ const books = await getCollection("books");
 
 const sortedEssays = essays
 	.slice(0, 4)
-	.sort((a, b) => new Date(b.data.updated).getTime() - new Date(a.data.updated).getTime());
+	.sort(
+		(a, b) =>
+			new Date(b.data.updated).getTime() - new Date(a.data.updated).getTime()
+	);
 
 const sortedNotes = notes.sort(
-	(a, b) => new Date(b.data.updated).getTime() - new Date(a.data.updated).getTime()
+	(a, b) =>
+		new Date(b.data.updated).getTime() - new Date(a.data.updated).getTime()
 );
 
 const sortedPatterns = patterns
 	.slice(0, 8)
-	.sort((a, b) => new Date(b.data.updated).getTime() - new Date(a.data.updated).getTime());
+	.sort(
+		(a, b) =>
+			new Date(b.data.updated).getTime() - new Date(a.data.updated).getTime()
+	);
 ---
 
 <Layout title="Maggie Appleton">
-	<header style="display: flex; flex-direction: column; gap: var(--space-2xs);">
-		<Title1 style="margin-top: var(--space-m); max-width: 1100px;">
-			<b>Maggie </b>
-			makes visual essays about programming, design, and anthropology.
-		</Title1>
-		<SmallTitle2>
-			Designer, anthropologist, and mediocre developer
-			<br />
-			Currently design engineering at{" "}
-			<b style="margin: 0 0.6rem 0 0.3rem">
-				<UnderlineHoverLink href="https://normally.com">
-					Normally
-				</UnderlineHoverLink>
-			</b>
-		</SmallTitle2>
-	</header>
+	<PageWrapper>
+		<header class="page-header">
+			<Title1 class="main-title">
+				<b>Maggie </b>
+				makes visual essays about programming, design, and anthropology.
+			</Title1>
+			<SmallTitle2>
+				Designer, anthropologist, and mediocre developer
+				<br />
+				Currently design engineering at{" "}
+				<b class="company-name">
+					<UnderlineHoverLink href="https://normally.com">
+						Normally
+					</UnderlineHoverLink>
+				</b>
+			</SmallTitle2>
+		</header>
 
-	<Spacer />
+		<Spacer />
 
-	<section>
-		<a href="/garden">
-			<Title2 style="font-size: var(--font-size-2xl);"> The Garden </Title2>
-		</a>
-		<div class="subheader">
-			A digital garden is a collection of imperfect notes, essays, and ideas
-			growing slowly over time.{" "}
-			<a href="/garden-history" class="readmore-link">
-				Learn more
-				<Icon name="heroicons:arrow-right" size={18} />
-			</a>
-		</div>
-	</section>
-
-	<section class="garden-section">
-		<section style="grid-area: essays;">
-			<a href="/essays">
-				<h3 class="section-header">
-					Essays
-					<Icon name="heroicons:arrow-right" size={18} />
-				</h3>
+		<section>
+			<a href="/garden">
+				<Title2 class="garden-title"> The Garden </Title2>
 			</a>
 			<div class="subheader">
-				Opinionated, longform narrative writing with an agenda
-			</div>
-			<div
-				style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); grid-gap: var(--space-2xs);"
-			>
-				{
-					sortedEssays.map((essay) => (
-						<EssayCard
-							id={essay.slug}
-							slug={essay.slug}
-							cover={essay.data.cover}
-							title={essay.data.title}
-							growthStage={essay.data.growthStage}
-							date={essay.data.updated}
-							description={essay.data.description}
-						/>
-					))
-				}
+				A digital garden is a collection of imperfect notes, essays, and ideas
+				growing slowly over time.{" "}
+				<a href="/garden-history" class="readmore-link">
+					Learn more
+					<Icon name="heroicons:arrow-right" size={18} />
+				</a>
 			</div>
 		</section>
 
-		<section style="grid-area: notes;">
-			<a href="/notes">
-				<h3 class="section-header">
-					Notes
-					<Icon name="heroicons:arrow-right" size={18} />
-				</h3>
-			</a>
-			<div class="subheader">
-				Loose, unopinionated notes on things I don't entirely understand yet.
-			</div>
-			{
-				sortedNotes.slice(0, 12).map((note) => (
-					<a href={`/${note.slug}`}>
-						<div class="index-note-card">
-							{note.data.growthStage && (
-								<GrowthIcon growthStage={note.data.growthStage} />
-							)}
-							<h3>{note.data.title}</h3>
-						</div>
-					</a>
-				))
-			}
-		</section>
-
-		<section style="grid-area: patterns;">
-			<a href="/patterns">
-				<h3 class="section-header">
-					Patterns
-					<Icon name="heroicons:arrow-right" size={18} />
-				</h3>
-			</a>
-			<div class="subheader">
-				Design patterns gathered from my own observations and research.
-			</div>
-			<div style="margin-left: -1.4rem;">
-				{
-					sortedPatterns.map((pattern) => (
-						<PatternCard
-							slug={pattern.slug}
-							title={pattern.data.title}
-							growthStage={pattern.data.growthStage}
-							date={pattern.data.updated}
-							description={pattern.data.description}
-						/>
-					))
-				}
-			</div>
-		</section>
-
-		<section style="grid-area: library;">
-			<a href="/library">
-				<h3 class="section-header">
-					Library
-					<Icon name="heroicons:arrow-right" size={18} />
-				</h3>
-			</a>
-			<div class="subheader">
-				Books I've read and books I like the idea of having read.
-			</div>
-			<div
-				style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); grid-gap: var(--space-2xs);"
-			>
-				{
-					books
-						.slice(0, 8)
-						.map((book) => (
-							<BookCard
-								small
-								subtitle={book.data.subtitle}
-								cover={book.data.cover}
-								title={book.data.title}
-								author={book.data.author}
-								link={book.data.link}
+		<section class="garden-section">
+			<section class="essays-section">
+				<a href="/essays">
+					<h3 class="section-header">
+						Essays
+						<Icon name="heroicons:arrow-right" size={18} />
+					</h3>
+				</a>
+				<div class="subheader">
+					Opinionated, longform narrative writing with an agenda
+				</div>
+				<div class="essays-grid">
+					{
+						sortedEssays.map((essay) => (
+							<EssayCard
+								id={essay.id}
+								slug={essay.id}
+								cover={essay.data.cover}
+								title={essay.data.title}
+								growthStage={essay.data.growthStage}
+								date={essay.data.updated}
+								description={essay.data.description}
 							/>
 						))
+					}
+				</div>
+			</section>
+
+			<section style="grid-area: notes;">
+				<a href="/notes">
+					<h3 class="section-header">
+						Notes
+						<Icon name="heroicons:arrow-right" size={18} />
+					</h3>
+				</a>
+				<div class="subheader">
+					Loose, unopinionated notes on things I don't entirely understand yet.
+				</div>
+				{
+					sortedNotes.slice(0, 12).map((note) => (
+						<a href={`/${note.id}`}>
+							<div class="index-note-card">
+								{note.data.growthStage && (
+									<GrowthIcon
+										growthStage={
+											note.data.growthStage as
+												| "seedling"
+												| "budding"
+												| "evergreen"
+										}
+									/>
+								)}
+								<h3>{note.data.title}</h3>
+							</div>
+						</a>
+					))
 				}
-			</div>
+			</section>
+
+			<section class="patterns-section">
+				<a href="/patterns">
+					<h3 class="section-header">
+						Patterns
+						<Icon name="heroicons:arrow-right" size={18} />
+					</h3>
+				</a>
+				<div class="subheader">
+					Design patterns gathered from my own observations and research.
+				</div>
+				<div class="patterns-grid">
+					{
+						sortedPatterns.map((pattern) => (
+							<PatternCard
+								slug={pattern.id}
+								title={pattern.data.title}
+								growthStage={pattern.data.growthStage}
+								date={pattern.data.updated}
+								description={pattern.data.description}
+							/>
+						))
+					}
+				</div>
+			</section>
+
+			<section class="library-section">
+				<a href="/library">
+					<h3 class="section-header">
+						Library
+						<Icon name="heroicons:arrow-right" size={18} />
+					</h3>
+				</a>
+				<div class="subheader">
+					Books I've read and books I like the idea of having read.
+				</div>
+				<div class="books-grid">
+					{
+						books
+							.slice(0, 8)
+							.map((book) => (
+								<BookCard
+									small
+									subtitle={book.data.subtitle}
+									cover={book.data.cover}
+									title={book.data.title}
+									author={book.data.author}
+									link={book.data.link}
+								/>
+							))
+					}
+				</div>
+			</section>
 		</section>
-	</section>
+	</PageWrapper>
 </Layout>
 
 <style>
@@ -303,5 +317,52 @@ const sortedPatterns = patterns
 		font-weight: 300;
 		color: var(--color-gray-800);
 		margin-bottom: var(--space-m);
+	}
+
+	.page-header {
+		display: flex;
+		flex-direction: column;
+		margin-top: var(--space-xl);
+	}
+
+	.main-title {
+		margin-top: var(--space-m);
+		margin-bottom: 0;
+		max-width: 1100px;
+	}
+
+	.company-name {
+		margin: 0 0.6rem 0 0.3rem;
+	}
+
+	.garden-title {
+		font-size: var(--font-size-2xl);
+	}
+
+	.essays-section {
+		grid-area: essays;
+	}
+
+	.patterns-section {
+		grid-area: patterns;
+	}
+
+	.patterns-grid {
+		margin-left: -1.4rem;
+	}
+
+	.library-section {
+		grid-area: library;
+	}
+
+	.essays-grid,
+	.books-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		grid-gap: var(--space-2xs);
+	}
+
+	.books-grid {
+		grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 	}
 </style>

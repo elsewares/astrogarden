@@ -10,7 +10,7 @@ const notesCollection = defineCollection({
 			description: z.string().optional(),
 			aliases: z.array(z.string()).optional(),
 			startDate: z.coerce.date(),
-			updated: z.coerce.date().optional(),
+			updated: z.coerce.date(),
 			type: z.literal("note"),
 			topics: z.array(z.string()).optional(),
 			growthStage: z.string(),
