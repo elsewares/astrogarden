@@ -1,5 +1,6 @@
 import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
+import { file } from "astro/loaders";
 
 const notesCollection = defineCollection({
 	loader: glob({ pattern: "**/*.mdx", base: "./src/content/notes" }),
@@ -72,10 +73,43 @@ const talksCollection = defineCollection({
 });
 
 // const podcastsCollection = defineCollection({
-// 	type: "data",
-// 	schema: () =>
+// 	loader: file("src/content/podcasts/podcasts.json"),
+// 	schema: ({ image }) =>
 // 		z.object({
-// 			// to do
+// 			type: z.literal("podcast"),
+// 			podcastName: z.string(),
+// 			episodeName: z.string(),
+// 			updated: z.coerce.date(),
+// 			url: z.string().url(),
+// 			coverImage: image(),
+// 			topics: z.array(z.string()).optional(),
+// 			id: z.number(),
+// 		}),
+// });
+
+const booksCollection = defineCollection({
+	loader: file("src/content/books/books.json"),
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			subtitle: z.string().optional(),
+			author: z.string(),
+			cover: image(),
+			link: z.string().url(),
+			id: z.number(),
+		}),
+});
+
+// const antibooksCollection = defineCollection({
+// 	loader: file("src/content/antibooks/antibooks.json"),
+// 	schema: ({ image }) =>
+// 		z.object({
+// 			title: z.string(),
+// 			subtitle: z.string().optional(),
+// 			author: z.string(),
+// 			cover: image(),
+// 			link: z.string().url(),
+// 			id: z.number(),
 // 		}),
 // });
 
@@ -85,4 +119,7 @@ export const collections = {
 	essays: essaysCollection,
 	patterns: patternsCollection,
 	talks: talksCollection,
+	// podcasts: podcastsCollection,
+	books: booksCollection,
+	// antibooks: antibooksCollection,
 };

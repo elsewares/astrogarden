@@ -9,6 +9,9 @@ const essays = await getCollection("essays", ({ data }) => !data.draft);
 const notes = await getCollection("notes", ({ data }) => !data.draft);
 const patterns = await getCollection("patterns", ({ data }) => !data.draft);
 const talks = await getCollection("talks", ({ data }) => !data.draft);
+const books = await getCollection("books");
+
+console.log(books);
 ---
 
 <Layout>
@@ -54,6 +57,19 @@ const talks = await getCollection("talks", ({ data }) => !data.draft);
 						<p>
 							{talk.data.description} <span>[talk]</span>
 						</p>
+					</li>
+				))
+			}
+		</ul>
+		<h2>Books</h2>
+		<ul>
+			{
+				books.slice(0, 6).map((book) => (
+					<li>
+						<Image src={book.data.cover} width={200} alt={book.data.title} />
+						<a href={book.data.link}>{book.data.title}</a>
+						{book.data.subtitle && <p>{book.data.subtitle}</p>}
+						<p>by {book.data.author}</p>
 					</li>
 				))
 			}
