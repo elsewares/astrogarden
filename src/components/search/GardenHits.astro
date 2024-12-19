@@ -1,0 +1,97 @@
+---
+import MasonryGrid from "../layouts/MasonryGrid.astro";
+import EssayCard from "../cards/EssayCard.astro";
+import NoteCard from "../cards/NoteCard.astro";
+import PatternCard from "../cards/PatternCard.astro";
+import PodcastCard from "../cards/PodcastCard.astro";
+import TalkCard from "../cards/TalkCard.astro";
+
+const { allPostData } = Astro.props;
+const sortedPosts = allPostData.sort(
+	(a: { updated: string }, b: { updated: string }) => {
+		const dateA = new Date(a.updated).getTime();
+		const dateB = new Date(b.updated).getTime();
+		return dateB - dateA;
+	}
+);
+---
+
+<div id="hits-container">
+	<MasonryGrid columnGapLeft="0.8rem" columnGapBottom="0.8rem">
+		{
+			sortedPosts.map(
+				(
+					post: {
+						type: string;
+						slug: string;
+						cover?: string;
+						title?: string;
+						growthStage?: string;
+						updated?: string;
+						description?: string;
+					},
+					i: number
+				) => {
+					if (!post || !post.type) return null;
+
+					switch (post.type) {
+						case "essay":
+							return (
+								<EssayCard
+									key={i}
+									id={post.slug}
+									slug={post.slug}
+									cover={post.cover}
+									title={post.title}
+									growthStage={post.growthStage}
+									date={post.updated}
+									description={post.description}
+								/>
+							);
+						case "note":
+							return (
+								<NoteCard
+									key={i}
+									id={post.slug}
+									slug={post.slug}
+									title={post.title}
+									growthStage={post.growthStage}
+									date={post.updated}
+									description={post.description}
+								/>
+							);
+						case "pattern":
+							return <PatternCard key={i} id={post.slug} slug={post.slug} />;
+						case "podcast":
+							return <PodcastCard key={i} id={post.slug} slug={post.slug} />;
+						case "talk":
+							return <TalkCard key={i} id={post.slug} slug={post.slug} />;
+						default:
+							return null;
+					}
+				}
+			)
+		}
+	</MasonryGrid>
+</div>
+
+<script>
+	import { hits } from "instantsearch.js/es/widgets";
+
+	// Initialize hits widget
+	const searchHits = hits({
+		container: "#hits-container",
+		templates: {
+			item: (hit) => {
+				// Return the appropriate card HTML based on hit.type
+				return `...`; // Template string for card HTML
+			},
+		},
+	});
+
+	// Add hits widget to existing search instance
+	const search = document.querySelector("instantsearch") as any;
+	if (search) {
+		search.addWidgets([searchHits]);
+	}
+</script>

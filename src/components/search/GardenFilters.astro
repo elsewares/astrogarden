@@ -1,0 +1,306 @@
+<div class="container">
+	<div class="topics-container">
+		<div class="topic-label">
+			<span>Topics</span>
+			<svg width="2" height="14" fill="var(--color-sea-blue)">
+				<rect width="2" height="14"></rect>
+			</svg>
+		</div>
+		<div id="topics-menu"></div>
+	</div>
+
+	<div class="right-menus">
+		<div class="mobile-topics">
+			<select id="topics-select" aria-label="Topics"></select>
+		</div>
+		<select id="growth-stages-select" aria-label="Growth Stages"></select>
+		<select id="types-select" aria-label="Types"></select>
+	</div>
+</div>
+
+<script>
+	import instantsearch from "instantsearch.js";
+	import { menu, menuSelect } from "instantsearch.js/es/widgets";
+	import { algoliasearch } from "algoliasearch";
+	import { capitalize } from "lodash";
+
+	// Initialize the Algolia client
+	const searchClient = algoliasearch(
+		import.meta.env.PUBLIC_ALGOLIA_APP_ID,
+		import.meta.env.PUBLIC_ALGOLIA_SEARCH_API_KEY
+	);
+
+	const search = instantsearch({
+		indexName: "garden-posts",
+		searchClient,
+	});
+
+	// Add widgets
+	search.addWidgets([
+		menu({
+			container: "#topics-menu",
+			attribute: "topics",
+			limit: 7,
+			showMore: true,
+		}),
+
+		menuSelect({
+			container: "#topics-select",
+			attribute: "topics",
+			limit: 20,
+			templates: {
+				defaultOption: "All Topics",
+			},
+			transformItems: (items) =>
+				items.map((item) => ({
+					...item,
+					label: capitalize(item.label),
+				})),
+		}),
+
+		menuSelect({
+			container: "#growth-stages-select",
+			attribute: "growthStage",
+			templates: {
+				defaultOption: "All Growth Stages",
+			},
+			transformItems: (items) =>
+				items.map((item) => ({
+					...item,
+					label: capitalize(item.label),
+				})),
+		}),
+
+		menuSelect({
+			container: "#types-select",
+			attribute: "type",
+			templates: {
+				defaultOption: "All Types",
+			},
+			transformItems: (items) =>
+				items.map((item) => ({
+					...item,
+					label: `${capitalize(item.label)}s`,
+				})),
+		}),
+	]);
+
+	search.start();
+</script>
+
+<style>
+	.mobile-topics {
+		display: none;
+	}
+	@media (max-width: 768px) {
+		.mobile-topics {
+			display: block;
+		}
+	}
+
+	.right-menus {
+		display: flex;
+		flex-direction: row;
+		gap: var(--space-3xs);
+	}
+	@media (max-width: 768px) {
+		.right-menus {
+			justify-content: center;
+		}
+	}
+	@media (max-width: 500px) {
+		.right-menus {
+			flex-direction: column;
+		}
+	}
+
+	.right-menus select {
+		padding: 0.4rem var(--space-2xs);
+		border-radius: var(--border-radius-base);
+		border: 1px solid var(--color-gray-300);
+		color: var(--color-gray-700);
+		background-color: var(--color-cream);
+		transition: all 0.3s ease-in-out;
+	}
+	@media (max-width: 768px) {
+		.right-menus select {
+			width: 100%;
+		}
+	}
+	.right-menus select:hover {
+		background: white;
+		cursor: pointer;
+	}
+
+	.container {
+		display: flex;
+		flex-direction: row;
+		gap: var(--space-m);
+		align-items: top;
+		justify-content: space-between;
+		font-family: var(--font-sans);
+		font-size: var(--font-size-xs);
+		color: var(--color-gray-800);
+		margin-bottom: var(--space-xl);
+	}
+	@media (max-width: 768px) {
+		.container {
+			flex-direction: column;
+		}
+	}
+	.container ul {
+		margin: 0;
+		padding: 0;
+	}
+	.container li {
+		list-style: none;
+		font-family: var(--font-sans);
+		font-size: var(--font-size-xs);
+		color: var(--color-gray-800);
+	}
+
+	.topic-label {
+		display: flex;
+		padding: var(--space-3xs) var(--space-2xs) var(--space-3xs) 0;
+		color: var(--color-black);
+		text-transform: uppercase;
+		letter-spacing: 0.04rem;
+		margin-right: var(--space-3xs);
+	}
+	.topic-label svg {
+		margin: 4px 0 0 12px;
+	}
+
+	.topics-container {
+		display: inline-flex;
+		flex-direction: row;
+	}
+	@media (max-width: 768px) {
+		.topics-container {
+			display: none;
+		}
+	}
+
+	/* Menu Styles */
+	.topics-container :global(.ais-Menu) {
+		align-items: start;
+		transition: all 0.4s ease;
+	}
+
+	.topics-container :global(.ais-Menu-list) {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+		gap: 4px;
+		transition: all 0.4s ease;
+	}
+	@media (max-width: 768px) {
+		.topics-container :global(.ais-Menu-list) {
+			max-width: 70vw;
+			flex-wrap: nowrap;
+			overflow-x: scroll;
+		}
+	}
+
+	.topics-container :global(.ais-Menu-item) {
+		border-radius: 3rem;
+		padding: var(--space-3xs) var(--space-2xs);
+		flex-wrap: nowrap;
+		flex-shrink: 0;
+		transition: all 0.4s ease;
+	}
+	.topics-container :global(.ais-Menu-item) a {
+		color: var(--color-gray-800);
+	}
+	.topics-container :global(.ais-Menu-item:hover) {
+		background-color: var(--color-tinted-cream);
+	}
+	.topics-container :global(.ais-Menu-item:hover) a {
+		color: var(--color-black);
+	}
+
+	.topics-container :global(.ais-Menu-item--selected) {
+		background-color: var(--color-sea-blue);
+		transition: all 0.4s ease;
+	}
+	.topics-container :global(.ais-Menu-item--selected) a {
+		color: white;
+	}
+	.topics-container :global(.ais-Menu-item--selected:hover) {
+		background-color: var(--color-medium-sea-blue);
+	}
+	.topics-container :global(.ais-Menu-item--selected:hover) a {
+		color: white;
+	}
+
+	.topics-container :global(.ais-Menu-count) {
+		display: none;
+	}
+
+	.topics-container :global(.ais-Menu-showMore) {
+		flex-shrink: 0;
+		margin: 0;
+		padding: var(--space-3xs) var(--space-2xs);
+		border-radius: var(--border-radius-base);
+		color: var(--color-gray-700);
+		transition: all 0.4s ease;
+		line-height: 1.2;
+		margin-top: var(--space-3xs);
+		font-size: calc(var(--font-size-xs) / 1.2);
+		text-transform: uppercase;
+		letter-spacing: 0.04rem;
+		color: var(--color-crimson);
+	}
+	@media (max-width: 768px) {
+		.topics-container :global(.ais-Menu-showMore) {
+			display: none;
+		}
+	}
+	.topics-container :global(.ais-Menu-showMore:hover) {
+		background-color: white;
+		cursor: pointer;
+	}
+	.topics-container :global(.ais-Menu-showMore:disabled) {
+		display: none;
+	}
+
+	/* Loading States */
+	@keyframes pulse {
+		0% {
+			opacity: 0;
+		}
+		50% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+
+	.loading-topics {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+	}
+
+	.loading-pill {
+		height: 24px;
+		width: 80px;
+		background: var(--color-gray-300);
+		border-radius: 3rem;
+		animation: pulse 1.8s infinite;
+	}
+
+	.loading-select {
+		height: 24px;
+		width: 120px;
+		background: var(--color-gray-300);
+		border-radius: var(--border-radius-base);
+		animation: pulse 1.8s infinite;
+	}
+	@media (max-width: 500px) {
+		.loading-select {
+			width: 100%;
+		}
+	}
+</style>

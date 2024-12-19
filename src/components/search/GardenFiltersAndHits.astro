@@ -1,0 +1,42 @@
+---
+import GardenHits from "./GardenHits.astro";
+import GardenFilters from "./GardenFilters.astro";
+
+const { allPostData } = Astro.props;
+const sortedPosts = allPostData.sort(
+	(a: { updated: string }, b: { updated: string }) => {
+		return new Date(b.updated).getTime() - new Date(a.updated).getTime();
+	}
+);
+---
+
+<div class="search-container">
+	<div id="instant-search-container">
+		<GardenFilters />
+		<GardenHits allPostData={sortedPosts} />
+	</div>
+</div>
+
+<script>
+	import { algoliasearch } from "algoliasearch";
+	import instantsearch from "instantsearch.js";
+	import { configure } from "instantsearch.js/es/widgets";
+
+	const searchClient = algoliasearch(
+		import.meta.env.PUBLIC_ALGOLIA_APP_ID,
+		import.meta.env.PUBLIC_ALGOLIA_SEARCH_API_KEY
+	);
+
+	const search = instantsearch({
+		indexName: "garden-posts",
+		searchClient,
+	});
+
+	search.addWidgets([
+		configure({
+			hitsPerPage: 200,
+		}),
+	]);
+
+	search.start();
+</script>
