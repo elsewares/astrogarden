@@ -1,0 +1,50 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import Title2 from "../components/mdx/typography/Title2.astro";
+import PatternCard from "../components/cards/PatternCard.astro";
+import TitleWithCount from "../components/layouts/TitleWithCount.astro";
+import PageWrapper from "../components/layouts/PageWrapper.astro";
+
+// Get all patterns that aren't drafts
+const patterns = await getCollection("patterns", ({ data }) => !data.draft);
+
+// Sort patterns by date
+const sortedPatterns = patterns.sort(
+	(a, b) =>
+		new Date(b.data.updated).getTime() - new Date(a.data.updated).getTime()
+);
+---
+
+<Layout title="Patterns by Maggie Appleton">
+	<PageWrapper>
+		<header style="margin-bottom: var(--space-xl);">
+			<TitleWithCount posts={sortedPatterns}>Pattern Catalogue</TitleWithCount>
+			<Title2>
+				A catalogue of design patterns gathered from my own observations and
+				research.
+			</Title2>
+		</header>
+		<div class="pattern-grid">
+			{
+				sortedPatterns.map((pattern) => (
+					<PatternCard
+						id={pattern.id}
+						slug={pattern.id}
+						title={pattern.data.title}
+						growthStage={pattern.data.growthStage}
+						date={pattern.data.updated}
+						description={pattern.data.description}
+					/>
+				))
+			}
+		</div>
+	</PageWrapper>
+</Layout>
+
+<style>
+	.pattern-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+	}
+</style>

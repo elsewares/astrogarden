@@ -24,17 +24,20 @@ const sortedEssays = essays.sort(
 			<Title2> Opinionated, longform narrative writing with an agenda. </Title2>
 		</header>
 		<MasonryGrid>
+			<div class="grid-sizer"></div>
 			{
 				sortedEssays.map((essay) => (
-					<EssayCard
-						id={essay.id}
-						slug={essay.id}
-						cover={essay.data.cover}
-						title={essay.data.title}
-						growthStage={essay.data.growthStage}
-						date={essay.data.updated}
-						description={essay.data.description}
-					/>
+					<div class="grid-item">
+						<EssayCard
+							id={essay.id}
+							slug={essay.id}
+							cover={essay.data.cover}
+							title={essay.data.title}
+							growthStage={essay.data.growthStage}
+							date={essay.data.updated}
+							description={essay.data.description}
+						/>
+					</div>
 				))
 			}
 		</MasonryGrid>

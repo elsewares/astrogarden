@@ -1,0 +1,50 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import Title2 from "../components/mdx/typography/Title2.astro";
+import NoteCard from "../components/cards/NoteCard.astro";
+import TitleWithCount from "../components/layouts/TitleWithCount.astro";
+import PageWrapper from "../components/layouts/PageWrapper.astro";
+
+// Get all notes that aren't drafts
+const notes = await getCollection("notes", ({ data }) => !data.draft);
+
+// Sort notes by date
+const sortedNotes = notes.sort(
+	(a, b) =>
+		new Date(b.data.updated).getTime() - new Date(a.data.updated).getTime()
+);
+---
+
+<Layout title="Notes by Maggie Appleton">
+	<PageWrapper>
+		<header style="margin-bottom: var(--space-xl);">
+			<TitleWithCount posts={sortedNotes}>Notes</TitleWithCount>
+			<Title2>
+				Loose, unopinionated notes on things I don't entirely understand yet.
+			</Title2>
+		</header>
+		<div class="notes-grid">
+			{
+				sortedNotes.map((note) => (
+					<NoteCard
+						id={note.id}
+						slug={note.id}
+						title={note.data.title}
+						growthStage={note.data.growthStage}
+						date={note.data.updated}
+						description={note.data.description}
+					/>
+				))
+			}
+		</div>
+	</PageWrapper>
+</Layout>
+
+<style>
+	.notes-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+		grid-gap: 1rem;
+	}
+</style>
