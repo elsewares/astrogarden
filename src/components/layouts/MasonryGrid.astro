@@ -5,16 +5,16 @@ const {
 		1100: 2,
 		700: 1,
 	},
-	columnGapLeft = "0.8rem",
-	columnGapBottom = "0.8rem",
+	columnGapLeft = "2rem",
+	columnGapBottom = "2rem",
 	...props
 } = Astro.props;
 ---
 
 <div
-	class="masonry-grid"
-	style={`--column-gap-left: ${columnGapLeft}; --column-gap-bottom: ${columnGapBottom};`}
+	class="grid"
 	{...props}
+	style={`--column-gap-left: ${columnGapLeft}; --column-gap-bottom: ${columnGapBottom};`}
 >
 	<slot />
 </div>
@@ -23,29 +23,41 @@ const {
 	import Masonry from "masonry-layout";
 
 	// Initialize masonry on the grid
-	const grid = document.querySelector(".masonry-grid");
+	const grid = document.querySelector(".grid");
 	if (grid) {
 		const masonry = new Masonry(grid, {
-			itemSelector: ".masonry-grid-column",
-			columnWidth: ".masonry-grid-column",
+			itemSelector: ".grid-item",
+			columnWidth: ".grid-sizer",
 			percentPosition: true,
+			transitionDuration: 0,
+			gutter: 16,
 		});
 	}
 </script>
 
 <style>
-	.masonry-grid {
-		display: flex;
-		width: auto;
-		margin-top: var(--space-m);
+	.grid {
+		margin: var(--space-m) auto;
+		width: 100%;
 	}
 
-	:global(.masonry-grid-column + .masonry-grid-column) {
-		margin-left: var(--column-gap-left);
-		background-clip: padding-box;
-	}
-
-	:global(.masonry-grid-column div:first-child) {
+	:global(.grid-sizer),
+	:global(.grid-item) {
+		width: 32%; /* Explicitly set to slightly less than 33.33% to account for gutters */
 		margin-bottom: var(--column-gap-bottom);
+	}
+
+	@media (max-width: 1100px) {
+		:global(.grid-sizer),
+		:global(.grid-item) {
+			width: 48%; /* Explicitly set to slightly less than 50% to account for gutters */
+		}
+	}
+
+	@media (max-width: 700px) {
+		:global(.grid-sizer),
+		:global(.grid-item) {
+			width: 100%;
+		}
 	}
 </style>

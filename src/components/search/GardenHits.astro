@@ -17,55 +17,103 @@ const sortedPosts = allPostData.sort(
 ---
 
 <div id="hits-container">
-	<MasonryGrid columnGapLeft="0.8rem" columnGapBottom="0.8rem">
+	<MasonryGrid columnGapLeft="1rem" columnGapBottom="1rem">
+		<div class="grid-sizer"></div>
 		{
 			sortedPosts.map(
 				(
 					post: {
-						type: string;
-						slug: string;
-						cover?: string;
-						title?: string;
-						growthStage?: string;
-						updated?: string;
-						description?: string;
+						id: string;
+						data: {
+							type: string;
+							cover?: string;
+							title: string;
+							growthStage: string;
+							updated: string;
+							description: string;
+							url?: string;
+							conferences?: {
+								name: string;
+								location: string;
+								date: string;
+							}[];
+						};
 					},
 					i: number
 				) => {
-					if (!post || !post.type) return null;
+					if (!post || !post.data.type) return null;
 
-					switch (post.type) {
+					switch (post.data.type) {
 						case "essay":
 							return (
-								<EssayCard
-									key={i}
-									id={post.slug}
-									slug={post.slug}
-									cover={post.cover}
-									title={post.title}
-									growthStage={post.growthStage}
-									date={post.updated}
-									description={post.description}
-								/>
+								<div class="grid-item">
+									<EssayCard
+										key={i}
+										id={post.id}
+										slug={post.id}
+										cover={post.data.cover}
+										title={post.data.title}
+										growthStage={post.data.growthStage}
+										date={post.data.updated}
+										description={post.data.description}
+									/>
+								</div>
 							);
 						case "note":
 							return (
-								<NoteCard
-									key={i}
-									id={post.slug}
-									slug={post.slug}
-									title={post.title}
-									growthStage={post.growthStage}
-									date={post.updated}
-									description={post.description}
-								/>
+								<div class="grid-item">
+									<NoteCard
+										key={i}
+										id={post.id}
+										slug={post.id}
+										title={post.data.title}
+										growthStage={post.data.growthStage}
+										date={post.data.updated}
+										description={post.data.description}
+									/>
+								</div>
 							);
 						case "pattern":
-							return <PatternCard key={i} id={post.slug} slug={post.slug} />;
+							return (
+								<div class="grid-item">
+									<PatternCard
+										key={i}
+										id={post.id}
+										slug={post.id}
+										title={post.data.title}
+										description={post.data.description}
+										date={post.data.updated}
+									/>
+								</div>
+							);
 						case "podcast":
-							return <PodcastCard key={i} id={post.slug} slug={post.slug} />;
+							return (
+								<div class="grid-item">
+									<PodcastCard
+										key={i}
+										id={post.id}
+										podcastName={post.data.title}
+										episodeName={post.data.description}
+										url={post.data.url || "#"}
+										date={post.data.updated}
+										podcastCover={post.data.cover}
+									/>
+								</div>
+							);
 						case "talk":
-							return <TalkCard key={i} id={post.slug} slug={post.slug} />;
+							return (
+								<div class="grid-item">
+									<TalkCard
+										key={i}
+										id={post.id}
+										slug={post.id}
+										title={post.data.title}
+										date={post.data.updated}
+										cover={post.data.cover}
+										conferences={post.data.conferences || []}
+									/>
+								</div>
+							);
 						default:
 							return null;
 					}
@@ -74,24 +122,3 @@ const sortedPosts = allPostData.sort(
 		}
 	</MasonryGrid>
 </div>
-
-<script>
-	import { hits } from "instantsearch.js/es/widgets";
-
-	// Initialize hits widget
-	const searchHits = hits({
-		container: "#hits-container",
-		templates: {
-			item: (hit) => {
-				// Return the appropriate card HTML based on hit.type
-				return `...`; // Template string for card HTML
-			},
-		},
-	});
-
-	// Add hits widget to existing search instance
-	const search = document.querySelector("instantsearch") as any;
-	if (search) {
-		search.addWidgets([searchHits]);
-	}
-</script>
