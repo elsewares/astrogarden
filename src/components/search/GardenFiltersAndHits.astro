@@ -1,18 +1,12 @@
 ---
 import GardenHits from "./GardenHits.astro";
-import GardenFilters from "./GardenFilters.astro";
 
 const { allPostData } = Astro.props;
-const sortedPosts = allPostData.sort(
-	(a: { updated: string }, b: { updated: string }) => {
-		return new Date(b.updated).getTime() - new Date(a.updated).getTime();
-	}
-);
 ---
 
 <div class="search-container">
 	<div>
 		<!-- <GardenFilters /> -->
-		<GardenHits allPostData={sortedPosts} />
+		<GardenHits allPostData={allPostData} />
 	</div>
 </div>

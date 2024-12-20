@@ -1,5 +1,21 @@
 [
 	{
+		"title": "Empire of Pain",
+		"subtitle": "The Secret History of the Sackler Dynasty",
+		"author": "Patrick Radden Keefe",
+		"cover": "../images/books/empireofpain.jpg",
+		"link": "https://www.google.co.uk/books/edition/Empire_of_Pain/tN8OEAAAQBAJ?hl=en&gbpv=0",
+		"id": 61
+	},
+	{
+		"title": "Seeing Voices",
+		"subtitle": "A Journey Into the World of the Deaf",
+		"author": "Oliver Sacks",
+		"cover": "../images/books/seeingvoices.jpg",
+		"link": "https://www.google.co.uk/books/edition/Seeing_Voices/CvASwnRq2zgC?hl=en&gbpv=0",
+		"id": 60
+	},
+	{
 		"title": "Eve: How The Female Body Drove 200 Million Years of Human Evolution",
 		"author": "Cat Bohannon",
 		"cover": "../images/books/eve.webp",

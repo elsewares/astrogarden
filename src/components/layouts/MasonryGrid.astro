@@ -5,17 +5,11 @@ const {
 		1100: 2,
 		700: 1,
 	},
-	columnGapLeft = "2rem",
-	columnGapBottom = "2rem",
 	...props
 } = Astro.props;
 ---
 
-<div
-	class="grid"
-	{...props}
-	style={`--column-gap-left: ${columnGapLeft}; --column-gap-bottom: ${columnGapBottom};`}
->
+<div class="grid" {...props}>
 	<slot />
 </div>
 
@@ -30,7 +24,7 @@ const {
 			columnWidth: ".grid-sizer",
 			percentPosition: true,
 			transitionDuration: 0,
-			gutter: 16,
+			gutter: 10,
 		});
 	}
 </script>
@@ -43,14 +37,14 @@ const {
 
 	:global(.grid-sizer),
 	:global(.grid-item) {
-		width: 32%; /* Explicitly set to slightly less than 33.33% to account for gutters */
-		margin-bottom: var(--column-gap-bottom);
+		width: 32%;
+		margin-bottom: 1rem;
 	}
 
 	@media (max-width: 1100px) {
 		:global(.grid-sizer),
 		:global(.grid-item) {
-			width: 48%; /* Explicitly set to slightly less than 50% to account for gutters */
+			width: 48%;
 		}
 	}
 

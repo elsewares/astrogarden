@@ -6,18 +6,22 @@ import PatternCard from "../cards/PatternCard.astro";
 import PodcastCard from "../cards/PodcastCard.astro";
 import TalkCard from "../cards/TalkCard.astro";
 
+interface Post {
+	data: {
+		updated: string;
+	};
+}
+
 const { allPostData } = Astro.props;
-const sortedPosts = allPostData.sort(
-	(a: { updated: string }, b: { updated: string }) => {
-		const dateA = new Date(a.updated).getTime();
-		const dateB = new Date(b.updated).getTime();
-		return dateB - dateA;
-	}
-);
+const sortedPosts = allPostData.sort((a: Post, b: Post) => {
+	const dateA = new Date(a.data.updated).getTime();
+	const dateB = new Date(b.data.updated).getTime();
+	return dateB - dateA;
+});
 ---
 
 <div id="hits-container">
-	<MasonryGrid columnGapLeft="1rem" columnGapBottom="1rem">
+	<MasonryGrid>
 		<div class="grid-sizer"></div>
 		{
 			sortedPosts.map(
@@ -26,97 +30,68 @@ const sortedPosts = allPostData.sort(
 						id: string;
 						data: {
 							type: string;
-							cover?: string;
-							title: string;
-							growthStage: string;
 							updated: string;
+							title: string;
 							description: string;
-							url?: string;
-							conferences?: {
-								name: string;
-								location: string;
-								date: string;
-							}[];
+							growthStage?: string;
+							cover?: string;
 						};
 					},
 					i: number
 				) => {
 					if (!post || !post.data.type) return null;
 
-					switch (post.data.type) {
-						case "essay":
-							return (
-								<div class="grid-item">
-									<EssayCard
-										key={i}
-										id={post.id}
-										slug={post.id}
-										cover={post.data.cover}
-										title={post.data.title}
-										growthStage={post.data.growthStage}
-										date={post.data.updated}
-										description={post.data.description}
-									/>
-								</div>
-							);
-						case "note":
-							return (
-								<div class="grid-item">
-									<NoteCard
-										key={i}
-										id={post.id}
-										slug={post.id}
-										title={post.data.title}
-										growthStage={post.data.growthStage}
-										date={post.data.updated}
-										description={post.data.description}
-									/>
-								</div>
-							);
-						case "pattern":
-							return (
-								<div class="grid-item">
-									<PatternCard
-										key={i}
-										id={post.id}
-										slug={post.id}
-										title={post.data.title}
-										description={post.data.description}
-										date={post.data.updated}
-									/>
-								</div>
-							);
-						case "podcast":
-							return (
-								<div class="grid-item">
-									<PodcastCard
-										key={i}
-										id={post.id}
-										podcastName={post.data.title}
-										episodeName={post.data.description}
-										url={post.data.url || "#"}
-										date={post.data.updated}
-										podcastCover={post.data.cover}
-									/>
-								</div>
-							);
-						case "talk":
-							return (
-								<div class="grid-item">
-									<TalkCard
-										key={i}
-										id={post.id}
-										slug={post.id}
-										title={post.data.title}
-										date={post.data.updated}
-										cover={post.data.cover}
-										conferences={post.data.conferences || []}
-									/>
-								</div>
-							);
-						default:
-							return null;
-					}
+					const commonProps = {
+						key: i,
+						id: post.id,
+						slug: post.id,
+						date: post.data.updated,
+					};
+
+					return (
+						<div class="grid-item">
+							{post.data.type === "essay" && (
+								<EssayCard
+									{...commonProps}
+									cover={post.data.cover}
+									title={post.data.title}
+									growthStage={post.data.growthStage}
+									description={post.data.description}
+								/>
+							)}
+							{post.data.type === "note" && (
+								<NoteCard
+									{...commonProps}
+									title={post.data.title}
+									growthStage={post.data.growthStage}
+									description={post.data.description}
+								/>
+							)}
+							{post.data.type === "pattern" && (
+								<PatternCard
+									{...commonProps}
+									title={post.data.title}
+									growthStage={post.data.growthStage}
+									description={post.data.description}
+								/>
+							)}
+							{post.data.type === "podcast" && (
+								<PodcastCard
+									{...commonProps}
+									title={post.data.title}
+									description={post.data.description}
+								/>
+							)}
+							{post.data.type === "talk" && (
+								<TalkCard
+									{...commonProps}
+									title={post.data.title}
+									description={post.data.description}
+									cover={post.data.cover}
+								/>
+							)}
+						</div>
+					);
 				}
 			)
 		}

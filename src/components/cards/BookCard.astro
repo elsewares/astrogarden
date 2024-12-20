@@ -23,7 +23,13 @@ import { Image } from "astro:assets";
 		{
 			cover && (
 				<div class="image-wrapper">
-					<Image src={cover} alt={title} width={230} height={345} />
+					<Image
+						src={cover}
+						alt={title}
+						width={230}
+						height={345}
+						style="width: 100%; height: auto; object-fit: contain;"
+					/>
 				</div>
 			)
 		}
@@ -41,9 +47,11 @@ import { Image } from "astro:assets";
 <style>
 	.image-wrapper {
 		display: grid;
-		place-items: baseline;
-		max-width: 300px;
-		max-height: 450px;
+		place-items: center;
+		width: 100%;
+		max-width: 230px;
+		aspect-ratio: 2/3;
+		margin: 0 auto;
 	}
 
 	.external-hover-link {
@@ -73,7 +81,7 @@ import { Image } from "astro:assets";
 		left: 0;
 		flex-direction: column;
 		transition: all 0.3s ease-in-out;
-		margin: 0 var(--space-2xs) var(--space-2xs) 0;
+		margin: 0;
 		padding: 0 var(--space-3xs) var(--space-l) var(--space-3xs);
 	}
 
@@ -82,6 +90,9 @@ import { Image } from "astro:assets";
 	}
 
 	.book-card img {
+		width: 100%;
+		height: auto;
+		max-width: 100%;
 		transition: all 0.3s ease-in-out;
 		border-radius: var(--border-radius-base);
 		box-shadow: var(--box-shadow-sm);
