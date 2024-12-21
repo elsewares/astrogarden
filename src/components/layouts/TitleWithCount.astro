@@ -6,22 +6,18 @@ interface Props {
 const { posts } = Astro.props;
 const count = posts.length;
 const digits = count.toString().length;
+const leftOffset = `-${1 + digits}rem`;
 ---
 
-<div class="styled-container" data-digits={digits}>
-	<span>{count}</span>
+<div class="styled-container" data-digits={digits} data-debug-count={count}>
+	<span style={`left: ${leftOffset}`}>{count}</span>
 	<h1><slot /></h1>
 </div>
 
 <style>
-	.styled-container {
-		margin-top: 0;
-	}
-
 	span {
 		position: relative;
 		top: 3.4rem;
-		left: calc(-1.2rem - var(--digits) ch);
 		font-size: var(--font-size-md);
 		color: var(--color-sea-blue);
 		font-weight: 400;
@@ -30,7 +26,8 @@ const digits = count.toString().length;
 	@media (max-width: 1440px) {
 		span {
 			top: 0;
-			left: 0;
+			left: 0 !important;
+			transform: none;
 			display: block;
 		}
 	}
