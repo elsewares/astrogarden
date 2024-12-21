@@ -83,13 +83,14 @@ import RelativeDate from "../layouts/RelativeDate.astro";
 		border-radius: var(--border-radius-base);
 		border: 1px solid var(--color-cream);
 		transition: all 0.3s ease-in-out;
+		will-change: transform, background-color, box-shadow;
 		align-items: start;
 		cursor: pointer;
 	}
 
 	.pattern-card h3 {
 		color: var(--color-gray-800);
-		transition: all 0.3s ease-in-out;
+		transition: color 0.3s ease-in-out;
 		font-family: var(--font-body);
 		font-size: var(--font-size-base);
 		font-weight: 400;
@@ -122,5 +123,15 @@ import RelativeDate from "../layouts/RelativeDate.astro";
 	.pattern-card:hover .right-leaf {
 		transform: translateX(-29px);
 		transition: transform 0.3s ease-in-out;
+	}
+
+	.left-leaf {
+		transition: transform 0.3s ease-in-out;
+		will-change: transform;
+	}
+
+	.right-leaf {
+		transition: transform 0.3s ease-in-out;
+		will-change: transform;
 	}
 </style>

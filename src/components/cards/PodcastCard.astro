@@ -2,7 +2,7 @@
 const { podcastName, episodeName, url, date, id, podcastCover } = Astro.props;
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
-import DateToNow from "../layouts/DateToNow.astro";
+import RelativeDate from "../layouts/RelativeDate.astro";
 ---
 
 <a href={url}>
@@ -34,7 +34,7 @@ import DateToNow from "../layouts/DateToNow.astro";
 				<svg width="4px" height="4px">
 					<circle r="2" cx="2" cy="2" fill="var(--color-gray-400)"></circle>
 				</svg>
-				{date && <DateToNow postDate={date} />}
+				{date && <RelativeDate postDate={date} />}
 			</div>
 		</div>
 	</div>
@@ -94,6 +94,7 @@ import DateToNow from "../layouts/DateToNow.astro";
 		background: var(--color-light-cream);
 		transition: all 0.3s ease-in-out;
 		cursor: pointer;
+		will-change: transform, width;
 	}
 
 	.podcast-card:hover {

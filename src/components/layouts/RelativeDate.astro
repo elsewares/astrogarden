@@ -1,8 +1,8 @@
 ---
-import { parse, formatDistanceToNow, isMatch } from "date-fns";
+import { parseISO, formatDistanceToNow } from "date-fns";
 
 interface Props {
-	postDate: string;
+	postDate: string | Date;
 }
 
 const { postDate } = Astro.props;
@@ -13,12 +13,16 @@ if (!postDate) {
 	formattedDate = "";
 } else {
 	try {
-		const date = parse(postDate, "yyyy-MM-dd", new Date());
+		const dateString =
+			postDate instanceof Date ? postDate.toISOString() : String(postDate);
+		const date = parseISO(dateString);
+
 		if (!isNaN(date.getTime())) {
 			formattedDate = formatDistanceToNow(date, { addSuffix: true });
 		}
 	} catch (error) {
 		console.error("Date parsing error:", error);
+		console.error("Received postDate:", postDate, "of type:", typeof postDate);
 	}
 }
 ---

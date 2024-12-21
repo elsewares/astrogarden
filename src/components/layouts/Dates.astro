@@ -1,5 +1,5 @@
 ---
-import { parse, differenceInDays } from "date-fns";
+import { parseISO, differenceInDays } from "date-fns";
 import RelativeDate from "./RelativeDate.astro";
 
 interface Props {
@@ -9,8 +9,8 @@ interface Props {
 
 const { startDate, updated } = Astro.props;
 
-const relativeStartDate = parse(startDate, "yyyy-MM-dd", new Date());
-const relativeUpdatedDate = parse(updated, "yyyy-MM-dd", new Date());
+const relativeStartDate = parseISO(startDate);
+const relativeUpdatedDate = parseISO(updated);
 
 const dateDifference = differenceInDays(relativeUpdatedDate, relativeStartDate);
 ---

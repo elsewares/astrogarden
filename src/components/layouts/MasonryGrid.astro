@@ -23,7 +23,8 @@ const {
 			itemSelector: ".grid-item",
 			columnWidth: ".grid-sizer",
 			percentPosition: true,
-			transitionDuration: 0,
+			transitionDuration: "0.3s",
+			initLayout: true,
 			gutter: 10,
 		});
 	}
@@ -38,7 +39,7 @@ const {
 	:global(.grid-sizer),
 	:global(.grid-item) {
 		width: 32%;
-		margin-bottom: 1rem;
+		margin-bottom: 0.25rem;
 	}
 
 	@media (max-width: 1100px) {

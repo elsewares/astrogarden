@@ -57,12 +57,14 @@ import GrowthIcon from "../layouts/GrowthIcon.astro";
 		border-radius: var(--border-radius-base);
 		border: 1px solid var(--color-cream);
 		transition: all 0.3s ease-in-out;
+		will-change: transform, background-color, box-shadow;
 		cursor: pointer;
 	}
 
 	.note-card h3 {
 		color: var(--color-gray-800);
-		transition: all 0.3s ease-in-out;
+		transition: color 0.3s ease-in-out;
+		will-change: transform;
 		font-family: var(--font-body);
 		font-size: var(--font-size-base);
 		font-weight: 400;

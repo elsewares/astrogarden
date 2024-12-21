@@ -7,12 +7,29 @@ import PodcastCard from "../cards/PodcastCard.astro";
 import TalkCard from "../cards/TalkCard.astro";
 
 interface Post {
+	id: string;
+	collection: string;
 	data: {
+		type?: string;
 		updated: string;
+		title?: string;
+		description?: string;
+		growthStage?: string;
+		cover?: string;
+		podcastName?: string;
+		episodeName?: string;
+		url?: string;
+		coverImage?: {
+			src: string;
+			width: number;
+			height: number;
+			format: string;
+		};
 	};
 }
 
 const { allPostData } = Astro.props;
+
 const sortedPosts = allPostData.sort((a: Post, b: Post) => {
 	const dateA = new Date(a.data.updated).getTime();
 	const dateB = new Date(b.data.updated).getTime();
@@ -24,76 +41,75 @@ const sortedPosts = allPostData.sort((a: Post, b: Post) => {
 	<MasonryGrid>
 		<div class="grid-sizer"></div>
 		{
-			sortedPosts.map(
-				(
-					post: {
-						id: string;
-						data: {
-							type: string;
-							updated: string;
-							title: string;
-							description: string;
-							growthStage?: string;
-							cover?: string;
-						};
-					},
-					i: number
-				) => {
-					if (!post || !post.data.type) return null;
+			sortedPosts.map((post: Post, i) => {
+				console.log(
+					"Processing post:",
+					post.id,
+					"Type:",
+					post.data.type,
+					"Collection:",
+					post.collection
+				);
 
-					const commonProps = {
-						key: i,
-						id: post.id,
-						slug: post.id,
-						date: post.data.updated,
-					};
+				const isPodcast =
+					post.data.type === "podcast" || post.collection === "podcasts";
 
-					return (
-						<div class="grid-item">
-							{post.data.type === "essay" && (
-								<EssayCard
-									{...commonProps}
-									cover={post.data.cover}
-									title={post.data.title}
-									growthStage={post.data.growthStage}
-									description={post.data.description}
-								/>
-							)}
-							{post.data.type === "note" && (
-								<NoteCard
-									{...commonProps}
-									title={post.data.title}
-									growthStage={post.data.growthStage}
-									description={post.data.description}
-								/>
-							)}
-							{post.data.type === "pattern" && (
-								<PatternCard
-									{...commonProps}
-									title={post.data.title}
-									growthStage={post.data.growthStage}
-									description={post.data.description}
-								/>
-							)}
-							{post.data.type === "podcast" && (
-								<PodcastCard
-									{...commonProps}
-									title={post.data.title}
-									description={post.data.description}
-								/>
-							)}
-							{post.data.type === "talk" && (
-								<TalkCard
-									{...commonProps}
-									title={post.data.title}
-									description={post.data.description}
-									cover={post.data.cover}
-								/>
-							)}
-						</div>
-					);
-				}
-			)
+				if (!post) return null;
+
+				const commonProps = {
+					key: i,
+					id: post.id,
+					slug: post.id,
+					date: post.data.updated,
+				};
+
+				return (
+					<div class="grid-item">
+						{isPodcast && (
+							<PodcastCard
+								{...commonProps}
+								podcastName={post.data.podcastName}
+								episodeName={post.data.episodeName}
+								url={post.data.url}
+								podcastCover={post.data.coverImage}
+							/>
+						)}
+						{post.data.type === "essay" && (
+							<EssayCard
+								{...commonProps}
+								cover={post.data.cover}
+								title={post.data.title}
+								growthStage={post.data.growthStage}
+								description={post.data.description}
+							/>
+						)}
+						{post.data.type === "note" && (
+							<NoteCard
+								{...commonProps}
+								title={post.data.title}
+								growthStage={post.data.growthStage}
+								description={post.data.description}
+							/>
+						)}
+						{post.data.type === "pattern" && (
+							<PatternCard
+								{...commonProps}
+								title={post.data.title}
+								growthStage={post.data.growthStage}
+								description={post.data.description}
+							/>
+						)}
+						{post.data.type === "talk" && (
+							<TalkCard
+								{...commonProps}
+								title={post.data.title}
+								description={post.data.description}
+								cover={post.data.cover}
+							/>
+						)}
+					</div>
+				);
+			})
 		}
 	</MasonryGrid>
 </div>

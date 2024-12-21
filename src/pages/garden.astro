@@ -29,3 +29,7 @@ const allPosts = [...essays, ...notes, ...patterns, ...talks, ...podcasts];
 		<GardenFiltersAndHits allPostData={allPosts} />
 	</PageWrapper>
 </Layout>
+
+<script define:vars={{ allPosts }}>
+	console.log("All Posts:", allPosts);
+</script>
