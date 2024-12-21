@@ -112,8 +112,18 @@ const antibooksCollection = defineCollection({
 		}),
 });
 
+const nowCollection = defineCollection({
+	loader: glob({ pattern: "**/*.mdx", base: "./src/content/now" }),
+	schema: z.object({
+		title: z.string(),
+		date: z.coerce.date(),
+		type: z.literal("now"),
+	}),
+});
+
 // This key should match your collection directory name in "src/content"
 export const collections = {
+	now: nowCollection,
 	notes: notesCollection,
 	essays: essaysCollection,
 	patterns: patternsCollection,

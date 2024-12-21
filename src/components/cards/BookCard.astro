@@ -47,16 +47,16 @@ import { Image } from "astro:assets";
 <style>
 	.image-wrapper {
 		display: grid;
-		place-items: center;
+		place-items: baseline;
 		width: 100%;
 		max-width: 230px;
 		aspect-ratio: 2/3;
-		margin: 0 auto;
+		margin: 0;
 	}
 
 	.external-hover-link {
 		position: absolute;
-		top: 35%;
+		top: 33%;
 		left: 14%;
 		transform-origin: center;
 		z-index: 1;
@@ -81,7 +81,7 @@ import { Image } from "astro:assets";
 		left: 0;
 		flex-direction: column;
 		transition: all 0.3s ease-in-out;
-		margin: 0;
+		margin: 0 var(--space-2xs) var(--space-2xs) 0;
 		padding: 0 var(--space-3xs) var(--space-l) var(--space-3xs);
 	}
 
@@ -105,9 +105,13 @@ import { Image } from "astro:assets";
 
 	.book-card div p {
 		transition: all 0.3s ease-in-out;
-		margin: var(--space-2xs) 0 var(--space-3xs) 0;
+		margin: var(--space-xs) 0 var(--space-3xs) 0;
 		line-height: var(--leading-base);
 		color: var(--color-black);
+	}
+
+	.book-card[data-small="true"] div p {
+		margin: var(--space-2xs) 0 var(--space-3xs) 0;
 	}
 
 	.book-card:hover img {

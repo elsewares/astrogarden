@@ -10,7 +10,14 @@ import GrowthIcon from "../layouts/GrowthIcon.astro";
 		{
 			cover && (
 				<div class="image-wrapper">
-					<Image src={cover} alt={title} width={400} height={400} />
+					<Image
+						src={cover}
+						alt={title}
+						width={400}
+						height={400}
+						loading="eager"
+						decoding="async"
+					/>
 				</div>
 			)
 		}

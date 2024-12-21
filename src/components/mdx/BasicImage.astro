@@ -66,6 +66,8 @@ const isGif =
 					width={parseInt(width)}
 					class="styled-image"
 					style={`width: ${width}px; max-width: 100%;`}
+					loading="eager"
+					decoding="async"
 				/>
 			)
 		}
@@ -93,6 +95,34 @@ const isGif =
 	.image-wrapper {
 		display: flex;
 		justify-content: center;
+		position: relative;
+	}
+
+	.image-wrapper::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background-color: var(--color-tinted-cream);
+		border-radius: var(--border-radius-sm);
+		animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+	}
+
+	@keyframes pulse {
+		0%,
+		100% {
+			opacity: 0.1;
+		}
+		50% {
+			opacity: 0.3;
+		}
+	}
+
+	.styled-image {
+		height: auto;
+		margin: 0 auto;
+		border-radius: var(--border-radius-sm);
+		position: relative;
+		z-index: 1;
 	}
 
 	.image-frame {
@@ -100,12 +130,6 @@ const isGif =
 		border-radius: var(--border-radius-base);
 		box-shadow: var(--box-shadow-lg);
 		margin-bottom: var(--space-xs);
-	}
-
-	.styled-image {
-		height: auto;
-		margin: 0 auto;
-		border-radius: var(--border-radius-sm);
 	}
 
 	figcaption {

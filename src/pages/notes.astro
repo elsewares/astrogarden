@@ -5,6 +5,7 @@ import Title2 from "../components/mdx/typography/Title2.astro";
 import NoteCard from "../components/cards/NoteCard.astro";
 import TitleWithCount from "../components/layouts/TitleWithCount.astro";
 import PageWrapper from "../components/layouts/PageWrapper.astro";
+import MasonryGrid from "../components/layouts/MasonryGrid.astro";
 
 // Get all notes that aren't drafts
 const notes = await getCollection("notes", ({ data }) => !data.draft);
@@ -24,27 +25,22 @@ const sortedNotes = notes.sort(
 				Loose, unopinionated notes on things I don't entirely understand yet.
 			</Title2>
 		</header>
-		<div class="notes-grid">
+		<MasonryGrid>
+			<div class="grid-sizer"></div>
 			{
 				sortedNotes.map((note) => (
-					<NoteCard
-						id={note.id}
-						slug={note.id}
-						title={note.data.title}
-						growthStage={note.data.growthStage}
-						date={note.data.updated}
-						description={note.data.description}
-					/>
+					<div class="grid-item">
+						<NoteCard
+							id={note.id}
+							slug={note.id}
+							title={note.data.title}
+							growthStage={note.data.growthStage}
+							date={note.data.updated}
+							description={note.data.description}
+						/>
+					</div>
 				))
 			}
-		</div>
+		</MasonryGrid>
 	</PageWrapper>
 </Layout>
-
-<style>
-	.notes-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-		grid-gap: 1rem;
-	}
-</style>
