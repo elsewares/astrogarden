@@ -2,11 +2,11 @@
 const { href } = Astro.props;
 ---
 
-<div class="link-container">
+<span class="link-container">
 	<a {href} class="styled-link">
 		<span><slot /></span>
 	</a>
-</div>
+</span>
 
 <style>
 	.link-container {
@@ -14,8 +14,6 @@ const { href } = Astro.props;
 		align-items: center;
 		justify-content: center;
 		position: relative;
-		left: 3px;
-		top: 1px;
 	}
 
 	.styled-link {
