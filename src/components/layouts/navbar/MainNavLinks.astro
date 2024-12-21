@@ -61,15 +61,15 @@ import UnderlineHoverLink from "../../mdx/UnderlineHoverLink.astro";
 		document.addEventListener("keydown", (e) => {
 			if (e.key === "Escape" && dropdown.style.display !== "none") {
 				closeDropdown();
-				button?.focus(); // Return focus to button
+				(button as HTMLElement)?.focus(); // Return focus to button
 			}
 		});
 
 		// Close dropdown when focus moves outside navigation
 		document.addEventListener("focusout", (e) => {
 			if (
-				!dropdown.contains(e.relatedTarget) &&
-				!button.contains(e.relatedTarget)
+				!dropdown.contains(e.relatedTarget as Node) &&
+				!button.contains(e.relatedTarget as Node)
 			) {
 				closeDropdown();
 			}
@@ -83,15 +83,15 @@ import UnderlineHoverLink from "../../mdx/UnderlineHoverLink.astro";
 			}
 		});
 	}
-
 	function openDropdown() {
+		if (!dropdown || !button) return;
 		dropdown.style.display = "flex";
 		button.setAttribute("aria-expanded", "true");
 		animate(
 			dropdown,
 			{
 				opacity: [0, 1],
-				rotateX: ["90deg", "0deg"],
+				transform: ["rotateX(90deg)", "rotateX(0deg)"],
 			},
 			{
 				duration: 0.6,
@@ -99,8 +99,8 @@ import UnderlineHoverLink from "../../mdx/UnderlineHoverLink.astro";
 			}
 		);
 	}
-
 	function closeDropdown() {
+		if (!button || !dropdown) return;
 		button.setAttribute("aria-expanded", "false");
 		animate(
 			dropdown,

@@ -42,7 +42,7 @@ const sortedPosts = allPostData.sort((a: Post, b: Post) => {
 	<MasonryGrid>
 		<div class="grid-sizer"></div>
 		{
-			sortedPosts.map((post: Post, i) => {
+			sortedPosts.map((post: Post, i: number) => {
 				console.log(
 					"Processing post:",
 					post.id,
