@@ -11,6 +11,7 @@ import Title3 from "../components/mdx/typography/Title3.astro";
 import Title4 from "../components/mdx/typography/Title4.astro";
 import TooltipLink from "../components/mdx/TooltipLink.astro";
 import BasicImage from "../components/mdx/BasicImage.astro";
+import InternalTooltipLink from "../components/mdx/InternalTooltipLink.astro";
 
 // Get params from URL
 export async function getStaticPaths() {
@@ -35,6 +36,7 @@ const components = {
 	h4: Title4,
 	a: TooltipLink,
 	img: BasicImage,
+	InternalTooltipLink,
 };
 ---
 

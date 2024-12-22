@@ -11,20 +11,21 @@ const { href, title, description } = Astro.props;
 ---
 
 <Tooltip max-width={420}>
-	<div class="tooltip-content">
+	<span slot="content" class="tooltip-content">
 		<h4>{title}</h4>
 		<span class="description">{description}</span>
-	</div>
-	<div class="styled-container">
+	</span>
+	<span class="styled-container">
 		<a class="styled-link" href={href}>
 			<span><slot /></span>
 		</a>
-	</div>
+	</span>
 </Tooltip>
 
 <style>
 	.tooltip-content {
 		padding: var(--space-3xs);
+		display: inline-block;
 	}
 
 	.tooltip-content h4 {

@@ -3,10 +3,11 @@
 	"type": "module",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "astro dev",
-		"build": "astro build",
+		"dev": "node src/scripts/generate-links.js && astro dev",
+		"build": "node src/scripts/generate-links.js && astro build",
 		"preview": "astro preview",
-		"astro": "astro"
+		"astro": "astro",
+		"generate-links": "node src/scripts/generate-links.js"
 	},
 	"dependencies": {
 		"@astrojs/mdx": "^4.0.1",
@@ -32,6 +33,7 @@
 		"@types/lodash": "^4.17.13",
 		"@types/masonry-layout": "^4.2.8",
 		"globby": "^14.0.2",
-		"gray-matter": "^4.0.3"
+		"gray-matter": "^4.0.3",
+		"unist-util-visit": "^5.0.0"
 	}
 }
