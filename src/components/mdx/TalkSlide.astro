@@ -55,7 +55,7 @@ const isGif =
 	}
 	{video && <Video class="styled-video" src={imgSrc} title="Slide video" />}
 	<div class="text-container">
-		<p><slot /></p>
+		<slot />
 	</div>
 </div>
 
@@ -64,10 +64,12 @@ const isGif =
 		max-width: 100%;
 		grid-column: 1 / 4 !important;
 		display: grid;
+		grid-gap: var(--space-l);
 		grid-template-columns: 5fr 4fr;
 		margin: var(--space-l) auto;
 		padding: 0 var(--space-xs);
 	}
+
 	@media (max-width: 1200px) {
 		.styled-slide {
 			max-width: 100%;
@@ -79,22 +81,29 @@ const isGif =
 
 	.text-container {
 		align-items: center;
-		display: grid;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 		width: 100%;
 	}
-	.text-container p {
+
+	.text-container :global(p) {
 		padding: 0 var(--space-m);
 		width: 100%;
 		margin: 0 auto;
+		font-size: var(--font-size-base);
+		line-height: var(--leading-looser);
 	}
+
 	@media (max-width: 1200px) {
-		.text-container p {
+		.text-container :global(p) {
 			padding: 0;
 			max-width: 60ch;
 			width: 100%;
 		}
 	}
-	.text-container p:not(:last-child) {
+
+	.text-container :global(p):not(:last-child) {
 		margin-bottom: 1rem;
 	}
 
@@ -104,6 +113,7 @@ const isGif =
 		width: 100%;
 		height: auto;
 	}
+
 	@media (max-width: 1200px) {
 		.styled-basic-image {
 			max-width: 100%;
@@ -115,6 +125,7 @@ const isGif =
 		border-radius: var(--border-radius-sm);
 		grid-column: 1 !important;
 	}
+
 	@media (max-width: 1200px) {
 		.styled-video {
 			max-width: 100%;
