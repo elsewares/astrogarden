@@ -2503,6 +2503,13 @@
         "slug": "assumed-audience",
         "growthStage": "evergreen",
         "description": "Naming your invisible audiences to free yourself from unspoken obligations"
+      },
+      {
+        "matchedId": "Expanding Dark Forest and Generative AI",
+        "title": "The Expanding Dark Forest and Generative AI",
+        "slug": "forest-talk",
+        "growthStage": "evergreen",
+        "description": "An exploration of the problems and possible futures of flooding the web with generative AI content"
       }
     ],
     "inboundLinks": []
@@ -3698,7 +3705,8 @@
   },
   {
     "ids": [
-      "The Expanding Dark Forest and Generative AI"
+      "The Expanding Dark Forest and Generative AI",
+      "Expanding Dark Forest and Generative AI"
     ],
     "slug": "forest-talk",
     "growthStage": "evergreen",
@@ -3720,6 +3728,12 @@
       }
     ],
     "inboundLinks": [
+      {
+        "title": "On Opening Essays, Conference Talks, and Jam Jars",
+        "slug": "openings",
+        "growthStage": "budding",
+        "description": "How to open pieces of narrative non-fiction writing, conference talks, and sticky jars"
+      },
       {
         "title": "The Expanding Dark Forest and Generative AI",
         "slug": "forest-talk",
@@ -3834,7 +3848,7 @@
       "Tools for Thought as Cultural Practices, not Computational Objects"
     ],
     "slug": "tools-thought-talk",
-    "growthStage": "seedling",
+    "growthStage": "budding",
     "description": "On seeing tools for thought through a historical and anthropological lens",
     "outboundLinks": [],
     "inboundLinks": [
