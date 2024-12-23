@@ -56,6 +56,7 @@ const talksCollection = defineCollection({
 		z.object({
 			title: z.string(),
 			description: z.string(),
+			startDate: z.coerce.date(),
 			updated: z.coerce.date(),
 			type: z.literal("talk"),
 			topics: z.array(z.string()),

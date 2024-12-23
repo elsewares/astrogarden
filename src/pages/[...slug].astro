@@ -20,10 +20,12 @@ export async function getStaticPaths() {
 	const patterns = await getCollection("patterns");
 	const talks = await getCollection("talks");
 
-	return [...essays, ...notes, ...patterns, ...talks].map((entry) => ({
-		params: { slug: entry.id },
-		props: { entry },
-	}));
+	return [...essays, ...notes, ...patterns, ...talks].map((entry) => {
+		return {
+			params: { slug: entry.id },
+			props: { entry },
+		};
+	});
 }
 
 const { entry } = Astro.props;

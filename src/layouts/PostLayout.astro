@@ -3,13 +3,16 @@ import type { CollectionEntry } from "astro:content";
 import Layout from "./Layout.astro";
 import { Icon } from "astro-icon/components";
 import Backlinks from "../components/layouts/Backlinks.astro";
+import linkMaps from "../links.json";
+import GrowthIcon from "../components/layouts/GrowthIcon.astro";
+import Dates from "../components/layouts/Dates.astro";
+
 // You'll need to find Astro alternatives for these React components:
 // - BacklinkHover
 // - BackToTop
 // - TwitterReply
 // - WebMentions
 // - TableOfContents (You might want to use @astrojs/tableofcontents)
-import linkMaps from "../links.json";
 
 type Props = {
 	frontmatter:
@@ -40,7 +43,13 @@ const backlinks = currentPost?.inboundLinks || [];
 				}s</a
 			>
 			<Icon name="heroicons:arrow-left" size={16} />
-			<!-- <GrowthIcon size="16" growthStage={frontmatter.growthStage} /> -->
+			<GrowthIcon
+				size="16"
+				growthStage={frontmatter.growthStage as
+					| "budding"
+					| "evergreen"
+					| "seedling"}
+			/>
 			<p>{frontmatter.growthStage}</p>
 			{frontmatter.draft && <span class="draft-label">Draft</span>}
 		</div>
@@ -49,8 +58,16 @@ const backlinks = currentPost?.inboundLinks || [];
 			{frontmatter.description && <p>{frontmatter.description}</p>}
 		</div>
 		<div class="metadata">
-			<!-- {frontmatter.topics && <Topics topics={frontmatter.topics} />} -->
-			<!-- <Dates startDate={frontmatter.startDate} updated={frontmatter.updated} /> -->
+			<!-- {frontmatter.topics && <Topics topics={frontmatter.topics} />} 
+            -->
+			<Dates
+				startDate={frontmatter.startDate instanceof Date
+					? frontmatter.startDate.toISOString()
+					: frontmatter.startDate}
+				updated={frontmatter.updated instanceof Date
+					? frontmatter.updated.toISOString()
+					: frontmatter.updated}
+			/>
 		</div>
 	</header>
 

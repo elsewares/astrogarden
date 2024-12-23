@@ -9,31 +9,30 @@ interface Props {
 
 const { startDate, updated } = Astro.props;
 
-const relativeStartDate = parseISO(startDate);
-const relativeUpdatedDate = parseISO(updated);
+const hasStartDate = Boolean(startDate);
+
+const relativeStartDate = startDate ? parseISO(startDate) : new Date();
+const relativeUpdatedDate = updated ? parseISO(updated) : new Date();
 
 const dateDifference = differenceInDays(relativeUpdatedDate, relativeStartDate);
+const isRecentUpdate = hasStartDate ? dateDifference <= 3 : true;
 ---
 
 <div class="dates">
 	{
-		dateDifference < 3 ? (
+		!hasStartDate || isRecentUpdate ? (
 			<span>
 				Planted <RelativeDate postDate={updated} />
 			</span>
 		) : (
-			<>
-				{startDate && (
-					<span>
-						Planted <RelativeDate postDate={startDate} />
-					</span>
-				)}
-				{updated && (
-					<span>
-						Last tended <RelativeDate postDate={updated} />
-					</span>
-				)}
-			</>
+			<Fragment>
+				<span>
+					Planted <RelativeDate postDate={startDate} />
+				</span>
+				<span>
+					Last tended <RelativeDate postDate={updated} />
+				</span>
+			</Fragment>
 		)
 	}
 </div>
