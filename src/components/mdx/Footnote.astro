@@ -136,14 +136,15 @@ const { idName, isClosed } = Astro.props;
 			margin: var(--space-xs) 0;
 			border-left: none;
 			padding-left: 0;
+			display: none;
+		}
+
+		.footnote-container {
+			display: inline;
 		}
 
 		label.margin-toggle:not(.footnote-number) {
 			display: inline;
-		}
-
-		.footnote {
-			display: none;
 		}
 
 		.margin-toggle:checked + .footnote {
@@ -152,9 +153,17 @@ const { idName, isClosed } = Astro.props;
 			left: 0;
 			clear: both;
 			width: 99%;
-			margin: 1rem;
+			margin: 1rem 0;
 			height: auto;
 			position: relative;
+		}
+
+		.footnote-container:not(.closed) .footnote {
+			display: none;
+		}
+
+		.footnote-container:not(.closed) .margin-toggle:checked + .footnote {
+			display: block;
 		}
 	}
 </style>
