@@ -37,12 +37,17 @@ const backlinks = currentPost?.inboundLinks || [];
 <Layout title={frontmatter.title} desc={frontmatter.description}>
 	<header class="header-section">
 		<div class="above-title">
-			<a href={`/${frontmatter.type}s`}
-				>{
-					frontmatter.type.charAt(0).toUpperCase() + frontmatter.type.slice(1)
-				}s</a
-			>
-			<Icon name="heroicons:arrow-left" size={16} />
+			<div class="back-link">
+				<a href={`/${frontmatter.type}s`}>
+					<Icon name="heroicons:arrow-left" size={16} />
+					<span>
+						{
+							frontmatter.type.charAt(0).toUpperCase() +
+								frontmatter.type.slice(1)
+						}s
+					</span>
+				</a>
+			</div>
 			<GrowthIcon
 				size="16"
 				growthStage={frontmatter.growthStage as
@@ -109,24 +114,29 @@ const backlinks = currentPost?.inboundLinks || [];
 		margin: var(--space-l) auto 0;
 	}
 
+	.above-title {
+		display: flex;
+		align-items: center;
+		gap: var(--space-xs);
+		min-height: 24px;
+	}
+
 	.above-title a,
 	.above-title p {
-		display: inline-block;
+		display: inline-flex;
+		align-items: center;
 		font-family: var(--font-sans);
 		font-size: var(--font-size-xs);
 		text-transform: uppercase;
 		letter-spacing: 0.05em;
 		font-weight: bold;
-		padding-right: var(--space-xs);
-	}
-
-	.above-title p {
-		padding-left: var(--space-2xs);
+		margin: 0;
 	}
 
 	.above-title svg {
+		display: block;
 		position: relative;
-		top: 3px;
+		margin: auto 0;
 	}
 
 	.metadata {
@@ -181,5 +191,49 @@ const backlinks = currentPost?.inboundLinks || [];
 		background-color: var(--color-gray-200);
 		color: var(--color-gray-700);
 		margin-left: var(--space-xs);
+	}
+
+	.back-link {
+		display: flex;
+		align-items: center;
+		height: 100%;
+	}
+
+	.back-link a {
+		display: inline-flex;
+		align-items: center;
+		position: relative;
+		font-family: var(--font-sans);
+		font-size: var(--font-size-xs);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		font-weight: bold;
+		transition: all 0.8s cubic-bezier(0.2, 1, 0.8, 1);
+		margin: 0;
+		padding: 0;
+	}
+
+	.back-link svg {
+		width: 0;
+		transition: all 0.8s cubic-bezier(0.2, 1, 0.8, 1);
+		color: var(--color-gray-300);
+		position: relative;
+		top: 1px;
+	}
+
+	.back-link span {
+		display: inline-block;
+		transition: transform 0.3s cubic-bezier(0.2, 1, 0.8, 1);
+		color: var(--color-bright-crimson);
+	}
+
+	.back-link a:hover svg {
+		width: 16px;
+		margin-right: 2px;
+		color: var(--color-sea-blue);
+	}
+
+	.back-link a:hover span {
+		transform: translate3d(3px, 0, 0);
 	}
 </style>
