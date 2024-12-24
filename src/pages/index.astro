@@ -15,7 +15,7 @@ import PageWrapper from "../components/layouts/PageWrapper.astro";
 
 const essays = await getCollection(
 	"essays",
-	({ data }) => data.featured === true && !data.draft
+	({ data }) => data.featured === true && !data.draft,
 );
 const notes = await getCollection("notes", ({ data }) => !data.draft);
 const patterns = await getCollection("patterns", ({ data }) => !data.draft);
@@ -25,19 +25,19 @@ const sortedEssays = essays
 	.slice(0, 4)
 	.sort(
 		(a, b) =>
-			new Date(b.data.updated).getTime() - new Date(a.data.updated).getTime()
+			new Date(b.data.updated).getTime() - new Date(a.data.updated).getTime(),
 	);
 
 const sortedNotes = notes.sort(
 	(a, b) =>
-		new Date(b.data.updated).getTime() - new Date(a.data.updated).getTime()
+		new Date(b.data.updated).getTime() - new Date(a.data.updated).getTime(),
 );
 
 const sortedPatterns = patterns
 	.slice(0, 8)
 	.sort(
 		(a, b) =>
-			new Date(b.data.updated).getTime() - new Date(a.data.updated).getTime()
+			new Date(b.data.updated).getTime() - new Date(a.data.updated).getTime(),
 	);
 ---
 
@@ -64,7 +64,7 @@ const sortedPatterns = patterns
 
 		<section>
 			<a href="/garden">
-				<Title2 class="garden-title"> The Garden </Title2>
+				<h2 class="garden-title">The Garden</h2>
 			</a>
 			<div class="subheader">
 				A digital garden is a collection of imperfect notes, essays, and ideas
@@ -78,7 +78,7 @@ const sortedPatterns = patterns
 
 		<section class="garden-section">
 			<section class="essays-section">
-				<a href="/essays">
+				<a href="/essays" class="header-link">
 					<h3 class="section-header">
 						Essays
 						<Icon name="heroicons:arrow-right" size={18} />
@@ -105,7 +105,7 @@ const sortedPatterns = patterns
 			</section>
 
 			<section style="grid-area: notes;">
-				<a href="/notes">
+				<a href="/notes" class="header-link">
 					<h3 class="section-header">
 						Notes
 						<Icon name="heroicons:arrow-right" size={18} />
@@ -136,7 +136,7 @@ const sortedPatterns = patterns
 			</section>
 
 			<section class="patterns-section">
-				<a href="/patterns">
+				<a href="/patterns" class="header-link">
 					<h3 class="section-header">
 						Patterns
 						<Icon name="heroicons:arrow-right" size={18} />
@@ -161,7 +161,7 @@ const sortedPatterns = patterns
 			</section>
 
 			<section class="library-section">
-				<a href="/library">
+				<a href="/library" class="header-link">
 					<h3 class="section-header">
 						Library
 						<Icon name="heroicons:arrow-right" size={18} />
@@ -196,26 +196,22 @@ const sortedPatterns = patterns
 		display: inline-flex;
 		align-items: center;
 		font-weight: 400;
+		color: var(--color-crimson);
 	}
 
-	.readmore-link .icon {
-		transition:
-			color 0.3s ease-in-out,
-			margin-left 0.2s ease-in-out;
+	.readmore-link [data-icon] {
+		transition: all 0.3s ease-in-out;
 		position: relative;
-		top: 1px;
+		top: 2px;
 		margin-left: var(--space-3xs);
 	}
 
 	.readmore-link:hover {
-		transition:
-			color 0.3s ease-in-out,
-			margin-left 0.2s ease-in-out;
 		color: var(--color-bright-crimson);
 		cursor: pointer;
 	}
 
-	.readmore-link:hover .icon {
+	.readmore-link:hover [data-icon] {
 		margin-left: var(--space-2xs);
 		color: var(--color-sea-blue);
 	}
@@ -251,6 +247,16 @@ const sortedPatterns = patterns
 
 	.index-note-card:hover h3 {
 		color: var(--color-crimson);
+	}
+
+	.garden-title {
+		font-size: var(--font-size-2xl);
+		font-family: var(--font-serif);
+		color: var(--color-gray-800);
+		font-weight: 100;
+		line-height: var(--leading-snug);
+		margin: var(--space-xs) 0 var(--space-2xs);
+		transition: all 0.3s ease-in-out;
 	}
 
 	.garden-section {
@@ -289,24 +295,18 @@ const sortedPatterns = patterns
 		margin-bottom: var(--space-3xs);
 	}
 
-	.section-header .icon {
-		transition:
-			color 0.3s ease-in-out,
-			margin-left 0.2s ease-in-out;
+	.section-header [data-icon] {
+		transition: all 0.3s ease-in-out;
 		position: relative;
-		top: 0px;
+		top: 2px;
 		margin-left: var(--space-3xs);
 	}
 
-	.section-header:hover {
-		transition:
-			color 0.3s ease-in-out,
-			margin-left 0.2s ease-in-out;
+	.header-link:hover .section-header {
 		color: var(--color-bright-crimson);
-		cursor: pointer;
 	}
 
-	.section-header:hover .icon {
+	.header-link:hover .section-header [data-icon] {
 		margin-left: var(--space-2xs);
 		color: var(--color-sea-blue);
 	}
@@ -333,10 +333,6 @@ const sortedPatterns = patterns
 
 	.company-name {
 		margin: 0 0.6rem 0 0.3rem;
-	}
-
-	.garden-title {
-		font-size: var(--font-size-2xl);
 	}
 
 	.essays-section {
