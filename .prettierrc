@@ -1,0 +1,11 @@
+{
+  "trailingComma": "all",
+  "overrides":
+    [
+      {
+        "files": "*.mdx",
+        "options":
+          { "proseWrap": "preserve", "embeddedLanguageFormatting": "off" },
+      },
+    ],
+}
