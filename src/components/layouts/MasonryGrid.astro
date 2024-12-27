@@ -13,46 +13,51 @@ const {
 	<slot />
 </div>
 
-<script>
-	import Masonry from "masonry-layout";
-
-	// Initialize masonry on the grid
-	const grid = document.querySelector(".grid");
-	if (grid) {
-		const masonry = new Masonry(grid, {
-			itemSelector: ".grid-item",
-			columnWidth: ".grid-sizer",
-			percentPosition: true,
-			transitionDuration: "0.3s",
-			initLayout: true,
-			gutter: 10,
-		});
-	}
-</script>
-
 <style>
 	.grid {
-		margin: var(--space-m) auto;
+		column-count: 3;
+		column-gap: 0.5rem;
 		width: 100%;
-	}
-
-	:global(.grid-sizer),
-	:global(.grid-item) {
-		width: 32%;
-		margin-bottom: 0.25rem;
+		max-width: 1400px;
+		margin: var(--space-m) auto;
+		position: relative;
 	}
 
 	@media (max-width: 1100px) {
-		:global(.grid-sizer),
-		:global(.grid-item) {
-			width: 48%;
+		.grid {
+			column-count: 2;
 		}
 	}
 
 	@media (max-width: 700px) {
-		:global(.grid-sizer),
-		:global(.grid-item) {
-			width: 100%;
+		.grid {
+			column-count: 1;
 		}
+	}
+
+	:global(.grid-item) {
+		break-inside: avoid;
+		page-break-inside: avoid;
+		margin-bottom: 0.5rem;
+		display: inline-block;
+		width: 100%;
+		opacity: 1;
+		transform: scale(1);
+		transition:
+			opacity 0.3s ease-out,
+			transform 0.3s ease-out;
+		transform-origin: top center;
+	}
+
+	:global(.grid-item.filtered-out) {
+		opacity: 0;
+		transform: scale(0.8);
+		position: absolute;
+		pointer-events: none;
+		width: 0;
+		height: 0;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
 	}
 </style>

@@ -1,3 +1,12 @@
+---
+interface Props {
+	topics: string[];
+}
+
+const { topics } = Astro.props;
+const initialTopicsCount = 7;
+---
+
 <div class="container">
 	<div class="topics-container">
 		<div class="topic-label">
@@ -6,15 +15,52 @@
 				<rect width="2" height="14"></rect>
 			</svg>
 		</div>
-		<div id="topics-menu"></div>
+		<div id="topics-menu" class="topics-list">
+			{
+				topics.slice(0, initialTopicsCount).map((topic) => (
+					<button class="topic-button visible" data-topic={topic}>
+						{topic}
+					</button>
+				))
+			}
+			{
+				topics.slice(initialTopicsCount).map((topic) => (
+					<button class="topic-button hidden" data-topic={topic}>
+						{topic}
+					</button>
+				))
+			}
+			{
+				topics.length > initialTopicsCount && (
+					<button class="toggle-topics" data-show-more="true">
+						Show More
+					</button>
+				)
+			}
+		</div>
 	</div>
 
 	<div class="right-menus">
 		<div class="mobile-topics">
-			<select id="topics-select" aria-label="Topics"></select>
+			<select id="topics-select" aria-label="Topics">
+				<option value="">All Topics</option>
+				{topics.map((topic) => <option value={topic}>{topic}</option>)}
+			</select>
 		</div>
-		<select id="growth-stages-select" aria-label="Growth Stages"></select>
-		<select id="types-select" aria-label="Types"></select>
+		<select id="growth-stages-select" aria-label="Growth Stages">
+			<option value="">All Growth Stages</option>
+			<option value="seedling">Seedling</option>
+			<option value="budding">Budding</option>
+			<option value="evergreen">Evergreen</option>
+		</select>
+		<select id="types-select" aria-label="Types">
+			<option value="">All Types</option>
+			<option value="essay">Essays</option>
+			<option value="note">Notes</option>
+			<option value="pattern">Patterns</option>
+			<option value="talk">Talks</option>
+			<option value="podcast">Podcasts</option>
+		</select>
 	</div>
 </div>
 
@@ -78,16 +124,6 @@
 			flex-direction: column;
 		}
 	}
-	.container ul {
-		margin: 0;
-		padding: 0;
-	}
-	.container li {
-		list-style: none;
-		font-family: var(--font-sans);
-		font-size: var(--font-size-xs);
-		color: var(--color-gray-800);
-	}
 
 	.topic-label {
 		display: flex;
@@ -111,63 +147,41 @@
 		}
 	}
 
-	/* Menu Styles */
-	.topics-container :global(.ais-Menu) {
-		align-items: start;
-		transition: all 0.4s ease;
-	}
-
-	.topics-container :global(.ais-Menu-list) {
+	.topics-list {
 		display: flex;
 		flex-wrap: wrap;
-		flex-direction: row;
 		gap: 4px;
-		transition: all 0.4s ease;
-	}
-	@media (max-width: 768px) {
-		.topics-container :global(.ais-Menu-list) {
-			max-width: 70vw;
-			flex-wrap: nowrap;
-			overflow-x: scroll;
-		}
 	}
 
-	.topics-container :global(.ais-Menu-item) {
-		border-radius: 3rem;
+	.topic-button {
+		border: none;
+		background: none;
 		padding: var(--space-3xs) var(--space-2xs);
-		flex-wrap: nowrap;
-		flex-shrink: 0;
-		transition: all 0.4s ease;
-	}
-	.topics-container :global(.ais-Menu-item) a {
+		border-radius: 3rem;
 		color: var(--color-gray-800);
-	}
-	.topics-container :global(.ais-Menu-item:hover) {
-		background-color: var(--color-tinted-cream);
-	}
-	.topics-container :global(.ais-Menu-item:hover) a {
-		color: var(--color-black);
-	}
-
-	.topics-container :global(.ais-Menu-item--selected) {
-		background-color: var(--color-sea-blue);
+		cursor: pointer;
 		transition: all 0.4s ease;
 	}
-	.topics-container :global(.ais-Menu-item--selected) a {
-		color: white;
-	}
-	.topics-container :global(.ais-Menu-item--selected:hover) {
-		background-color: var(--color-medium-sea-blue);
-	}
-	.topics-container :global(.ais-Menu-item--selected:hover) a {
-		color: white;
-	}
 
-	.topics-container :global(.ais-Menu-count) {
+	.topic-button.hidden {
 		display: none;
 	}
 
-	.topics-container :global(.ais-Menu-showMore) {
+	.topic-button:hover {
+		background-color: var(--color-tinted-cream);
+		color: var(--color-black);
+	}
+
+	.topic-button.selected {
+		background-color: var(--color-sea-blue);
+		color: white;
+	}
+
+	.topic-button.selected:hover {
+		background-color: var(--color-medium-sea-blue);
+	}
+
+	.toggle-topics {
 		flex-shrink: 0;
 		margin: 0;
 		padding: var(--space-3xs) var(--space-2xs);
@@ -180,57 +194,133 @@
 		text-transform: uppercase;
 		letter-spacing: 0.04rem;
 		color: var(--color-crimson);
+		border: none;
+		background: none;
 	}
+
 	@media (max-width: 768px) {
-		.topics-container :global(.ais-Menu-showMore) {
+		.toggle-topics {
 			display: none;
 		}
 	}
-	.topics-container :global(.ais-Menu-showMore:hover) {
+
+	.toggle-topics:hover {
 		background-color: white;
 		cursor: pointer;
 	}
-	.topics-container :global(.ais-Menu-showMore:disabled) {
+
+	.toggle-topics:disabled {
 		display: none;
 	}
-
-	/* Loading States */
-	@keyframes pulse {
-		0% {
-			opacity: 0;
-		}
-		50% {
-			opacity: 1;
-		}
-		100% {
-			opacity: 0;
-		}
-	}
-
-	.loading-topics {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 8px;
-	}
-
-	.loading-pill {
-		height: 24px;
-		width: 80px;
-		background: var(--color-gray-300);
-		border-radius: 3rem;
-		animation: pulse 1.8s infinite;
-	}
-
-	.loading-select {
-		height: 24px;
-		width: 120px;
-		background: var(--color-gray-300);
-		border-radius: var(--border-radius-base);
-		animation: pulse 1.8s infinite;
-	}
-	@media (max-width: 500px) {
-		.loading-select {
-			width: 100%;
-		}
-	}
 </style>
+
+<script>
+	// Cache DOM elements
+	const topicsSelect = document.getElementById(
+		"topics-select",
+	) as HTMLSelectElement;
+	const growthStagesSelect = document.getElementById(
+		"growth-stages-select",
+	) as HTMLSelectElement;
+	const typesSelect = document.getElementById(
+		"types-select",
+	) as HTMLSelectElement;
+	const toggleButton = document.querySelector(".toggle-topics");
+	const topicButtons = document.querySelectorAll(".topic-button");
+
+	// Keep track of current filter state
+	const filterState = {
+		topic: "",
+		growthStage: "",
+		type: "",
+	};
+
+	// Function to filter posts based on selected topic
+	function filterPosts() {
+		console.time("filter-dispatch");
+		// Dispatch a custom event with the filter values
+		const event = new CustomEvent("filter-change", {
+			detail: { ...filterState },
+		});
+		document.dispatchEvent(event);
+		console.timeEnd("filter-dispatch");
+	}
+
+	// Add click handlers for topic buttons using event delegation
+	document.querySelector(".topics-list")?.addEventListener("click", (e) => {
+		const button = (e.target as HTMLElement).closest(".topic-button");
+		if (!button) return;
+
+		console.time("topic-button-click");
+		const wasSelected = button.classList.contains("selected");
+
+		// Remove selected class from all buttons
+		topicButtons.forEach((btn) => btn.classList.remove("selected"));
+
+		// If the button wasn't previously selected, select it
+		if (!wasSelected) {
+			button.classList.add("selected");
+			filterState.topic = button.getAttribute("data-topic") || "";
+		} else {
+			filterState.topic = "";
+		}
+
+		// Update mobile select to match
+		if (topicsSelect) {
+			topicsSelect.value = filterState.topic;
+		}
+
+		filterPosts();
+		console.timeEnd("topic-button-click");
+	});
+
+	// Add click handler for toggle button
+	if (toggleButton) {
+		toggleButton.addEventListener("click", () => {
+			console.time("toggle-operation");
+			const isShowingMore =
+				toggleButton.getAttribute("data-show-more") === "true";
+
+			// Show/hide topics based on index
+			topicButtons.forEach((button, index) => {
+				if (index >= 7) {
+					button.classList.toggle("hidden", !isShowingMore);
+				}
+			});
+
+			toggleButton.textContent = isShowingMore ? "Show More" : "Show Less";
+			toggleButton.setAttribute("data-show-more", (!isShowingMore).toString());
+			console.timeEnd("toggle-operation");
+		});
+	}
+
+	// Add change handlers for select elements using event delegation
+	document.querySelector(".right-menus")?.addEventListener("change", (e) => {
+		const select = e.target as HTMLSelectElement;
+		if (!select || !select.id) return;
+
+		console.time("select-change");
+		// Update filter state based on which select changed
+		switch (select.id) {
+			case "topics-select":
+				filterState.topic = select.value;
+				// Update topic buttons to match
+				topicButtons.forEach((btn) => {
+					btn.classList.toggle(
+						"selected",
+						btn.getAttribute("data-topic") === select.value,
+					);
+				});
+				break;
+			case "growth-stages-select":
+				filterState.growthStage = select.value;
+				break;
+			case "types-select":
+				filterState.type = select.value;
+				break;
+		}
+
+		filterPosts();
+		console.timeEnd("select-change");
+	});
+</script>
