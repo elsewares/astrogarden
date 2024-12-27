@@ -12,7 +12,9 @@ import PageWrapper from "../components/layouts/PageWrapper.astro";
 import NowSection from "../components/layouts/NowSection.astro";
 
 // Get all now entries and sort by date
-const nowEntries = await getCollection("now");
+const nowEntries = await getCollection("now", ({ data }) => {
+	return data.draft !== true;
+});
 
 const sortedPosts = nowEntries.sort(
 	(a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
