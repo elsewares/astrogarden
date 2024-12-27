@@ -10,11 +10,26 @@ const leftOffset = `-${1 + digits}rem`;
 ---
 
 <div class="styled-container" data-digits={digits} data-debug-count={count}>
-	<span style={`left: ${leftOffset}`}>{count}</span>
+	<div class="mobile-header">
+		<div class="count-wrapper">
+			<span style={`left: ${leftOffset}`}>{count}</span>
+		</div>
+		<slot name="header-right" />
+	</div>
 	<h1><slot /></h1>
 </div>
 
 <style>
+	.mobile-header {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.count-wrapper {
+		position: relative;
+	}
+
 	span {
 		position: relative;
 		top: 3.4rem;
@@ -24,11 +39,15 @@ const leftOffset = `-${1 + digits}rem`;
 	}
 
 	@media (max-width: 1440px) {
+		.count-wrapper {
+			display: inline-block;
+		}
+
 		span {
-			top: 0;
+			position: static;
 			left: 0 !important;
 			transform: none;
-			display: block;
+			display: inline-block;
 		}
 	}
 
