@@ -16,6 +16,14 @@ const { title, desc, ogimage = "/opengraph.jpg" } = Astro.props;
 // const resolvedOGImage = checkImageUrl(ogimage, Astro.site);
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+
+// Google Analytics type declarations
+declare global {
+	interface Window {
+		dataLayer: any[];
+		gtag: (...args: any[]) => void;
+	}
+}
 ---
 
 <!doctype html>
@@ -23,7 +31,24 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
+		<meta
+			name="google-site-verification"
+			content="DQjzoQ_jeforeKNzt5jAvs0u0_gxGJKYoaYfpGdXt2A"
+		/>
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<!-- Google tag (gtag.js) -->
+		<script
+			type="text/partytown"
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=G-PT3NSRSMLT"></script>
+		<script type="text/partytown">
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
+			gtag("config", "G-PT3NSRSMLT");
+		</script>
 		<SEO
 			title={title}
 			description={desc ||
