@@ -9,8 +9,6 @@ const notes = await getCollection("notes", ({ data }) => !data.draft);
 const patterns = await getCollection("patterns", ({ data }) => !data.draft);
 const talks = await getCollection("talks", ({ data }) => !data.draft);
 const books = await getCollection("books");
-
-console.log(books);
 ---
 
 <Layout>

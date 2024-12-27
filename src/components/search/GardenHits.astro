@@ -43,15 +43,6 @@ const sortedPosts = allPostData.sort((a: Post, b: Post) => {
 		<div class="grid-sizer"></div>
 		{
 			sortedPosts.map((post: Post, i: number) => {
-				console.log(
-					"Processing post:",
-					post.id,
-					"Type:",
-					post.data.type,
-					"Collection:",
-					post.collection
-				);
-
 				const isPodcast =
 					post.data.type === "podcast" || post.collection === "podcasts";
 

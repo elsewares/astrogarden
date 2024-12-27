@@ -3,15 +3,19 @@ import { getCollection, render } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import Title1 from "../components/mdx/typography/Title1.astro";
 import Title2 from "../components/mdx/typography/Title2.astro";
+import Title3 from "../components/mdx/typography/Title3.astro";
+import Title4 from "../components/mdx/typography/Title4.astro";
+import TooltipLink from "../components/mdx/TooltipLink.astro";
+import BasicImage from "../components/mdx/BasicImage.astro";
+import InternalTooltipLink from "../components/mdx/InternalTooltipLink.astro";
 import PageWrapper from "../components/layouts/PageWrapper.astro";
-import ProseWrapper from "../components/layouts/ProseWrapper.astro";
 import NowSection from "../components/layouts/NowSection.astro";
 
 // Get all now entries and sort by date
 const nowEntries = await getCollection("now");
 
 const sortedPosts = nowEntries.sort(
-	(a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+	(a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
 );
 
 // Pre-render all entries
@@ -19,8 +23,18 @@ const renderedPosts = await Promise.all(
 	sortedPosts.map(async (post) => {
 		const { Content } = await render(post);
 		return { Content, post };
-	})
+	}),
 );
+
+const components = {
+	h1: Title1,
+	h2: Title2,
+	h3: Title3,
+	h4: Title4,
+	a: TooltipLink,
+	img: BasicImage,
+	InternalTooltipLink,
+};
 ---
 
 <Layout title="Now | Maggie Appleton">
@@ -33,16 +47,14 @@ const renderedPosts = await Promise.all(
 			</Title2>
 		</header>
 		<main>
-			<ProseWrapper>
-				{
-					renderedPosts.map(({ Content, post }) => (
-						<NowSection>
-							<h3>{post.data.title}</h3>
-							<Content />
-						</NowSection>
-					))
-				}
-			</ProseWrapper>
+			{
+				renderedPosts.map(({ Content, post }) => (
+					<NowSection>
+						<h3>{post.data.title}</h3>
+						<Content components={components} />
+					</NowSection>
+				))
+			}
 		</main>
 	</PageWrapper>
 </Layout>
@@ -54,7 +66,7 @@ const renderedPosts = await Promise.all(
 	}
 
 	main {
-		margin: var(--space-xl) auto;
+		margin: 6rem auto var(--space-2xl);
 		max-width: 800px;
 	}
 
