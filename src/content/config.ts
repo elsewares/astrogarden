@@ -84,6 +84,7 @@ const podcastsCollection = defineCollection({
       coverImage: image(),
       topics: z.array(z.string()).optional(),
       id: z.number(),
+      growthStage: z.string().default("evergreen"),
     }),
 });
 
