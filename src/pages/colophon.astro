@@ -12,6 +12,7 @@ import Alert from "../components/mdx/Alert.astro";
 import Spacer from "../components/mdx/Spacer.astro";
 import TooltipLink from "../components/mdx/TooltipLink.astro";
 import { Icon } from "astro-icon/components";
+import AddictionByDesign from "../images/books/addiction.webp";
 ---
 
 <Layout title="Colophon of Maggie Appleton">
@@ -28,7 +29,7 @@ import { Icon } from "astro-icon/components";
 					I designed and built this site myself. Everything is open souce and
 					published on{" "}
 					<TooltipLink
-						href="https://github.com/MaggieAppleton/maggieappleton.com-V2"
+						href="https://github.com/MaggieAppleton/maggieappleton.com-V3"
 					>
 						Github
 					</TooltipLink>{" "}
@@ -40,37 +41,52 @@ import { Icon } from "astro-icon/components";
 				<Title3>Technologies & Techniques</Title3>
 
 				<p>
-					<TooltipLink href="https://nextjs.org/">Next.js</TooltipLink> does most
-					of the heavy lifting – it's a static site builder that takes care of a
-					lot of otherwise cumbersome optimisations like server-side rendering, image
-					loading, and routing.
+					<TooltipLink href="https://astro.build/">Astro</TooltipLink> does most
+					of the heavy lifting – it's a static site builder designed for content-heavy
+					websites. It does lots of useful things for me like typed collections,
+					image optimisation, transition animations,and routing. It also minimises
+					the amount of JavaScript shipped to the client using <TooltipLink
+						href="https://docs.astro.build/en/concepts/islands/"
+						>islands architecture</TooltipLink
+					>. I recommend it for building your own site!
 				</p>
 				<p>
-					I used{" "}
-					<TooltipLink href="https://reactjs.org/">React</TooltipLink> and{" "}
-					<TooltipLink href="https://styled-components.com/">
-						styled components
-					</TooltipLink>{" "}
-					to build and design the interface. All the individual notes and essays
-					are written in{" "}
+					I use mostly plain HTML, CSS, and some JavaScript to build and design
+					the interface. All the individual notes and essays are written in{" "}
 					<TooltipLink href="https://github.com/mdx-js/mdx"> MDX </TooltipLink>{
 						" "
 					}
 					– a souped-up version of markdown that makes it easy to design and reuse
 					custom components and interactive JavaScript elements.{" "}
 					<TooltipLink href="https://vercel.com/">Vercel</TooltipLink> takes care
-					of hosting. Animations are built with{" "}
-					<TooltipLink href="https://www.framer.com/motion/">
-						Framer Motion
-					</TooltipLink>
+					of hosting. Animations are mostly CSS, with some more complex ones done
+					in{" "}
+					<TooltipLink href="https://motion.dev/"> Motion </TooltipLink>
 					.
+				</p>
+				<p>
+					Previous versions of this website were built in{" "}
+					<TooltipLink
+						href="https://github.com/MaggieAppleton/maggieappleton.com"
+						>Gatsby (v1)</TooltipLink
+					>{" "}
+					and{" "}
+					<TooltipLink
+						href="https://github.com/MaggieAppleton/maggieappleton.com-V2"
+						>Next.js (v2)</TooltipLink
+					>
+					, neither of which I would recommend. They're overkill for personal websites
+					and introduce unnessecary complexity. I learned a lot building both, but
+					if you're not building a dynamic web app with lots of user interaction,
+					you don't need them. Static site builders like Astro, Eleventy, Hugo, and
+					Jekyll are a better fit.
 				</p>
 				<Title3>Writing and Editing Content</Title3>
 				<p>
 					My CMS is just a bunch of flat files and folders. When I edit content
-					on here I'm just typing text and syntax into MDX and JS files in VS
-					Code. There's no fancy pipeline shuttling content directly from my
-					personal knowledge management database (eg.{" "}
+					on here I'm just typing text into MDX files in VS Code. There's no
+					fancy pipeline shuttling content directly from my personal knowledge
+					management database (eg.{" "}
 					<TooltipLink href="https://roamresearch.com">Roam</TooltipLink> or{
 						" "
 					}
@@ -175,7 +191,7 @@ import { Icon } from "astro-icon/components";
 					<ResourceBook
 						url="https://www.librarything.com/work/9697447"
 						title="Addiction By Design"
-						image="/images/books/addiction.webp"
+						image={AddictionByDesign}
 						author="Natasha Dow Schull"
 					>
 						Addiction by Design takes readers into the intriguing world of
