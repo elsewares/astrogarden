@@ -481,6 +481,7 @@ ul,
 ol {
   font-family: var(--font-body);
   font-size: var(--font-size-base);
+  width: 100%;
 }
 
 a {
