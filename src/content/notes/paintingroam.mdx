@@ -14,14 +14,11 @@ import Footnote from "../../components/mdx/Footnote.astro";
 import IntroParagraph from "../../components/mdx/IntroParagraph.astro";
 import RemoteImage from "../../components/mdx/RemoteImage.astro";
 import SimpleCard from "../../components/mdx/SimpleCard.astro";
+import Subtext from "../../components/mdx/typography/Subtext.astro"
 
-<IntroParagraph>
-
-My [[Roam Garden]] is a place I spend between 2-4 hours puttering around in every day according to my <a href="https://www.rescuetime.com/">RescueTime</a> stats. <Footnote idName={1}>RescueTime only tracks the time you're actively focused on a single window, so this measurement has some limitations but sets a nice baseline</Footnote> If I'm staring into something for over twenty hours a week, it better look and
+<IntroParagraph>My [[Roam Garden]] is a place I spend between 2-4 hours puttering around in every day according to my <a href="https://www.rescuetime.com/">RescueTime</a> stats. <Footnote idName={1}>RescueTime only tracks the time you're actively focused on a single window, so this measurement has some limitations but sets a nice baseline</Footnote> If I'm staring into something for over twenty hours a week, it better look and
 feel like beautiful home that fits my aesthetic tastes. As a maker of aesthetically pleasing things, I'm obviously biased towards the<a href="https://en.wikipedia.org/wiki/Aesthetic%E2%80%93usability_effect">
-Aesthetic Usability Effect</a>.
-
-</IntroParagraph>
+Aesthetic Usability Effect</a>.</IntroParagraph>
 
 <RemoteImage
 	showalt
@@ -87,11 +84,13 @@ The title of your new page should change to a lovely shade of salmon.
 
 <SimpleCard>
 
-#### If you've not entirely sure what CSS is, or you've never written any, I strongly suggest you first work through this short course on Khan Academy
+If you've not entirely sure what CSS is, or you've never written any, I strongly suggest you first work through this short course on Khan Academy
 
-<ButtonLink href="https://www.khanacademy.org/computing/computer-programming/html-css/intro-to-css/pt/css-basics">
-	Intro to CSS on Khan Academy
-</ButtonLink>
+<Spacer size="2xs" />
+
+<ButtonLink href="https://www.khanacademy.org/computing/computer-programming/html-css/intro-to-css/pt/css-basics">Intro to CSS on Khan Academy</ButtonLink>
+
+<Spacer size="2xs" />
 
 It'll take 30 minutes and learning the basics will give you an enourmous
 appreciation for how the web works (as well as how to control it for your own
@@ -112,7 +111,7 @@ If you want to use my theme **Leyendecker**, the most up-to-date version is avai
 
 Another neat trick I love with CSS and Roam is creating specific styles for different page title and tags. <Footnote idName={3}>Shoutout to fellow Roam user <a href="https://malcolmocean.com/">Malcolm Ocean</a> who lobbied for this as an official feature of the Roam interface. I found out how to do it digging around in their impressively <a href="https://gist.github.com/malcolmocean/03d777a1c8f89be8c98e3d89d6821607">comprehensive CSS files</a></Footnote>. I have a little workflow taxonomy going that covers different kinds of output and the stages they flow through
 
-<BasicImage
+<RemoteImage
 	width="880px"
 	alt="A screencapture of my Roam database with various colored tags"
 	src="https://res.cloudinary.com/dg3gyk0gu/image/upload/c_scale,w_1457/v1590193543/maggieappleton.com/notes/datatags.png"

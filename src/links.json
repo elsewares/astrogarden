@@ -851,13 +851,21 @@
   },
   {
     "ids": [
-      "Building a Second Brain: The Illustrated Notes"
+      "Building a Second Brain: The Illustrated Notes",
+      "second brains"
     ],
     "slug": "basb",
     "growthStage": "evergreen",
     "description": "Illustrated notes on the Building A Second Brain course",
     "outboundLinks": [],
-    "inboundLinks": []
+    "inboundLinks": [
+      {
+        "title": "Tending Evergreen Notes in Roam Research",
+        "slug": "roam-garden",
+        "growthStage": "budding",
+        "description": "A walkthrough of how I manage and tend Evergreen notes in Roam"
+      }
+    ]
   },
   {
     "ids": [
@@ -2580,6 +2588,13 @@
         "slug": "garden-history",
         "growthStage": "evergreen",
         "description": "A newly revived philosophy for publishing personal knowledge on the web"
+      },
+      {
+        "matchedId": "second brains",
+        "title": "Building a Second Brain: The Illustrated Notes",
+        "slug": "basb",
+        "growthStage": "evergreen",
+        "description": "Illustrated notes on the Building A Second Brain course"
       },
       {
         "matchedId": "Growing the Evergreens",

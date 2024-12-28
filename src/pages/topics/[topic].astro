@@ -64,6 +64,7 @@ const sortedPosts = posts.sort(
 							<div class="grid-item">
 								<EssayCard
 									id={post.id}
+									slug={post.id}
 									title={post.data.title}
 									cover={post.data.cover}
 									growthStage={post.data.growthStage}
@@ -78,6 +79,7 @@ const sortedPosts = posts.sort(
 							<div class="grid-item">
 								<NoteCard
 									id={post.id}
+									slug={post.id}
 									title={post.data.title}
 									growthStage={post.data.growthStage}
 									date={post.data.updated}
@@ -91,6 +93,7 @@ const sortedPosts = posts.sort(
 							<div class="grid-item">
 								<PatternCard
 									id={post.id}
+									slug={post.id}
 									title={post.data.title}
 									growthStage={post.data.growthStage}
 									date={post.data.updated}
@@ -104,6 +107,7 @@ const sortedPosts = posts.sort(
 							<div class="grid-item">
 								<TalkCard
 									id={post.id}
+									slug={post.id}
 									title={post.data.title}
 									cover={post.data.cover}
 									description={post.data.description}

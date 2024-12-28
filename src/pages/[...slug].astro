@@ -10,8 +10,13 @@ import Title2 from "../components/mdx/typography/Title2.astro";
 import Title3 from "../components/mdx/typography/Title3.astro";
 import Title4 from "../components/mdx/typography/Title4.astro";
 import TooltipLink from "../components/mdx/TooltipLink.astro";
-import BasicImage from "../components/mdx/BasicImage.astro";
 import InternalTooltipLink from "../components/mdx/InternalTooltipLink.astro";
+import Footnote from "../components/mdx/Footnote.astro";
+import IntroParagraph from "../components/mdx/IntroParagraph.astro";
+import ResourceBook from "../components/mdx/ResourceBook.astro";
+import RemoteImage from "../components/mdx/RemoteImage.astro";
+import BasicImage from "../components/mdx/BasicImage.astro";
+import Spacer from "../components/mdx/Spacer.astro";
 
 // Get params from URL
 export async function getStaticPaths() {
@@ -39,6 +44,12 @@ const components = {
 	a: TooltipLink,
 	img: BasicImage,
 	InternalTooltipLink,
+	IntroParagraph,
+	Footnote,
+	BasicImage,
+	ResourceBook,
+	RemoteImage,
+	Spacer,
 };
 ---
 

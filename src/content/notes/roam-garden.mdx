@@ -9,16 +9,11 @@ topics: ["Digital Gardening", "Roam", "Personal Knowledge"]
 growthStage: "budding"
 ---
 
-import BasicImage from "../../components/mdx/BasicImage.astro";
 import Center from "../../components/mdx/Center.astro";
 import ButtonLink from "../../components/mdx/ButtonLink.astro";
-import Footnote from "../../components/mdx/Footnote.astro";
-import ImageFrame from "../../components/mdx/ImageFrame.astro";
-import IntroParagraph from "../../components/mdx/IntroParagraph.astro";
-import RemoteImage from "../../components/mdx/RemoteImage.astro";
-import Spacer from "../../components/mdx/Spacer.astro";
 import Video from "../../components/mdx/Video.astro";
 import YearsAgo from "../../components/mdx/YearsAgo.astro";
+import AssumedAudience from "../../components/mdx/AssumedAudience.astro";
 
 <RemoteImage
 	width="650px"
@@ -26,27 +21,17 @@ import YearsAgo from "../../components/mdx/YearsAgo.astro";
 	src="https://res.cloudinary.com/dg3gyk0gu/image/upload/c_scale,f_auto,q_auto:good,w_750/v1590361285/maggieappleton.com/notes/garden-history/garden-sm-2.png"
 />
 
-<AssumedAudience>
-	Active users of Roam Research interested in learning new techniques and
-	workflows that will help them connect and organise their ideas
-</AssumedAudience>
+<Spacer size="xs" />
 
-<Spacer size="small" />
+<AssumedAudience>Active users of Roam Research interested in learning new techniques and workflows that will help them connect and organise their ideas</AssumedAudience>
 
-<IntroParagraph>
+<Spacer size="xs" />
 
-Just like a good seventeenth-century English garden, this [[Digital Garden]] has two sides to it – the private and the public. Everything I post here first sprouts in my [Roam Research](https://roamresearch.com) garden. <Footnote idName={1}>If you have never heard of Roam, first stop by Anne-Laure LeCunff's articles on [Roam for Metacognition](https://nesslabs.com/roam-research), and the more hands-on [The Beginner’s Guide to Roam](https://nesslabs.com/roam-research-beginner-guide). Otherwise, the rest of this post will be completely bewildering.</Footnote>
-
-While many digital gardeners choose to make their entire notes database public, I'm
-a bit more reserved. The notes and thoughts I post here are closer to in-progress,
-informal essays. Lightly edited collections of ideas instead of the raw words that
-come to me as I parse through books, papers, podcasts, and subconscious thoughts.
-
-</IntroParagraph>
+<IntroParagraph>Just like a good seventeenth-century English garden, this [[Digital Garden]] has two sides to it – the private and the public. Everything I post here first sprouts in my [Roam Research](https://roamresearch.com) garden. <Footnote idName={1}>If you have never heard of Roam, first stop by Anne-Laure LeCunff's articles on [Roam for Metacognition](https://nesslabs.com/roam-research), and the more hands-on [The Beginner’s Guide to Roam](https://nesslabs.com/roam-research-beginner-guide). Otherwise, the rest of this post will be completely bewildering.</Footnote>While many digital gardeners choose to make their entire notes database public, I'm a bit more reserved. The notes and thoughts I post here are closer to in-progress, informal essays. Lightly edited collections of ideas instead of the raw words that come to me as I parse through books, papers, podcasts, and subconscious thoughts.</IntroParagraph>
 
 Roam is where my unfiltered and unshaped thinking happens. It acts as a place I can externalise my thoughts to see what I think, clarify those thoughts, and connect them together.
 
-There are many names for systems like this; [second brains](/basb), [tools for thought](https://numinous.productions/ttft/), or [personal knowledge management](https://en.wikipedia.org/wiki/Personal_knowledge_management) practices. Perhaps "intentional notetaking" sufficiently captures it.
+There are many names for systems like this; [[second brains]], [tools for thought](https://numinous.productions/ttft/), or [personal knowledge management](https://en.wikipedia.org/wiki/Personal_knowledge_management) practices. Perhaps "intentional notetaking" sufficiently captures it.
 
 My approach is heavily influenced by the [Zettelkasten](https://zettelkasten.de/posts/overview/) system; a method that focuses on constructing a web of declarative, connected notes that act as building blocks for creative output. <Footnote idName={2}>If you are new to the idea of Zettelkasten, I strongly recommend you read the [introductory material](https://zettelkasten.de/posts/overview/). Understanding this approach to knowledge work is far more profound and transformative than any app will ever be.</Footnote>
 Sonke Ahren's [How to Take Smart Notes](https://takesmartnotes.com/) book, as well as [Andy Matuschak](https://andymatuschak.org/)'s [Evergreen Notes](https://notes.andymatuschak.org/Evergreen_notes) approach are both great introductions to the Zettelkasten ethos. I'm particularly taken with Andy's interpretation of it and illustrated a summary of the _evergreen notes_ system in [[Growing the Evergreens]].
@@ -269,9 +254,7 @@ These add sets of metadata into the front that make it easy for me to query page
 You can use any snippet-expander app for this, such as Alfred, or TextExpander. Feel free to grab these macros for yourself:
 
 <Center>
-	<ButtonLink href="https://www.dropbox.com/s/iyx4jhs7vtdlt40/Maggie%27s%20Roam%20Macros.kmmacros?dl=0">
-		Download my Roam Macros
-	</ButtonLink>
+	<ButtonLink href="https://www.dropbox.com/s/iyx4jhs7vtdlt40/Maggie%27s%20Roam%20Macros.kmmacros?dl=0">Download my Roam Macros</ButtonLink>
 </Center>
 
 ---
@@ -285,7 +268,7 @@ The open stream means the reading, note-taking, reflecting, developing ideas, an
 Instead of reading a whole book. _Then_ importing the notes. _Then_ highlighting and reflecting on them. _Then_ crafting a summary. _Then_ uploading the "finished work" to the internet, I instead do all of those at once. **In very small chunks.**
 
 Let's take a book I'm currently reading,
-[Making by Tim Ingold](/making-anthropology).
+_Making_ by Tim Ingold.
 My stream of
 notes on it currently lives in three places simultaneously.
 
@@ -321,7 +304,7 @@ I read on my phone (because I'm an awful person). While out walking around (beca
 	</g>
 </svg>
 
-<BasicImage src="https://res.cloudinary.com/dg3gyk0gu/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1590778119/maggieappleton.com/notes/roam-garden/bookflow_2.png" />
+<RemoteImage src="https://res.cloudinary.com/dg3gyk0gu/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1590778119/maggieappleton.com/notes/roam-garden/bookflow_2.png" />
 
 I transfer notes from Drafts into Roam every few days. This gives me the chance to link up related concepts, bold key points, highlight _really key_ points, and start collecting Evergreen Notes & Key Concepts at the top of my note.
 
