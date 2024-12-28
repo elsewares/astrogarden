@@ -150,24 +150,6 @@
   },
   {
     "ids": [
-      "Block Party: The Past, Present, and Future of Block-based Editors"
-    ],
-    "slug": "block-party",
-    "growthStage": "seedling",
-    "description": "The rise of interactive, editable blocks as the basic unit of documents on the web",
-    "outboundLinks": [
-      {
-        "matchedId": "Project Xanadu",
-        "title": "The Pattern Language of Project Xanadu",
-        "slug": "xanadu-patterns",
-        "growthStage": "budding",
-        "description": "Project Xanadu as a pattern language, rather than a failed software project"
-      }
-    ],
-    "inboundLinks": []
-  },
-  {
-    "ids": [
       "A Shelfish Starter Guide to Databases"
     ],
     "slug": "databases",
@@ -204,12 +186,6 @@
     ],
     "inboundLinks": [
       {
-        "title": "Epistemic Rubber Ducking with Large Language Models",
-        "slug": "epistemic-ducks",
-        "growthStage": "budding",
-        "description": "Using large language models for reflective thinking and metacognition, rather than generating facts or trustworthy outputs"
-      },
-      {
         "title": "A Digital Anthropology Reading List",
         "slug": "digital-anth-books",
         "growthStage": "budding",
@@ -238,46 +214,6 @@
         "slug": "FAQ",
         "growthStage": "seedling",
         "description": "Questions I am often asked to answer"
-      }
-    ]
-  },
-  {
-    "ids": [
-      "Epistemic Rubber Ducking with Large Language Models",
-      "epistemic rubber ducks"
-    ],
-    "slug": "epistemic-ducks",
-    "growthStage": "budding",
-    "description": "Using large language models for reflective thinking and metacognition, rather than generating facts or trustworthy outputs",
-    "outboundLinks": [
-      {
-        "matchedId": "digital anthropology",
-        "title": "A Brief Introduction to Digital Anthropology",
-        "slug": "digital-anthropology",
-        "growthStage": "budding",
-        "description": "A discipline at the intersection of cultural anthropology and binary logic"
-      },
-      {
-        "matchedId": "list of books",
-        "title": "A Digital Anthropology Reading List",
-        "slug": "digital-anth-books",
-        "growthStage": "budding",
-        "description": "A few favourite books from the field of digital anthropology"
-      },
-      {
-        "matchedId": "epistemic rubber ducks",
-        "title": "Epistemic Rubber Ducking with Large Language Models",
-        "slug": "epistemic-ducks",
-        "growthStage": "budding",
-        "description": "Using large language models for reflective thinking and metacognition, rather than generating facts or trustworthy outputs"
-      }
-    ],
-    "inboundLinks": [
-      {
-        "title": "Epistemic Rubber Ducking with Large Language Models",
-        "slug": "epistemic-ducks",
-        "growthStage": "budding",
-        "description": "Using large language models for reflective thinking and metacognition, rather than generating facts or trustworthy outputs"
       }
     ]
   },
@@ -394,18 +330,6 @@
         "slug": "roam-garden",
         "growthStage": "budding",
         "description": "A walkthrough of how I manage and tend Evergreen notes in Roam"
-      },
-      {
-        "title": "Starting a Digital Garden and Other Ill-Advised Pursuits",
-        "slug": "start-gardening",
-        "growthStage": "budding",
-        "description": "On building your own online space to slowly grow ideas in"
-      },
-      {
-        "title": "Designing an “I Think You're Wrong” Button",
-        "slug": "youre-wrong",
-        "growthStage": "seedling",
-        "description": "Exploring ways to enable feedback, corrections, and constructive criticism on personal websites"
       }
     ]
   },
@@ -504,12 +428,6 @@
         "slug": "garden-history",
         "growthStage": "evergreen",
         "description": "A newly revived philosophy for publishing personal knowledge on the web"
-      },
-      {
-        "title": "Starting a Digital Garden and Other Ill-Advised Pursuits",
-        "slug": "start-gardening",
-        "growthStage": "budding",
-        "description": "On building your own online space to slowly grow ideas in"
       }
     ]
   },
@@ -545,16 +463,6 @@
         "description": "How to open pieces of narrative non-fiction writing, conference talks, and sticky jars"
       }
     ]
-  },
-  {
-    "ids": [
-      "Hitting the Speakularity"
-    ],
-    "slug": "speakularity",
-    "growthStage": "budding",
-    "description": "Reaching the moment when voice transcription becomes accurate, fast, private, cheap, and convenient enough to become ubiquitous",
-    "outboundLinks": [],
-    "inboundLinks": []
   },
   {
     "ids": [
@@ -722,12 +630,6 @@
         "description": "Seventy years ago we dreamed up links that would allow us to create two-way, contextual conversations. Why don't we use them on the web?"
       },
       {
-        "title": "Block Party: The Past, Present, and Future of Block-based Editors",
-        "slug": "block-party",
-        "growthStage": "seedling",
-        "description": "The rise of interactive, editable blocks as the basic unit of documents on the web"
-      },
-      {
         "title": "Metaphors We Web By",
         "slug": "metaphors-web",
         "growthStage": "budding",
@@ -851,41 +753,11 @@
   },
   {
     "ids": [
-      "Aesthetics of AI in the Early 21st Century"
-    ],
-    "slug": "ai-aesthetics",
-    "growthStage": "seedling",
-    "description": "The emerging graphical language, visual metaphors, and iconography of “artificial intelligence” in early to mid-2023",
-    "outboundLinks": [],
-    "inboundLinks": []
-  },
-  {
-    "ids": [
       "Empty Pointers and Constellations of AI"
     ],
     "slug": "ai-empty-pointer",
     "growthStage": "evergreen",
     "description": "On the fuzziness of calling things “artificial intelligence” and moving the goalposts",
-    "outboundLinks": [],
-    "inboundLinks": []
-  },
-  {
-    "ids": [
-      "Novelty Oil Paintings, Cheap Aesthetics, and Generative AI Portraits"
-    ],
-    "slug": "ai-profilepics",
-    "growthStage": "seedling",
-    "description": "",
-    "outboundLinks": [],
-    "inboundLinks": []
-  },
-  {
-    "ids": [
-      "Alien AIs and Companion Species"
-    ],
-    "slug": "alien-ai",
-    "growthStage": "budding",
-    "description": "On seeing artificial intelligence systems as entwined companion species rather than otherwordly aliens",
     "outboundLinks": [],
     "inboundLinks": []
   },
@@ -1183,16 +1055,6 @@
   },
   {
     "ids": [
-      "The Boy Who Cried End-User Programming"
-    ],
-    "slug": "cried-eup",
-    "growthStage": "evergreen",
-    "description": "Do language models move us any closer to the eternal dream of end-user programming and democratising software?",
-    "outboundLinks": [],
-    "inboundLinks": []
-  },
-  {
-    "ids": [
       "A Naive Exploration of Computer-Supported Collaborative Learning",
       "Computer-Supported Collaborative Learning"
     ],
@@ -1231,16 +1093,6 @@
     "slug": "css-position",
     "growthStage": "budding",
     "description": "Notes on how to use the position property in CSS to make scrollytelling stories",
-    "outboundLinks": [],
-    "inboundLinks": []
-  },
-  {
-    "ids": [
-      "The English Do Not Eat English Muffins and Other Kinds of Culinary Drift"
-    ],
-    "slug": "culinary-drift",
-    "growthStage": "seedling",
-    "description": "Why do nations try to blame other nations for their sub-par culinary inventions?",
     "outboundLinks": [],
     "inboundLinks": []
   },
@@ -1418,14 +1270,7 @@
     "growthStage": "budding",
     "description": "Collecting people I know who work at the intersection of design and engineering, in an attempt to figure out what a design engineer is",
     "outboundLinks": [],
-    "inboundLinks": [
-      {
-        "title": "Joining Normally",
-        "slug": "joining-normally",
-        "growthStage": "evergreen",
-        "description": "Becoming a design engineer focused on AI prototyping"
-      }
-    ]
+    "inboundLinks": []
   },
   {
     "ids": [
@@ -1450,12 +1295,6 @@
         "slug": "digital-anthropology",
         "growthStage": "budding",
         "description": "A discipline at the intersection of cultural anthropology and binary logic"
-      },
-      {
-        "title": "Epistemic Rubber Ducking with Large Language Models",
-        "slug": "epistemic-ducks",
-        "growthStage": "budding",
-        "description": "Using large language models for reflective thinking and metacognition, rather than generating facts or trustworthy outputs"
       }
     ]
   },
@@ -1623,24 +1462,6 @@
   },
   {
     "ids": [
-      "How to Run a London Future of Coding Meetup"
-    ],
-    "slug": "foc-london",
-    "growthStage": "evergreen",
-    "description": "A guide to running both this specific meetup, and community meetups in general",
-    "outboundLinks": [
-      {
-        "matchedId": "Gathering Structures",
-        "title": "Gathering Structures",
-        "slug": "gathering-structures",
-        "growthStage": "budding",
-        "description": "How to gather people and create communities in ways that are low-stress and high-payoff"
-      }
-    ],
-    "inboundLinks": []
-  },
-  {
-    "ids": [
       "A Fruitful Guide to JavaScript's Comparison Operators"
     ],
     "slug": "fruit-comparison",
@@ -1720,14 +1541,7 @@
         "description": "A newly revived philosophy for publishing personal knowledge on the web"
       }
     ],
-    "inboundLinks": [
-      {
-        "title": "How to Run a London Future of Coding Meetup",
-        "slug": "foc-london",
-        "growthStage": "evergreen",
-        "description": "A guide to running both this specific meetup, and community meetups in general"
-      }
-    ]
+    "inboundLinks": []
   },
   {
     "ids": [
@@ -1927,16 +1741,6 @@
   },
   {
     "ids": [
-      "Growing a Human: The First 20 Weeks"
-    ],
-    "slug": "growing-a-human",
-    "growthStage": "evergreen",
-    "description": "Reflections on the strange experience of growing a human from scratch, without any conscious understanding of how you are doing it",
-    "outboundLinks": [],
-    "inboundLinks": []
-  },
-  {
-    "ids": [
       "Home-Cooked Software and Barefoot Developers"
     ],
     "slug": "home-cooked-software",
@@ -2048,24 +1852,6 @@
     "growthStage": "budding",
     "description": "Exploring ways to build social infrastructure around books and reading on the open web",
     "outboundLinks": [],
-    "inboundLinks": []
-  },
-  {
-    "ids": [
-      "Joining Normally"
-    ],
-    "slug": "joining-normally",
-    "growthStage": "evergreen",
-    "description": "Becoming a design engineer focused on AI prototyping",
-    "outboundLinks": [
-      {
-        "matchedId": "Design Engineer",
-        "title": "A Collection of Design Engineers",
-        "slug": "design-engineers",
-        "growthStage": "budding",
-        "description": "Collecting people I know who work at the intersection of design and engineering, in an attempt to figure out what a design engineer is"
-      }
-    ],
     "inboundLinks": []
   },
   {
@@ -2826,16 +2612,6 @@
   },
   {
     "ids": [
-      "How to Run Slowly, Never Lose Weight, and Get High"
-    ],
-    "slug": "running",
-    "growthStage": "seedling",
-    "description": "Reflections on running for all the wrong reasons, and finding the right ones",
-    "outboundLinks": [],
-    "inboundLinks": []
-  },
-  {
-    "ids": [
       "Silent Synchronous Reading Sessions"
     ],
     "slug": "silentsessions",
@@ -2956,63 +2732,6 @@
         "description": "Illustrated notes on how JSX in React works"
       }
     ]
-  },
-  {
-    "ids": [
-      "Starting a Digital Garden and Other Ill-Advised Pursuits"
-    ],
-    "slug": "start-gardening",
-    "growthStage": "budding",
-    "description": "On building your own online space to slowly grow ideas in",
-    "outboundLinks": [
-      {
-        "matchedId": "digital gardening",
-        "title": "A Brief History & Ethos of the Digital Garden",
-        "slug": "garden-history",
-        "growthStage": "evergreen",
-        "description": "A newly revived philosophy for publishing personal knowledge on the web"
-      },
-      {
-        "matchedId": "Digital Gardening for Non-Technical Folks",
-        "title": "Digital Gardening for Non-Technical Folks",
-        "slug": "nontechnical-gardening",
-        "growthStage": "evergreen",
-        "description": "How to build a digital garden without touching code"
-      },
-      {
-        "matchedId": "gardening for non-technical people",
-        "title": "Digital Gardening for Non-Technical Folks",
-        "slug": "nontechnical-gardening",
-        "growthStage": "evergreen",
-        "description": "How to build a digital garden without touching code"
-      }
-    ],
-    "inboundLinks": []
-  },
-  {
-    "ids": [
-      "Summon: A GPT-3 Spirit for Reflective Notes"
-    ],
-    "slug": "summon",
-    "growthStage": "budding",
-    "description": "An exploratory prototype of generative AI assistants for personal notes",
-    "outboundLinks": [
-      {
-        "matchedId": "Programmable Notes",
-        "title": "Programmable Notes",
-        "slug": "programmatic-notes",
-        "growthStage": "evergreen",
-        "description": "Agent-based note-taking systems that can prompt and facilitate custom workflows"
-      },
-      {
-        "matchedId": "Programmable Notes",
-        "title": "Programmable Notes",
-        "slug": "programmatic-notes",
-        "growthStage": "evergreen",
-        "description": "Agent-based note-taking systems that can prompt and facilitate custom workflows"
-      }
-    ],
-    "inboundLinks": []
   },
   {
     "ids": [
@@ -3361,24 +3080,6 @@
   },
   {
     "ids": [
-      "Designing an “I Think You're Wrong” Button"
-    ],
-    "slug": "youre-wrong",
-    "growthStage": "seedling",
-    "description": "Exploring ways to enable feedback, corrections, and constructive criticism on personal websites",
-    "outboundLinks": [
-      {
-        "matchedId": "garden",
-        "title": "A Brief History & Ethos of the Digital Garden",
-        "slug": "garden-history",
-        "growthStage": "evergreen",
-        "description": "A newly revived philosophy for publishing personal knowledge on the web"
-      }
-    ],
-    "inboundLinks": []
-  },
-  {
-    "ids": [
       "Algorithmic Transparency"
     ],
     "slug": "algorithmic-transparency",
@@ -3487,16 +3188,6 @@
   },
   {
     "ids": [
-      "Direct Manipulation"
-    ],
-    "slug": "direct-manipulation",
-    "growthStage": "seedling",
-    "description": "Designing digital objects to be directly manipulable in the same way physical objects are",
-    "outboundLinks": [],
-    "inboundLinks": []
-  },
-  {
-    "ids": [
       "Epistemic Disclosure"
     ],
     "slug": "epistemic-disclosure",
@@ -3577,12 +3268,6 @@
         "description": "A new role at an AI research lab working on tools for open-ended reasoning"
       },
       {
-        "title": "Summon: A GPT-3 Spirit for Reflective Notes",
-        "slug": "summon",
-        "growthStage": "budding",
-        "description": "An exploratory prototype of generative AI assistants for personal notes"
-      },
-      {
         "title": "Daily Notes Pages",
         "slug": "daily-notes",
         "growthStage": "evergreen",
@@ -3647,16 +3332,6 @@
   },
   {
     "ids": [
-      "Temporary Neighbourhood"
-    ],
-    "slug": "temporary-neighbourhood",
-    "growthStage": "seedling",
-    "description": "Creating temporary spaces for people to gather around",
-    "outboundLinks": [],
-    "inboundLinks": []
-  },
-  {
-    "ids": [
       "Testing: Algorithmic Transparency"
     ],
     "slug": "test-algorithms",
@@ -3671,16 +3346,6 @@
         "description": "Providing clear metadata on the epistemic validity of content"
       }
     ],
-    "inboundLinks": []
-  },
-  {
-    "ids": [
-      "Visual Expression Editors"
-    ],
-    "slug": "visual-expressions",
-    "growthStage": "seedling",
-    "description": "...",
-    "outboundLinks": [],
     "inboundLinks": []
   },
   {
