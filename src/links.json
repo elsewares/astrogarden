@@ -1055,7 +1055,7 @@
   },
   {
     "ids": [
-      "A Naive Exploration of Computer-Supported Collaborative Learning",
+      "A Naïve Exploration of Computer-Supported Collaborative Learning",
       "Computer-Supported Collaborative Learning"
     ],
     "slug": "cscl",
@@ -1976,14 +1976,14 @@
       },
       {
         "matchedId": "Computer-Supported Collaborative Learning",
-        "title": "A Naive Exploration of Computer-Supported Collaborative Learning",
+        "title": "A Naïve Exploration of Computer-Supported Collaborative Learning",
         "slug": "cscl",
         "growthStage": "budding",
         "description": "Notes on the academic field of CSCL and major papers in the discipline"
       },
       {
         "matchedId": "Computer-Supported Collaborative Learning",
-        "title": "A Naive Exploration of Computer-Supported Collaborative Learning",
+        "title": "A Naïve Exploration of Computer-Supported Collaborative Learning",
         "slug": "cscl",
         "growthStage": "budding",
         "description": "Notes on the academic field of CSCL and major papers in the discipline"
@@ -2350,7 +2350,7 @@
         "description": "Project Xanadu as a pattern language, rather than a failed software project"
       },
       {
-        "title": "A Naive Exploration of Computer-Supported Collaborative Learning",
+        "title": "A Naïve Exploration of Computer-Supported Collaborative Learning",
         "slug": "cscl",
         "growthStage": "budding",
         "description": "Notes on the academic field of CSCL and major papers in the discipline"
@@ -2591,7 +2591,7 @@
     ],
     "inboundLinks": [
       {
-        "title": "A Naive Exploration of Computer-Supported Collaborative Learning",
+        "title": "A Naïve Exploration of Computer-Supported Collaborative Learning",
         "slug": "cscl",
         "growthStage": "budding",
         "description": "Notes on the academic field of CSCL and major papers in the discipline"

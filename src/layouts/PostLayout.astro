@@ -36,8 +36,8 @@ const backlinks = currentPost?.inboundLinks || [];
 ---
 
 <Layout title={frontmatter.title} desc={frontmatter.description}>
-	<header class="header-section">
-		<div class="above-title">
+	<header class="header-section" transition:animate="fade">
+		<div class="above-title" transition:animate="fade">
 			<div class="back-link">
 				<a href={`/${frontmatter.type}s`}>
 					<Icon name="heroicons:arrow-left" size={16} />
@@ -59,11 +59,15 @@ const backlinks = currentPost?.inboundLinks || [];
 			<p>{frontmatter.growthStage}</p>
 			{frontmatter.draft && <span class="draft-label">Draft</span>}
 		</div>
-		<div class="title-container">
-			<h1>{frontmatter.title}</h1>
-			{frontmatter.description && <p>{frontmatter.description}</p>}
+		<div class="title-container" transition:animate="fade">
+			<h1 transition:name={`title-${currentSlug}`}>{frontmatter.title}</h1>
+			{
+				frontmatter.description && (
+					<p transition:animate="fade">{frontmatter.description}</p>
+				)
+			}
 		</div>
-		<div class="metadata">
+		<div class="metadata" transition:animate="fade">
 			{frontmatter.topics && <Topics topics={frontmatter.topics} />}
 			<Dates
 				startDate={frontmatter.startDate instanceof Date
@@ -76,18 +80,15 @@ const backlinks = currentPost?.inboundLinks || [];
 		</div>
 	</header>
 
-	<main class="styled-main">
-		<!-- <BackToTop /> -->
+	<main class="styled-main" transition:animate="fade">
 		<slot />
 	</main>
 
-	<!-- <TwitterReply
-		url={`https://maggieappleton.com/${url}/`}
-		title={frontmatter.title}
-	/> -->
-
-	{backlinks.length ? <Backlinks backlinks={backlinks} /> : null}
-	<!-- <WebMentions postSlug={url} hasBacklinks={backlinks.length > 0} /> -->
+	{
+		backlinks.length ? (
+			<Backlinks backlinks={backlinks} transition:animate="fade" />
+		) : null
+	}
 </Layout>
 
 <style>

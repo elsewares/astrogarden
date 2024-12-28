@@ -11,13 +11,13 @@ const antiBookData = await getCollection("antibooks");
 
 <Layout title="Antilibrary of Maggie Appleton">
 	<PageWrapper>
-		<header style="margin-bottom: var(--space-2xl)">
-			<TitleWithCount posts={antiBookData}>
+		<header style="margin-bottom: var(--space-2xl);" transition:animate="fade">
+			<TitleWithCount posts={antiBookData} transition:name="page-title">
 				<a href="/library" class="styled-link">Library</a>
 				<div style="color: var(--color-gray-300); display: inline-block">|</div>
 				Antilibrary
 			</TitleWithCount>
-			<Title2>Books I like the idea of having read.</Title2>
+			<Title2 transition:animate="fade">Books I like the idea of having read.</Title2>
 		</header>
 		<section class="bookshelf-grid">
 			{

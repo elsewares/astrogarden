@@ -19,14 +19,16 @@ const allPosts = [...essays, ...notes, ...patterns, ...talks, ...podcasts];
 
 <Layout title="The Garden of Maggie Appleton">
 	<PageWrapper>
-		<header style="margin-bottom: var(--space-xl);">
-			<TitleWithCount posts={allPosts}>The Garden</TitleWithCount>
-			<Title2>
+		<header style="margin-bottom: var(--space-xl);" transition:animate="fade">
+			<TitleWithCount posts={allPosts} transition:name="page-title"
+				>The Garden</TitleWithCount
+			>
+			<Title2 transition:animate="fade">
 				A collection of essays, notes, talks, podcasts, and half-baked
 				explorations I'm always tending to.
 			</Title2>
 		</header>
-		<GardenFiltersAndHits allPostData={allPosts} />
+		<GardenFiltersAndHits allPostData={allPosts} transition:animate="fade" />
 	</PageWrapper>
 </Layout>
 

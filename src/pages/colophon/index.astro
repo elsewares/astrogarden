@@ -7,8 +7,9 @@ import PageWrapper from "../../components/layouts/PageWrapper.astro";
 import ProseWrapper from "../../components/layouts/ProseWrapper.astro";
 import TooltipLink from "../../components/mdx/TooltipLink.astro";
 import Content from "./colophon-content.mdx";
+import type { MDXComponents } from "mdx/types";
 
-const components = {
+const components: MDXComponents = {
 	h1: Title1,
 	h2: Title2,
 	h3: Title3,

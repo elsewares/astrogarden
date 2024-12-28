@@ -10,6 +10,8 @@ import BasicImage from "../components/mdx/BasicImage.astro";
 import InternalTooltipLink from "../components/mdx/InternalTooltipLink.astro";
 import PageWrapper from "../components/layouts/PageWrapper.astro";
 import NowSection from "../components/layouts/NowSection.astro";
+import Footnote from "../components/mdx/Footnote.astro";
+import ResourceBook from "../components/mdx/ResourceBook.astro";
 
 // Get all now entries and sort by date
 const nowEntries = await getCollection("now", ({ data }) => {
@@ -36,6 +38,9 @@ const components = {
 	a: TooltipLink,
 	img: BasicImage,
 	InternalTooltipLink,
+	Footnote,
+	ResourceBook,
+	BasicImage,
 };
 ---
 

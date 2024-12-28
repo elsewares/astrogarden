@@ -6,10 +6,10 @@ import GrowthIcon from "../layouts/GrowthIcon.astro";
 ---
 
 <a href={`/${slug}`}>
-	<div class="essay-card">
+	<div class="essay-card" transition:animate="slide">
 		{
 			cover && (
-				<div class="image-wrapper">
+				<div class="image-wrapper" transition:animate="fade">
 					<Image
 						src={cover}
 						alt={title}
@@ -21,9 +21,9 @@ import GrowthIcon from "../layouts/GrowthIcon.astro";
 				</div>
 			)
 		}
-		<h3>{title}</h3>
-		<p class="description">{description}</p>
-		<div class="metadata-container">
+		<h3 transition:name={`title-${slug}`}>{title}</h3>
+		<p class="description" transition:animate="fade">{description}</p>
+		<div class="metadata-container" transition:animate="fade">
 			{growthStage && <span>Essay</span>}
 			{growthStage && <GrowthIcon size="15" growthStage={growthStage} />}
 			<span>

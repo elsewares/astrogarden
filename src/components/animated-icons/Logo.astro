@@ -5,6 +5,7 @@
 	viewBox="0 0 84 26"
 	fill="none"
 	xmlns="http://www.w3.org/2000/svg"
+	transition:persist
 >
 	<path
 		class="leaf"
@@ -32,24 +33,19 @@
 	import { animate, stagger } from "motion";
 
 	function handleLogoAnimation() {
-		console.log("Logo animation triggered");
-
-		// Animate leaves with stagger
 		animate(
 			".leaf",
 			{
 				rotate: [0, 10, -10, 10, 0],
-				// Adding transform-origin to ensure proper rotation
 				transformOrigin: "center",
 			},
 			{
 				duration: 0.6,
 				ease: "circInOut",
-				delay: stagger(0.1), // Add stagger effect
-			}
+				delay: stagger(0.1),
+			},
 		);
 
-		// Animate leaf-2 elements
 		animate(
 			".leaf-2",
 			{
@@ -60,10 +56,9 @@
 				duration: 0.6,
 				ease: "circInOut",
 				delay: stagger(0.1),
-			}
+			},
 		);
 
-		// Animate letter
 		animate(
 			".letter",
 			{
@@ -74,31 +69,13 @@
 			{
 				duration: 0.75,
 				ease: "circInOut",
-			}
+			},
 		);
 	}
 
-	function initializeLogoAnimation() {
-		console.log("Initializing logo animation"); // Debug log
-		const logo = document.getElementById("logo");
-		if (logo) {
-			console.log("Logo found, adding event listener"); // Debug log
-			logo.removeEventListener("mouseenter", handleLogoAnimation);
-			logo.addEventListener("mouseenter", handleLogoAnimation);
-		} else {
-			console.warn("Logo element not found"); // Debug log
-		}
+	// Initialize only once when the component is first mounted
+	const logo = document.getElementById("logo");
+	if (logo) {
+		logo.addEventListener("mouseenter", handleLogoAnimation);
 	}
-
-	// Handle both initial page load and subsequent navigations
-	document.addEventListener("DOMContentLoaded", initializeLogoAnimation);
-	document.addEventListener("astro:page-load", initializeLogoAnimation);
-
-	// Cleanup on page transitions
-	document.addEventListener("astro:before-preparation", () => {
-		const logo = document.getElementById("logo");
-		if (logo) {
-			logo.removeEventListener("mouseenter", handleLogoAnimation);
-		}
-	});
 </script>

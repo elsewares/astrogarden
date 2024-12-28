@@ -49,74 +49,72 @@ import UnderlineHoverLink from "../../mdx/UnderlineHoverLink.astro";
 </div>
 
 <script>
-	import { animate } from "motion";
+	function initializeDropdown() {
+		const button = document.querySelector(".popover-button");
+		const dropdown = document.getElementById("garden-dropdown");
 
-	const button = document.querySelector(".popover-button");
-	const dropdown = document.getElementById("garden-dropdown");
+		if (button && dropdown) {
+			// Force close on initialization
+			closeDropdown();
 
-	if (button && dropdown) {
-		dropdown.style.display = "none";
+			// Add Escape key handler
+			document.addEventListener("keydown", (e) => {
+				if (e.key === "Escape" && dropdown.style.display !== "none") {
+					closeDropdown();
+					(button as HTMLElement)?.focus();
+				}
+			});
 
-		// Add Escape key handler
-		document.addEventListener("keydown", (e) => {
-			if (e.key === "Escape" && dropdown.style.display !== "none") {
-				closeDropdown();
-				(button as HTMLElement)?.focus(); // Return focus to button
-			}
-		});
+			// Close dropdown when focus moves outside navigation
+			document.addEventListener("focusout", (e) => {
+				const target = e.relatedTarget as Node;
+				// Don't close if clicking a link inside the dropdown
+				if (target && dropdown.contains(target)) {
+					return;
+				}
+				if (!dropdown.contains(target) && !button.contains(target)) {
+					closeDropdown();
+				}
+			});
 
-		// Close dropdown when focus moves outside navigation
-		document.addEventListener("focusout", (e) => {
-			if (
-				!dropdown.contains(e.relatedTarget as Node) &&
-				!button.contains(e.relatedTarget as Node)
-			) {
-				closeDropdown();
-			}
-		});
+			// Handle button clicks
+			button.addEventListener("click", (e) => {
+				e.stopPropagation();
+				if (dropdown.style.display === "none") {
+					openDropdown();
+				} else {
+					closeDropdown();
+				}
+			});
 
-		button.addEventListener("click", () => {
-			if (dropdown.style.display === "none") {
-				openDropdown();
-			} else {
-				closeDropdown();
-			}
-		});
+			// Close before navigation starts
+			document.addEventListener("astro:before-preparation", closeDropdown);
+		}
+
+		function openDropdown() {
+			if (!dropdown || !button) return;
+			dropdown.style.display = "flex";
+			button.setAttribute("aria-expanded", "true");
+			requestAnimationFrame(() => {
+				dropdown.style.opacity = "1";
+				dropdown.style.transform = "rotateX(0deg)";
+			});
+		}
+
+		function closeDropdown() {
+			if (!button || !dropdown) return;
+			dropdown.style.display = "none";
+			dropdown.style.opacity = "0";
+			dropdown.style.transform = "rotateX(90deg)";
+			button.setAttribute("aria-expanded", "false");
+		}
 	}
-	function openDropdown() {
-		if (!dropdown || !button) return;
-		dropdown.style.display = "flex";
-		button.setAttribute("aria-expanded", "true");
-		animate(
-			dropdown,
-			{
-				opacity: [0, 1],
-				transform: ["rotateX(90deg)", "rotateX(0deg)"],
-			},
-			{
-				duration: 0.6,
-				easing: "ease-in-out",
-			}
-		);
-	}
-	function closeDropdown() {
-		if (!button || !dropdown) return;
-		button.setAttribute("aria-expanded", "false");
-		animate(
-			dropdown,
-			{
-				opacity: [1, 0],
-				rotateX: ["0deg", "90deg"],
-			},
-			{
-				duration: 0.6,
-				easing: "ease-in-out",
-				onComplete: () => {
-					dropdown.style.display = "none";
-				},
-			}
-		);
-	}
+
+	// Initialize on page load
+	initializeDropdown();
+
+	// Re-initialize after each navigation
+	document.addEventListener("astro:page-load", initializeDropdown);
 </script>
 
 <style>
@@ -234,6 +232,9 @@ import UnderlineHoverLink from "../../mdx/UnderlineHoverLink.astro";
 		z-index: 1;
 		position: absolute;
 		transform-origin: top;
+		transition:
+			opacity 0.6s ease-in-out,
+			transform 0.6s ease-in-out;
 	}
 
 	.dropdown-link {

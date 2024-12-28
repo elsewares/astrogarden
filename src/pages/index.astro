@@ -43,12 +43,12 @@ const sortedPatterns = patterns
 
 <Layout title="Maggie Appleton">
 	<PageWrapper>
-		<header class="page-header">
-			<Title1 class="main-title">
+		<header class="page-header" transition:animate="fade">
+			<Title1 class="main-title" transition:name="page-title">
 				<b>Maggie </b>
 				makes visual essays about programming, design, and anthropology.
 			</Title1>
-			<SmallTitle2>
+			<SmallTitle2 transition:animate="fade">
 				Designer, anthropologist, and mediocre developer
 				<br />
 				Currently design engineering at{" "}
@@ -62,7 +62,7 @@ const sortedPatterns = patterns
 
 		<Spacer />
 
-		<section>
+		<section transition:animate="fade">
 			<a href="/garden">
 				<h2 class="garden-title">The Garden</h2>
 			</a>
@@ -76,8 +76,8 @@ const sortedPatterns = patterns
 			</div>
 		</section>
 
-		<section class="garden-section">
-			<section class="essays-section">
+		<section class="garden-section" transition:animate="fade">
+			<section class="essays-section" transition:name="essays">
 				<a href="/essays" class="header-link">
 					<h3 class="section-header">
 						Essays
@@ -104,7 +104,7 @@ const sortedPatterns = patterns
 				</div>
 			</section>
 
-			<section style="grid-area: notes;">
+			<section style="grid-area: notes;" transition:name="notes">
 				<a href="/notes" class="header-link">
 					<h3 class="section-header">
 						Notes
@@ -135,7 +135,7 @@ const sortedPatterns = patterns
 				}
 			</section>
 
-			<section class="patterns-section">
+			<section class="patterns-section" transition:name="patterns">
 				<a href="/patterns" class="header-link">
 					<h3 class="section-header">
 						Patterns
@@ -160,7 +160,7 @@ const sortedPatterns = patterns
 				</div>
 			</section>
 
-			<section class="library-section">
+			<section class="library-section" transition:name="library">
 				<a href="/library" class="header-link">
 					<h3 class="section-header">
 						Library

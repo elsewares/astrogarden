@@ -2,6 +2,7 @@
 import Footer from "../components/layouts/Footer.astro";
 import Navbar from "../components/layouts/navbar/Navbar.astro";
 import { SEO } from "astro-seo";
+import { ClientRouter } from "astro:transitions";
 import "../global.css";
 
 export interface Props {
@@ -42,7 +43,7 @@ declare global {
 			title="Maggie Appleton's RSS Feed"
 			href="/rss.xml"
 		/>
-		<!-- Google tag (gtag.js) -->
+		<ClientRouter />
 		<script
 			type="text/partytown"
 			async
@@ -85,7 +86,6 @@ declare global {
 	<body>
 		<Navbar />
 		<slot />
-		<!-- <Footer /> -->
 		<Footer />
 		<style is:global>
 			/* Improve Page speed */

@@ -27,9 +27,9 @@ const sortedTalks = talks.sort(
 
 <Layout title="Talks by Maggie Appleton">
 	<PageWrapper>
-		<header style="margin-bottom: var(--space-xl);">
-			<TitleWithCount posts={sortedTalks}>
-				<div class="back-link" slot="header-right">
+		<header style="margin-bottom: var(--space-xl);" transition:animate="fade">
+			<TitleWithCount posts={sortedTalks} transition:name="page-title">
+				<div class="back-link" slot="header-right" transition:animate="fade">
 					<a href="/garden">
 						<Icon name="heroicons:arrow-left" size={16} />
 						<span> Back to Garden </span>
@@ -37,7 +37,7 @@ const sortedTalks = talks.sort(
 				</div>
 				Talks
 			</TitleWithCount>
-			<Title2
+			<Title2 transition:animate="fade"
 				>I occassionally give talks. Subjects range from visual programming to
 				cultural anthropology to design tactics to the narratives we tell about
 				software to the repercussions of jetspraying the web with thoughtless AI
