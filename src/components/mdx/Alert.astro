@@ -40,13 +40,13 @@ const { title } = Astro.props;
 	}
 
 	.alert-container svg {
-		margin: var(--space-m) auto var(--space-2xs);
+		margin: var(--space-m) auto;
 	}
 
 	:global(.inner-container p) {
 		font-size: var(--font-size-base);
 		color: var(--color-gray-800);
-		line-height: var(--leading-base);
+		line-height: var(--leading-loose);
 		max-width: 44ch;
 		margin-bottom: var(--space-m);
 	}
@@ -62,7 +62,7 @@ const { title } = Astro.props;
 		text-align: center;
 		font-size: var(--font-size-xl);
 		font-weight: 600;
-		line-height: var(--leading-base);
-		margin: var(--space-2xs) auto;
+		line-height: var(--leading-tight);
+		margin: 0 auto var(--space-2xs);
 	}
 </style>
