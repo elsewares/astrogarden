@@ -3203,12 +3203,6 @@
         "slug": "algorithmic-transparency",
         "growthStage": "evergreen",
         "description": "Algorithms that make their reasoning visible"
-      },
-      {
-        "title": "Testing: Algorithmic Transparency",
-        "slug": "test-algorithms",
-        "growthStage": "evergreen",
-        "description": "Algorithms that make their reasoning visible"
       }
     ]
   },
@@ -3332,24 +3326,6 @@
         "description": "Small, scoped areas within a graphical interface that allow users to read and write simple programmes"
       }
     ]
-  },
-  {
-    "ids": [
-      "Testing: Algorithmic Transparency"
-    ],
-    "slug": "test-algorithms",
-    "growthStage": "evergreen",
-    "description": "Algorithms that make their reasoning visible",
-    "outboundLinks": [
-      {
-        "matchedId": "Epistemic Disclosure",
-        "title": "Epistemic Disclosure",
-        "slug": "epistemic-disclosure",
-        "growthStage": "evergreen",
-        "description": "Providing clear metadata on the epistemic validity of content"
-      }
-    ],
-    "inboundLinks": []
   },
   {
     "ids": [

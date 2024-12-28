@@ -63,6 +63,13 @@ const { alignLeft, subtle, padding, margin, ...props } = Astro.props;
 		margin: var(--space-2xs) 0;
 	}
 
+	/* Add global p tag styling */
+	:global(p) {
+		font-size: var(--font-size-base);
+		line-height: var(--leading-looser);
+		margin-bottom: var(--space-m);
+	}
+
 	.subtle-card {
 		margin: 0 auto var(--space-s);
 		box-shadow: var(--box-shadow-sm);

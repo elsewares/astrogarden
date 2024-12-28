@@ -3,7 +3,7 @@ import { Icon } from "astro-icon/components";
 ---
 
 <div class="draft-container">
-	<!-- <Icon name="pencil" size={140} /> -->
+	<Icon name="pencil" size={140} />
 	<div>
 		<svg height={2}>
 			<path
@@ -39,8 +39,9 @@ import { Icon } from "astro-icon/components";
 		box-shadow: var(--box-shadow-lg);
 		border-radius: var(--border-radius-lg);
 		border: 1px solid var(--color-tinted-cream);
-		padding: var(--space-s) 0;
+		padding: var(--space-s);
 		max-width: 1300px;
+		width: 100%;
 	}
 
 	.draft-container div {
@@ -62,6 +63,7 @@ import { Icon } from "astro-icon/components";
 		margin: 0;
 		font-weight: 600;
 		line-height: var(--leading-tighter);
+		font-size: var(--font-size-2xl);
 	}
 
 	.draft-container p {
@@ -71,7 +73,7 @@ import { Icon } from "astro-icon/components";
 		width: 50ch;
 		max-width: 90%;
 		font-weight: 300;
-		margin-top: var(--space-m);
+		margin: var(--space-m) auto;
 	}
 
 	@media (max-width: 640px) {
