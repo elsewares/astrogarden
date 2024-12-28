@@ -15,15 +15,17 @@ const postMentions = mentions.children.filter((mention) => {
 	return mention["wm-target"] === `https://maggieappleton.com/${postSlug}`;
 });
 
-//filter for mentions where wm-property is like-of
+//filter for mentions where wm-property is like-of or repost-of
 const likesAndReposts = postMentions.filter(
-	(mention) => mention["wm-property"] === "like-of" || "repost-of"
+	(mention) =>
+		mention["wm-property"] === "like-of" ||
+		mention["wm-property"] === "repost-of",
 );
 
 //filter for mention with content
 const mentionWithContent = postMentions
 	.filter(
-		(mention) => mention["wm-property"] === "mention-of" && mention.content
+		(mention) => mention["wm-property"] === "mention-of" && mention.content,
 	)
 	.sort((a, b) => {
 		const dateA = new Date(a["wm-received"]).getTime();
@@ -230,6 +232,15 @@ const filteredMentions = mentionWithContent.filter((mention) => {
 	return !isBlocked;
 });
 
+console.log("All mentions for this post:", postMentions.length);
+console.log("Likes and reposts:", likesAndReposts.length);
+console.log(
+	"Mentions with content before spam filter:",
+	mentionWithContent.length,
+);
+console.log("Mentions after spam filter:", filteredMentions.length);
+console.log("Filtered mentions:", filteredMentions);
+
 function mentionType(mention: { [x: string]: any }) {
 	if (mention["wm-property"] === "mention-of") {
 		return "mentioned";
@@ -242,12 +253,13 @@ function mentionType(mention: { [x: string]: any }) {
 
 function sourceType(mention: { [x: string]: string | string[] }) {
 	if (mention["wm-source"].includes("twitter")) {
-		return <Icon name="mdi:twitter" size={16} class="twitter-svg" />;
+		return "twitter";
 	} else if (mention["wm-source"].includes("mastodon")) {
-		return <Icon name="mdi:mastodon" size={16} class="mastodon-svg" />;
+		return "mastodon";
 	} else if (mention["wm-source"].includes("reddit")) {
-		return <Icon name="mdi:reddit" size={16} class="reddit-svg" />;
+		return "reddit";
 	}
+	return null;
 }
 
 function formatDate(date: string | number | Date) {
@@ -271,8 +283,8 @@ const likesWithoutDuplicates = likesAndReposts.filter(
 		self.findIndex(
 			(t) =>
 				t.author.photo === like.author.photo &&
-				t.author.name === like.author.name
-		)
+				t.author.name === like.author.name,
+		),
 );
 ---
 
@@ -309,57 +321,65 @@ const likesWithoutDuplicates = likesAndReposts.filter(
 										/>
 									</svg>
 								</div>
-							)
+							),
 						)}
 						<span>{likesAndReposts.length} Likes and Retweets</span>
 					</div>
 				</div>
 
-				<div class="mentions-content-container">
-					{filteredMentions.slice(0, 4).map((mention) => (
-						<div class="reply">
-							{mention.author.photo ? (
-								<img src={mention.author.photo} alt={mention.author.name} />
-							) : (
-								<svg
-									width="42"
-									height="42"
-									viewBox="0 0 42 42"
-									fill="none"
-									xmlns="http://www.w3.org/2000/svg"
-									class="placeholder-svg"
-								>
-									<circle
-										cx="50%"
-										cy="50%"
-										r="21"
-										fill="var(--color-sea-blue)"
-									/>
-								</svg>
-							)}
-
-							<div class="content">
-								<div class="name-date">
-									<a href={mention.url}>
-										<span class="author">
-											{mention.author.name || getDomain(mention["wm-source"])}
-										</span>
-										<span class="mention-type">{mentionType(mention)}</span>
-										{sourceType(mention)}
-										{mention.name && (
-											<span class="post-name">in {mention.name}</span>
-										)}
-										<time datetime={mention.published}>
-											{formatDate(mention["wm-received"])}
-										</time>
-									</a>
-								</div>
-								{mention.content && (
-									<span>{formatContent(mention.content.text)}</span>
+				<div class="mentions-scroll-container">
+					<div class="mentions-content-container">
+						{filteredMentions.map((mention, index) => (
+							<div class:list={["reply", { hidden: index >= 4 }]}>
+								{mention.author.photo ? (
+									<img src={mention.author.photo} alt={mention.author.name} />
+								) : (
+									<svg
+										width="42"
+										height="42"
+										viewBox="0 0 42 42"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+										class="placeholder-svg"
+									>
+										<circle
+											cx="50%"
+											cy="50%"
+											r="21"
+											fill="var(--color-sea-blue)"
+										/>
+									</svg>
 								)}
+
+								<div class="content">
+									<div class="name-date">
+										<a href={mention.url}>
+											<span class="author">
+												{mention.author.name || getDomain(mention["wm-source"])}
+											</span>
+											<span class="mention-type">{mentionType(mention)}</span>
+											{sourceType(mention) && (
+												<Icon
+													name={sourceType(mention)}
+													size={16}
+													class={`${sourceType(mention)}-svg`}
+												/>
+											)}
+											{mention.name && (
+												<span class="post-name">in {mention.name}</span>
+											)}
+											<time datetime={mention.published}>
+												{formatDate(mention["wm-received"])}
+											</time>
+										</a>
+									</div>
+									{mention.content && (
+										<span>{formatContent(mention.content.text)}</span>
+									)}
+								</div>
 							</div>
-						</div>
-					))}
+						))}
+					</div>
 				</div>
 
 				<div class="button-container">
@@ -378,38 +398,42 @@ const likesWithoutDuplicates = likesAndReposts.filter(
 }
 
 <script>
-	// Get all show more buttons
 	const showMoreButtons = document.querySelectorAll(".show-more");
 
 	showMoreButtons.forEach((button) => {
 		let isShowingMore = false;
 
 		button.addEventListener("click", () => {
-			const mentionsContainer = button
-				.closest(".inner-container")
-				?.querySelector(".mentions-content-container");
-			const replies = mentionsContainer?.querySelectorAll(".reply");
-			const totalMentions = parseInt(
-				button.getAttribute("data-total-mentions") || "0"
+			const container = button.closest(".inner-container");
+			const mentionsContainer = container?.querySelector(
+				".mentions-scroll-container",
 			);
+			const replies = container?.querySelectorAll(".reply");
 
-			if (!mentionsContainer || !replies) return;
+			if (!container || !mentionsContainer || !replies) return;
 
 			if (!isShowingMore) {
-				// Show all mentions up to 30
+				mentionsContainer.classList.add("expanded");
+				// Show all replies after the first 4
 				replies.forEach((reply, index) => {
-					if (index >= 4 && index < 30) {
+					if (index >= 4) {
 						reply.classList.remove("hidden");
 					}
 				});
+				// Scroll to the top of the expanded container
+				mentionsContainer.scrollTop = 0;
 				button.textContent = "Show less";
 			} else {
-				// Hide all mentions after first 4
+				// Hide all replies after the first 4
 				replies.forEach((reply, index) => {
 					if (index >= 4) {
 						reply.classList.add("hidden");
 					}
 				});
+				mentionsContainer.classList.remove("expanded");
+				const totalMentions = parseInt(
+					button.getAttribute("data-total-mentions") || "0",
+				);
 				button.textContent = `Show ${totalMentions - 4} more`;
 			}
 
@@ -419,10 +443,64 @@ const likesWithoutDuplicates = likesAndReposts.filter(
 </script>
 
 <style>
+	.mentions-scroll-container {
+		max-height: 360px;
+		overflow: hidden;
+		transition: max-height 0.5s ease-in-out;
+	}
+
+	.mentions-scroll-container.expanded {
+		max-height: 800px;
+		overflow-y: auto;
+	}
+
+	.mentions-scroll-container::-webkit-scrollbar {
+		width: 6px;
+	}
+
+	.mentions-scroll-container::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	.mentions-scroll-container::-webkit-scrollbar-thumb {
+		background-color: var(--color-gray-300);
+		border-radius: 3px;
+	}
+
+	.mentions-content-container {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 0 2rem;
+		margin-top: var(--space-s);
+		max-width: 100%;
+	}
+
+	.reply {
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+		margin: 1rem 0;
+		max-width: 100%;
+	}
+
+	.reply.hidden {
+		display: none;
+	}
+
+	.mentions-scroll-container.expanded .reply {
+		opacity: 1;
+	}
+
 	.button-container {
 		width: 100%;
 		display: flex;
 		justify-content: center;
+		background: white;
+		position: sticky;
+		bottom: 0;
+		z-index: 2;
+		border-radius: 0 0 0.5rem 0.5rem;
 	}
 
 	.button-container button {
@@ -441,21 +519,8 @@ const likesWithoutDuplicates = likesAndReposts.filter(
 		color: var(--color-gray-800);
 	}
 
-	.mentions-content-container {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		padding: 0 2rem 1.5rem;
-		margin-top: var(--space-s);
-		max-width: 100%;
-	}
-
-	.reply {
-		display: flex;
-		flex-direction: row;
-		align-items: left;
-		margin: 1rem 0;
-		max-width: 100%;
+	.mentions-content-container:not(.expanded) .reply.initially-hidden {
+		display: none;
 	}
 
 	.reply img,
@@ -516,6 +581,7 @@ const likesWithoutDuplicates = likesAndReposts.filter(
 		flex-wrap: wrap;
 		gap: 0.5rem;
 		padding: 0 2rem;
+		border-bottom: 1px solid var(--color-gray-100);
 	}
 
 	.likes-container {
@@ -526,6 +592,7 @@ const likesWithoutDuplicates = likesAndReposts.filter(
 		height: auto;
 		padding-left: 1rem;
 		padding-right: 2rem;
+		padding-bottom: 1.5rem;
 		transition: all 0.4s ease;
 	}
 
@@ -591,10 +658,6 @@ const likesWithoutDuplicates = likesAndReposts.filter(
 		font-family: var(--font-sans);
 		background: white;
 		color: var(--color-gray-800);
-	}
-
-	.reply:nth-child(n + 5) {
-		display: none;
 	}
 
 	.reply.hidden {

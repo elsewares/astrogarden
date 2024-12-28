@@ -3,6 +3,7 @@ import type { CollectionEntry } from "astro:content";
 import Layout from "./Layout.astro";
 import { Icon } from "astro-icon/components";
 import Backlinks from "../components/layouts/Backlinks.astro";
+import WebMentions from "../components/layouts/WebMentions.astro";
 import linkMaps from "../links.json";
 import GrowthIcon from "../components/layouts/GrowthIcon.astro";
 import Dates from "../components/layouts/Dates.astro";
@@ -89,6 +90,8 @@ const backlinks = currentPost?.inboundLinks || [];
 			<Backlinks backlinks={backlinks} transition:animate="fade" />
 		) : null
 	}
+
+	<WebMentions postSlug={currentSlug} hasBacklinks={backlinks.length > 0} />
 </Layout>
 
 <style>
@@ -148,7 +151,7 @@ const backlinks = currentPost?.inboundLinks || [];
 
 	.styled-main {
 		margin-top: var(--space-xs);
-		padding: var(--space-xl) 0 var(--space-3xl);
+		padding: var(--space-xl) 0 var(--space-2xl);
 		background: linear-gradient(var(--color-cream) 0, white 110px);
 		width: 100%;
 	}
