@@ -1,3 +1,7 @@
+---
+const { title } = Astro.props;
+---
+
 <div class="alert-container">
 	<svg
 		width={133}
@@ -13,6 +17,7 @@
 			fill="var(--color-salmon)"></path>
 	</svg>
 	<div class="inner-container">
+		{Astro.props.title && <h2 class="alert-title">{Astro.props.title}</h2>}
 		<slot />
 	</div>
 </div>
@@ -28,33 +33,36 @@
 		align-items: center;
 		justify-content: center;
 		text-align: center;
-		margin: var(--space-l) auto;
+		margin: 0 auto var(--space-l);
 		border: 1px solid var(--color-gray-100);
 		border-radius: var(--border-radius-lg);
 		box-shadow: var(--box-shadow-lg);
 	}
 
-	.alert-container :global(h2),
-	.alert-container :global(h3) {
-		margin: var(--space-xs) auto var(--space-s);
-	}
-
 	.alert-container svg {
-		margin: var(--space-m) auto var(--space-xs);
+		margin: var(--space-m) auto var(--space-2xs);
 	}
 
-	.inner-container :global(p) {
+	:global(.inner-container p) {
 		font-size: var(--font-size-base);
 		color: var(--color-gray-800);
 		line-height: var(--leading-base);
 		max-width: 44ch;
-		font-weight: 300;
-		margin-top: var(--space-s);
+		margin-bottom: var(--space-m);
 	}
 
 	@media (max-width: 768px) {
 		.inner-container :global(p) {
 			max-width: 100%;
 		}
+	}
+
+	.alert-title {
+		color: var(--color-black);
+		text-align: center;
+		font-size: var(--font-size-xl);
+		font-weight: 600;
+		line-height: var(--leading-base);
+		margin: var(--space-2xs) auto;
 	}
 </style>

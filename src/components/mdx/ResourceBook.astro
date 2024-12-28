@@ -1,5 +1,4 @@
 ---
-import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 
 const { url, title, author, image, small } = Astro.props;
@@ -29,16 +28,18 @@ const { url, title, author, image, small } = Astro.props;
 			<h3>{title}</h3>
 		</a>
 		<span>{author}</span>
-		<slot>
-			<Icon name="heroicons:minus" size={40} class="divider" />
-			<p><slot /></p>
-		</slot>
+		<svg width="40" height="3">
+			<rect width="40" height="3" fill="var(--color-gray-300)"></rect>
+		</svg>
+		<div class="description">
+			<slot />
+		</div>
 	</div>
 </div>
 
 <style>
 	.book-card {
-		margin: var(--space-l) auto;
+		margin: var(--space-xs) auto var(--space-l);
 		border-radius: var(--border-radius-lg);
 		display: flex;
 		flex-direction: row;
@@ -47,6 +48,7 @@ const { url, title, author, image, small } = Astro.props;
 		gap: var(--space-l);
 		height: content-min;
 		cursor: pointer;
+		align-items: inherit;
 	}
 
 	.book-card.small {
@@ -91,27 +93,30 @@ const { url, title, author, image, small } = Astro.props;
 
 	.metadata span {
 		color: var(--color-gray-600);
+		font-size: var(--font-size-base);
 	}
 
 	.metadata h3 {
 		font-family: var(--font-body);
 		font-size: var(--font-size-md);
-		margin-bottom: var(--space-3xs);
+		margin-bottom: var(--space-2xs);
 		color: var(--color-gray-800);
 		transition: all 0.2s ease-in-out;
 		line-height: var(--leading-tight);
 		flex-shrink: 1;
 	}
 
-	.metadata p {
+	:global(.book-card .description p) {
 		font-family: var(--font-sans);
 		font-size: var(--font-size-sm);
 		line-height: var(--leading-loose);
 		color: var(--color-gray-800);
 		flex-shrink: 1;
+		margin: 0;
 	}
 
-	.metadata .divider {
+	.metadata svg {
+		height: 3px;
 		margin: var(--space-s) 0;
 		fill: var(--color-gray-300);
 	}
