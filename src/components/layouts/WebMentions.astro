@@ -232,15 +232,6 @@ const filteredMentions = mentionWithContent.filter((mention) => {
 	return !isBlocked;
 });
 
-console.log("All mentions for this post:", postMentions.length);
-console.log("Likes and reposts:", likesAndReposts.length);
-console.log(
-	"Mentions with content before spam filter:",
-	mentionWithContent.length,
-);
-console.log("Mentions after spam filter:", filteredMentions.length);
-console.log("Filtered mentions:", filteredMentions);
-
 function mentionType(mention: { [x: string]: any }) {
 	if (mention["wm-property"] === "mention-of") {
 		return "mentioned";
