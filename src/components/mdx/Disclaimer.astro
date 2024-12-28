@@ -22,7 +22,7 @@ const { title = "Disclaimer" } = Astro.props;
 		font-size: calc(var(--font-size-base) / 1.2);
 	}
 
-	.disclaimer-container div p {
+	:global(.disclaimer-container div p) {
 		font-weight: 400;
 		margin: 0;
 		font-size: calc(var(--font-size-base) / 1.2);

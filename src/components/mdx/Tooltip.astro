@@ -47,24 +47,47 @@ const { maxWidth = 320 } = Astro.props;
 	import "tippy.js/dist/tippy.css";
 	import "tippy.js/animations/shift-away.css";
 
-	// Initialize tooltips
-	const tooltips = document.querySelectorAll(".tooltip-trigger");
-	tooltips.forEach((element) => {
-		const template = element.querySelector(
-			".tooltip-content"
-		) as HTMLTemplateElement;
-		tippy(
-			element as Element,
-			{
-				content: template.content.cloneNode(true),
-				maxWidth: parseInt(element.getAttribute("data-maxwidth") || "320"),
-				duration: 500,
-				arrow: true,
-				interactive: true,
-				animation: "shift-away",
-				allowHTML: true,
-				theme: "custom",
-			} as Partial<Props>
-		);
-	});
+	function initializeTooltips() {
+		// Destroy existing tooltips first
+		const existingTooltips = document.querySelectorAll(".tooltip-trigger");
+		existingTooltips.forEach((element) => {
+			const instance = (element as any)._tippy;
+			if (instance) {
+				instance.destroy();
+			}
+		});
+
+		// Initialize tooltips
+		const tooltips = document.querySelectorAll(".tooltip-trigger");
+		tooltips.forEach((element) => {
+			const template = element.querySelector(
+				".tooltip-content",
+			) as HTMLTemplateElement;
+			tippy(
+				element as Element,
+				{
+					content: template.content.cloneNode(true),
+					maxWidth: parseInt(element.getAttribute("data-maxwidth") || "320"),
+					duration: 500,
+					arrow: true,
+					interactive: true,
+					animation: "shift-away",
+					allowHTML: true,
+					theme: "custom",
+					onCreate(instance) {
+						// Force a DOM update after creation
+						setTimeout(() => {
+							instance.setContent(instance.props.content);
+						}, 0);
+					},
+				} as Partial<Props>,
+			);
+		});
+	}
+
+	// Initialize on first load
+	initializeTooltips();
+
+	// Re-initialize after view transitions
+	document.addEventListener("astro:after-swap", initializeTooltips);
 </script>
