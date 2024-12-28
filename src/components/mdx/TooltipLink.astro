@@ -19,7 +19,7 @@ const hoverColor = isExternal
 	: "var(--color-crimson)";
 ---
 
-<Tooltip maxWidth={420}>
+<Tooltip>
 	<a
 		class="link"
 		style={{
@@ -30,7 +30,7 @@ const hoverColor = isExternal
 		href={href}
 		data-internal={!isExternal}
 		data-no-styling={noStyling}><slot /></a
-	><div slot="content" class="tooltip-content">
+	><div slot="content">
 		{
 			notes && (
 				<>
@@ -142,11 +142,9 @@ const hoverColor = isExternal
 		}
 	}
 
-	/* Rest of the styles remain the same */
 	.external-url {
 		color: var(--color-gray-600);
 		transition: color 0.2s ease-in-out;
-		text-align: center;
 		word-break: break-all;
 		max-width: 420px;
 		display: flex;
@@ -163,10 +161,6 @@ const hoverColor = isExternal
 
 	.external-url:hover {
 		color: var(--color-bright-crimson);
-	}
-
-	.tooltip-content {
-		padding: var(--space-3xs);
 	}
 
 	.divider {

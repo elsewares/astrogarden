@@ -280,109 +280,121 @@ const likesWithoutDuplicates = likesAndReposts.filter(
 ---
 
 {
-	postMentions.length > 0 && (
+	(likesAndReposts.length > 0 || filteredMentions.length > 0) && (
 		<div class="outer-container">
 			<div class:list={["inner-container", { "has-backlinks": hasBacklinks }]}>
 				<div class="header">
 					<h3>Mentions around the web</h3>
 				</div>
 
-				<div class="likes-images-container">
-					<div class="likes-container">
-						{likesWithoutDuplicates.slice(0, 20).map((mention, index) =>
-							mention.author.photo ? (
-								<div class="single-image">
-									<img src={mention.author.photo} alt={mention.author.name} />
-								</div>
-							) : (
-								<div class="single-image">
-									<svg
-										width="42"
-										height="42"
-										viewBox="0 0 42 42"
-										fill="none"
-										xmlns="http://www.w3.org/2000/svg"
-										class="placeholder-svg"
-									>
-										<circle
-											cx="50%"
-											cy="50%"
-											r="21"
-											fill="var(--color-sea-blue)"
-										/>
-									</svg>
-								</div>
-							),
-						)}
-						<span>{likesAndReposts.length} Likes and Retweets</span>
-					</div>
-				</div>
-
-				<div class="mentions-scroll-container">
-					<div class="mentions-content-container">
-						{filteredMentions.map((mention, index) => (
-							<div class:list={["reply", { hidden: index >= 4 }]}>
-								{mention.author.photo ? (
-									<img src={mention.author.photo} alt={mention.author.name} />
-								) : (
-									<svg
-										width="42"
-										height="42"
-										viewBox="0 0 42 42"
-										fill="none"
-										xmlns="http://www.w3.org/2000/svg"
-										class="placeholder-svg"
-									>
-										<circle
-											cx="50%"
-											cy="50%"
-											r="21"
-											fill="var(--color-sea-blue)"
-										/>
-									</svg>
-								)}
-
-								<div class="content">
-									<div class="name-date">
-										<a href={mention.url}>
-											<span class="author">
-												{mention.author.name || getDomain(mention["wm-source"])}
-											</span>
-											<span class="mention-type">{mentionType(mention)}</span>
-											{sourceType(mention) && (
-												<Icon
-													name={sourceType(mention)}
-													size={16}
-													class={`${sourceType(mention)}-svg`}
-												/>
-											)}
-											{mention.name && (
-												<span class="post-name">in {mention.name}</span>
-											)}
-											<time datetime={mention.published}>
-												{formatDate(mention["wm-received"])}
-											</time>
-										</a>
+				{likesAndReposts.length > 0 && (
+					<div class="likes-images-container">
+						<div class="likes-container">
+							{likesWithoutDuplicates.slice(0, 20).map((mention, index) =>
+								mention.author.photo ? (
+									<div class="single-image">
+										<img src={mention.author.photo} alt={mention.author.name} />
 									</div>
-									{mention.content && (
-										<span>{formatContent(mention.content.text)}</span>
-									)}
-								</div>
-							</div>
-						))}
+								) : (
+									<div class="single-image">
+										<svg
+											width="42"
+											height="42"
+											viewBox="0 0 42 42"
+											fill="none"
+											xmlns="http://www.w3.org/2000/svg"
+											class="placeholder-svg"
+										>
+											<circle
+												cx="50%"
+												cy="50%"
+												r="21"
+												fill="var(--color-sea-blue)"
+											/>
+										</svg>
+									</div>
+								),
+							)}
+							<span>{likesAndReposts.length} Likes and Retweets</span>
+						</div>
 					</div>
-				</div>
+				)}
 
-				<div class="button-container">
-					{filteredMentions.length > 4 && (
-						<button
-							class="show-more"
-							data-total-mentions={filteredMentions.length}
-						>
-							Show {filteredMentions.length - 4} more
-						</button>
-					)}
-				</div>
+				{filteredMentions.length > 0 && (
+					<>
+						<div class="mentions-scroll-container">
+							<div class="mentions-content-container">
+								{filteredMentions.map((mention, index) => (
+									<div class:list={["reply", { hidden: index >= 4 }]}>
+										{mention.author.photo ? (
+											<img
+												src={mention.author.photo}
+												alt={mention.author.name}
+											/>
+										) : (
+											<svg
+												width="42"
+												height="42"
+												viewBox="0 0 42 42"
+												fill="none"
+												xmlns="http://www.w3.org/2000/svg"
+												class="placeholder-svg"
+											>
+												<circle
+													cx="50%"
+													cy="50%"
+													r="21"
+													fill="var(--color-sea-blue)"
+												/>
+											</svg>
+										)}
+
+										<div class="content">
+											<div class="name-date">
+												<a href={mention.url}>
+													<span class="author">
+														{mention.author.name ||
+															getDomain(mention["wm-source"])}
+													</span>
+													<span class="mention-type">
+														{mentionType(mention)}
+													</span>
+													{sourceType(mention) && (
+														<Icon
+															name={sourceType(mention)}
+															size={16}
+															class={`${sourceType(mention)}-svg`}
+														/>
+													)}
+													{mention.name && (
+														<span class="post-name">in {mention.name}</span>
+													)}
+													<time datetime={mention.published}>
+														{formatDate(mention["wm-received"])}
+													</time>
+												</a>
+											</div>
+											{mention.content && (
+												<span>{formatContent(mention.content.text)}</span>
+											)}
+										</div>
+									</div>
+								))}
+							</div>
+						</div>
+
+						<div class="button-container">
+							{filteredMentions.length > 4 && (
+								<button
+									class="show-more"
+									data-total-mentions={filteredMentions.length}
+								>
+									Show {filteredMentions.length - 4} more
+								</button>
+							)}
+						</div>
+					</>
+				)}
 			</div>
 		</div>
 	)

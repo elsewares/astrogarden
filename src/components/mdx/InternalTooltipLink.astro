@@ -10,7 +10,7 @@ interface Props {
 const { href, title, description } = Astro.props;
 ---
 
-<Tooltip max-width={420}>
+<Tooltip>
 	<span slot="content" class="tooltip-content">
 		<h4>{title}</h4>
 		<span class="description">{description}</span>
