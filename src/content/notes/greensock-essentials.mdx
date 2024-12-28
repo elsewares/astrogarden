@@ -16,12 +16,12 @@ topics:
 growthStage: "budding"
 ---
 
-import GsapScroller from "../../components/mdx/GreensockScroller.astro";
 import Center from "../../components/mdx/Center.astro";
-import TweenRedBigBox from "../../components/mdx/TweenRedBigBox.astro";
-import TweenSpinningBox from "../../components/mdx/TweenSpinningBox.astro";
-import TweenReverseSpinningBox from "../../components/mdx/TweenReverseSpinningBox.astro";
-import TweenBlueRedBox from "../../components/mdx/TweenBlueRedBox.astro";
+import GsapScroller from "../../components/unique/gsap-basics/GsapScroller.astro";
+import TweenRedBigBox from "../../components/unique/gsap-basics/TweenRedBigBox.astro";
+import TweenSpinningBox from "../../components/unique/gsap-basics/TweenSpinningBox.astro";
+import TweenReverseSpinningBox from "../../components/unique/gsap-basics/TweenReverseSpinningBox.astro";
+import TweenBlueRedBox from "../../components/unique/gsap-basics/TweenBlueRedBox.astro";
 
 <IntroParagraph>When it comes to web animation libraries, [Greensock](https://greensock.com/) is the Rolls Royce of options. It's what powers most of those ridiculously fancy [Awwwards](https://www.awwwards.com/) websites.</IntroParagraph>
 
@@ -33,6 +33,13 @@ But once I started digging in I realised the core of the library was actually qu
 
 This is a **one-scoop-plain-vanilla introduction to Greensock**.  
 Without any sprinkles, nuts, or advanced functionality.
+
+### Greensock in Plain English
+
+Greensock is a JavaScript library that changes DOM nodes directly. Once
+our browser has read the HTML document of a website, it transforms it into
+a set of DOM nodes - all our usual div's, paragraphs, and images.
+Greensock then manipulates those nodes to create our animations.
 
 <GsapScroller />
 

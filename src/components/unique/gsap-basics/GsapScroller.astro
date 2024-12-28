@@ -1,0 +1,185 @@
+---
+
+---
+
+<div class="container">
+	<div class="trigger-div">
+		<div class="image-container">
+			<img
+				class="base-image"
+				alt="DOM nodes visualization - step 1"
+				src="https://res.cloudinary.com/dg3gyk0gu/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1599594005/maggieappleton.com/notes/gsap/GSAP-DOM.jpg"
+			/>
+			<img
+				class="fade-image"
+				data-index="1"
+				alt="DOM nodes visualization - step 2"
+				src="https://res.cloudinary.com/dg3gyk0gu/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1599594005/maggieappleton.com/notes/gsap/GSAP-DOM-2.jpg"
+			/>
+			<img
+				class="fade-image"
+				data-index="2"
+				alt="DOM nodes visualization - step 3"
+				src="https://res.cloudinary.com/dg3gyk0gu/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1599594005/maggieappleton.com/notes/gsap/GSAP-DOM-3.jpg"
+			/>
+			<img
+				class="fade-image"
+				data-index="3"
+				alt="DOM nodes visualization - step 4"
+				src="https://res.cloudinary.com/dg3gyk0gu/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1599595798/maggieappleton.com/notes/gsap/GSAP-DOM-4.jpg"
+			/>
+		</div>
+	</div>
+</div>
+
+<script>
+	import scrollama from "scrollama";
+
+	let scroller: any;
+	let fadeImages: NodeListOf<Element>;
+	let currentStep = -1;
+
+	function initScrollama() {
+		scroller = scrollama();
+		fadeImages = document.querySelectorAll(".fade-image");
+
+		scroller
+			.setup({
+				step: ".trigger-div",
+				offset: 0.4,
+				progress: true,
+			})
+			.onStepProgress((response: any) => {
+				const { progress } = response;
+				const totalImages = fadeImages.length;
+				const currentImage = Math.floor(progress * totalImages);
+
+				if (currentImage !== currentStep && currentImage >= 0) {
+					currentStep = currentImage;
+					fadeImages.forEach((img, index) => {
+						if (index <= currentImage && currentImage < totalImages) {
+							img.classList.add("visible");
+						} else {
+							img.classList.remove("visible");
+						}
+					});
+				}
+			});
+	}
+
+	// Initial setup
+	initScrollama();
+
+	// Handle resize
+	const handleResize = () => scroller?.resize();
+	window.addEventListener("resize", handleResize);
+
+	// Cleanup and reinit on view transitions
+	document.addEventListener("astro:after-swap", () => {
+		initScrollama();
+	});
+
+	document.addEventListener("astro:before-swap", () => {
+		scroller?.destroy();
+		window.removeEventListener("resize", handleResize);
+	});
+
+	document.addEventListener("astro:after-render", () => {
+		initScrollama();
+	});
+
+	// Cleanup on unmount
+	document.addEventListener("astro:unmount", () => {
+		scroller?.destroy();
+		window.removeEventListener("resize", handleResize);
+	});
+</script>
+
+<style>
+	.container {
+		height: 110vh;
+		margin: 0 0 var(--space-s);
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.trigger-div {
+		position: sticky;
+		top: 10vh;
+		height: 70vh;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.image-container {
+		position: relative;
+		width: 100%;
+		max-width: 580px;
+		margin: 0 auto;
+		aspect-ratio: 16/9;
+	}
+
+	img {
+		width: 100%;
+		height: auto;
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+
+	.base-image {
+		position: relative;
+	}
+
+	.fade-image {
+		opacity: 0;
+		transition: opacity 0.8s ease-out;
+		z-index: var(--z-index);
+	}
+
+	.fade-image.visible {
+		opacity: 1;
+	}
+
+	.fade-image[data-index="1"] {
+		--z-index: 2;
+	}
+
+	.fade-image[data-index="2"] {
+		--z-index: 3;
+	}
+
+	.fade-image[data-index="3"] {
+		--z-index: 4;
+	}
+
+	@media (max-width: 768px) {
+		.container {
+			height: auto;
+		}
+
+		.text-content {
+			margin: 2rem auto;
+		}
+
+		.trigger-div {
+			position: static;
+			height: auto;
+			padding: 2rem 1rem;
+			transform: none;
+		}
+
+		img {
+			position: relative;
+			margin-bottom: 1rem;
+		}
+
+		.fade-image {
+			display: none;
+		}
+	}
+</style>
