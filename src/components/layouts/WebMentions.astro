@@ -401,53 +401,65 @@ const likesWithoutDuplicates = likesAndReposts.filter(
 }
 
 <script>
-	const showMoreButtons = document.querySelectorAll(".show-more");
+	// Function to initialize show more buttons
+	function initializeShowMoreButtons() {
+		const showMoreButtons = document.querySelectorAll(".show-more");
 
-	showMoreButtons.forEach((button) => {
-		let isShowingMore = false;
+		showMoreButtons.forEach((button) => {
+			// Remove existing event listeners to prevent duplicates
+			button.replaceWith(button.cloneNode(true));
 
-		button.addEventListener("click", () => {
-			const container = button.closest(".inner-container");
-			const mentionsContainer = container?.querySelector(
-				".mentions-scroll-container",
+			const newButton = document.querySelector(
+				`[data-total-mentions="${button.getAttribute("data-total-mentions")}"]`,
 			);
-			const replies = container?.querySelectorAll(".reply");
+			let isShowingMore = false;
 
-			if (!container || !mentionsContainer || !replies) return;
-
-			if (!isShowingMore) {
-				mentionsContainer.classList.add("expanded");
-				// Show all replies after the first 4
-				replies.forEach((reply, index) => {
-					if (index >= 4) {
-						reply.classList.remove("hidden");
-					}
-				});
-				// Scroll to the top of the expanded container
-				mentionsContainer.scrollTop = 0;
-				button.textContent = "Show less";
-			} else {
-				// Hide all replies after the first 4
-				replies.forEach((reply, index) => {
-					if (index >= 4) {
-						reply.classList.add("hidden");
-					}
-				});
-				mentionsContainer.classList.remove("expanded");
-				const totalMentions = parseInt(
-					button.getAttribute("data-total-mentions") || "0",
+			newButton?.addEventListener("click", () => {
+				const container = newButton.closest(".inner-container");
+				const mentionsContainer = container?.querySelector(
+					".mentions-scroll-container",
 				);
-				button.textContent = `Show ${totalMentions - 4} more`;
-			}
+				const replies = container?.querySelectorAll(".reply");
 
-			isShowingMore = !isShowingMore;
+				if (!container || !mentionsContainer || !replies) return;
+
+				if (!isShowingMore) {
+					mentionsContainer.classList.add("expanded");
+					replies.forEach((reply, index) => {
+						if (index >= 4) {
+							reply.classList.remove("hidden");
+						}
+					});
+					mentionsContainer.scrollTop = 0;
+					newButton.textContent = "Show less";
+				} else {
+					replies.forEach((reply, index) => {
+						if (index >= 4) {
+							reply.classList.add("hidden");
+						}
+					});
+					mentionsContainer.classList.remove("expanded");
+					const totalMentions = parseInt(
+						newButton.getAttribute("data-total-mentions") || "0",
+					);
+					newButton.textContent = `Show ${totalMentions - 4} more`;
+				}
+
+				isShowingMore = !isShowingMore;
+			});
 		});
-	});
+	}
+
+	// Initialize on first load
+	initializeShowMoreButtons();
+
+	// Re-initialize after view transitions
+	document.addEventListener("astro:after-swap", initializeShowMoreButtons);
 </script>
 
 <style>
 	.mentions-scroll-container {
-		max-height: 360px;
+		max-height: auto;
 		overflow: hidden;
 		transition: max-height 0.5s ease-in-out;
 	}
