@@ -108,9 +108,9 @@ if (!data || data.length === 0) {
 	.container {
 		position: relative;
 		grid-column: 1/4 !important;
-		height: 300vh;
+		height: 320vh;
 		margin: 0;
-		padding-bottom: 25vh;
+		margin-bottom: max(260px, 25vh);
 	}
 
 	.sticky-container {
@@ -123,6 +123,7 @@ if (!data || data.length === 0) {
 		align-items: center;
 		justify-content: flex-start;
 		padding-top: 2rem;
+		z-index: 1;
 	}
 
 	.scroll-trigger {
@@ -136,27 +137,31 @@ if (!data || data.length === 0) {
 
 	.image-container {
 		position: relative;
-		width: 100%;
+		width: auto;
 		max-width: 1300px;
+		height: 85vh;
 		margin: 0 auto;
 		padding: 0 1rem;
 		aspect-ratio: 16/9;
 	}
 
 	img {
-		width: 100%;
-		height: auto;
+		width: auto;
+		height: 85vh;
 		position: absolute;
-		left: 0;
+		left: 50%;
+		transform: translateX(-50%);
 		top: 24px;
 		object-fit: contain;
 		border: 1px solid var(--color-gray-100);
 		border-radius: 0.5rem;
 		box-shadow: var(--box-shadow-sm);
+		opacity: 0;
 	}
 
 	.base-image {
 		position: relative;
+		opacity: 1;
 	}
 
 	.fade-image {
@@ -198,6 +203,7 @@ if (!data || data.length === 0) {
 		.container {
 			height: auto;
 			padding: 2rem 0;
+			margin-bottom: max(32px, 3vh);
 		}
 
 		.sticky-container {
