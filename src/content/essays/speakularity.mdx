@@ -28,22 +28,21 @@ Because it was free and seamlessly integrated into a familiar task, they made it
 
 <TwoColumn maxWidth="1200px" gridTemplateColumns="3fr 2fr" margin="-2rem auto 4rem">
 
-<BasicImage
-	framed
-	width="800px"
-	src="/images/posts/speakularity/googlesearch.webp"
-	alt="Voice input integrated into Google Search, 2011"
-	showalt
-	sourceUrl="https://googlesystem.blogspot.com/2011/01/voice-search-for-google-chrome.html"
-	sourceTitle="Google Operating System"
-/>
-<BasicImage
-	src="/images/posts/speakularity/siri-screen.webp"
-	alt="Siri's original interface, 2011"
-	showalt
-	sourceUrl="https://www.forbes.com/sites/nicoleperlroth/2011/10/12/siri-was-born-a-man-and-other-things-you-dont-know-about-apples-new-personal-assistant/"
-	sourceTitle="Forbes"
-/>
+[BasicImage
+framed
+width="800px"
+src="/images/posts/speakularity/googlesearch.webp"
+alt="Voice input integrated into Google Search, 2011"
+showalt
+sourceUrl="https://googlesystem.blogspot.com/2011/01/voice-search-for-google-chrome.html"
+sourceTitle="Google Operating System"]
+
+[BasicImage
+src="/images/posts/speakularity/siri-screen.webp"
+alt="Siri's original interface, 2011"
+showalt
+sourceUrl="https://www.forbes.com/sites/nicoleperlroth/2011/10/12/siri-was-born-a-man-and-other-things-you-dont-know-about-apples-new-personal-assistant/"
+sourceTitle="Forbes"]
 
 </TwoColumn>
 
@@ -185,7 +184,7 @@ How am I doing this articulated magic?
 
 I have a little app called [SuperWhisper](https://superwhisper.com/)<Footnote idName={4}>This is currently the best app on the market by a good margin, but I'll discuss different options and design considerations later on.</Footnote> that lives in my menu bar. It stays out of the way unless I summon it by hitting a keyboard shortcut. I use `Ctrl + W`, but you can set it to whatever you like. When called, it opens a small pop-over window and begins recording.
 
-<BasicImage width="600px" src="/images/posts/speakularity/superwhisper0.jpg" />
+[ BasicImage width="600px" src="/images/posts/speakularity/superwhisper0.jpg" ]
 
 I say what I want to say, and press the same keyboard shortcut. After a brief loading period, the transciption text is pasted inline wherever I have my cursor placed.
 
@@ -193,11 +192,10 @@ I say what I want to say, and press the same keyboard shortcut. After a brief lo
 
 In that loading period, Superwhisper feeds my audio file into an AI model called [Whisper](https://openai.com/research/whisper). It's an [open source](https://github.com/openai/whisper) voice-to-text model created by [OpenAI](https://openai.com/) in 2022. SuperWhisper downloads Whisper onto my local machine and gives me an easy way to use it. It even lets me pick which size model I want – larger models are slower, but more accurate.
 
-<BasicImage
-	framed
-	width="800px"
-	src="/images/posts/speakularity/superwhisper1.jpg"
-/>
+[BasicImage
+framed
+width="800px"
+src="/images/posts/speakularity/superwhisper1.jpg"]
 
 The inline paste feature is critical. It means I can transcribe my voice into any app without worrying about compatability. The single keyboard shortcut to record and paste is also important. It only takes me one swift motion to be in transcription mode.
 
@@ -258,6 +256,7 @@ This lack of fanfare is likely because, until _very_ recently, speech-to-text sy
 I ran a quick poll on Twitter to ask how many people regularly used voice input, and for people who never used it, what the main reason was.
 
 <TweetEmbed tweetId="1755556368893751475" />
+
 Well over half (53.9%) of the 892 respondents never use voice. And a full 90% of
 people use it less than 20% of the time. This surprised me! My Twitter network
 is full of exploratory and highly technically literate nerds. Exactly the kind
@@ -287,30 +286,28 @@ WERs started around 30-40% in the 1990's<Footnote idName={8}>Cite</Footnote>, bu
 It started in XXX when IBM announcced a WER of 5.9.
 Then in 2017 Google announced they'd achieved a WER of X, below the 5% mark taken as "human-level".
 
-<BasicImage
-	framed
-	padding="3rem"
-	src="/images/posts/speakularity/wer.svg"
-	sourceTitle="Speech Recognition Is Not Solved – Awni Hannun"
-	sourceUrl="https://awni.github.io/speech-recognition/"
-	alt="WER improvements over time on the Switchboard benchmark. Switchboard is a dataset of 40 phone chats between two native English speakers"
-	showalt
-	width="1200px"
-/>
+[BasicImage
+framed
+padding="3rem"
+src="/images/posts/speakularity/wer.svg"
+sourceTitle="Speech Recognition Is Not Solved – Awni Hannun"
+sourceUrl="https://awni.github.io/speech-recognition/"
+alt="WER improvements over time on the Switchboard benchmark. Switchboard is a dataset of 40 phone chats between two native English speakers"
+showalt
+width="1200px"]
 
 So it turns out there is no such thing as a single WER rate for a given model. Its performance depends on the speaker, the amount of background noise, and the subject matter being talked about.
 
 Deepgram [measured](https://arc.net/l/quote/rxyldyks) the accuracy rate of the current most popular models across a range of tasks.<Footnote idName={9}>We should take this with some grains of salt, because Deepgram offers a paid speech-to-text API that competes with every model they've listed here. We'll give them the benefit of the doubt for this graph, but don't take it as Science.</Footnote> Podcasts had the lowest WER likely because it's one or two people speaking clearly into a good quality mic. Phone calls have a higher WER given that people on calls tend to speak faster, more casually, and talk over one another. Plus the audio quality is rarely stellar.
 
-<BasicImage
-	framed
-	src="/images/posts/speakularity/wer-rates.webp"
-	alt="Average WER rate for popular ASR models across a range of tasks"
-	sourceUrl="https://arc.net/l/quote/atksqtsc"
-	sourceTitle="Deepgram"
-	showalt
-	width={1400}
-/>
+[BasicImage
+framed
+src="/images/posts/speakularity/wer-rates.webp"
+alt="Average WER rate for popular ASR models across a range of tasks"
+sourceUrl="https://arc.net/l/quote/atksqtsc"
+sourceTitle="Deepgram"
+showalt
+width=1400]
 
 These models can fail because they don't have the same kind of context about us as someone we're speaking to. They don't know our professions, what tasks we're currently trying to do, or any of the specialised vocabulary we might use.
 
@@ -364,10 +361,9 @@ This is where the way Whisper is built makes a difference. Whisper is built off 
 
 How is Whisper doing this? Here's a simple diagram that clearly explains the whole system:
 
-<BasicImage
-	width="1100px"
-	src="/images/posts/speakularity/whisper-diagram.png"
-/>
+[BasicImage
+width="1100px"
+src="/images/posts/speakularity/whisper-diagram.png"]
 
 Oh, you're confused? Are you not familiar with Log-Mel Spectrograms? Did you get lost somewhere around the “Sinusoidal Positional Encoding” mark?
 
