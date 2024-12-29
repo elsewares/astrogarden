@@ -15,31 +15,31 @@ export async function GET(context) {
     items: [
       ...notes.map((post) => ({
         title: post.data.title,
-        pubDate: post.data.updated || post.data.published,
+        pubDate: post.data.updated || post.data.startDate || new Date(),
         description: post.data.description,
         link: `/${post.slug}/`,
       })),
       ...now.map((post) => ({
         title: `Now update – ${post.slug}`,
-        pubDate: post.data.updated || post.data.published,
+        pubDate: post.data.updated || post.data.startDate || new Date(),
         description: "Life updates and current interests",
         link: `/now/`,
       })),
       ...essays.map((post) => ({
         title: post.data.title,
-        pubDate: post.data.updated || post.data.startDate,
+        pubDate: post.data.updated || post.data.startDate || new Date(),
         description: post.data.description,
         link: `/${post.slug}/`,
       })),
       ...talks.map((post) => ({
         title: post.data.title,
-        pubDate: post.data.updated || post.data.startDate,
+        pubDate: post.data.updated || post.data.startDate || new Date(),
         description: post.data.description,
         link: `/${post.slug}/`,
       })),
       ...patterns.map((post) => ({
         title: post.data.title,
-        pubDate: post.data.updated || post.data.startDate,
+        pubDate: post.data.updated || post.data.startDate || new Date(),
         description: post.data.description,
         link: `/${post.slug}/`,
       })),
