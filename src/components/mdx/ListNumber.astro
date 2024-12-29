@@ -5,21 +5,9 @@ const { number, title } = Astro.props;
 ---
 
 <div class="list-container">
-	{
-		number === "1" && (
-			<Icon name="custom:number-one" size={38} class="number-icon" />
-		)
-	}
-	{
-		number === "2" && (
-			<Icon name="custom:number-two" size={38} class="number-icon" />
-		)
-	}
-	{
-		number === "3" && (
-			<Icon name="custom:number-three" size={38} class="number-icon" />
-		)
-	}
+	{number === "1" && <Icon name="number-one" size={38} class="number-icon" />}
+	{number === "2" && <Icon name="number-two" size={38} class="number-icon" />}
+	{number === "3" && <Icon name="number-three" size={38} class="number-icon" />}
 	<h3 class="title">{title}</h3>
 	<slot />
 </div>
