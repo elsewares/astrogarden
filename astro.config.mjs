@@ -15,6 +15,10 @@ export default defineConfig({
   integrations: [
     mdx({
       remarkPlugins: [remarkWikiLink],
+      shikiConfig: {
+        theme: "night-owl",
+        wrap: true,
+      },
     }),
     partytown({
       config: {

@@ -11,6 +11,8 @@
 		([entry]) => {
 			if (entry.isIntersecting) {
 				box?.classList.add("animate");
+			} else {
+				box?.classList.remove("animate");
 			}
 		},
 		{

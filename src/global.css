@@ -502,6 +502,40 @@ code {
     consolas;
 }
 
+/* Add styles for code blocks */
+pre {
+  width: 100%;
+  overflow: scroll;
+  padding: var(--space-24) var(--space-32);
+  border-radius: 0.3em;
+  font-size: calc(var(--font-size-sm) * 1.1);
+  line-height: var(--leading-loose);
+  font-family:
+    IBM Plex Mono,
+    Dank Mono,
+    SF Mono,
+    consolas;
+  margin: 0 0 var(--space-m);
+  tab-size: 3;
+  -moz-tab-size: 3;
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* Style inline code differently from code blocks */
+:not(pre) > code {
+  font-size: 0.9em;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
 .metadata span,
 span.metadata {
   font-size: var(--font-size-sm);
