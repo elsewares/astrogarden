@@ -1,0 +1,6 @@
+{
+  "buildCommand": "echo 'Using pre-built site'",
+  "cleanUrls": true,
+  "framework": null,
+  "outputDirectory": "dist"
+}

@@ -70,10 +70,11 @@ const hoverColor = isExternal
 		display: inline;
 		cursor: pointer;
 		position: relative;
-		white-space: nowrap;
+		white-space: normal;
 		outline: none;
 		text-decoration: none;
-		word-break: break-all;
+		word-break: break-word;
+		overflow-wrap: break-word;
 		color: var(--link-color);
 		transition: color 0.2s ease-in-out;
 	}
@@ -145,7 +146,8 @@ const hoverColor = isExternal
 	.external-url {
 		color: var(--color-gray-600);
 		transition: color 0.2s ease-in-out;
-		word-break: break-all;
+		word-break: break-word;
+		overflow-wrap: break-word;
 		max-width: 420px;
 		display: flex;
 		align-items: top;
@@ -157,6 +159,7 @@ const hoverColor = isExternal
 		position: relative;
 		top: 2px;
 		color: var(--color-gray-300);
+		flex-shrink: 0;
 	}
 
 	.external-url:hover {
@@ -177,6 +180,7 @@ const hoverColor = isExternal
 		font-family: var(--font-sans);
 		color: var(--color-gray-800);
 		margin: 0;
-		word-break: break-all;
+		word-break: break-word;
+		overflow-wrap: break-word;
 	}
 </style>

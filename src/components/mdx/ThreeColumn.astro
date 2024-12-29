@@ -4,11 +4,11 @@ const { maxWidth, gridGap, margin } = Astro.props;
 
 <div
 	class="three-column-container"
-	style={`
-  max-width: ${maxWidth || "1400px"}; 
-  margin: ${margin || "var(--space-s) auto var(--space-l)"};
-  grid-gap: ${gridGap || "var(--space-s)"};
-`}
+	style={{
+		maxWidth: maxWidth || "1400px",
+		margin: margin || "var(--space-s) auto var(--space-l)",
+		gridGap: gridGap || "var(--space-s)",
+	}}
 >
 	<slot />
 </div>
@@ -18,8 +18,9 @@ const { maxWidth, gridGap, margin } = Astro.props;
 		width: 100%;
 		grid-column: 1 / 4 !important;
 		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-columns: repeat(3, 1fr);
 		justify-content: center;
+		padding: 0 var(--space-3xs);
 	}
 
 	.three-column-container :global(div),
@@ -27,21 +28,23 @@ const { maxWidth, gridGap, margin } = Astro.props;
 	.three-column-container :global(figure) {
 		margin: 0 auto;
 		grid-column: auto !important;
+		max-width: 100%;
+		border-radius: var(--border-radius-base);
 	}
 
 	.three-column-container :global(img) {
 		margin: var(--space-s) auto 0;
+		width: 100%;
+		height: auto;
 	}
 
 	@media (max-width: 768px) {
 		.three-column-container {
-			grid-template-columns: 1fr 1fr;
-		}
-	}
-
-	@media (max-width: 480px) {
-		.three-column-container {
-			grid-template-columns: 1fr;
+			grid-template-columns: 1fr !important;
+			grid-gap: var(--space-m);
+			max-width: 100%;
+			align-items: start;
+			justify-items: center;
 		}
 	}
 </style>
