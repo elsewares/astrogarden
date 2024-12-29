@@ -12,8 +12,6 @@ draft: true
 ---
 
 import TwoColumn from "../../components/mdx/TwoColumn.astro";
-import TranscriptionTimeline from "../../components/mdx/TranscriptionTimeline.astro";
-import AudioPlayer from "../../components/mdx/AudioPlayer.astro";
 import References from "../../components/mdx/References.astro";
 import ReferencesLink from "../../components/mdx/ReferencesLink.astro";
 import TweetEmbed from "../../components/mdx/TweetEmbed.astro";
@@ -50,8 +48,6 @@ Because it was free and seamlessly integrated into a familiar task, they made it
 </TwoColumn>
 
 This kicked off a decade of voice assistant hype and development as Amazon and Microsoft released their assistants [Alexa](https://arc.net/l/quote/ygynnskd) and [Cortana](https://arc.net/l/quote/yherkzah) in 2014. We entered a world where you could now summon facts, weather forecasts, music, and direct the lights in your house to cycle through a rainbow with simple voice commands.
-
-<TranscriptionTimeline />
 
 These voice assistants tend only accepted short, structured queries like:
 
@@ -336,11 +332,6 @@ Before August, I never considered pure voice input a feasible option. Because, l
 
 Let's compare a few sentences transcribed with Whisper versus with Apple's native TTS. I've picked some sentences from this piece and read them out loud to each system:
 
-<AudioPlayer
-	title="Sample 1: Accents and speech recognition"
-	src="/audio/speakularity/mag-sample-2.m4a"
-/>
-
 #### Whisper output
 
 My British-American hybrid accent is a little bit strange, but it's certainly not drastically different from the kinds of voices these systems are trained on, which are primarily American accents. These models are much less accurate for people who speak English as a second language, or have accents from anywhere else in the world.
@@ -350,11 +341,6 @@ My British-American hybrid accent is a little bit strange, but it's certainly no
 My British American hybrid accent is a little bit strange, but it certainly not drastically different from the kinds of voices. The systems are trained on which are primarily American accents. These models are much less accurate for people who speak English as a second language who who have accents from anywhere else in the wor?
 
 <Spacer size="small" />
-
-<AudioPlayer
-	title="Sample 2: Blockers to the Speakularity"
-	src="/audio/speakularity/mag-sample-1.m4a"
-/>
 
 #### Whisper output
 
