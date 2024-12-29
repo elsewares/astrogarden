@@ -14,21 +14,23 @@ draft: true
 import TwoColumn from "../../components/mdx/TwoColumn.astro";
 import ListNumber from "../../components/mdx/ListNumber.astro";
 import FullWidthSection from "../../components/mdx/FullWidthSection.astro";
-import TextvBlocks from "../../components/mdx/TextvBlocks.astro";
 import Disclaimer from "../../components/mdx/Disclaimer.astro";
 import AssumedAudience from "../../components/mdx/AssumedAudience.astro";
 import References from "../../components/mdx/References.astro";
 import ReferencesLink from "../../components/mdx/ReferencesLink.astro";
 import ThreeColumn from "../../components/mdx/ThreeColumn.astro";
-import DemoBlock1 from "../../components/mdx/DemoBlock1.astro";
-import DemoBlock2 from "../../components/mdx/DemoBlock2.astro";
-import DemoBlock3 from "../../components/mdx/DemoBlock3.astro";
-import DemoBlock4 from "../../components/mdx/DemoBlock4.astro";
 import SimpleCard from "../../components/mdx/SimpleCard.astro";
-import BlockTimeline from "../../components/mdx/BlockTimeline.astro";
 import TweetEmbed from "../../components/mdx/TweetEmbed.astro";
 import BlockAge from "../../components/mdx/BlockAge.astro";
 import Video from "../../components/mdx/Video.astro";
+import TextvBlocks from "../../components/unique/blocks/TextvBlocks.astro";
+import DemoBlock1 from "../../components/unique/blocks/DemoBlock1.astro";
+import DemoBlock2 from "../../components/unique/blocks/DemoBlock2.astro";
+import DemoBlock3 from "../../components/unique/blocks/DemoBlock3.astro";
+import DemoBlock4 from "../../components/unique/blocks/DemoBlock4.astro";
+import BlockTimeline from "../../components/unique/blocks/BlockTimeline.astro";
+import BlockAges from "../../components/unique/blocks/BlockAges.astro";
+import BlockEditorList from "../../components/unique/blocks/BlockEditorList.astro";
 
 <Disclaimer>
 
@@ -594,7 +596,7 @@ Blocks open up a world of flexibility and interactive power within a scoped area
 
 If I asked you to guess when blocks and block-based editors first appeared, I'd expect the audience to split into two camps with very different time scales:
 
-<Blocktimeline />
+<BlockTimeline />
 
 To prove this point, I ran a quick Twitter poll to gauge the level of historical awareness around block-editors within a small audience of fairly well-informed programmers and interface nerds <Footnote idName={8}>I don't have hard stats on the demographics of my twitter followers, but I'd summarise the group as web developers, tools for thought enthusiasts, and interface designers. In that order.</Footnote>:
 
