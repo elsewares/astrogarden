@@ -251,43 +251,45 @@ const initialTopicsCount = 6;
 </style>
 
 <script>
-	// Cache DOM elements
-	const topicsSelect = document.getElementById(
-		"topics-select",
-	) as HTMLSelectElement;
-	const growthStagesSelect = document.getElementById(
-		"growth-stages-select",
-	) as HTMLSelectElement;
-	const typesSelect = document.getElementById(
-		"types-select",
-	) as HTMLSelectElement;
-	const toggleButton = document.querySelector(".toggle-topics");
-	const topicButtons = document.querySelectorAll(".topic-button");
+	interface FilterState {
+		topic: string;
+		growthStage: string;
+		type: string;
+	}
 
-	// Keep track of current filter state
-	const filterState = {
+	const filterState: FilterState = {
 		topic: "",
 		growthStage: "",
 		type: "",
 	};
 
-	// Function to filter posts based on selected topic
-	function filterPosts() {
-		console.time("filter-dispatch");
-		// Dispatch a custom event with the filter values
-		const event = new CustomEvent("filter-change", {
-			detail: { ...filterState },
+	function handleToggleClick(e: Event) {
+		const toggleButton = e.currentTarget as HTMLButtonElement;
+		const isShowingMore =
+			toggleButton.getAttribute("data-show-more") === "true";
+		const topicButtons =
+			document.querySelectorAll<HTMLButtonElement>(".topic-button");
+
+		// Show/hide topics based on index
+		topicButtons.forEach((button, index) => {
+			if (index >= 7) {
+				button.classList.toggle("hidden", !isShowingMore);
+			}
 		});
-		document.dispatchEvent(event);
-		console.timeEnd("filter-dispatch");
+
+		toggleButton.textContent = isShowingMore ? "Show Less" : "Show More";
+		toggleButton.setAttribute("data-show-more", (!isShowingMore).toString());
 	}
 
-	// Add click handlers for topic buttons using event delegation
-	document.querySelector(".topics-list")?.addEventListener("click", (e) => {
+	function handleTopicClick(e: Event) {
 		const button = (e.target as HTMLElement).closest(".topic-button");
 		if (!button) return;
 
-		console.time("topic-button-click");
+		const topicButtons =
+			document.querySelectorAll<HTMLButtonElement>(".topic-button");
+		const topicsSelect = document.getElementById(
+			"topics-select",
+		) as HTMLSelectElement;
 		const wasSelected = button.classList.contains("selected");
 
 		// Remove selected class from all buttons
@@ -306,41 +308,25 @@ const initialTopicsCount = 6;
 			topicsSelect.value = filterState.topic;
 		}
 
-		filterPosts();
-		console.timeEnd("topic-button-click");
-	});
-
-	// Add click handler for toggle button
-	if (toggleButton) {
-		toggleButton.addEventListener("click", () => {
-			console.time("toggle-operation");
-			const isShowingMore =
-				toggleButton.getAttribute("data-show-more") === "true";
-
-			// Show/hide topics based on index
-			topicButtons.forEach((button, index) => {
-				if (index >= 7) {
-					button.classList.toggle("hidden", !isShowingMore);
-				}
-			});
-
-			toggleButton.textContent = isShowingMore ? "Show Less" : "Show More";
-			toggleButton.setAttribute("data-show-more", (!isShowingMore).toString());
-			console.timeEnd("toggle-operation");
-		});
+		// Dispatch filter change event
+		document.dispatchEvent(
+			new CustomEvent("filter-change", {
+				detail: { ...filterState },
+			}),
+		);
 	}
 
-	// Add change handlers for select elements using event delegation
-	document.querySelector(".right-menus")?.addEventListener("change", (e) => {
+	function handleSelectChange(e: Event) {
 		const select = e.target as HTMLSelectElement;
 		if (!select || !select.id) return;
 
-		console.time("select-change");
 		// Update filter state based on which select changed
 		switch (select.id) {
 			case "topics-select":
 				filterState.topic = select.value;
 				// Update topic buttons to match
+				const topicButtons =
+					document.querySelectorAll<HTMLButtonElement>(".topic-button");
 				topicButtons.forEach((btn) => {
 					btn.classList.toggle(
 						"selected",
@@ -356,7 +342,34 @@ const initialTopicsCount = 6;
 				break;
 		}
 
-		filterPosts();
-		console.timeEnd("select-change");
-	});
+		// Dispatch filter change event
+		document.dispatchEvent(
+			new CustomEvent("filter-change", {
+				detail: { ...filterState },
+			}),
+		);
+	}
+
+	function initializeListeners() {
+		// Toggle button
+		const toggleButton = document.querySelector(".toggle-topics");
+		if (toggleButton) {
+			toggleButton.addEventListener("click", handleToggleClick);
+		}
+
+		// Topic buttons
+		const topicsList = document.querySelector(".topics-list");
+		if (topicsList) {
+			topicsList.addEventListener("click", handleTopicClick);
+		}
+
+		// Select dropdowns
+		const rightMenus = document.querySelector(".right-menus");
+		if (rightMenus) {
+			rightMenus.addEventListener("change", handleSelectChange);
+		}
+	}
+
+	// Initialize on page load and after view transitions
+	document.addEventListener("astro:page-load", initializeListeners);
 </script>
