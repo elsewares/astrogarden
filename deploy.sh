@@ -5,8 +5,6 @@ set -e
 
 # Step 1: Push latest changes to GitHub
 echo "Pushing changes to GitHub..."
-git add -A
-git commit -m "Update site" || echo "No changes to commit"
 git push
 echo "Changes pushed to GitHub successfully."
 
@@ -17,5 +15,5 @@ echo "Site built successfully."
 
 # Step 3: Deploy to Vercel
 echo "Deploying to Vercel production..."
-vercel deploy --prod --prebuilt
+vercel --prod
 echo "Deployment to Vercel completed!"
