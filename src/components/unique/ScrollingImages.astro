@@ -23,7 +23,7 @@ if (!data || data.length === 0) {
 			{
 				data.map((img, i) => (
 					<img
-						class={i === 0 ? "scroll-image active" : "scroll-image"}
+						class={i === 0 ? "base-image" : "fade-image"}
 						data-index={i}
 						alt={img.alt}
 						src={img.src}
@@ -32,52 +32,55 @@ if (!data || data.length === 0) {
 			}
 		</div>
 	</div>
-	<div class="trigger">
-		{data.slice(1).map((_, i) => <div class="step" data-step={i} />)}
-	</div>
+	<div class="scroll-trigger"></div>
 </div>
 
 <script>
 	import scrollama from "scrollama";
 
-	interface ScrollamaResponse {
-		element: HTMLElement;
-		index: number;
-		direction: "up" | "down";
-		progress: number;
-	}
-
 	let scroller: any;
-	let images: NodeListOf<Element>;
-
-	function handleStepProgress(response: ScrollamaResponse) {
-		const { index, progress } = response;
-		const currentImage = index;
-		const nextImage = index + 1;
-
-		images.forEach((img, i) => {
-			if (i === currentImage) {
-				img.style.opacity = `${1 - progress}`;
-			} else if (i === nextImage) {
-				img.style.opacity = `${progress}`;
-			} else {
-				img.style.opacity = "0";
-			}
-		});
-	}
+	let fadeImages: NodeListOf<HTMLImageElement>;
+	let currentStep = -1;
 
 	function initScrollama() {
 		scroller = scrollama();
-		images = document.querySelectorAll(".scroll-image");
+		fadeImages = document.querySelectorAll(".fade-image");
 
 		scroller
 			.setup({
-				step: ".step",
-				progress: true,
+				step: ".scroll-trigger",
 				offset: 0.5,
-				debug: false,
+				progress: true,
 			})
-			.onStepProgress(handleStepProgress);
+			.onStepProgress((response: any) => {
+				const { progress } = response;
+				const totalImages = fadeImages.length;
+
+				// Adjust progress calculation to give more time to base image
+				let currentImage;
+				if (progress < 0.2) {
+					// Stay on base image (-1) for first 20% of scroll
+					currentImage = -1;
+				} else if (progress < 0.8) {
+					// Scale remaining transitions between 20% and 80%
+					const adjustedProgress = (progress - 0.2) / 0.6;
+					currentImage = Math.floor(adjustedProgress * totalImages);
+				} else {
+					// Show final image for last 20% of scroll
+					currentImage = totalImages - 1;
+				}
+
+				if (currentImage !== currentStep) {
+					currentStep = currentImage;
+					fadeImages.forEach((img, index) => {
+						if (index <= currentImage && currentImage >= 0) {
+							img.classList.add("visible");
+						} else {
+							img.classList.remove("visible");
+						}
+					});
+				}
+			});
 	}
 
 	// Initial setup
@@ -105,29 +108,29 @@ if (!data || data.length === 0) {
 	.container {
 		position: relative;
 		grid-column: 1/4 !important;
-		height: 400vh;
+		height: 300vh;
+		margin: 0;
+		padding-bottom: 25vh;
 	}
 
 	.sticky-container {
 		position: sticky;
-		top: 10vh;
-		height: 80vh;
+		top: 48px;
+		height: 70vh;
 		width: 100%;
 		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.trigger {
-		position: relative;
-		height: 100%;
-		display: flex;
 		flex-direction: column;
+		align-items: center;
+		justify-content: flex-start;
+		padding-top: 2rem;
 	}
 
-	.step {
-		height: 100vh;
-		opacity: 0;
+	.scroll-trigger {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
 		pointer-events: none;
 	}
 
@@ -135,31 +138,52 @@ if (!data || data.length === 0) {
 		position: relative;
 		width: 100%;
 		max-width: 1300px;
-		height: 80vh;
 		margin: 0 auto;
 		padding: 0 1rem;
+		aspect-ratio: 16/9;
 	}
 
-	.scroll-image {
-		position: absolute;
+	img {
 		width: 100%;
-		height: 100%;
+		height: auto;
+		position: absolute;
 		left: 0;
-		top: 0;
-		opacity: 0;
+		top: 24px;
 		object-fit: contain;
 		border: 1px solid var(--color-gray-100);
 		border-radius: 0.5rem;
 		box-shadow: var(--box-shadow-sm);
 	}
 
-	.scroll-image.active {
+	.base-image {
+		position: relative;
+	}
+
+	.fade-image {
+		opacity: 0;
+		transition: opacity 0.8s ease-out;
+		z-index: var(--z-index);
+	}
+
+	.fade-image.visible {
 		opacity: 1;
+	}
+
+	.fade-image[data-index="1"] {
+		--z-index: 2;
+	}
+
+	.fade-image[data-index="2"] {
+		--z-index: 3;
+	}
+
+	.fade-image[data-index="3"] {
+		--z-index: 4;
 	}
 
 	.title {
 		position: absolute;
-		top: 2rem;
+		top: 0;
 		left: 50%;
 		transform: translateX(-50%);
 		font-family: var(--font-sans);
@@ -167,31 +191,43 @@ if (!data || data.length === 0) {
 		color: var(--color-gray-800);
 		font-weight: 400;
 		text-align: center;
-		z-index: 2;
+		z-index: 10;
 	}
 
 	@media (max-width: 768px) {
 		.container {
 			height: auto;
+			padding: 2rem 0;
 		}
 
 		.sticky-container {
 			position: static;
 			height: auto;
+			padding: 2rem 1rem;
 		}
 
-		.steps-container,
-		.step {
-			display: none;
+		.image-container {
+			aspect-ratio: auto;
+			height: auto;
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
 		}
 
 		img {
 			position: relative;
 			margin-bottom: 1rem;
+			opacity: 1 !important;
 		}
 
 		.fade-image {
-			display: none;
+			position: relative;
+			display: block;
+			opacity: 1;
+		}
+
+		.base-image {
+			margin-bottom: 2rem;
 		}
 	}
 </style>

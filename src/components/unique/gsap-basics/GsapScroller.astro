@@ -3,7 +3,7 @@
 ---
 
 <div class="container">
-	<div class="trigger-div">
+	<div class="sticky-container">
 		<div class="image-container">
 			<img
 				class="base-image"
@@ -30,6 +30,7 @@
 			/>
 		</div>
 	</div>
+	<div class="scroll-trigger"></div>
 </div>
 
 <script>
@@ -45,8 +46,8 @@
 
 		scroller
 			.setup({
-				step: ".trigger-div",
-				offset: 0.4,
+				step: ".scroll-trigger",
+				offset: 0.3,
 				progress: true,
 			})
 			.onStepProgress((response: any) => {
@@ -75,44 +76,39 @@
 	window.addEventListener("resize", handleResize);
 
 	// Cleanup and reinit on view transitions
-	document.addEventListener("astro:after-swap", () => {
-		initScrollama();
-	});
+	document.addEventListener("astro:after-swap", initScrollama);
+	document.addEventListener("astro:after-render", initScrollama);
 
-	document.addEventListener("astro:before-swap", () => {
+	// Cleanup
+	const cleanup = () => {
 		scroller?.destroy();
 		window.removeEventListener("resize", handleResize);
-	});
+	};
 
-	document.addEventListener("astro:after-render", () => {
-		initScrollama();
-	});
-
-	// Cleanup on unmount
-	document.addEventListener("astro:unmount", () => {
-		scroller?.destroy();
-		window.removeEventListener("resize", handleResize);
-	});
+	document.addEventListener("astro:before-swap", cleanup);
+	document.addEventListener("astro:unmount", cleanup);
 </script>
 
 <style>
 	.container {
-		height: 110vh;
-		margin: 0 0 var(--space-s);
+		height: 160vh;
+		margin: 0;
 		position: relative;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 	}
 
-	.trigger-div {
+	.sticky-container {
 		position: sticky;
-		top: 10vh;
+		top: 5vh;
 		height: 70vh;
 		width: 100%;
 		display: flex;
-		justify-content: center;
+		flex-direction: column;
 		align-items: center;
+		justify-content: flex-start;
+		padding-top: 2rem;
 	}
 
 	.image-container {
@@ -157,29 +153,49 @@
 		--z-index: 4;
 	}
 
+	.scroll-trigger {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+	}
+
 	@media (max-width: 768px) {
 		.container {
 			height: auto;
+			padding: 2rem 0;
 		}
 
-		.text-content {
-			margin: 2rem auto;
-		}
-
-		.trigger-div {
+		.sticky-container {
 			position: static;
 			height: auto;
 			padding: 2rem 1rem;
-			transform: none;
+		}
+
+		.image-container {
+			aspect-ratio: auto;
+			height: auto;
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
 		}
 
 		img {
 			position: relative;
 			margin-bottom: 1rem;
+			opacity: 1 !important;
 		}
 
 		.fade-image {
-			display: none;
+			position: relative;
+			display: block;
+			opacity: 1;
+		}
+
+		.base-image {
+			margin-bottom: 2rem;
 		}
 	}
 </style>
