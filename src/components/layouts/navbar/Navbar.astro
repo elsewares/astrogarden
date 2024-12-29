@@ -1,8 +1,6 @@
 ---
 import MainNavLinks from "./MainNavLinks.astro";
-import MobileMenu from "./MobileMenu.astro";
 import Logo from "../../animated-icons/Logo.astro";
-// import SearchBarAndResults from "../search/SearchBarAndResults.astro";
 ---
 
 <nav class="navbar" transition:persist>
@@ -11,10 +9,8 @@ import Logo from "../../animated-icons/Logo.astro";
 		<Logo />
 	</a>
 	<div class="right-hand-side">
-		<!-- <SearchBarAndResults /> -->
 		<MainNavLinks />
 	</div>
-	<MobileMenu />
 </nav>
 
 <style>
@@ -30,6 +26,12 @@ import Logo from "../../animated-icons/Logo.astro";
 		padding: var(--space-s) var(--space-m) var(--space-s) 1.3rem;
 		animation: fadeIn 1s 0.1s forwards;
 		opacity: 0;
+	}
+
+	@media screen and (max-width: 550px) {
+		.navbar {
+			display: none; /* Hide navbar on mobile */
+		}
 	}
 
 	@keyframes fadeIn {
