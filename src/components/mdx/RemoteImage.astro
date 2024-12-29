@@ -32,14 +32,9 @@ const widthWithUnit = typeof width === "number" ? `${width}px` : width;
 >
 	<div
 		class:list={["image-wrapper", { "image-frame": framed }]}
-		style={`width: ${widthWithUnit}; max-width: 100%;`}
+		style={`width: min(${widthWithUnit}, 100%);`}
 	>
-		<img
-			src={src}
-			alt={alt}
-			loading="lazy"
-			style={`width: ${widthWithUnit}; max-width: 100%;`}
-		/>
+		<img src={src} alt={alt} loading="lazy" style={`width: 100%;`} />
 	</div>
 	{
 		showalt &&
@@ -64,6 +59,7 @@ const widthWithUnit = typeof width === "number" ? `${width}px` : width;
 	.image-wrapper {
 		display: flex;
 		justify-content: center;
+		max-width: 100%;
 	}
 
 	.image-frame {
@@ -77,6 +73,7 @@ const widthWithUnit = typeof width === "number" ? `${width}px` : width;
 		height: auto;
 		display: block;
 		border-radius: var(--border-radius-sm);
+		max-width: 100%;
 	}
 
 	figcaption {

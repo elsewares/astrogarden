@@ -3,9 +3,7 @@ const {
 	maxWidth,
 	alignItems,
 	gridTemplateColumns,
-	gridTemplateColumnsMobile,
 	gridGap,
-	verticalGridGap,
 	justifyItems,
 	margin,
 } = Astro.props;
@@ -31,6 +29,7 @@ const {
 		grid-column: 1 / 4 !important;
 		display: grid;
 		padding: 0 var(--space-3xs);
+		overflow-x: hidden;
 	}
 
 	@media (max-width: 768px) {
@@ -38,8 +37,9 @@ const {
 			align-items: start;
 			justify-items: center;
 			grid-template-columns: 1fr !important;
-			grid-gap: var(--space-m);
+			grid-gap: var(--space-xs);
 			max-width: 100%;
+			padding: 0;
 		}
 	}
 
@@ -50,11 +50,14 @@ const {
 		margin: 0 auto;
 		border-radius: var(--border-radius-base);
 		max-width: 100%;
+		height: auto;
+		width: auto;
 	}
 
 	.two-column-container :global(img) {
 		margin: var(--space-s) auto 0;
 		width: 100%;
 		height: auto;
+		max-width: 400px;
 	}
 </style>
