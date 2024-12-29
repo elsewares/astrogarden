@@ -36,10 +36,6 @@ export async function getPostsForTopic(topicSlug: string) {
   const allContent = [...essays, ...notes, ...patterns, ...talks, ...podcasts];
   const topic = deslugifyTopic(topicSlug);
 
-  // Debug logs
-  console.log("Looking for topic:", topic);
-  console.log("Available topics in first post:", allContent[0]?.data.topics);
-
   return allContent.filter((post) => {
     if (!post.data.topics) return false;
     // Case-insensitive comparison
