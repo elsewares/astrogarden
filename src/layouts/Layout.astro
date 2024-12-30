@@ -1,9 +1,7 @@
 ---
 import Footer from "../components/layouts/Footer.astro";
 import Navbar from "../components/layouts/navbar/Navbar.astro";
-import MobileMenu from "../components/layouts/navbar/MobileMenu.astro";
 import { SEO } from "astro-seo";
-import { ClientRouter } from "astro:transitions";
 import "../global.css";
 
 export interface Props {
@@ -44,7 +42,6 @@ declare global {
 			title="Maggie Appleton's RSS Feed"
 			href="/rss.xml"
 		/>
-		<ClientRouter />
 		<script
 			type="text/partytown"
 			async
@@ -85,9 +82,6 @@ declare global {
 		/>
 	</head>
 	<body>
-		<div id="mobile-menu-container">
-			<MobileMenu />
-		</div>
 		<Navbar />
 		<main>
 			<slot />
@@ -98,17 +92,6 @@ declare global {
 			/* https://css-tricks.com/almanac/properties/c/content-visibility/ */
 			img {
 				content-visibility: auto;
-			}
-			#mobile-menu-container {
-				position: relative;
-				z-index: 99999;
-			}
-
-			/* Add padding to main content on mobile */
-			@media screen and (max-width: 550px) {
-				main {
-					padding-top: 72px;
-				}
 			}
 		</style>
 		<script async src="https://platform.twitter.com/widgets.js"></script>

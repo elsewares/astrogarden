@@ -11,13 +11,13 @@ const books = await getCollection("books");
 
 <Layout title="Library of Maggie Appleton">
 	<PageWrapper>
-		<header style="margin-bottom: var(--space-2xl);" transition:animate="fade">
-			<TitleWithCount posts={books} transition:name="page-title">
+		<header style="margin-bottom: var(--space-2xl);">
+			<TitleWithCount posts={books}>
 				Library
 				<div style="color: var(--color-gray-300); display: inline-block">|</div>
 				<a href="/antilibrary" class="styled-link">Antilibrary</a>
 			</TitleWithCount>
-			<Title2 transition:animate="fade"
+			<Title2
 				>Books I've read that significantly influenced how I see the world.</Title2
 			>
 		</header>

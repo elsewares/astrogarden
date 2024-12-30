@@ -20,9 +20,9 @@ const sortedEssays = essays.sort(
 
 <Layout title="Essays by Maggie Appleton">
 	<PageWrapper>
-		<header style="margin-bottom: var(--space-xl);" transition:animate="fade">
-			<TitleWithCount posts={sortedEssays} transition:name="page-title">
-				<div class="back-link" slot="header-right" transition:animate="fade">
+		<header style="margin-bottom: var(--space-xl);">
+			<TitleWithCount posts={sortedEssays}>
+				<div class="back-link" slot="header-right">
 					<a href="/garden">
 						<Icon name="heroicons:arrow-left" size={16} />
 						<span> Back to Garden </span>
@@ -30,15 +30,13 @@ const sortedEssays = essays.sort(
 				</div>
 				Essays
 			</TitleWithCount>
-			<Title2 transition:animate="fade"
-				>Opinionated, longform narrative writing with an agenda.</Title2
-			>
+			<Title2>Opinionated, longform narrative writing with an agenda.</Title2>
 		</header>
-		<MasonryGrid transition:animate="fade">
+		<MasonryGrid>
 			<div class="grid-sizer"></div>
 			{
 				sortedEssays.map((essay) => (
-					<div class="grid-item" transition:name="essays">
+					<div class="grid-item">
 						<EssayCard
 							id={essay.id}
 							slug={essay.id}

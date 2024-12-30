@@ -34,8 +34,8 @@ const backlinks = currentPost?.inboundLinks || [];
 ---
 
 <Layout title={frontmatter.title} desc={frontmatter.description}>
-	<header class="header-section" transition:animate="fade">
-		<div class="above-title" transition:animate="fade">
+	<header class="header-section">
+		<div class="above-title">
 			<div class="back-link">
 				<a href={`/${frontmatter.type}s`}>
 					<Icon name="heroicons:arrow-left" size={16} />
@@ -57,15 +57,15 @@ const backlinks = currentPost?.inboundLinks || [];
 			<p>{frontmatter.growthStage}</p>
 			{frontmatter.draft && <span class="draft-label">Draft</span>}
 		</div>
-		<div class="title-container" transition:animate="fade">
-			<h1 transition:name={`title-${currentSlug}`}>{frontmatter.title}</h1>
+		<div class="title-container">
+			<h1>{frontmatter.title}</h1>
 			{
 				frontmatter.description && (
-					<p transition:animate="fade">{frontmatter.description}</p>
+					<p>{frontmatter.description}</p>
 				)
 			}
 		</div>
-		<div class="metadata" transition:animate="fade">
+		<div class="metadata">
 			{frontmatter.topics && <Topics topics={frontmatter.topics} />}
 			<Dates
 				startDate={frontmatter.startDate instanceof Date
@@ -78,13 +78,13 @@ const backlinks = currentPost?.inboundLinks || [];
 		</div>
 	</header>
 
-	<main class="styled-main" transition:animate="fade">
+	<main class="styled-main">
 		<slot />
 	</main>
 
 	{
 		backlinks.length ? (
-			<Backlinks backlinks={backlinks} transition:animate="fade" />
+			<Backlinks backlinks={backlinks} />
 		) : null
 	}
 

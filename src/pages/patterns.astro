@@ -20,9 +20,9 @@ const sortedPatterns = patterns.sort(
 
 <Layout title="Patterns by Maggie Appleton">
 	<PageWrapper>
-		<header style="margin-bottom: var(--space-xl);" transition:animate="fade">
-			<TitleWithCount posts={sortedPatterns} transition:name="page-title">
-				<div class="back-link" slot="header-right" transition:animate="fade">
+		<header style="margin-bottom: var(--space-xl);">
+			<TitleWithCount posts={sortedPatterns}>
+				<div class="back-link" slot="header-right">
 					<a href="/garden">
 						<Icon name="heroicons:arrow-left" size={16} />
 						<span> Back to Garden </span>
@@ -30,7 +30,7 @@ const sortedPatterns = patterns.sort(
 				</div>
 				Pattern Catalogue
 			</TitleWithCount>
-			<Title2 transition:animate="fade"
+			<Title2
 				>A catalogue of design patterns gathered from my own observations and
 				research.</Title2
 			>

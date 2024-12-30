@@ -20,9 +20,9 @@ const sortedPodcasts = podcasts.sort(
 
 <Layout title="Podcasts with Maggie Appleton">
 	<PageWrapper>
-		<header style="margin-bottom: var(--space-xl);" transition:animate="fade">
-			<TitleWithCount posts={sortedPodcasts} transition:name="page-title">
-				<div class="back-link" slot="header-right" transition:animate="fade">
+		<header style="margin-bottom: var(--space-xl);">
+			<TitleWithCount posts={sortedPodcasts}>
+				<div class="back-link" slot="header-right">
 					<a href="/garden">
 						<Icon name="heroicons:arrow-left" size={16} />
 						<span> Back to Garden </span>
@@ -30,7 +30,7 @@ const sortedPodcasts = podcasts.sort(
 				</div>
 				Podcasts
 			</TitleWithCount>
-			<Title2 transition:animate="fade"
+			<Title2
 				>Interviews and casual chats on various podcasts. Inevitably about
 				digital gardening, artifical intelligence, or metaphors.</Title2
 			>
