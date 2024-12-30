@@ -4,7 +4,9 @@ Built with Astro
 
 MDX  
 Backlinks  
-Typed collections – essays, notes, pattern, talks, and podcasts
+Tooltip hover previews
+Masonry grids with just CSS
+Typed collections – essays, notes, patterns, talks, now updates, and podcasts
 
 ## Notes to Myself
 
