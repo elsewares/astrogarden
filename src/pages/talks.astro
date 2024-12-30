@@ -97,22 +97,22 @@ const sortedTalks = talks.sort(
 	.image-grid {
 		margin-top: var(--space-l);
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(600px, auto));
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, 600px), 1fr));
 		gap: 0.5rem;
+		max-width: 100%;
 	}
 
 	.talk-image {
-		width: 100%;
+		max-width: 100%;
 		height: auto;
 		object-fit: cover;
+		width: 100%;
 	}
 
 	.spacer {
 		height: var(--space-xl);
 	}
-</style>
 
-<style>
 	.back-link {
 		display: inline-flex;
 		align-items: center;

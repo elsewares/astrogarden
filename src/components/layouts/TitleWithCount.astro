@@ -44,10 +44,12 @@ const leftOffset = `-${1 + digits}rem`;
 		}
 
 		span {
-			position: static;
-			left: 0 !important;
+			position: relative;
+			left: 4px !important;
+			top: -1px;
 			transform: none;
 			display: inline-block;
+			font-size: calc(var(--font-size-md) / 1.5);
 		}
 	}
 
@@ -57,5 +59,12 @@ const leftOffset = `-${1 + digits}rem`;
 		line-height: var(--leading-tighter);
 		font-weight: normal;
 		margin-bottom: var(--space-s);
+	}
+
+	@media screen and (max-width: 550px) {
+		h1 {
+			font-size: var(--font-size-2xl);
+			margin: var(--space-3xs) 0 var(--space-2xs);
+		}
 	}
 </style>
