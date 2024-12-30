@@ -11,7 +11,7 @@ growthStage: "budding"
 import AssumedAudience from "../../components/mdx/AssumedAudience.astro";
 import ImageLink from "../../components/mdx/ImageLink.astro";
 import TweetEmbed from "../../components/mdx/TweetEmbed.astro";
-import TwoColumn from "../../components/mdx/TwoColumn.astro";
+import GridColumns from "../../components/mdx/GridColumns.astro";
 import YearsAgo from "../../components/mdx/YearsAgo.astro";
 
 <AssumedAudience>
@@ -111,13 +111,13 @@ They baked an impressive amount of functionality into this. Users could obviousl
 
 Last year, [Amelia Wattenberger](https://wattenberger.com/) shared a [series of prototype](https://twitter.com/Wattenberger/status/1412480516268437512) [videos](https://twitter.com/Wattenberger/status/1388575699422883849) on Twitter that are remarkably similar in spirit. You have text and generated summaries shown side-by-side, and you can drag and drop to rearrange the content:
 
-<TwoColumn alignItems="top" maxWidth="1100px">
+<GridColumns alignItems="top" maxWidth="1100px">
 
 <TweetEmbed tweetId="1388575699422883849" />
 
 <TweetEmbed tweetId="1412480516268437512" />
 
-</TwoColumn>
+</GridColumns>
 
 <BasicImage
 	framed

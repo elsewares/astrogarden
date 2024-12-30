@@ -12,8 +12,8 @@ topics: ["Design", "How to Illustrate", "Metaphors"]
 ---
 
 import AssumedAudience from "../../components/mdx/AssumedAudience.astro";
-import TwoColumn from "../../components/mdx/TwoColumn.astro";
-import ThreeColumn from "../../components/mdx/ThreeColumn.astro";
+import GridColumns from "../../components/mdx/GridColumns.astro";
+import GridColumns from "../../components/mdx/GridColumns.astro";
 import Center from "../../components/mdx/Center.astro";
 import YearsAgo from "../../components/mdx/YearsAgo.astro";
 import MultipartIntro from "../../components/unique/MultipartIntro.astro";
@@ -48,7 +48,7 @@ One part of that is making _**course illustrations**_, which are like album cove
 
 <Center>Here's a few of them...</Center>
 
-<TwoColumn maxWidth="1000px" gridGap="var(--space-m)">
+<GridColumns maxWidth="1000px" gridGap="var(--space-m)">
 
 <RemoteImage
 	alt="CSS Selectors in Depth"
@@ -74,13 +74,13 @@ One part of that is making _**course illustrations**_, which are like album cove
 	src="https://d2eip9sf3oo6c2.cloudfront.net/series/square_covers/000/000/354/full/VueRouter.png"
 />
 
-</TwoColumn>
+</GridColumns>
 
 <Spacer size="small" />
 
 <Center>And a couple more...</Center>
 
-<ThreeColumn maxWidth="900px" gridGap="var(--space-l)">
+<GridColumns columns={3} maxWidth="900px" gridGap="var(--space-l)">
 
 <RemoteImage
 	margin="var(--space-xs) auto 0"
@@ -172,7 +172,7 @@ One part of that is making _**course illustrations**_, which are like album cove
 	src="https://d2eip9sf3oo6c2.cloudfront.net/series/square_covers/000/000/216/full/EGH_TSGuards_Final.png"
 />
 
-</ThreeColumn>
+</GridColumns>
 
 So far I've made over 150 of these things, and I'm almost beginning to think I know what I'm doing. <Footnote idName={1}>I don't make all of our illustrations – I work with a rotating team of freelancers who help with the load. Lovely folks like <a href="https://dribbble.com/maximebourgeois">Maxime</a> and <a href="https://dribbble.com/Aleksandr_Ageev">Aleksander</a> have made plenty of them.</Footnote>
 
@@ -368,7 +368,7 @@ Let's take another look at some of these course illustrations, and work backward
 
 I'm going to use the <span role="img" aria-label="target"> 🎯 </span> emoji to label targets, and <span role="img" aria-label="source">⛲️</span> to label sources.
 
-<TwoColumn maxWidth="1000px" justifyItems="start">
+<GridColumns maxWidth="1000px" justifyItems="start">
 
 <RemoteImage
 	width="420px"
@@ -505,7 +505,7 @@ I'm going to use the <span role="img" aria-label="target"> 🎯 </span> emoji to
 	.
 </span>
 
-</TwoColumn>
+</GridColumns>
 
 I know this is a little like telling a joke, and then explaining why the joke was funny. It kind of sucks the fun out of it.  
 But breaking down visual metaphors helps train your mind to consciously see how they're built. You stop operating on autopilot, and understand there's a logical process in moving from abstract idea to concrete visual.

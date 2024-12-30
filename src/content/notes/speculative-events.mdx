@@ -8,7 +8,7 @@ topics: ["Design"]
 growthStage: "budding"
 ---
 
-import TwoColumn from "../../components/mdx/TwoColumn.astro";
+import GridColumns from "../../components/mdx/GridColumns.astro";
 import Subtext from "../../components/mdx/typography/Subtext.astro";
 import SimpleCard from "../../components/mdx/SimpleCard.astro";
 import Highlight from "../../components/mdx/typography/Highlight.astro";
@@ -22,12 +22,12 @@ We email, WhatsApp or DM each other very specific lists of options.
 Or 2-3:30 p.m. next next Thursday?  
 Or 11 a.m. on February 20th?
 
-<TwoColumn alignItems="start" margin="0 auto 3rem">
+<GridColumns alignItems="start" margin="0 auto 3rem">
 
 <BasicImage src="/images/posts/speculative-events/chat1.webp" framed />
 <BasicImage src="/images/posts/speculative-events/chat2.webp" framed />
 
-</TwoColumn>
+</GridColumns>
 
 <Subtext>
 	My highly inefficient standard process for coordinating meetings
@@ -75,7 +75,7 @@ Without this, I shall have to continue doing what I do now: sending people lists
 
 Some of the fancy new calendar startups like [Cron](https://cron.com/) and [Amie](https://amie.so/) are trying to solve this problem by letting you send someone a link with your available times.
 
-<TwoColumn gridTemplateColumns="3fr 4fr" alignItems="start" maxWidth="1600px" margin="0 auto var(--space-xl)">
+<GridColumns gridTemplateColumns="3fr 4fr" alignItems="start" maxWidth="1600px" margin="0 auto var(--space-xl)">
 
 <BasicImage
 	src="/images/posts/speculative-events/cron.webp"
@@ -93,7 +93,7 @@ Some of the fancy new calendar startups like [Cron](https://cron.com/) and [Amie
 	framed
 />
 
-</TwoColumn>
+</GridColumns>
 
 The recipient can then select which slots also work for them, and the event is added to your calendar. This is perfect for professional meetings, but feels a bit impersonal and automated for some contexts. When I'm trying to coordinate dinner with family or a close friend over WhatsApp, sending an automated scheduling link makes me look and feel like an intolerable tech bro.
 
@@ -101,7 +101,7 @@ Maybe I don't want a perfectly optimised system. Maybe I just want a bit more fl
 
 Just as I was finishing this note, I spotted the infamous [37Signals](https://37signals.com/) / [Basecamp](https://basecamp.com/) / [HEY](https://www.hey.com/) team announced they've added a [new calendar view](https://www.youtube.com/watch?v=SztU4232u_o) to their email service. And it includes a “maybe” event type!
 
-<TwoColumn alignItems="start" maxWidth="1400px" margin="1rem auto 2rem">
+<GridColumns alignItems="start" maxWidth="1400px" margin="1rem auto 2rem">
 
 <BasicImage
 	src="/images/posts/speculative-events/maybe2.webp"
@@ -115,7 +115,7 @@ Just as I was finishing this note, I spotted the infamous [37Signals](https://37
 	framed
 />
 
-</TwoColumn>
+</GridColumns>
 
 <Subtext>
 	Screenshots from the calendar [announcement

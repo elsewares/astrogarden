@@ -11,14 +11,14 @@ growthStage: "seedling"
 draft: true
 ---
 
-import TwoColumn from "../../components/mdx/TwoColumn.astro";
+import GridColumns from "../../components/mdx/GridColumns.astro";
 import ListNumber from "../../components/mdx/ListNumber.astro";
 import FullWidthSection from "../../components/mdx/FullWidthSection.astro";
 import Disclaimer from "../../components/mdx/Disclaimer.astro";
 import AssumedAudience from "../../components/mdx/AssumedAudience.astro";
 import References from "../../components/mdx/References.astro";
 import ReferencesLink from "../../components/mdx/ReferencesLink.astro";
-import ThreeColumn from "../../components/mdx/ThreeColumn.astro";
+import GridColumns from "../../components/mdx/GridColumns.astro";
 import SimpleCard from "../../components/mdx/SimpleCard.astro";
 import TweetEmbed from "../../components/mdx/TweetEmbed.astro";
 import Video from "../../components/mdx/Video.astro";
@@ -52,19 +52,19 @@ The **block** — a rectangular section of a document that looks and acts a cert
 
 You have almost certainly seen and used these blocks. They come in an array of familiar types; ranging from simple formats like headers and blockquotes, to complex interactive widgets like tables and embeds.
 
-<TwoColumn maxWidth="1100px" gridGap="2rem" alignItems="start">
+<GridColumns maxWidth="1100px" gridGap="2rem" alignItems="start">
 
 <DemoBlock1 />
 <DemoBlock2 />
 
-</TwoColumn>
+</GridColumns>
 
-<TwoColumn maxWidth="1100px" gridGap="2rem" alignItems="start">
+<GridColumns maxWidth="1100px" gridGap="2rem" alignItems="start">
 
 <DemoBlock3 />
 <DemoBlock4 />
 
-</TwoColumn>
+</GridColumns>
 
 <Spacer size="small" />
 
@@ -200,7 +200,7 @@ All block-based editors allow you to quickly add a block to a document or canvas
 
 </div>
 
-<ThreeColumn gridGap="0">
+<GridColumns columns={3} gridGap="0">
 
 <RemoteImage
 	src="https://res.cloudinary.com/dxj9qr5gj/image/upload/c_scale,f_auto,q_auto:good,w_600/v1643453676/maggieappleton.com/essays/block-editors/block-ed_slash_4_sj3kqe.png"
@@ -234,7 +234,7 @@ All block-based editors allow you to quickly add a block to a document or canvas
 	margin="0"
 />
 
-</ThreeColumn>
+</GridColumns>
 
 You click on the block type you want and it appears inline. You can then add content to the block, or continue adding blocks below.
 

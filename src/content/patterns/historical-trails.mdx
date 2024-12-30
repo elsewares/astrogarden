@@ -11,7 +11,7 @@ topics: ["Design", "The Web", "Language Models"]
 import Accordion from "../../components/mdx/Accordion.astro";
 import References from "../../components/mdx/References.astro";
 import ReferencesLink from "../../components/mdx/ReferencesLink.astro";
-import TwoColumn from "../../components/mdx/TwoColumn.astro";
+import GridColumns from "../../components/mdx/GridColumns.astro";
 import Video from "../../components/mdx/Video.astro";
 import YearsAgo from "../../components/mdx/YearsAgo.astro";
 
@@ -37,7 +37,7 @@ When I'm on a journey through a dark swamp of information, I want that same sens
 
 Most interfaces are decent at the first two. We have lots of patterns that tell me where I am right now, like active items, focus states, and progress bars.<Footnote idName={2}>Even though these are usually lying to us, they still make us feel better. Users [will wait longer](https://www.nngroup.com/articles/progress-indicators/) and be less annoyed if you just give them a fake progress bar.</Footnote> that indicate our current "position" in a process or navigation space.
 
-<TwoColumn
+<GridColumns
 	maxWidth="1300px"
 	alignItems="start"
 	gridTemplateColumns="2.25fr 1fr"
@@ -56,11 +56,11 @@ Most interfaces are decent at the first two. We have lots of patterns that tell 
 		showalt
 		framed
 	/>
-</TwoColumn>
+</GridColumns>
 
 We also have good patterns for guiding me towards a known destination. Patterns like steppers and clear copywriting on buttons telling me what's coming next.
 
-<TwoColumn maxWidth="800px" gridGap="2rem" margin="1rem auto 4rem">
+<GridColumns maxWidth="800px" gridGap="2rem" margin="1rem auto 4rem">
 	<BasicImage
 		src="/images/posts/trails/n26.webp"
 		alt="Clearly labelled steps on N26"
@@ -77,7 +77,7 @@ We also have good patterns for guiding me towards a known destination. Patterns 
 		sourceUrl="https://mobbin.com/?referrer_workspace_id=55cf2952-c6ec-4f60-86c0-10a49618fc80"
 		framed
 	/>
-</TwoColumn>
+</GridColumns>
 
 It's a bit trickier when neither the interface nor I knows the final destination, as happens in information gathering, research projects, and open-ended learning, but we'll save that problem for another time.
 

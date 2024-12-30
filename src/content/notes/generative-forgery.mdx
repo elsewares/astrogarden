@@ -9,8 +9,7 @@ growthStage: "budding"
 ---
 
 import Subtext from "../../components/mdx/typography/Subtext.astro";
-import ThreeColumn from "../../components/mdx/ThreeColumn.astro";
-import TwoColumn from "../../components/mdx/TwoColumn.astro";
+import GridColumns from "../../components/mdx/GridColumns.astro";
 
 <IntroParagraph>Art by the most famous artists in the world has never been more aesthetic than it is now. Between its creation a few centuries ago and today, everyone's art has gotten brighter, more colourful, more dramatic, more aesthetically pleasing, better composed, and more desireable.</IntroParagraph>
 
@@ -20,7 +19,7 @@ Fear not; sellers on Etsy are all over this problem. When you [go looking for](h
 
 And the artwork itself will hit you differently. Monet's landscapes didn't seem this vivid on a screen projector in art class. Matisse's use of shapes and colours seems more experimental and bold than you remembered. Van Gogh's work is more detailed than it looked in textbooks.
 
-<ThreeColumn margin="0 auto 2rem">
+<GridColumns columns={3} margin="0 auto 2rem">
 
 <BasicImage src="/images/posts/generative-forgery/klimt1.webp" alt="Painting of flowers in a garden with the name Gustav Klimt in large letters below it"/>
 
@@ -34,7 +33,7 @@ And the artwork itself will hit you differently. Monet's landscapes didn't seem 
 
 <BasicImage src="/images/posts/generative-forgery/klimt2.webp" alt="Painting of flowers in a garden with the name Gustav Klimt in large letters below it"/>
 
-</ThreeColumn>
+</GridColumns>
 
 <Subtext>Monet, Klimt, and Matisse prints available on Etsy – by [Peardrop Prints](https://www.etsy.com/uk/shop/PeardropPrints?listing_id=1602489177&from_page=listing&section_id=38048874), [PerfectPaperPrint](https://www.etsy.com/uk/shop/PerfectPaperPrint?listing_id=1605328144&from_page=listing), [AttikiStudio](https://www.etsy.com/uk/shop/AttikiStudio?listing_id=1696950873&from_page=listing&section_id=48258235)</Subtext>
 
@@ -44,7 +43,7 @@ How did you fail to appreciate this craftsmanship when you first saw it? Why had
 
 I asked myself all these questions as I scrolled through rows and rows of beautifully aesthetic [William Morris](https://www.perplexity.ai/search/Who-is-William-aG1WY_btQMKu6Lx6zdWIpg) prints, liberally adding them to my shopping cart.
 
-<TwoColumn>
+<GridColumns>
 
 <BasicImage src="/images/posts/generative-forgery/morris1.webp" alt="Illustration of birds and flowers"/>
 
@@ -54,7 +53,7 @@ I asked myself all these questions as I scrolled through rows and rows of beauti
 
 <BasicImage src="/images/posts/generative-forgery/morris4.webp" alt="Illustration of two birds facing one another surrounded by floral patterns and fruits"/>
 
-</TwoColumn>
+</GridColumns>
 
 <Subtext>“William Morris” prints available on Etsy – by [Peardrop Prints](https://www.etsy.com/uk/shop/PeardropPrints?listing_id=1602489177&from_page=listing&section_id=44753402)</Subtext>
 
@@ -74,7 +73,7 @@ I finally thought to ask the now-blindingly-obvious-question; what if William Mo
 
 I tried reverse image searching a few of the prints, only to find they were one-of-a-kind. I started googling “morris artwork” and found images that, while beautiful, seemed to lack the finesse and colour range of my new prints.
 
-<ThreeColumn margin="0 auto 2rem" maxWidth="1100px">
+<GridColumns columns={3} margin="0 auto 2rem" maxWidth="1100px">
 
 <BasicImage src="/images/posts/generative-forgery/real-morris1.webp" alt="Strawberry theif pattern by William Morris"/>
 
@@ -88,7 +87,7 @@ I tried reverse image searching a few of the prints, only to find they were one-
 
 <BasicImage src="/images/posts/generative-forgery/real-morris6.webp" alt="Floral pattern by Wiliam Morris"/>
 
-</ThreeColumn>
+</GridColumns>
 
 <Subtext>Genuine (as far as I can tell) William Morris Prints – Source: [Wikimedia Commons](https://commons.wikimedia.org/w/index.php?search=william+morris+pattern&title=Special:MediaSearch&go=Go&type=image)</Subtext>
 
@@ -98,7 +97,7 @@ It was well past time to withdraw the benefit of my doubt.
 
 I zoomed in on some of the prints to find tell-tale artefacts of generated images. Most had inconsistent patterns and incomplete objects in the backgrounds and corners. Elements blurred into one another, with tenative edges and unusual shapes – quirks I've learned to recognise from plenty of late nights playing with [MidJourney](https://www.midjourney.com/showcase).
 
-<TwoColumn maxWidth="680px" margin="0 auto 4rem">
+<GridColumns maxWidth="680px" margin="0 auto 4rem">
 
 <BasicImage src="/images/posts/generative-forgery/quirk1.webp" width="300" alt="Warped details of a plant from a generated Morris image"/>
 
@@ -108,7 +107,7 @@ I zoomed in on some of the prints to find tell-tale artefacts of generated image
 
 <BasicImage src="/images/posts/generative-forgery/quirk4.webp" width="300" alt="Warped details of a mushroom from a generated Morris image"/>
 
-</TwoColumn>
+</GridColumns>
 
 I rechecked the Etsy print listings for disclaimers or details I must have missed the first time around, but none appeared. Nothing said these prints were “inspired by” or “influnced by” or “made to mimic” or any other derivatives of Morris, rather than originals.
 
@@ -116,13 +115,13 @@ To confound matters, the Etsy stores selling these generated images _also_ sell 
 
 It is hard to overlook the intentional deception at play here. Every print says “William Morris” in the listing title, and has his name in giant block letters on the print itself. The same goes for the Monet, Matisse, and Klimt prints. They often include informational details like artwork titles, exhibit or museum names, cities, and years. What are we to conclude?
 
-<TwoColumn maxWidth="1400px" margin="0 auto 4rem">
+<GridColumns maxWidth="1400px" margin="0 auto 4rem">
 
 <BasicImage src="/images/posts/generative-forgery/detail1.webp" alt="Zoomed in label on a painting: Plage Rose, Musee de L'orangerie, 1886"/>
 
 <BasicImage src="/images/posts/generative-forgery/detail2.webp" alt="Zoomed in label on a painting: Rural Elegance: Allegories in Rustic Beauty, The Vienna Secessionist Group, 1909"/>
 
-</TwoColumn>
+</GridColumns>
 
 <Subtext>Titles, dates, museum, and exhibition names on paintings that don't exist.</Subtext>
 
