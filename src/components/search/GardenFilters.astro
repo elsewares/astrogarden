@@ -270,7 +270,6 @@ const initialTopicsCount = 6;
 		const topicButtons =
 			document.querySelectorAll<HTMLButtonElement>(".topic-button");
 
-		// Show/hide topics based on index
 		topicButtons.forEach((button, index) => {
 			if (index >= 7) {
 				button.classList.toggle("hidden", !isShowingMore);
@@ -350,26 +349,20 @@ const initialTopicsCount = 6;
 		);
 	}
 
-	function initializeListeners() {
-		// Toggle button
+	// Set up event listeners once the DOM is loaded
+	document.addEventListener("DOMContentLoaded", () => {
 		const toggleButton = document.querySelector(".toggle-topics");
+		const topicsList = document.querySelector(".topics-list");
+		const rightMenus = document.querySelector(".right-menus");
+
 		if (toggleButton) {
 			toggleButton.addEventListener("click", handleToggleClick);
 		}
-
-		// Topic buttons
-		const topicsList = document.querySelector(".topics-list");
 		if (topicsList) {
 			topicsList.addEventListener("click", handleTopicClick);
 		}
-
-		// Select dropdowns
-		const rightMenus = document.querySelector(".right-menus");
 		if (rightMenus) {
 			rightMenus.addEventListener("change", handleSelectChange);
 		}
-	}
-
-	// Initialize on page load and after view transitions
-	document.addEventListener("astro:page-load", initializeListeners);
+	});
 </script>

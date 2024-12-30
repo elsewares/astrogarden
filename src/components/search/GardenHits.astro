@@ -138,15 +138,13 @@ const sortedPosts = allPostData.sort((a: Post, b: Post) => {
 </style>
 
 <script>
-	// Function to filter grid items
 	function filterGridItems(topic: string, growthStage: string, type: string) {
-		console.time("filter-operation");
 		const items = document.querySelectorAll<HTMLElement>(".grid-item");
 
-		items.forEach((htmlItem) => {
-			const itemTopics = htmlItem.dataset.topics?.split(",") || [];
-			const itemType = htmlItem.dataset.type;
-			const itemGrowthStage = htmlItem.dataset.growthStage;
+		items.forEach((item) => {
+			const itemTopics = item.dataset.topics?.split(",").filter(Boolean) || [];
+			const itemType = item.dataset.type;
+			const itemGrowthStage = item.dataset.growthStage;
 
 			const matchesTopic = !topic || itemTopics.includes(topic);
 			const matchesGrowthStage =
@@ -157,19 +155,18 @@ const sortedPosts = allPostData.sort((a: Post, b: Post) => {
 				(type === "podcast" && itemType === undefined);
 
 			const isVisible = matchesTopic && matchesGrowthStage && matchesType;
-			htmlItem.classList.toggle("filtered-out", !isVisible);
+			item.classList.toggle("filtered-out", !isVisible);
 		});
-
-		console.timeEnd("filter-operation");
 	}
 
-	// Listen for filter changes with debounce
-	let filterTimeout: number;
-	document.addEventListener("filter-change", ((event: CustomEvent) => {
-		clearTimeout(filterTimeout);
-		filterTimeout = setTimeout(() => {
-			const { topic, growthStage, type } = event.detail;
+	// Listen for filter changes
+	document.addEventListener("DOMContentLoaded", () => {
+		document.addEventListener("filter-change", (event: Event) => {
+			const customEvent = event as CustomEvent;
+			if (!customEvent.detail) return;
+
+			const { topic, growthStage, type } = customEvent.detail;
 			filterGridItems(topic, growthStage, type);
-		}, 50) as unknown as number;
-	}) as EventListener);
+		});
+	});
 </script>
