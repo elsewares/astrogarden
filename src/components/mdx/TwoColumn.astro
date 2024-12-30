@@ -32,6 +32,12 @@ const {
 		overflow-x: hidden;
 	}
 
+	.two-column-container :global(p) {
+		font-size: var(--font-size-base);
+		line-height: var(--leading-looser);
+		margin-bottom: var(--space-m);
+	}
+
 	@media (max-width: 768px) {
 		.two-column-container {
 			align-items: start;
@@ -45,19 +51,20 @@ const {
 
 	.two-column-container :global(div),
 	.two-column-container :global(img),
-	.two-column-container :global(figure) {
+	.two-column-container :global(figure),
+	.two-column-container :global(picture) {
 		grid-column: auto !important;
 		margin: 0 auto;
 		border-radius: var(--border-radius-base);
 		max-width: 100%;
 		height: auto;
-		width: auto;
+		width: 100%;
 	}
 
 	.two-column-container :global(img) {
 		margin: var(--space-s) auto 0;
 		width: 100%;
 		height: auto;
-		max-width: 400px;
+		max-width: 100%;
 	}
 </style>
