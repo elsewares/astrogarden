@@ -6,7 +6,7 @@ MDX
 Backlinks  
 Tooltip hover previews  
 Masonry grids with just CSS  
-Typed collections – essays, notes, patterns, talks, now updates, and podcasts
+Typed collections – essays, notes, patterns, talks, library, antilibrary, now updates, and podcasts
 
 ## Notes to Myself
 
