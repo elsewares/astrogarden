@@ -4,14 +4,14 @@ Built with Astro
 
 MDX  
 Backlinks  
-Tooltip hover previews
-Masonry grids with just CSS
+Tooltip hover previews  
+Masonry grids with just CSS  
 Typed collections – essays, notes, patterns, talks, now updates, and podcasts
 
 ## Notes to Myself
 
-To run locally: `npm run dev`
-To deploy: `./deploy.sh`
+To run locally: `npm run dev`  
+To deploy: `./deploy.sh`  
 
 - Runs `git push`
 - Runs `npm run build`
