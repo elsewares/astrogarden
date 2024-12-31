@@ -1,6 +1,6 @@
 ---
-title: "Hitting the Speakularity"
-description: "Reaching the moment when voice transcription becomes accurate, fast, private, cheap, and convenient enough to become ubiquitous"
+title: "Flirting with the Speakularity"
+description: "Sitting on the cusp of voice transcription becoming accurate, fast, private, cheap, and convenient enough to become ubiquitous"
 updated: "2024-02-05"
 startDate: "2024-02-05"
 cover: "../../images/covers/paleo@2x.png"
@@ -17,6 +17,7 @@ import ReferencesLink from "../../components/mdx/ReferencesLink.astro";
 import TweetEmbed from "../../components/mdx/TweetEmbed.astro";
 import Video from "../../components/mdx/Video.astro";
 import Accordion from "../../components/mdx/Accordion.astro";
+import VoiceQueries from "../../components/unique/speakularity/VoiceQueries.astro";
 
 <IntroParagraph>I hit the Speakularity sometime back in August of 2023. The Speakularity is the crossover moment when you start speaking to your computer more than typing into it. It's when voice transcription becomes fast, accurate, private, cheap,<Footnote idName={1} isClosed>“Cheap” is a relative concept, but for it to become widespread it needs to be virtually free. You don't pay to use your keyboard, why would you pay to use your voice?</Footnote> and convenient enough to use all day, every day.</IntroParagraph>
 
@@ -26,23 +27,24 @@ Companies were just beginning to make voice input “happen” around 2010. Whil
 
 Because it was free and seamlessly integrated into a familiar task, they made it far more accessible than previous transcription technologies. You didn't have to buy, install, and learn specialised software; you just tapped a button in your search bar. More importantly, they eased people into the idea we might be able to _talk_ to our devices one day. Apple quickly built on this idea by releasing Siri in [October 2011](https://en.wikipedia.org/wiki/Siri#:~:text=its%20release%20on-,4%20October%202011,-%2C%20removing%20the%20separate) – the first attempt at a general purpose voice assistant.
 
-<GridColumns maxWidth="1200px" gridTemplateColumns="3fr 2fr" margin="-2rem auto 4rem">
+<GridColumns maxWidth="1200px" gridTemplateColumns="3fr 2fr" margin="0 auto 4rem" alignItems="top">
 
-[BasicImage
+<BasicImage
 framed
 width="800px"
-src="/images/posts/speakularity/googlesearch.webp"
+src="/images/posts/speakularity/google-voice.jpg"
 alt="Voice input integrated into Google Search, 2011"
 showalt
+margin="4rem 0 0 0"
 sourceUrl="https://googlesystem.blogspot.com/2011/01/voice-search-for-google-chrome.html"
-sourceTitle="Google Operating System"]
+sourceTitle="Google Operating System" />
 
-[BasicImage
-src="/images/posts/speakularity/siri-screen.webp"
+<BasicImage
+src="/images/posts/speakularity/siri-phone.jpg"
 alt="Siri's original interface, 2011"
 showalt
 sourceUrl="https://www.forbes.com/sites/nicoleperlroth/2011/10/12/siri-was-born-a-man-and-other-things-you-dont-know-about-apples-new-personal-assistant/"
-sourceTitle="Forbes"]
+sourceTitle="Forbes"/ >
 
 </GridColumns>
 
@@ -50,117 +52,7 @@ This kicked off a decade of voice assistant hype and development as Amazon and M
 
 These voice assistants tend only accepted short, structured queries like:
 
-<div
-	style={{
-		display: "flex",
-		flexDirection: "column",
-		alignItems: "center",
-		marginBottom: "1.75rem",
-	}}
->
-	<p
-		style={{
-			padding: "2px 24px 6px",
-			border: "1px solid var(--color-gray-300)",
-			borderRadius: "32px",
-			textAlign: "center",
-			margin: "0 auto 1rem",
-			display: "flex",
-			alignItems: "center",
-			gridGap: "0.25rem",
-		}}
-	>
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			fill="none"
-			viewBox="0 0 24 24"
-			stroke-width="1.5"
-			stroke="currentColor"
-			style={{
-				width: "20px",
-				height: "20px",
-				marginRight: "0.25rem",
-				marginTop: "0.25rem",
-				color: "var(--color-gray-600)",
-			}}
-		>
-			<path
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z"
-			/>
-		</svg>
-		Nearby pharmacies open now
-	</p>
-	<p
-		style={{
-			padding: "2px 24px 6px",
-			border: "1px solid var(--color-gray-300)",
-			borderRadius: "32px",
-			textAlign: "center",
-			margin: "0 auto 1rem",
-			display: "flex",
-			alignItems: "center",
-			gridGap: "0.25rem",
-		}}
-	>
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			fill="none"
-			viewBox="0 0 24 24"
-			stroke-width="1.5"
-			stroke="currentColor"
-			style={{
-				width: "20px",
-				height: "20px",
-				marginRight: "0.25rem",
-				marginTop: "0.25rem",
-				color: "var(--color-gray-600)",
-			}}
-		>
-			<path
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z"
-			/>
-		</svg>
-		Hey Siri, remind me to buy yams tomorrow
-	</p>
-	<p
-		style={{
-			padding: "2px 24px 6px",
-			border: "1px solid var(--color-gray-300)",
-			borderRadius: "32px",
-			textAlign: "center",
-			margin: "0 auto 0.5rem",
-			display: "flex",
-			alignItems: "center",
-			gridGap: "0.25rem",
-		}}
-	>
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			fill="none"
-			viewBox="0 0 24 24"
-			stroke-width="1.5"
-			stroke="currentColor"
-			style={{
-				width: "20px",
-				height: "20px",
-				marginRight: "0.25rem",
-				marginTop: "0.25rem",
-				color: "var(--color-gray-600)",
-			}}
-		>
-			<path
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z"
-			/>
-		</svg>
-		Alexa, when is the winter solstice?
-	</p>
-</div>
+<VoiceQueries />
 
 The brevity of these inputs was both a feature and a design limitation. They were quick to interact with, but masked a lot of the rough edges. When you're only saying a few words, you don't notice that the accuracy rate is less-than-perfect. They didn't need to be that _good_ at voice recognition. They didn't have to deal with an unlimited range of specialised vocabularies, speech acts, or contexts.
 
