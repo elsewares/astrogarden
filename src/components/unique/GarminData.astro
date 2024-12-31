@@ -55,18 +55,82 @@ const data = [
 </div>
 <div id="garmin-tooltip" class="tooltip"></div>
 
+<div class="summary-title">Average scores before and after pregnancy</div>
+<div class="summary-section">
+	<div class="summary-metrics">
+		<div class="summary-item hr">
+			<div class="metric-name">
+				<Icon name="heroicons:heart-solid" size={16} />
+				<span>Resting Heart Rate</span>
+			</div>
+			<div class="change-indicator">
+				<span class="before">48</span>
+				<svg class="arrow" width="28" height="20" viewBox="0 0 28 20">
+					<path
+						d="M0,10 L26,10 M20,4 L26,10 L20,16"
+						stroke="currentColor"
+						fill="none"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"></path>
+				</svg>
+				<span class="after">65</span>
+				<span class="unit">bpm</span>
+			</div>
+		</div>
+		<div class="summary-item stress">
+			<div class="metric-name">
+				<Icon name="heroicons:bolt-solid" size={16} />
+				<span>Stress Score</span>
+			</div>
+			<div class="change-indicator">
+				<span class="before">31</span>
+				<svg class="arrow" width="28" height="20" viewBox="0 0 28 20">
+					<path
+						d="M0,10 L26,10 M20,16 L26,10 L20,4"
+						stroke="currentColor"
+						fill="none"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"></path>
+				</svg>
+				<span class="after">56</span>
+			</div>
+		</div>
+		<div class="summary-item sleep">
+			<div class="metric-name">
+				<Icon name="heroicons:moon-solid" size={16} />
+				<span>Sleep Score</span>
+			</div>
+			<div class="change-indicator">
+				<span class="before">88</span>
+				<svg class="arrow" width="28" height="20" viewBox="0 0 28 20">
+					<path
+						d="M0,10 L26,10 M20,16 L26,10 L20,4"
+						stroke="currentColor"
+						fill="none"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"></path>
+				</svg>
+				<span class="after">48</span>
+			</div>
+		</div>
+	</div>
+</div>
+
 <style>
 	:root {
-		--color-hr: #c32940;
-		--color-sleep: #4593b2;
-		--color-stress: #ec8a39;
+		--color-hr: #ce3b65;
+		--color-sleep: #4290af;
+		--color-stress: #ee7c3f;
 		--gray-100: #f3f4f6;
 	}
 
 	.chart-container {
 		width: 100%;
-		height: 2000px;
-		margin: 2rem 0 4rem;
+		height: 1800px;
+		margin: 2rem 0;
 		position: relative;
 		padding-top: 3rem;
 		font-family: var(--font-sans);
@@ -185,7 +249,7 @@ const data = [
 		background-color: white;
 		border: 1px solid var(--gray-100);
 		border-radius: 0.25rem;
-		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+		box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 		pointer-events: none;
 		font-size: 0.875rem;
 		font-family: var(--font-sans);
@@ -202,7 +266,7 @@ const data = [
 
 	:global(.tooltip-date) {
 		color: #6b7280;
-		font-size: 0.75rem;
+		font-size: 0.875rem;
 		margin-bottom: 0.75rem;
 		font-weight: 500;
 	}
@@ -212,7 +276,7 @@ const data = [
 		justify-content: space-between;
 		align-items: center;
 		gap: 1.5rem;
-		margin-bottom: 0.375rem;
+		margin-bottom: 0.25rem;
 	}
 
 	:global(.tooltip-label) {
@@ -308,6 +372,100 @@ const data = [
 
 	:global(.spot-number.stress) {
 		fill: var(--color-stress);
+	}
+
+	.summary-section {
+		margin: 0 0 1.5rem;
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		font-family: var(--font-sans);
+		padding: 2rem;
+		border: 1px solid var(--gray-100);
+		border-radius: 0.5rem;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+	}
+
+	.summary-title {
+		margin: 2rem 0 0.5rem;
+		text-align: center;
+		font-size: 1.25rem;
+		font-weight: 500;
+		color: var(--black);
+		font-family: var(--font-sans);
+	}
+
+	.summary-metrics {
+		display: flex;
+		gap: 3rem;
+		justify-content: center;
+	}
+
+	@media (max-width: 768px) {
+		.summary-section {
+			padding: 1.5rem;
+		}
+
+		.summary-metrics {
+			flex-direction: column;
+			gap: 2rem;
+			align-items: flex-start;
+		}
+
+		.summary-item {
+			width: 100%;
+			flex-direction: row;
+			justify-content: space-between;
+		}
+	}
+
+	.summary-item {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.75rem;
+	}
+
+	.metric-name {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-weight: 500;
+		font-size: 1rem;
+	}
+
+	.change-indicator {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 1.25rem;
+		font-weight: 600;
+	}
+
+	.before,
+	.after {
+		min-width: 2ch;
+		text-align: center;
+	}
+
+	.unit {
+		font-size: 0.875rem;
+		color: var(--color-hr);
+		position: relative;
+		top: 2px;
+		left: -3px;
+	}
+
+	.summary-item.hr {
+		color: var(--color-hr);
+	}
+
+	.summary-item.sleep {
+		color: var(--color-sleep);
+	}
+
+	.summary-item.stress {
+		color: var(--color-stress);
 	}
 </style>
 
@@ -491,7 +649,7 @@ const data = [
 									<svg class="tooltip-icon" viewBox="0 0 24 24" fill="currentColor">
 										<path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
 									</svg>
-									<span>Resting heart rate:</span>
+									<span>Resting heart rate</span>
 								</div>
 								<span class="tooltip-value">${d.restingHR}</span>
 							</div>
@@ -500,7 +658,7 @@ const data = [
 									<svg class="tooltip-icon" viewBox="0 0 24 24" fill="currentColor">
 										<path d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
 									</svg>
-									<span>Sleep score:</span>
+									<span>Sleep score</span>
 								</div>
 								<span class="tooltip-value">${d.sleepScore}</span>
 							</div>
@@ -509,7 +667,7 @@ const data = [
 									<svg class="tooltip-icon" viewBox="0 0 24 24" fill="currentColor">
 										<path d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
 									</svg>
-									<span>Stress score:</span>
+									<span>Stress score</span>
 								</div>
 								<span class="tooltip-value">${d.stressScore}</span>
 							</div>
