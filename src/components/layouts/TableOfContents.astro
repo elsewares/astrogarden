@@ -1,11 +1,9 @@
 ---
 import { Icon } from "astro-icon/components";
+import type { MarkdownHeading } from "astro";
 
 interface Props {
-	headings: {
-		text: string;
-		level: number;
-	}[];
+	headings: MarkdownHeading[];
 }
 
 const { headings } = Astro.props;
@@ -19,26 +17,21 @@ const { headings } = Astro.props;
 		<h4>Table of Contents</h4>
 	</div>
 
-	{
-		headings.length > 0 &&
-			headings.map(({ text, level }) => {
-				const link = text
-					.toLowerCase()
-					.replace(/\s/g, "-")
-					.replace(/[.,?()]/gim, "")
-					.replace(/\*\*|__/g, "")
-					.replace(/<[^>]+>/g, "");
-				const href = `#${link}`;
-				const filteredText = text
-					.replace(/[\*_]/gim, "")
-					.replace(/<[^>]+>/g, "");
-				return (
-					<a href={href} class="toc-link" data-level={level}>
-						{filteredText}
-					</a>
-				);
-			})
-	}
+	<nav class="toc">
+		<ul>
+			{
+				headings
+					.filter(({ depth }) => depth > 1 && depth < 4)
+					.map((heading) => (
+						<li class="toc-item" data-level={heading.depth}>
+							<a href={`#${heading.slug}`} class="toc-link">
+								{heading.text}
+							</a>
+						</li>
+					))
+			}
+		</ul>
+	</nav>
 </div>
 
 <div class="mobile-container">
@@ -47,27 +40,21 @@ const { headings } = Astro.props;
 		<h4>Table of Contents</h4>
 	</div>
 	<div class="collapse-content">
-		<div>
-			{
-				headings.length > 0 &&
-					headings.map(({ text, level }) => {
-						const link = text
-							.toLowerCase()
-							.replace(/\s/g, "-")
-							.replace(/[.,?()]/gim, "")
-							.replace(/<[^>]+>/g, "");
-						const href = `#${link}`;
-						const filteredText = text
-							.replace(/[\*_]/gim, "")
-							.replace(/<[^>]+>/g, "");
-						return (
-							<a href={href} class="toc-link" data-level={level}>
-								{filteredText}
-							</a>
-						);
-					})
-			}
-		</div>
+		<nav class="toc">
+			<ul>
+				{
+					headings
+						.filter(({ depth }) => depth > 1 && depth < 4)
+						.map((heading) => (
+							<li class="toc-item" data-level={heading.depth}>
+								<a href={`#${heading.slug}`} class="toc-link">
+									{heading.text}
+								</a>
+							</li>
+						))
+				}
+			</ul>
+		</nav>
 	</div>
 </div>
 
@@ -134,6 +121,14 @@ const { headings } = Astro.props;
 		height: 0;
 		max-width: 300px;
 		margin-left: var(--space-xl);
+		position: sticky;
+		top: 32px;
+	}
+
+	@media (max-width: 1280px) {
+		.desktop-container {
+			display: none;
+		}
 	}
 
 	.desktop-container h4 {
@@ -156,27 +151,53 @@ const { headings } = Astro.props;
 		margin-top: 0.5rem;
 	}
 
+	.toc {
+		margin-top: var(--space-s);
+	}
+
+	.toc ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	li.toc-item {
+		margin-left: 22px !important;
+	}
+
+	.toc-item::before {
+		display: none !important;
+	}
+
 	.toc-link {
 		font-family: var(--font-sans);
 		display: block;
-		font-size: 0.96rem;
-		padding-left: var(--space-s);
-		margin-top: 0.75rem;
+		line-height: var(--leading-base);
+		font-size: var(--font-size-sm);
 		cursor: pointer;
 		transition: all 0.3s cubic-bezier(0.2, 1, 0.8, 1);
 		color: var(--color-gray-600);
+		text-decoration: none;
+		margin-top: 0.75rem;
 	}
 
-	.toc-link[data-level="2"] {
+	.toc-item[data-level="1"] .toc-link,
+	.toc-item[data-level="2"] .toc-link {
 		margin-left: 0;
 	}
 
-	.toc-link:not([data-level="2"]) {
-		margin-left: calc((attr(data-level) - 2) * 24px);
+	.toc-item[data-level="3"] .toc-link,
+	.toc-item[data-level="4"] .toc-link {
+		margin-left: 24px;
 	}
 
 	.toc-link:hover {
 		color: var(--color-medium-sea-blue);
+	}
+
+	.toc-link.active {
+		color: var(--color-sea-blue);
+		font-weight: 500;
 	}
 </style>
 
@@ -188,5 +209,26 @@ const { headings } = Astro.props;
 	header?.addEventListener("click", () => {
 		content?.classList.toggle("expanded");
 		arrow?.classList.toggle("expanded");
+	});
+
+	// Smooth scrolling for TOC links
+	document.querySelectorAll(".toc-link").forEach((link) => {
+		link.addEventListener("click", (e) => {
+			e.preventDefault();
+			const targetId = link.getAttribute("href")?.slice(1);
+			if (!targetId) return;
+
+			const targetElement = document.getElementById(targetId);
+			if (!targetElement) return;
+
+			// Scroll to the target element
+			targetElement.scrollIntoView({
+				behavior: "smooth",
+				block: "start",
+			});
+
+			// Update URL without causing another scroll
+			history.pushState(null, "", `#${targetId}`);
+		});
 	});
 </script>

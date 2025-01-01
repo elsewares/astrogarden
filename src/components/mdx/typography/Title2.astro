@@ -1,4 +1,8 @@
-<h2 class="title2"><slot /></h2>
+---
+const { id } = Astro.props;
+---
+
+<h2 class="title2" id={id}><slot /></h2>
 
 <style>
 	.title2 {

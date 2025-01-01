@@ -3,7 +3,7 @@ import PostLayout from "../layouts/PostLayout.astro";
 import ProseWrapper from "../components/layouts/ProseWrapper.astro";
 import { getCollection } from "astro:content";
 import { render } from "astro:content";
-
+import TableOfContents from "../components/layouts/TableOfContents.astro";
 // Component imports
 import Title1 from "../components/mdx/typography/Title1.astro";
 import Title2 from "../components/mdx/typography/Title2.astro";
@@ -34,7 +34,7 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { Content } = await render(entry);
+const { Content, headings } = await render(entry);
 
 const components = {
 	h1: Title1,
@@ -53,9 +53,9 @@ const components = {
 };
 ---
 
-<PostLayout frontmatter={entry.data}>
+<PostLayout frontmatter={entry.data} headings={headings}>
 	<ProseWrapper>
-		<!-- {toc && <TableOfContents headings={headings} />} -->
+		{headings.length > 0 && <TableOfContents headings={headings} />}
 		<Content components={components} />
 	</ProseWrapper>
 </PostLayout>

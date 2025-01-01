@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import type { MarkdownHeading } from "astro";
 import Layout from "./Layout.astro";
 import { Icon } from "astro-icon/components";
 import Backlinks from "../components/layouts/Backlinks.astro";
@@ -11,7 +12,6 @@ import Topics from "../components/layouts/Topics.astro";
 
 // You'll need to find Astro alternatives for these React components:
 // - BackToTop
-// - TableOfContents (You might want to use @astrojs/tableofcontents)
 
 type Props = {
 	frontmatter:
@@ -19,6 +19,7 @@ type Props = {
 		| CollectionEntry<"notes">["data"]
 		| CollectionEntry<"patterns">["data"]
 		| CollectionEntry<"talks">["data"];
+	headings: MarkdownHeading[];
 };
 
 const { frontmatter } = Astro.props;
@@ -59,11 +60,7 @@ const backlinks = currentPost?.inboundLinks || [];
 		</div>
 		<div class="title-container">
 			<h1>{frontmatter.title}</h1>
-			{
-				frontmatter.description && (
-					<p>{frontmatter.description}</p>
-				)
-			}
+			{frontmatter.description && <p>{frontmatter.description}</p>}
 		</div>
 		<div class="metadata">
 			{frontmatter.topics && <Topics topics={frontmatter.topics} />}
@@ -82,11 +79,7 @@ const backlinks = currentPost?.inboundLinks || [];
 		<slot />
 	</main>
 
-	{
-		backlinks.length ? (
-			<Backlinks backlinks={backlinks} />
-		) : null
-	}
+	{backlinks.length ? <Backlinks backlinks={backlinks} /> : null}
 
 	<WebMentions postSlug={currentSlug} hasBacklinks={backlinks.length > 0} />
 </Layout>
