@@ -10,14 +10,15 @@ const { headings } = Astro.props;
 ---
 
 <div class="desktop-container">
-	<div class="title">
+	<div class="title" id="desktop-toc-header">
 		<svg width="8" height="8">
 			<circle r="4" cx="4" cy="4" fill="var(--color-sea-blue)"></circle>
 		</svg>
 		<h4>Table of Contents</h4>
+		<Icon name="heroicons:chevron-up" size={18} class="arrow-icon" />
 	</div>
 
-	<nav class="toc">
+	<nav class="toc" id="desktop-toc-content">
 		<ul>
 			{
 				headings
@@ -59,8 +60,65 @@ const { headings } = Astro.props;
 </div>
 
 <style>
-	.arrow-icon.expanded {
-		transform: rotate(90deg);
+	.arrow-icon {
+		color: var(--color-gray-600);
+		transition: all 0.3s cubic-bezier(0.2, 1, 0.8, 1);
+	}
+
+	.arrow-icon.collapsed {
+		transform: rotate(180deg);
+	}
+
+	.desktop-container {
+		grid-column: 3;
+		height: 0;
+		max-width: 300px;
+		margin-left: var(--space-xl);
+		position: sticky;
+		top: 32px;
+	}
+
+	.desktop-container .title {
+		display: flex;
+		gap: 0.85rem;
+		align-items: center;
+		margin-top: 0.5rem;
+		cursor: pointer;
+	}
+
+	.desktop-container .title h4 {
+		margin: 0;
+		font-size: 0.96rem;
+		color: var(--color-gray-800);
+		transition: all 0.3s cubic-bezier(0.2, 1, 0.8, 1);
+	}
+
+	.desktop-container.collapsed .toc {
+		max-height: 0;
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	.toc {
+		margin-top: var(--space-s);
+		max-height: 80vh;
+		opacity: 1;
+		overflow: hidden;
+		transition: all 0.3s cubic-bezier(0.2, 1, 0.8, 1);
+	}
+
+	.mobile-container {
+		display: none;
+	}
+
+	@media (max-width: 1280px) {
+		.mobile-container {
+			display: block;
+			margin-bottom: var(--space-xs);
+		}
+		.desktop-container {
+			display: none;
+		}
 	}
 
 	.collapse-header {
@@ -105,56 +163,6 @@ const { headings } = Astro.props;
 		display: block;
 	}
 
-	.mobile-container {
-		display: none;
-	}
-
-	@media (max-width: 1280px) {
-		.mobile-container {
-			display: block;
-			margin-bottom: var(--space-xs);
-		}
-	}
-
-	.desktop-container {
-		grid-column: 3;
-		height: 0;
-		max-width: 300px;
-		margin-left: var(--space-xl);
-		position: sticky;
-		top: 32px;
-	}
-
-	@media (max-width: 1280px) {
-		.desktop-container {
-			display: none;
-		}
-	}
-
-	.desktop-container h4 {
-		margin: 0;
-		font-size: 0.96rem;
-		color: var(--color-gray-800);
-		transition: all 0.3s cubic-bezier(0.2, 1, 0.8, 1);
-	}
-
-	@media (max-width: 1280px) {
-		.desktop-container {
-			display: none;
-		}
-	}
-
-	.title {
-		display: flex;
-		gap: 0.85rem;
-		align-items: center;
-		margin-top: 0.5rem;
-	}
-
-	.toc {
-		margin-top: var(--space-s);
-	}
-
 	.toc ul {
 		list-style: none;
 		padding: 0;
@@ -163,6 +171,7 @@ const { headings } = Astro.props;
 
 	li.toc-item {
 		margin-left: 22px !important;
+		margin-bottom: 0.75rem !important;
 	}
 
 	.toc-item::before {
@@ -178,7 +187,6 @@ const { headings } = Astro.props;
 		transition: all 0.3s cubic-bezier(0.2, 1, 0.8, 1);
 		color: var(--color-gray-600);
 		text-decoration: none;
-		margin-top: 0.75rem;
 	}
 
 	.toc-item[data-level="1"] .toc-link,
@@ -202,13 +210,44 @@ const { headings } = Astro.props;
 </style>
 
 <script>
+	let isCollapsed = false;
+	let isAutoCollapsed = false;
+	const desktopContainer = document.querySelector(".desktop-container");
+	const tocHeader = document.getElementById("desktop-toc-header");
+	const arrowIcon = tocHeader?.querySelector(".arrow-icon");
+	const COLLAPSE_SCROLL_THRESHOLD = 200;
+
+	// Handle manual toggle
+	tocHeader?.addEventListener("click", () => {
+		isCollapsed = !isCollapsed;
+		desktopContainer?.classList.toggle("collapsed", isCollapsed);
+		arrowIcon?.classList.toggle("collapsed", isCollapsed);
+	});
+
+	// Handle scroll-based collapse
+	window.addEventListener("scroll", () => {
+		if (window.scrollY <= COLLAPSE_SCROLL_THRESHOLD) {
+			// Always expand when at the top
+			isCollapsed = false;
+			isAutoCollapsed = false;
+			desktopContainer?.classList.remove("collapsed");
+			arrowIcon?.classList.remove("collapsed");
+		} else if (!isAutoCollapsed && !isCollapsed) {
+			// Only collapse if not already collapsed
+			isAutoCollapsed = true;
+			desktopContainer?.classList.add("collapsed");
+			arrowIcon?.classList.add("collapsed");
+		}
+	});
+
+	// Handle mobile TOC
 	const header = document.querySelector(".collapse-header");
 	const content = document.querySelector(".collapse-content");
-	const arrow = document.querySelector(".arrow-icon");
+	const mobileArrow = header?.querySelector(".arrow-icon");
 
 	header?.addEventListener("click", () => {
 		content?.classList.toggle("expanded");
-		arrow?.classList.toggle("expanded");
+		mobileArrow?.classList.toggle("expanded");
 	});
 
 	// Smooth scrolling for TOC links
@@ -221,13 +260,11 @@ const { headings } = Astro.props;
 			const targetElement = document.getElementById(targetId);
 			if (!targetElement) return;
 
-			// Scroll to the target element
 			targetElement.scrollIntoView({
 				behavior: "smooth",
 				block: "start",
 			});
 
-			// Update URL without causing another scroll
 			history.pushState(null, "", `#${targetId}`);
 		});
 	});
