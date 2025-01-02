@@ -1,6 +1,21 @@
 [
   {
-    "id": 1,
+    "id": 25,
+    "type": "podcast",
+    "podcastName": "Hanselminutes",
+    "episodeName": "What is AI's UI?",
+    "updated": "2024-12-26",
+    "url": "https://hanselminutes.com/977/what-is-ais-ui-with-maggie-appleton",
+    "coverImage": "../images/podcasts/hanselminutes.webp",
+    "topics": [
+      "Artificial Intelligence",
+      "Design",
+      "Web Development",
+      "Anthropology"
+    ]
+  },
+  {
+    "id": 24,
     "type": "podcast",
     "podcastName": "Dive Club",
     "episodeName": "Becoming an AI-native Designer",
@@ -10,7 +25,7 @@
     "topics": ["Artificial Intelligence", "Design", "Web Development"]
   },
   {
-    "id": 2,
+    "id": 23,
     "type": "podcast",
     "podcastName": "Devtools FM",
     "episodeName": "Visual Storytelling in Tech, Designing for Al, and the Future of Coding",
@@ -20,7 +35,7 @@
     "topics": ["Artificial Intelligence", "Design", "Web Development"]
   },
   {
-    "id": 3,
+    "id": 22,
     "type": "podcast",
     "podcastName": "Complementary",
     "episodeName": "Possible Futures for AI in Interaction Design",
@@ -30,7 +45,7 @@
     "topics": ["Artificial Intelligence", "Design", "Web Development"]
   },
   {
-    "id": 4,
+    "id": 21,
     "type": "podcast",
     "podcastName": "Localfirst.fm",
     "episodeName": "Barefoot Developers, AI, and End-user programming",
@@ -45,7 +60,7 @@
     ]
   },
   {
-    "id": 5,
+    "id": 20,
     "type": "podcast",
     "podcastName": "Sketchnote Army",
     "episodeName": "AI Tool Design and Tending a Digital Garden",
@@ -55,7 +70,7 @@
     "topics": ["Artificial Intelligence", "Design", "Digital Gardening"]
   },
   {
-    "id": 6,
+    "id": 19,
     "type": "podcast",
     "podcastName": "Shoptalk Show",
     "episodeName": "Language Models, AI, and Digital Gardens",
@@ -65,7 +80,7 @@
     "topics": ["Artificial Intelligence", "Design", "Digital Gardening"]
   },
   {
-    "id": 7,
+    "id": 18,
     "type": "podcast",
     "podcastName": "The Informed Life",
     "episodeName": "On Digital Gardening",
@@ -75,7 +90,7 @@
     "topics": ["Digital Gardening"]
   },
   {
-    "id": 8,
+    "id": 17,
     "type": "podcast",
     "podcastName": "BBC's Digital Human",
     "episodeName": "Nope",
@@ -85,7 +100,7 @@
     "topics": ["Digital Gardening", "Artificial Intelligence", "The Web"]
   },
   {
-    "id": 9,
+    "id": 16,
     "type": "podcast",
     "podcastName": "Clerestory",
     "episodeName": "Why We Write and Language Models",
@@ -101,7 +116,7 @@
     ]
   },
   {
-    "id": 10,
+    "id": 15,
     "type": "podcast",
     "podcastName": "Clerestory",
     "episodeName": "The Dark Forest and Generative AI",
@@ -117,7 +132,7 @@
     ]
   },
   {
-    "id": 11,
+    "id": 14,
     "type": "podcast",
     "podcastName": "The Stack Overflow Podcast",
     "episodeName": "Want to be Great at UX Research? Take a Cue from Cultural Anthropology",
@@ -127,7 +142,7 @@
     "topics": ["Anthropology", "Design"]
   },
   {
-    "id": 12,
+    "id": 13,
     "type": "podcast",
     "podcastName": "Reverb",
     "episodeName": "On Digital Gardening",
@@ -137,7 +152,7 @@
     "topics": ["Digital Gardening"]
   },
   {
-    "id": 13,
+    "id": 12,
     "type": "podcast",
     "podcastName": "Frontend Heroes",
     "episodeName": "Fortress of Solitude",
@@ -147,7 +162,7 @@
     "topics": ["Digital Gardening", "The Web"]
   },
   {
-    "id": 14,
+    "id": 11,
     "type": "podcast",
     "podcastName": "Metamuse",
     "episodeName": "Visual Programming",
@@ -163,7 +178,7 @@
     ]
   },
   {
-    "id": 15,
+    "id": 10,
     "type": "podcast",
     "podcastName": "Hope in Source",
     "episodeName": "Digital Disembodiment",
@@ -173,7 +188,7 @@
     "topics": ["Metaphors", "Anthropology", "Linguistics"]
   },
   {
-    "id": 16,
+    "id": 9,
     "type": "podcast",
     "podcastName": "She's in Tech",
     "episodeName": "Unique Roles of a Developer",
@@ -182,7 +197,7 @@
     "coverImage": "../images/podcasts/shetech.webp"
   },
   {
-    "id": 17,
+    "id": 8,
     "type": "podcast",
     "podcastName": "The Swyx Mixtape",
     "episodeName": "Growing Digital Gardens and Tending the Web",
@@ -192,7 +207,7 @@
     "topics": ["Digital Gardening"]
   },
   {
-    "id": 18,
+    "id": 7,
     "type": "podcast",
     "podcastName": "RoamFM",
     "episodeName": "Digital Anthropology, Digital Gardens and Illustrated Notes",
@@ -208,7 +223,7 @@
     ]
   },
   {
-    "id": 19,
+    "id": 6,
     "type": "podcast",
     "podcastName": "Hope in Source",
     "episodeName": "Technology as Process",
@@ -218,7 +233,7 @@
     "topics": ["Anthropology"]
   },
   {
-    "id": 20,
+    "id": 5,
     "type": "podcast",
     "podcastName": "Hope in Source",
     "episodeName": "Embodied Knowledge - Part 2",
@@ -228,7 +243,7 @@
     "topics": ["Anthropology"]
   },
   {
-    "id": 21,
+    "id": 4,
     "type": "podcast",
     "podcastName": "Hope in Source",
     "episodeName": "Embodied Knowledge - Part 1",
@@ -238,7 +253,7 @@
     "topics": ["Anthropology"]
   },
   {
-    "id": 22,
+    "id": 3,
     "type": "podcast",
     "podcastName": "Hope in Source",
     "episodeName": "Open Source as a Gift Economy",
@@ -248,7 +263,7 @@
     "topics": ["Anthropology"]
   },
   {
-    "id": 23,
+    "id": 2,
     "type": "podcast",
     "podcastName": "React Podcast",
     "episodeName": "The Power of Mental Models",
@@ -258,7 +273,7 @@
     "topics": ["Metaphor", "JavaScript", "React"]
   },
   {
-    "id": 24,
+    "id": 1,
     "type": "podcast",
     "podcastName": "egghead.io Podcast",
     "episodeName": "Turning Technical Concepts into Approachable Illustrated Metaphors",

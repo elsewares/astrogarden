@@ -1749,16 +1749,6 @@
   },
   {
     "ids": [
-      "Home-Cooked Software and Barefoot Developers"
-    ],
-    "slug": "home-cooked-software",
-    "growthStage": "budding",
-    "description": "The emerging golden age of home-cooked software, barefoot developers, and why the local-first community should help build it",
-    "outboundLinks": [],
-    "inboundLinks": []
-  },
-  {
-    "ids": [
       "Illustrating Gatsby's Key Concepts"
     ],
     "slug": "illustrated-gatsby",
@@ -3379,6 +3369,16 @@
         "description": "How to open pieces of narrative non-fiction writing, conference talks, and sticky jars"
       }
     ]
+  },
+  {
+    "ids": [
+      "Home-Cooked Software and Barefoot Developers"
+    ],
+    "slug": "home-cooked-software",
+    "growthStage": "evergreen",
+    "description": "The emerging golden age of home-cooked software, barefoot developers, and why the local-first community should help build it",
+    "outboundLinks": [],
+    "inboundLinks": []
   },
   {
     "ids": [
