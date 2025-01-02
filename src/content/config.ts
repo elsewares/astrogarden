@@ -15,6 +15,7 @@ const notesCollection = defineCollection({
       topics: z.array(z.string()).optional(),
       growthStage: z.string(),
       draft: z.boolean().optional(),
+      toc: z.boolean().optional(),
     }),
 });
 
@@ -32,6 +33,8 @@ const essaysCollection = defineCollection({
       growthStage: z.string(),
       featured: z.boolean().optional(),
       draft: z.boolean().optional(),
+      toc: z.boolean().optional(),
+      aliases: z.array(z.string()).optional(),
     }),
 });
 
@@ -47,6 +50,7 @@ const patternsCollection = defineCollection({
       topics: z.array(z.string()).optional(),
       growthStage: z.string(),
       draft: z.boolean().optional(),
+      toc: z.boolean().optional(),
     }),
 });
 
