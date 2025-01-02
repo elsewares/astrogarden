@@ -215,7 +215,6 @@ const { headings } = Astro.props;
 	const desktopContainer = document.querySelector(".desktop-container");
 	const tocHeader = document.getElementById("desktop-toc-header");
 	const arrowIcon = tocHeader?.querySelector(".arrow-icon");
-	const COLLAPSE_SCROLL_THRESHOLD = 200;
 
 	// Handle manual toggle
 	tocHeader?.addEventListener("click", () => {
@@ -226,16 +225,21 @@ const { headings } = Astro.props;
 
 	// Handle scroll-based collapse
 	window.addEventListener("scroll", () => {
-		if (window.scrollY <= COLLAPSE_SCROLL_THRESHOLD) {
-			// Always expand when at the top
+		if (!desktopContainer) return;
+
+		const containerRect = desktopContainer.getBoundingClientRect();
+		const isAtTop = containerRect.top <= 32; // 32px is the sticky top value
+
+		if (!isAtTop) {
+			// Expand when TOC is in its original position
 			isCollapsed = false;
 			isAutoCollapsed = false;
-			desktopContainer?.classList.remove("collapsed");
+			desktopContainer.classList.remove("collapsed");
 			arrowIcon?.classList.remove("collapsed");
 		} else if (!isAutoCollapsed && !isCollapsed) {
-			// Only collapse if not already collapsed
+			// Collapse when TOC becomes sticky
 			isAutoCollapsed = true;
-			desktopContainer?.classList.add("collapsed");
+			desktopContainer.classList.add("collapsed");
 			arrowIcon?.classList.add("collapsed");
 		}
 	});
