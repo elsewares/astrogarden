@@ -30,11 +30,22 @@ const currentSlug = Astro.url.pathname.replace(/^\/|\/$/g, "");
 // Find the current post in linkMaps
 const currentPost = linkMaps.find((post) => post.slug === currentSlug);
 
-// Get the inbound links (backlinks) for the current post
+// Get backlinks for the current post
 const backlinks = currentPost?.inboundLinks || [];
+
+// Only essays and talks have cover images
+const coverImage =
+	frontmatter.type === "essay" || frontmatter.type === "talk"
+		? frontmatter.cover?.src
+		: undefined;
 ---
 
-<Layout title={frontmatter.title} desc={frontmatter.description}>
+<Layout
+	title={frontmatter.title}
+	desc={frontmatter.description}
+	type={frontmatter.type}
+	coverImage={coverImage}
+>
 	<header class="header-section">
 		<div class="above-title">
 			<div class="back-link">
