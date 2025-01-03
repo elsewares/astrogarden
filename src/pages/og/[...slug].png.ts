@@ -67,8 +67,6 @@ async function getImageData(imagePath: string) {
       imagePath = `./dist${imagePath}`;
     }
 
-    console.log("[OG] Processing image:", { original: imagePath });
-
     // Read and process the image
     const imageBuffer = await fs.readFile(imagePath);
     const { width, height, format } = await sharp(imageBuffer).metadata();

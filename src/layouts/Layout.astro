@@ -27,23 +27,12 @@ const ogImageURL = type
 	? new URL(`/og/${contentId}.png`, baseUrl)
 	: new URL(`/og.png`, baseUrl);
 
-console.log("[Layout] Debug:", {
-	currentPath,
-	contentId,
-	baseUrl,
-	type,
-	ogUrl: ogImageURL.toString(),
-});
-
 // Only add search params for non-content pages (like the homepage)
 if (!type) {
-	console.log("[Layout] Using fallback params");
 	if (title) ogImageURL.searchParams.set("title", title);
 	if (desc) ogImageURL.searchParams.set("description", desc);
 	if (coverImage) ogImageURL.searchParams.set("coverImage", coverImage);
 }
-
-console.log("[Layout] Final OG Image URL:", ogImageURL.toString());
 
 // Google Analytics type declarations
 declare global {
