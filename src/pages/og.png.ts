@@ -6,12 +6,12 @@ import type { APIRoute } from "astro";
 // Reusable styles
 const styles = {
   title: {
-    fontSize: "92px",
+    fontSize: "88px",
     fontFamily: "Canela Deck",
     fontWeight: "bold",
     width: "100%",
     color: "#353534",
-    lineHeight: "1.05",
+    lineHeight: "1.1",
     margin: "0",
   },
   description: {
@@ -23,7 +23,40 @@ const styles = {
     marginTop: "20px",
     lineHeight: "1.33",
   },
+  eyebrow: {
+    fontSize: "16px",
+    fontFamily: "Lato",
+    textTransform: "uppercase",
+    color: "#5f023e",
+    letterSpacing: "0.05em",
+  },
+  imageContainer: {
+    position: "absolute",
+    right: "56px",
+    top: "64px",
+    width: "400px",
+    height: "400px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
 };
+
+async function getImageData(imagePath: string) {
+  try {
+    // Read and process the image
+    const imageBuffer = await fs.readFile(imagePath);
+    const { width, height, format } = await sharp(imageBuffer).metadata();
+
+    // Convert to base64
+    const base64 = `data:image/${format};base64,${imageBuffer.toString("base64")}`;
+
+    return { base64, width, height };
+  } catch (error) {
+    console.error("[OG] Error processing image:", error);
+    return { base64: undefined, width: undefined, height: undefined };
+  }
+}
 
 export const GET: APIRoute = async function get({ request }) {
   const url = new URL(request.url);
@@ -37,6 +70,28 @@ export const GET: APIRoute = async function get({ request }) {
     "./public/fonts/CanelaDeck-Regular.woff",
   );
   const CanelaText = await fs.readFile("./public/fonts/CanelaText-Light.woff");
+  const LatoRegular = await (
+    await fetch("https://fonts.gstatic.com/s/lato/v24/S6uyw4BMUTPHvxk.ttf")
+  ).arrayBuffer();
+
+  // Load and process the garden cover image
+  const {
+    base64: coverImage,
+    width,
+    height,
+  } = await getImageData("./src/images/covers/garden-cover@2x.png");
+
+  // Calculate image dimensions
+  let imageWidth = 440;
+  let imageHeight = 440;
+  if (width && height) {
+    const aspectRatio = width / height;
+    if (aspectRatio > 1) {
+      imageHeight = Math.round(440 / aspectRatio);
+    } else {
+      imageWidth = Math.round(440 * aspectRatio);
+    }
+  }
 
   const content = {
     type: "div",
@@ -56,7 +111,7 @@ export const GET: APIRoute = async function get({ request }) {
           props: {
             style: {
               display: "flex",
-              padding: "80px 64px",
+              padding: "64px 48px",
             },
             children: [
               {
@@ -65,9 +120,27 @@ export const GET: APIRoute = async function get({ request }) {
                   style: {
                     display: "flex",
                     flexDirection: "column",
-                    width: "100%",
+                    width: "55%",
                   },
                   children: [
+                    {
+                      type: "div",
+                      props: {
+                        style: {
+                          display: "flex",
+                          alignItems: "center",
+                        },
+                        children: [
+                          {
+                            type: "p",
+                            props: {
+                              style: styles.eyebrow,
+                              children: "essays, notes, and design patterns",
+                            },
+                          },
+                        ],
+                      },
+                    },
                     {
                       type: "h1",
                       props: {
@@ -75,14 +148,37 @@ export const GET: APIRoute = async function get({ request }) {
                         children: title,
                       },
                     },
-                    description && {
+                    {
                       type: "p",
                       props: {
                         style: styles.description,
                         children: description,
                       },
                     },
-                  ].filter(Boolean),
+                  ],
+                },
+              },
+              coverImage && {
+                type: "div",
+                props: {
+                  style: {
+                    ...styles.imageContainer,
+                    width: `${imageWidth}px`,
+                    height: `${imageHeight}px`,
+                  },
+                  children: {
+                    type: "img",
+                    props: {
+                      src: coverImage,
+                      width: imageWidth,
+                      height: imageHeight,
+                      style: {
+                        objectFit: "cover",
+                        width: "100%",
+                        height: "100%",
+                      },
+                    },
+                  },
                 },
               },
             ].filter(Boolean),
@@ -104,7 +200,7 @@ export const GET: APIRoute = async function get({ request }) {
                 props: {
                   style: {
                     fontFamily: "Canela Text",
-                    fontSize: "20px",
+                    fontSize: "22px",
                     color: "#4a4a46",
                   },
                   children: "maggieappleton.com",
@@ -179,6 +275,12 @@ export const GET: APIRoute = async function get({ request }) {
         name: "Canela Text",
         data: CanelaText,
         weight: 300,
+        style: "normal",
+      },
+      {
+        name: "Lato",
+        data: LatoRegular,
+        weight: 400,
         style: "normal",
       },
     ],

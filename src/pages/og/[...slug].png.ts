@@ -3,7 +3,6 @@ import satori from "satori";
 import sharp from "sharp";
 import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";
-import { Icon } from "astro-icon/components";
 
 export async function getStaticPaths() {
   const [essays, notes, talks, patterns] = await Promise.all([
@@ -55,22 +54,34 @@ export async function getStaticPaths() {
 }
 
 async function getImageData(imagePath: string) {
-  // If it's an @fs path, extract the actual path
-  if (imagePath.startsWith("/@fs")) {
-    const match = imagePath.match(/\/@fs(.*?)(\?|$)/);
-    if (match) {
-      imagePath = match[1];
+  try {
+    // If it's an @fs path in development, extract the real path
+    if (imagePath.startsWith("/@fs")) {
+      const match = imagePath.match(/\/src\/images\/(.+?)(\?|$)/);
+      if (match) {
+        // Convert to public path
+        imagePath = `/images/${match[1]}`;
+      }
+    } else if (imagePath.startsWith("/_astro/")) {
+      // In production, images are in the dist directory
+      imagePath = `./dist${imagePath}`;
     }
+
+    console.log("[OG] Processing image:", { original: imagePath });
+
+    // Read and process the image
+    const imageBuffer = await fs.readFile(imagePath);
+    const { width, height, format } = await sharp(imageBuffer).metadata();
+
+    // Convert to base64
+    const base64 = `data:image/${format};base64,${imageBuffer.toString("base64")}`;
+
+    return { base64, width, height };
+  } catch (error) {
+    console.error("[OG] Error processing image:", error);
+    // Return undefined values to handle the error case
+    return { base64: undefined, width: undefined, height: undefined };
   }
-
-  // Read and process the image
-  const imageBuffer = await fs.readFile(imagePath);
-  const { width, height, format } = await sharp(imageBuffer).metadata();
-
-  // Convert to base64
-  const base64 = `data:image/${format};base64,${imageBuffer.toString("base64")}`;
-
-  return { base64, width, height };
 }
 
 export const GET: APIRoute = async function get({ props, request }) {
@@ -109,17 +120,22 @@ export const GET: APIRoute = async function get({ props, request }) {
       const { base64, width, height } = await getImageData(
         entry.data.cover.src,
       );
-      coverImage = base64;
 
-      // Calculate aspect ratio preserving dimensions
-      const aspectRatio = width / height;
-      if (aspectRatio > 1) {
-        imageHeight = Math.round(400 / aspectRatio);
-      } else {
-        imageWidth = Math.round(400 * aspectRatio);
+      if (base64) {
+        coverImage = base64;
+
+        // Calculate aspect ratio preserving dimensions
+        if (width && height) {
+          const aspectRatio = width / height;
+          if (aspectRatio > 1) {
+            imageHeight = Math.round(400 / aspectRatio);
+          } else {
+            imageWidth = Math.round(400 * aspectRatio);
+          }
+        }
       }
     } catch (error) {
-      console.error("[OG] Error processing image:", error);
+      console.error("[OG] Error processing cover image:", error);
     }
   }
 
