@@ -56,7 +56,7 @@ const components = {
 <PostLayout frontmatter={entry.data} headings={headings}>
 	<ProseWrapper>
 		{
-			headings.length > 0 && entry.data.toc && (
+			headings.length > 0 && "toc" in entry.data && entry.data.toc && (
 				<TableOfContents headings={headings} />
 			)
 		}

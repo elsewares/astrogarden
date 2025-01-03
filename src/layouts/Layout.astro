@@ -7,10 +7,9 @@ import "../global.css";
 export interface Props {
 	title?: string;
 	desc?: string;
-	ogimage?: string;
 }
 
-const { title, desc, ogimage = "/opengraph.jpg" } = Astro.props;
+const { title, desc  } = Astro.props;
 
 // TODO: Add OG image
 // const resolvedOGImage = checkImageUrl(ogimage, Astro.site);
@@ -81,8 +80,7 @@ declare global {
 					type: "website",
 					url: "https://www.maggieappleton.com/",
 					title: "Maggie Appleton",
-					// TODO: Add OG image
-					image: "",
+					image: "/images/default-og.png",
 				},
 				optional: {
 					locale: "en_GB",
