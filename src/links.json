@@ -335,6 +335,16 @@
   },
   {
     "ids": [
+      "Growing a Human: The First 30 Weeks"
+    ],
+    "slug": "growing-a-human",
+    "growthStage": "evergreen",
+    "description": "Reflections on the strange experience of growing a human from scratch, without any conscious understanding of how you are doing it",
+    "outboundLinks": [],
+    "inboundLinks": []
+  },
+  {
+    "ids": [
       "Meat Planet: The Illustrated Notes",
       "Meat Planet"
     ],
