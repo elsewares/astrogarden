@@ -118,14 +118,16 @@ const sortedPatterns = patterns
 						<a href={`/${note.id}`}>
 							<div class="index-note-card">
 								{note.data.growthStage && (
-									<GrowthIcon
-										growthStage={
-											note.data.growthStage as
-												| "seedling"
-												| "budding"
-												| "evergreen"
-										}
-									/>
+									<div class="icon">
+										<GrowthIcon
+											growthStage={
+												note.data.growthStage as
+													| "seedling"
+													| "budding"
+													| "evergreen"
+											}
+										/>
+									</div>
 								)}
 								<h3>{note.data.title}</h3>
 							</div>
