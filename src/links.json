@@ -340,7 +340,22 @@
     "slug": "growing-a-human",
     "growthStage": "evergreen",
     "description": "Reflections on the strange experience of growing a human from scratch, without any conscious understanding of how you are doing it",
-    "outboundLinks": [],
+    "outboundLinks": [
+      {
+        "matchedId": "natureculture",
+        "title": "Natureculture, Moral Purity, and Cultural Boundaries",
+        "slug": "natureculture",
+        "growthStage": "seedling",
+        "description": "Why there is nothing natural about the idea of 'nature'"
+      },
+      {
+        "matchedId": "Paleolithic Nostalgia",
+        "title": "Paleolithic Nostalgia",
+        "slug": "paleolithic-nostalgia",
+        "growthStage": "seedling",
+        "description": "Longing for the paleolithic past in the Anthropocene"
+      }
+    ],
     "inboundLinks": []
   },
   {
@@ -460,6 +475,12 @@
       }
     ],
     "inboundLinks": [
+      {
+        "title": "Growing a Human: The First 30 Weeks",
+        "slug": "growing-a-human",
+        "growthStage": "evergreen",
+        "description": "Reflections on the strange experience of growing a human from scratch, without any conscious understanding of how you are doing it"
+      },
       {
         "title": "Meat Planet: The Illustrated Notes",
         "slug": "meat-planet",
@@ -2184,13 +2205,20 @@
     "ids": [
       "Natureculture, Moral Purity, and Cultural Boundaries",
       "Nature",
-      "nature and culture"
+      "nature and culture",
+      "natureculture"
     ],
     "slug": "natureculture",
     "growthStage": "seedling",
     "description": "Why there is nothing natural about the idea of 'nature'",
     "outboundLinks": [],
     "inboundLinks": [
+      {
+        "title": "Growing a Human: The First 30 Weeks",
+        "slug": "growing-a-human",
+        "growthStage": "evergreen",
+        "description": "Reflections on the strange experience of growing a human from scratch, without any conscious understanding of how you are doing it"
+      },
       {
         "title": "Meat Planet: The Illustrated Notes",
         "slug": "meat-planet",
