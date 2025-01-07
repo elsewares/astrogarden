@@ -1,7 +1,8 @@
 ---
 import PostLayout from "../layouts/PostLayout.astro";
+import SmidgeonLayout from "../layouts/SmidgeonLayout.astro";
 import ProseWrapper from "../components/layouts/ProseWrapper.astro";
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import { render } from "astro:content";
 import TableOfContents from "../components/layouts/TableOfContents.astro";
 // Component imports
@@ -18,19 +19,55 @@ import RemoteImage from "../components/mdx/RemoteImage.astro";
 import BasicImage from "../components/mdx/BasicImage.astro";
 import Spacer from "../components/mdx/Spacer.astro";
 
+type ContentType = "essay" | "note" | "pattern" | "talk" | "smidgeon";
+type Collections = "essays" | "notes" | "patterns" | "talks" | "smidgeons";
+
+// Add type definitions for different frontmatter types
+type BaseFrontmatter = {
+	title: string;
+	startDate: Date;
+	topics?: string[];
+};
+
+type SmidgeonFrontmatter = BaseFrontmatter & {
+	type: "smidgeon";
+};
+
+interface Props {
+	entry: CollectionEntry<Collections>;
+	type: ContentType;
+}
+
 // Get params from URL
 export async function getStaticPaths() {
 	const essays = await getCollection("essays");
 	const notes = await getCollection("notes");
 	const patterns = await getCollection("patterns");
 	const talks = await getCollection("talks");
+	const smidgeons = await getCollection("smidgeons");
 
-	return [...essays, ...notes, ...patterns, ...talks].map((entry) => {
-		return {
+	return [
+		...essays.map((entry) => ({
 			params: { slug: entry.id },
-			props: { entry },
-		};
-	});
+			props: { entry, type: "essay" } as const,
+		})),
+		...notes.map((entry) => ({
+			params: { slug: entry.id },
+			props: { entry, type: "note" } as const,
+		})),
+		...patterns.map((entry) => ({
+			params: { slug: entry.id },
+			props: { entry, type: "pattern" } as const,
+		})),
+		...talks.map((entry) => ({
+			params: { slug: entry.id },
+			props: { entry, type: "talk" } as const,
+		})),
+		...smidgeons.map((entry) => ({
+			params: { slug: entry.id },
+			props: { entry, type: "smidgeon" } as const,
+		})),
+	];
 }
 
 const { entry } = Astro.props;
@@ -51,15 +88,36 @@ const components = {
 	RemoteImage,
 	Spacer,
 };
+
+// Type guard for checking if data has TOC
+function hasTOC(data: any): data is { toc: boolean } {
+	return "toc" in data;
+}
+
+// Type guard for checking if frontmatter is SmidgeonFrontmatter
+function isSmidgeonFrontmatter(data: any): data is SmidgeonFrontmatter {
+	return data.type === "smidgeon";
+}
+
+// Prepare frontmatter data based on type
+const frontmatter = entry.data;
 ---
 
-<PostLayout frontmatter={entry.data} headings={headings}>
-	<ProseWrapper>
-		{
-			headings.length > 0 && "toc" in entry.data && entry.data.toc && (
-				<TableOfContents headings={headings} />
-			)
-		}
-		<Content components={components} />
-	</ProseWrapper>
-</PostLayout>
+{
+	isSmidgeonFrontmatter(frontmatter) ? (
+		<SmidgeonLayout frontmatter={frontmatter}>
+			<ProseWrapper>
+				<Content components={components} />
+			</ProseWrapper>
+		</SmidgeonLayout>
+	) : (
+		<PostLayout frontmatter={frontmatter} headings={headings}>
+			<ProseWrapper>
+				{headings.length > 0 && hasTOC(frontmatter) && frontmatter.toc && (
+					<TableOfContents headings={headings} />
+				)}
+				<Content components={components} />
+			</ProseWrapper>
+		</PostLayout>
+	)
+}

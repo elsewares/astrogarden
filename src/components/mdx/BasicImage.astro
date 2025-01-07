@@ -18,10 +18,10 @@ const {
 	alt = "",
 	width = 1100,
 	margin,
-	showalt,
+	showalt = false,
 	sourceUrl,
 	sourceTitle,
-	framed,
+	framed = false,
 } = Astro.props;
 
 const widthWithUnit = typeof width === "number" ? `${width}px` : width;
@@ -45,7 +45,7 @@ const isGif = typeof src === "string" && src.toLowerCase().endsWith(".gif");
 
 <figure
 	class:list={["container", { framed }]}
-	style={margin ? `margin: ${margin}` : ""}
+	style={`margin: ${margin || ""}`}
 >
 	<div
 		class:list={["image-wrapper", { "image-frame": framed }]}
@@ -91,7 +91,6 @@ const isGif = typeof src === "string" && src.toLowerCase().endsWith(".gif");
 		grid-column: 1 / 4 !important;
 		text-align: center;
 		margin: var(--space-s) auto var(--space-l);
-		width: 100%;
 		max-width: inherit;
 	}
 
@@ -99,7 +98,6 @@ const isGif = typeof src === "string" && src.toLowerCase().endsWith(".gif");
 		display: flex;
 		justify-content: center;
 		position: relative;
-		width: 100%;
 		max-width: 100%;
 		margin: 0 auto;
 		height: auto;
@@ -140,6 +138,7 @@ const isGif = typeof src === "string" && src.toLowerCase().endsWith(".gif");
 		border-radius: var(--border-radius-base);
 		box-shadow: var(--box-shadow-lg);
 		margin-bottom: var(--space-xs);
+		contain: content;
 	}
 
 	figcaption {

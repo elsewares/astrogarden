@@ -5,13 +5,15 @@ import NoteCard from "../cards/NoteCard.astro";
 import PatternCard from "../cards/PatternCard.astro";
 import PodcastCard from "../cards/PodcastCard.astro";
 import TalkCard from "../cards/TalkCard.astro";
+import SmidgeonCard from "../cards/SmidgeonCard.astro";
 
 interface Post {
 	id: string;
 	collection: string;
 	data: {
 		type?: string;
-		updated: string;
+		updated?: string;
+		startDate: string;
 		title?: string;
 		description?: string;
 		growthStage?: string;
@@ -33,8 +35,8 @@ interface Post {
 const { allPostData } = Astro.props;
 
 const sortedPosts = allPostData.sort((a: Post, b: Post) => {
-	const dateA = new Date(a.data.updated).getTime();
-	const dateB = new Date(b.data.updated).getTime();
+	const dateA = new Date(a.data.updated || a.data.startDate).getTime();
+	const dateB = new Date(b.data.updated || b.data.startDate).getTime();
 	return dateB - dateA;
 });
 ---
@@ -52,7 +54,7 @@ const sortedPosts = allPostData.sort((a: Post, b: Post) => {
 					key: i,
 					id: post.id,
 					slug: post.id,
-					date: post.data.updated,
+					date: post.data.startDate,
 				};
 
 				return (
@@ -104,6 +106,9 @@ const sortedPosts = allPostData.sort((a: Post, b: Post) => {
 								cover={post.data.cover}
 								conferences={post.data.conferences}
 							/>
+						)}
+						{post.data.type === "smidgeon" && post.data.title && (
+							<SmidgeonCard {...commonProps} title={post.data.title} />
 						)}
 					</div>
 				);

@@ -12,9 +12,17 @@ const notes = await getCollection("notes", ({ data }) => !data.draft);
 const patterns = await getCollection("patterns", ({ data }) => !data.draft);
 const talks = await getCollection("talks", ({ data }) => !data.draft);
 const podcasts = await getCollection("podcasts");
+// const smidgeons = await getCollection("smidgeons");
 
 // Combine all content into one array
-const allPosts = [...essays, ...notes, ...patterns, ...talks, ...podcasts];
+const allPosts = [
+	...essays,
+	...notes,
+	...patterns,
+	...talks,
+	...podcasts,
+	// ...smidgeons,
+];
 ---
 
 <Layout title="The Garden of Maggie Appleton">

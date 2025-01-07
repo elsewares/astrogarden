@@ -1,0 +1,149 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import { render } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import Title2 from "../components/mdx/typography/Title2.astro";
+import TitleWithCount from "../components/layouts/TitleWithCount.astro";
+import PageWrapper from "../components/layouts/PageWrapper.astro";
+import ProseWrapper from "../components/layouts/ProseWrapper.astro";
+import Topics from "../components/layouts/Topics.astro";
+// Import components used in MDX files
+import Title1 from "../components/mdx/typography/Title1.astro";
+import Title3 from "../components/mdx/typography/Title3.astro";
+import Title4 from "../components/mdx/typography/Title4.astro";
+import TooltipLink from "../components/mdx/TooltipLink.astro";
+import InternalTooltipLink from "../components/mdx/InternalTooltipLink.astro";
+import Footnote from "../components/mdx/Footnote.astro";
+import IntroParagraph from "../components/mdx/IntroParagraph.astro";
+import ResourceBook from "../components/mdx/ResourceBook.astro";
+import RemoteImage from "../components/mdx/RemoteImage.astro";
+import BasicImage from "../components/mdx/BasicImage.astro";
+import Spacer from "../components/mdx/Spacer.astro";
+
+const smidgeons = await getCollection("smidgeons");
+
+// Sort by date in reverse chronological order
+const sortedSmidgeons = smidgeons.sort(
+	(a, b) => b.data.startDate.getTime() - a.data.startDate.getTime(),
+);
+
+// Define components for MDX rendering
+const components = {
+	h1: Title1,
+	h2: Title2,
+	h3: Title3,
+	h4: Title4,
+	a: TooltipLink,
+	img: BasicImage,
+	InternalTooltipLink,
+	IntroParagraph,
+	Footnote,
+	BasicImage,
+	ResourceBook,
+	RemoteImage,
+	Spacer,
+};
+
+// Render all smidgeons content
+const renderedSmidgeons = await Promise.all(
+	sortedSmidgeons.map(async (smidgeon: CollectionEntry<"smidgeons">) => {
+		const { Content } = await render(smidgeon);
+		return { ...smidgeon, Content };
+	}),
+);
+---
+
+<Layout title="Smidgeons Stream | Maggie Appleton">
+	<PageWrapper>
+		<header class="header">
+			<TitleWithCount posts={smidgeons}>Smidgeons Stream</TitleWithCount>
+			<Title2>
+				A stream of tiny thoughts, links, and things I've learned today.
+			</Title2>
+		</header>
+
+		<div class="smidgeons-list">
+			{
+				renderedSmidgeons.map((smidgeon) => {
+					const date = smidgeon.data.startDate;
+					const formattedDate = date.toLocaleDateString("en-US", {
+						year: "numeric",
+						month: "long",
+						day: "numeric",
+					});
+
+					return (
+						<article class="smidgeon-preview">
+							<div class="metadata">
+								<time datetime={date.toISOString()}>{formattedDate}</time>
+								{smidgeon.data.topics && (
+									<Topics topics={smidgeon.data.topics} />
+								)}
+							</div>
+							<div class="content">
+								<ProseWrapper>
+									<smidgeon.Content components={components} />
+								</ProseWrapper>
+							</div>
+						</article>
+					);
+				})
+			}
+		</div>
+	</PageWrapper>
+</Layout>
+
+<style>
+	.header {
+		margin: var(--space-s) auto var(--space-xl);
+		max-width: 840px;
+	}
+
+	.smidgeons-list {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xl);
+	}
+
+	.smidgeon-preview {
+		display: grid;
+		grid-template-columns: 200px minmax(0, 800px);
+		gap: var(--space-l);
+	}
+
+	.metadata {
+		display: flex;
+		flex-direction: column;
+		margin-top: var(--space-xs);
+	}
+
+	.content {
+		border-bottom: 1px solid var(--color-gray-300);
+		padding-bottom: var(--space-m);
+	}
+
+	.content:last-child {
+		border-bottom: none;
+	}
+
+	time {
+		font-family: var(--font-sans);
+		font-size: var(--font-size-sm);
+		color: var(--color-gray-600);
+		margin-bottom: -0.5rem;
+	}
+
+	@media (max-width: 768px) {
+		.smidgeon-preview {
+			grid-template-columns: 1fr;
+			gap: var(--space-s);
+		}
+
+		.metadata {
+			flex-direction: row;
+			flex-wrap: wrap;
+			align-items: center;
+			gap: var(--space-s);
+		}
+	}
+</style>
