@@ -2788,6 +2788,16 @@
   },
   {
     "ids": [
+      "How to Import Academic Papers from Zotero into Tana"
+    ],
+    "slug": "tana-zotero",
+    "growthStage": "budding",
+    "description": "How to use Zotero's translator and Tana Paste formatting to easily import papers into Tana",
+    "outboundLinks": [],
+    "inboundLinks": []
+  },
+  {
+    "ids": [
       "Teenage Skeuomorphic Desktop Designs"
     ],
     "slug": "teenage-desktop",
