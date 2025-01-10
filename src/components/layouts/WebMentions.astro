@@ -253,7 +253,16 @@ function mentionType(mention: WebMention) {
 }
 
 function sourceType(mention: WebMention) {
-	return mention["wm-property"];
+	const property = mention["wm-property"];
+	// Map webmention properties to icon names
+	const iconMap: Record<string, string> = {
+		"mention-of": "heroicons:chat-bubble-left",
+		"like-of": "heroicons:heart",
+		"repost-of": "heroicons:arrow-path",
+		"bookmark-of": "heroicons:bookmark",
+		"in-reply-to": "heroicons:arrow-uturn-left",
+	};
+	return iconMap[property] || null;
 }
 
 function formatDate(date: string | number | Date) {
