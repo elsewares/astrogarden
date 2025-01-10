@@ -8,18 +8,50 @@ dotenv.config();
 const CACHE_DIR = "src/content/data";
 const TOKEN = process.env.WEBMENTION_API_KEY;
 
-async function fetchWebmentions(since, perPage = 40000) {
-  let url = `https://webmention.io/api/mentions.jf2?domain=maggieappleton.com&token=${TOKEN}&per-page=${perPage}`;
-  if (since) url += `&since=${since}`;
+async function fetchWebmentions(since, perPage = 100) {
+  let allMentions = { children: [] };
+  let page = 0;
+  let hasMore = true;
 
-  const response = await fetch(url);
-  if (response.ok) {
-    const feed = await response.json();
-    console.log(`>>> ${feed.children.length} new webmentions fetched`);
-    return feed;
+  while (hasMore) {
+    let url = `https://webmention.io/api/mentions.jf2?domain=maggieappleton.com&token=${TOKEN}&per-page=${perPage}&page=${page}`;
+    if (since) {
+      // Ensure we're not using a future date
+      const sinceDate = new Date(since);
+      const now = new Date();
+      if (sinceDate > now) {
+        console.log(
+          ">>> Warning: Last fetch time was in the future, resetting to current time",
+        );
+        since = now.toISOString();
+      }
+      url += `&since=${since}`;
+    }
+
+    console.log(`>>> Fetching webmentions page ${page}...`);
+    const response = await fetch(url);
+    console.log(">>> Response status:", response.status);
+
+    if (response.ok) {
+      const feed = await response.json();
+      if (feed.children && feed.children.length > 0) {
+        allMentions.children = [...allMentions.children, ...feed.children];
+        console.log(
+          `>>> ${feed.children.length} mentions fetched on page ${page}`,
+        );
+        page++;
+      } else {
+        hasMore = false;
+      }
+    } else {
+      const errorText = await response.text();
+      console.log(">>> Error response:", errorText);
+      hasMore = false;
+    }
   }
 
-  return null;
+  console.log(`>>> Total mentions fetched: ${allMentions.children.length}`);
+  return allMentions;
 }
 
 // Merge fresh webmentions with cached entries, unique per id
@@ -48,7 +80,9 @@ function readFromCache() {
 
   if (fs.existsSync(filePath)) {
     const cacheFile = fs.readFileSync(filePath);
-    return JSON.parse(cacheFile);
+    const cache = JSON.parse(cacheFile);
+    console.log(">>> Last fetch time was:", cache.lastFetched);
+    return cache;
   }
 
   // no cache found.
@@ -59,16 +93,20 @@ function readFromCache() {
 }
 
 async function ReadCacheAndFetch() {
+  console.log(">>> Starting webmention fetch...");
   const cache = readFromCache();
   if (cache.children.length) {
     console.log(`>>> ${cache.children.length} webmentions loaded from cache`);
   }
 
-  const feed = await fetchWebmentions(cache.lastFetched);
+  // Fetch all mentions without using the since parameter
+  console.log(">>> Fetching all webmentions...");
+  const feed = await fetchWebmentions(null);
+
   if (feed) {
     const webmentions = {
       lastFetched: new Date().toISOString(),
-      children: mergeWebmentions(cache, feed),
+      children: feed.children, // Don't merge with cache, just use new mentions
     };
 
     writeToCache(webmentions);
