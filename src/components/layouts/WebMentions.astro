@@ -2,6 +2,7 @@
 import { Icon } from "astro-icon/components";
 import mentions from "../../content/data/webmentions.json";
 import { format } from "date-fns";
+import type { WebMention, WebMentionCache } from "../../types/webmentions";
 
 interface Props {
 	postSlug: string;
@@ -9,15 +10,25 @@ interface Props {
 }
 
 const { postSlug, hasBacklinks } = Astro.props;
+const webmentions = mentions as WebMentionCache;
 
 // get all mentions where wm-target is the current post
-const postMentions = mentions.children.filter((mention) => {
-	return mention["wm-target"] === `https://maggieappleton.com/${postSlug}`;
+const postMentions = webmentions.children.filter((mention: WebMention) => {
+	const target = mention["wm-target"];
+	const baseUrl = `https://maggieappleton.com/${postSlug}`;
+	// Match different variations of the URL
+	return (
+		target === baseUrl ||
+		target === `${baseUrl}/` ||
+		target === `${baseUrl}.mdx` ||
+		target === `${baseUrl}.mdx/` ||
+		target.startsWith(`${baseUrl}?`)
+	); // Handle URLs with query parameters
 });
 
 //filter for mentions where wm-property is like-of or repost-of
 const likesAndReposts = postMentions.filter(
-	(mention) =>
+	(mention: WebMention) =>
 		mention["wm-property"] === "like-of" ||
 		mention["wm-property"] === "repost-of",
 );
@@ -25,9 +36,10 @@ const likesAndReposts = postMentions.filter(
 //filter for mention with content
 const mentionWithContent = postMentions
 	.filter(
-		(mention) => mention["wm-property"] === "mention-of" && mention.content,
+		(mention: WebMention) =>
+			mention["wm-property"] === "mention-of" && mention.content,
 	)
-	.sort((a, b) => {
+	.sort((a: WebMention, b: WebMention) => {
 		const dateA = new Date(a["wm-received"]).getTime();
 		const dateB = new Date(b["wm-received"]).getTime();
 		return dateB - dateA;
@@ -226,31 +238,22 @@ const blockList = [
 ];
 
 // remove mentions where mention[wm-source] matches blockList
-const filteredMentions = mentionWithContent.filter((mention) => {
+const filteredMentions = mentionWithContent.filter((mention: WebMention) => {
 	const domain = mention.url.split("/")[2];
 	const isBlocked = blockList.includes(domain);
 	return !isBlocked;
 });
 
-function mentionType(mention: { [x: string]: any }) {
-	if (mention["wm-property"] === "mention-of") {
-		return "mentioned";
-	} else if (mention["in-reply-to"]) {
-		return "replied";
-	} else if (mention["bookmark-of"]) {
-		return "bookmarked";
-	}
+function mentionType(mention: WebMention) {
+	if (mention["in-reply-to"]) return "replied";
+	if (mention["like-of"]) return "liked";
+	if (mention["bookmark-of"]) return "bookmarked";
+	if (mention["mention-of"]) return "mentioned";
+	return "unknown";
 }
 
-function sourceType(mention: { [x: string]: string | string[] }) {
-	if (mention["wm-source"].includes("twitter")) {
-		return "twitter";
-	} else if (mention["wm-source"].includes("mastodon")) {
-		return "mastodon";
-	} else if (mention["wm-source"].includes("reddit")) {
-		return "reddit";
-	}
-	return null;
+function sourceType(mention: WebMention) {
+	return mention["wm-property"];
 }
 
 function formatDate(date: string | number | Date) {
@@ -290,31 +293,33 @@ const likesWithoutDuplicates = likesAndReposts.filter(
 				{likesAndReposts.length > 0 && (
 					<div class="likes-images-container">
 						<div class="likes-container">
-							{likesWithoutDuplicates.slice(0, 20).map((mention, index) =>
-								mention.author.photo ? (
-									<div class="single-image">
-										<img src={mention.author.photo} alt={mention.author.name} />
-									</div>
-								) : (
-									<div class="single-image">
-										<svg
-											width="42"
-											height="42"
-											viewBox="0 0 42 42"
-											fill="none"
-											xmlns="http://www.w3.org/2000/svg"
-											class="placeholder-svg"
-										>
-											<circle
-												cx="50%"
-												cy="50%"
-												r="21"
-												fill="var(--color-sea-blue)"
-											/>
-										</svg>
-									</div>
-								),
-							)}
+							{likesWithoutDuplicates
+								.slice(0, 20)
+								.map((like: WebMention, index: number) =>
+									like.author.photo ? (
+										<div class="single-image">
+											<img src={like.author.photo} alt={like.author.name} />
+										</div>
+									) : (
+										<div class="single-image">
+											<svg
+												width="42"
+												height="42"
+												viewBox="0 0 42 42"
+												fill="none"
+												xmlns="http://www.w3.org/2000/svg"
+												class="placeholder-svg"
+											>
+												<circle
+													cx="50%"
+													cy="50%"
+													r="21"
+													fill="var(--color-sea-blue)"
+												/>
+											</svg>
+										</div>
+									),
+								)}
 							<span>{likesAndReposts.length} Likes and Retweets</span>
 						</div>
 					</div>
@@ -324,7 +329,7 @@ const likesWithoutDuplicates = likesAndReposts.filter(
 					<>
 						<div class="mentions-scroll-container">
 							<div class="mentions-content-container">
-								{filteredMentions.map((mention, index) => (
+								{filteredMentions.map((mention: WebMention, index: number) => (
 									<div class:list={["reply", { hidden: index >= 4 }]}>
 										{mention.author.photo ? (
 											<img

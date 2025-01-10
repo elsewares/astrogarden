@@ -95,22 +95,33 @@ function readFromCache() {
 async function ReadCacheAndFetch() {
   console.log(">>> Starting webmention fetch...");
   const cache = readFromCache();
+
   if (cache.children.length) {
     console.log(`>>> ${cache.children.length} webmentions loaded from cache`);
-  }
+    console.log(">>> Fetching new webmentions since last fetch...");
+    const feed = await fetchWebmentions(cache.lastFetched);
 
-  // Fetch all mentions without using the since parameter
-  console.log(">>> Fetching all webmentions...");
-  const feed = await fetchWebmentions(null);
+    if (feed) {
+      const webmentions = {
+        lastFetched: new Date().toISOString(),
+        children: mergeWebmentions({ children: cache.children }, feed),
+      };
+      writeToCache(webmentions);
+      return webmentions;
+    }
+  } else {
+    // No cache exists, fetch all mentions
+    console.log(">>> No cache found. Fetching all webmentions...");
+    const feed = await fetchWebmentions(null);
 
-  if (feed) {
-    const webmentions = {
-      lastFetched: new Date().toISOString(),
-      children: feed.children, // Don't merge with cache, just use new mentions
-    };
-
-    writeToCache(webmentions);
-    return webmentions;
+    if (feed) {
+      const webmentions = {
+        lastFetched: new Date().toISOString(),
+        children: feed.children,
+      };
+      writeToCache(webmentions);
+      return webmentions;
+    }
   }
 
   return cache;
