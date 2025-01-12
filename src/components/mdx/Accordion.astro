@@ -36,6 +36,8 @@ const { header } = Astro.props;
 		width: 100%;
 		justify-content: space-between;
 		align-items: center;
+		flex-wrap: wrap;
+		gap: var(--space-8);
 		border-radius: 6px;
 		background: #f0f9f8;
 		border: 1px solid #ade3e3;
@@ -58,17 +60,25 @@ const { header } = Astro.props;
 	.header {
 		color: var(--color-dark-sea-blue);
 		margin-bottom: 0;
-		flex-shrink: 0;
+		flex: 1;
+		min-width: 0;
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 		gap: var(--space-8);
+		text-align: left;
 		font-size: calc(var(--font-size-base) / 1.25);
+	}
+
+	.header svg {
+		flex-shrink: 0;
 	}
 
 	.header span {
 		font-family: var(--font-sans);
 		padding-bottom: 2px;
+		overflow-wrap: break-word;
+		word-break: break-word;
 	}
 
 	.more {
@@ -119,6 +129,26 @@ const { header } = Astro.props;
 		line-height: var(--leading-loose);
 		font-weight: 400;
 		font-size: calc(var(--font-size-base) / 1.25);
+	}
+
+	@media (max-width: 768px) {
+		.accordion-button {
+			align-items: flex-start;
+		}
+
+		.header {
+			align-items: flex-start;
+		}
+
+		.header svg {
+			position: relative;
+			top: 0.25rem;
+		}
+
+		.more {
+			position: relative;
+			top: 0.25rem;
+		}
 	}
 </style>
 
