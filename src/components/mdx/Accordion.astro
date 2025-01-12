@@ -92,6 +92,10 @@ const { header } = Astro.props;
 		height: 0;
 		overflow: hidden;
 		opacity: 0;
+		padding: 1.25rem 1.75rem 1rem 1.75rem;
+		border: 1px solid #b8e5e8;
+		border-top: none;
+		border-radius: 0 0 8px 8px;
 	}
 
 	.accordion-panel.open {
@@ -142,7 +146,7 @@ const { header } = Astro.props;
 						{
 							duration: 0.3,
 							easing: "ease-in-out",
-						}
+						},
 					).then(() => {
 						panel.style.height = "auto";
 					});
@@ -167,7 +171,7 @@ const { header } = Astro.props;
 						{
 							duration: 0.3,
 							easing: "ease-in-out",
-						}
+						},
 					).then(() => {
 						panel.style.display = "none";
 					});
