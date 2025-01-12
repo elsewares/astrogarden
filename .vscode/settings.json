@@ -14,5 +14,6 @@
   },
   "files.associations": {
     "*.mdx": "markdown"
-  }
+  },
+  "cSpell.words": ["zettelkasten"]
 }
