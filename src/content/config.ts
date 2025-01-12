@@ -136,6 +136,21 @@ const smidgeonsCollection = defineCollection({
       startDate: z.coerce.date(),
       type: z.literal("smidgeon"),
       topics: z.array(z.string()).optional(),
+      external: z
+        .object({
+          url: z.string().url(),
+          title: z.string(),
+          author: z.string().optional(),
+        })
+        .optional(),
+      citation: z
+        .object({
+          authors: z.array(z.string()),
+          journal: z.string(),
+          year: z.number(),
+          url: z.string().optional(),
+        })
+        .optional(),
     }),
 });
 

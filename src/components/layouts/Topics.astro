@@ -11,9 +11,7 @@ const { topics } = Astro.props;
 			const slug = slugifyTopic(topic);
 			return (
 				<li class="styled-tag">
-					<UnderlineHoverLink href={`/topics/${slug}`}>
-						{topic}
-					</UnderlineHoverLink>
+					<UnderlineHoverLink href={`/topics/${slug}`}>{topic}</UnderlineHoverLink>
 				</li>
 			);
 		})
