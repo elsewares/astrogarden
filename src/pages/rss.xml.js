@@ -40,6 +40,11 @@ export async function GET(context) {
       ...smidgeons.map((post) => ({
         title: post.data.title,
         pubDate: post.data.startDate,
+        description: post.data.external
+          ? `${post.data.external.title} by ${post.data.external.author || "Unknown"}\n${post.data.external.url}`
+          : post.data.citation
+            ? `${post.data.citation.journal} (${post.data.citation.year}) by ${post.data.citation.authors.join(", ")}\n${post.data.citation.url || ""}`
+            : "",
         link: `/${post.id}/`,
       })),
     ].sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf()),
