@@ -1,11 +1,13 @@
 {
   "trailingComma": "all",
-  "overrides":
-    [
-      {
-        "files": "*.mdx",
-        "options":
-          { "proseWrap": "preserve", "embeddedLanguageFormatting": "off" },
-      },
-    ],
+  "proseWrap": "always",
+  "printWidth": 100,
+  "overrides": [
+    {
+      "files": "*.mdx",
+      "options": {
+        "embeddedLanguageFormatting": "off"
+      }
+    }
+  ]
 }
