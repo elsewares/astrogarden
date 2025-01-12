@@ -48,15 +48,13 @@ import UnderlineHoverLink from "../mdx/UnderlineHoverLink.astro";
 					{ text: "Patterns", slug: "/patterns" },
 					{ text: "Podcasts", slug: "/podcasts" },
 					{ text: "Talks", slug: "/talks" },
-					// { text: "Smidgeons", slug: "/smidgeons" },
+					{ text: "Smidgeons", slug: "/smidgeons" },
 					{ text: "Colophon", slug: "/colophon" },
 					{ text: "Library", slug: "/library" },
 				].map((link) => (
 					<li>
 						<span>
-							<UnderlineHoverLink href={link.slug}>
-								{link.text}
-							</UnderlineHoverLink>
+							<UnderlineHoverLink href={link.slug}>{link.text}</UnderlineHoverLink>
 						</span>
 					</li>
 				))
