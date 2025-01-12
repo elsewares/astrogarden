@@ -138,13 +138,14 @@ const smidgeonsCollection = defineCollection({
       topics: z.array(z.string()).optional(),
       external: z
         .object({
-          url: z.string().url(),
           title: z.string(),
+          url: z.string().url(),
           author: z.string().optional(),
         })
         .optional(),
       citation: z
         .object({
+          title: z.string(),
           authors: z.array(z.string()),
           journal: z.string(),
           year: z.number(),

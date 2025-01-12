@@ -1,5 +1,12 @@
-<!-- To use on any page that isn't a post (essays, notes, patterns) -->
-<main>
+---
+interface Props {
+	class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<main class={className}>
 	<slot />
 </main>
 
