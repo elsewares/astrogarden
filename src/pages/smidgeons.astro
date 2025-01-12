@@ -58,7 +58,10 @@ const renderedSmidgeons = await Promise.all(
 	<PageWrapper>
 		<header class="header">
 			<TitleWithCount posts={smidgeons}> Smidgeons Stream </TitleWithCount>
-			<Title2> A stream of interesting links, papers, and tiny thoughts. </Title2>
+			<Title2>
+				A stream of interesting links, papers, and tiny thoughts. Roughly what I'm reading and
+				thinking about at the moment.</Title2
+			>
 		</header>
 
 		<div class="smidgeons-list">
@@ -89,7 +92,7 @@ const renderedSmidgeons = await Promise.all(
 									<a href={smidgeon.data.external.url} target="_blank" rel="noopener noreferrer">
 										<div class="reference-card">
 											<h1 class="content-header">
-												{smidgeon.data.title}
+												{smidgeon.data.external.title}
 												<Icon name="heroicons:arrow-top-right-on-square" size={16} />
 											</h1>
 											{smidgeon.data.external.author && (
