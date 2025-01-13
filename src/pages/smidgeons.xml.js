@@ -11,6 +11,27 @@ function stripMarkdown(text) {
     .replace(/[*_`~]/g, ""); // Remove markdown formatting characters
 }
 
+// Helper to strip MDX component tags but preserve images
+function stripMDXComponents(text) {
+  return (
+    text
+      // Convert BasicImage components to standard img tags
+      .replace(
+        /<BasicImage[^>]*src="([^"]*)"[^>]*alt="([^"]*)"[^>]*\/>/g,
+        (match, src, alt) => `<img src="${src}" alt="${alt}" />`,
+      )
+      // Convert RemoteImage components to standard img tags
+      .replace(
+        /<RemoteImage[^>]*src="([^"]*)"[^>]*alt="([^"]*)"[^>]*\/>/g,
+        (match, src, alt) => `<img src="${src}" alt="${alt}" />`,
+      )
+      // Remove all other self-closing MDX component tags
+      .replace(/<([A-Z][A-Za-z]*)[^>]*\/>/g, "")
+      // Remove all other MDX component tags with content
+      .replace(/<([A-Z][A-Za-z]*)[\s\S]*?<\/\1>/g, "")
+  );
+}
+
 export async function GET(context) {
   const smidgeons = await getCollection("smidgeons", ({ data }) => !data.draft);
 
@@ -45,7 +66,14 @@ export async function GET(context) {
               ? `<a href="${post.data.external.url}">${post.data.external.title}</a>\n\n`
               : post.data.citation
                 ? `<a href="${post.data.citation.url}">${post.data.citation.title}</a>\n\n`
-                : "") + parser.render(contentWithoutImports),
+                : "") + stripMDXComponents(parser.render(contentWithoutImports)),
+            {
+              allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
+              allowedAttributes: {
+                ...sanitizeHtml.defaults.allowedAttributes,
+                img: ["src", "alt"],
+              },
+            },
           ),
         };
       })
