@@ -1,7 +1,4 @@
 {
-  "prettier.proseWrap": "always",
-  "editor.wordWrap": "wordWrapColumn",
-  "editor.wordWrapColumn": 80,
   "[mdx]": {
     "editor.quickSuggestions": {
       "strings": true,
