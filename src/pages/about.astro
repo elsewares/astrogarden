@@ -11,15 +11,21 @@ import Scarf from "../images/general/Scarf_1000.jpg";
 import Brown from "../images/general/Brown_1000.jpg";
 
 const photoSources = [Stripe2, Scarf, Brown];
-
-const randomPhoto =
-	photoSources[Math.floor(Math.random() * photoSources.length)];
 ---
 
-<Layout
-	title="About Maggie Appleton"
-	desc="Designer, anthropologist, and mediocre developer."
->
+<script>
+	const photos = document.querySelectorAll(".random-photo");
+	const randomIndex = Math.floor(Math.random() * photos.length);
+
+	// Hide all photos except the random one
+	photos.forEach((photo, index) => {
+		if (index === randomIndex) {
+			photo.style.display = "block";
+		}
+	});
+</script>
+
+<Layout title="About Maggie Appleton" desc="Designer, anthropologist, and mediocre developer.">
 	<PageWrapper>
 		<div class="header-section">
 			<SmallCaps>About</SmallCaps>
@@ -31,59 +37,46 @@ const randomPhoto =
 				<div>
 					<SmallCaps>A Little Context</SmallCaps>
 					<p>
-						I sit at the intersection of design, anthropology, and programming.
-						These three are at the core of everything I make. Combining them
-						into a coherent career is a weird and ongoing challenge.
+						I sit at the intersection of design, anthropology, and programming. These three are at
+						the core of everything I make. Combining them into a coherent career is a weird and
+						ongoing challenge.
 					</p>
 					<p>
-						Titles and disciplines are fickle and fleeting. But my work fits
-						under the umbrellas of UX design, visual interface design, and DX
-						(developer experience). With some cultural analysis, writing, and
-						visual illustration sprinkled on top.
+						Titles and disciplines are fickle and fleeting. But my work fits under the umbrellas of
+						UX design, visual interface design, and DX (developer experience). With some cultural
+						analysis, writing, and visual illustration sprinkled on top.
 					</p>
 					<p>
 						I'm a lead design engineer at
-						<UnderlineHoverLink href="https://normally.com">
-							Normally
-						</UnderlineHoverLink>
-						, a research and design studio building mindful AI into all kinds of
-						products and services.
+						<UnderlineHoverLink href="https://normally.com"> Normally </UnderlineHoverLink>
+						, a research and design studio building mindful AI into all kinds of products and services.
 					</p>
 					<p>
 						Before that I was the founding designer at
-						<UnderlineHoverLink href="https://elicit.com">
-							Elicit
-						</UnderlineHoverLink>
-						, a tool that uses machine learning and language models to improve the
-						systematic review process for researchers and scientists.
+						<UnderlineHoverLink href="https://elicit.com"> Elicit </UnderlineHoverLink>
+						, a tool that uses machine learning and language models to improve the systematic review
+						process for researchers and scientists.
 					</p>
 					<p>
 						Before Elicit I was head of design at{" "}
-						<UnderlineHoverLink href="https://hash.ai">
-							HASH
-						</UnderlineHoverLink>{" "}
-						– a company developing an open-source platform to improve the way we
-						structure knowledge on the web.
+						<UnderlineHoverLink href="https://hash.ai"> HASH </UnderlineHoverLink>{" "}
+						– a company developing an open-source platform to improve the way we structure knowledge
+						on the web.
 					</p>
 					<p>
-						Before that I spent five years at the developer education company{
-							" "
-						}
-						<UnderlineHoverLink href="https://egghead.io">
-							egghead
-						</UnderlineHoverLink>{" "}
-						as the art director and UX designer. It was there that I developed a
-						system for visualising programming concepts through metaphors and cultural
-						symbols.
+						Before that I spent five years at the developer education company{" "}
+						<UnderlineHoverLink href="https://egghead.io"> egghead </UnderlineHoverLink>{" "}
+						as the art director and UX designer. It was there that I developed a system for visualising
+						programming concepts through metaphors and cultural symbols.
 					</p>
 					<p>
 						On the side I create <UnderlineHoverLink href="/essays"
 							>illustrated essays</UnderlineHoverLink
-						> and visual explanations about programming and culture. I'm an advocate
-						of{" "}<UnderlineHoverLink href="/garden-history"
-							>digital gardening</UnderlineHoverLink
-						>,{" "}<UnderlineHoverLink
-							href="https://en.wikipedia.org/wiki/End-user_development"
+						> and visual explanations about programming and culture. I'm an advocate of{
+							" "
+						}<UnderlineHoverLink href="/garden-history">digital gardening</UnderlineHoverLink>,{
+							" "
+						}<UnderlineHoverLink href="https://en.wikipedia.org/wiki/End-user_development"
 							>end-user programming</UnderlineHoverLink
 						>
 						, and expanding our use of{" "}<UnderlineHoverLink
@@ -96,44 +89,46 @@ const randomPhoto =
 					</p>
 					<SmallCaps>A Little History</SmallCaps>
 					<p>
-						I'm originally from London but grew up in international schools in
-						Hong Kong, Vietnam, Thailand, and Singapore.
+						I'm originally from London but grew up in international schools in Hong Kong, Vietnam,
+						Thailand, and Singapore.
 					</p>
 					<p>
 						{" "}
 						I earned my undergraduate degree in{" "}
-						<UnderlineHoverLink
-							href="https://en.wikipedia.org/wiki/Cultural_anthropology"
-						>
+						<UnderlineHoverLink href="https://en.wikipedia.org/wiki/Cultural_anthropology">
 							cultural anthropology
 						</UnderlineHoverLink>{" "}
-						at a small, hippie, liberal arts college in the United States. While
-						I adore anthropology, it's not terribly employable (unless you want to
-						be an academic or a military advisor) and I promptly switched into freelance
-						design and illustration to pay rent. I started developing my visual design
-						skills at age 14 when I first bootlegged a copy of Photoshop to make
-						my own icon sets, but never realised you could get paid for that.
+						at a small, hippie, liberal arts college in the United States. While I adore anthropology,
+						it's not terribly employable (unless you want to be an academic or a military advisor) and
+						I promptly switched into freelance design and illustration to pay rent. I started developing
+						my visual design skills at age 14 when I first bootlegged a copy of Photoshop to make my
+						own icon sets, but never realised you could get paid for that.
 					</p>
 					<p>
-						In my early twenties I country-hopped while working through the
-						early, ugly, awkward phase of my design sensibilities. I worked with
-						web developers in Vietnam, trained with feature film illustrators in
-						Los Angeles, and learned typography and brand design at creative
-						agencies in Prague. I made a lot of hideous stuff, but figured out
-						what I liked along the way.
+						In my early twenties I country-hopped while working through the early, ugly, awkward
+						phase of my design sensibilities. I worked with web developers in Vietnam, trained with
+						feature film illustrators in Los Angeles, and learned typography and brand design at
+						creative agencies in Prague. I made a lot of hideous stuff, but figured out what I liked
+						along the way.
 					</p>
 					<p>
-						I eventually returned to London to become a more settled, "normal"
-						adult, and have come to love the dull stability of home.
+						I eventually returned to London to become a more settled, "normal" adult, and have come
+						to love the dull stability of home.
 					</p>
 				</div>
-				<Image
-					src={randomPhoto}
-					alt="a photo of maggie appleton"
-					width={800 / 1.25}
-					height={1200 / 1.25}
-					style="object-fit: contain;"
-				/>
+				{
+					photoSources.map((photo, index) => (
+						<Image
+							src={photo}
+							alt="a photo of maggie appleton"
+							width={800 / 1.25}
+							height={1200 / 1.25}
+							style={`object-fit: contain; display: none;`}
+							class="random-photo"
+							id={`photo-${index}`}
+						/>
+					))
+				}
 			</section>
 		</div>
 	</PageWrapper>
