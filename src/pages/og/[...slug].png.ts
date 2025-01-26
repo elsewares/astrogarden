@@ -5,11 +5,12 @@ import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const [essays, notes, talks, patterns] = await Promise.all([
+  const [essays, notes, talks, patterns, smidgeons] = await Promise.all([
     getCollection("essays"),
     getCollection("notes"),
     getCollection("talks"),
     getCollection("patterns"),
+    getCollection("smidgeons"),
   ]);
 
   // Create paths for each content type
@@ -47,6 +48,14 @@ export async function getStaticPaths() {
     paths.push({
       params: { slug: entry.id },
       props: { entry, type: "pattern" },
+    });
+  });
+
+  // Smidgeons
+  smidgeons.forEach((entry) => {
+    paths.push({
+      params: { slug: entry.id },
+      props: { entry, type: "smidgeon" },
     });
   });
 
@@ -98,7 +107,7 @@ export const GET: APIRoute = async function get({ props, request }) {
   }
 
   // Adjust font size based on title length
-  if (props.type === "essay" || props.type === "talk") {
+  if (props.type === "essay") {
     if (title.length > 40) {
       titleFontSize = "68px";
     } else if (title.length < 32) {
@@ -113,11 +122,9 @@ export const GET: APIRoute = async function get({ props, request }) {
   let imageWidth = 400;
   let imageHeight = 400;
 
-  if ("cover" in entry.data && entry.data.cover?.src) {
+  if (props.type === "essay" && "cover" in entry.data && entry.data.cover?.src) {
     try {
-      const { base64, width, height } = await getImageData(
-        entry.data.cover.src,
-      );
+      const { base64, width, height } = await getImageData(entry.data.cover.src);
 
       if (base64) {
         coverImage = base64;
@@ -149,7 +156,7 @@ export const GET: APIRoute = async function get({ props, request }) {
       margin: "0",
     },
     description: {
-      fontSize: type === "essay" || type === "talk" ? "30px" : "36px",
+      fontSize: type === "essay" ? "30px" : "36px",
       fontFamily: "Canela Text",
       fontWeight: "normal",
       width: "100%",
@@ -177,20 +184,12 @@ export const GET: APIRoute = async function get({ props, request }) {
   };
 
   // Load the Canela font
-  const CanelaDeck = await fs.readFile(
-    "./public/fonts/CanelaDeck-Regular.woff",
-  );
+  const CanelaDeck = await fs.readFile("./public/fonts/CanelaDeck-Regular.woff");
   const CanelaText = await fs.readFile("./public/fonts/CanelaText-Light.woff");
 
   // Load Lato fonts by fetching the actual font files
   const LatoRegular = await (
     await fetch("https://fonts.gstatic.com/s/lato/v24/S6uyw4BMUTPHvxk.ttf")
-  ).arrayBuffer();
-  const LatoLight = await (
-    await fetch("https://fonts.gstatic.com/s/lato/v24/S6u9w4BMUTPHh7USew8.ttf")
-  ).arrayBuffer();
-  const LatoBold = await (
-    await fetch("https://fonts.gstatic.com/s/lato/v24/S6u9w4BMUTPHh6UVew8.ttf")
   ).arrayBuffer();
 
   const content = {
@@ -211,8 +210,7 @@ export const GET: APIRoute = async function get({ props, request }) {
           props: {
             style: {
               display: "flex",
-              padding:
-                type === "essay" || type === "talk" ? "56px 48px" : "80px 64px",
+              padding: type === "essay" ? "56px 48px" : "80px 64px",
             },
             children: [
               {
