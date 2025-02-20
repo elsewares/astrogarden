@@ -1,0 +1,48 @@
+---
+title: "Humanity's Last Exam"
+startDate: 2025-02-20T11:42:03.195Z
+type: "smidgeon"
+topics: ["Artificial Intelligence", "Language Models", "Knowledge Work"]
+external:
+  url: "https://agi.safe.ai/"
+  title: "Humanity's Last Exam"
+  author: "Center for AI Safety (CAIS) and Scale AI"
+---
+
+We have a new(ish)<Footnote isClosed idName={1}>Okay, it's not that new – created in September 2024 – but we've only recently seen companies using when they announce new models.</Footnote> benchmark, cutely named “Humanity's Last Exam.”
+
+If you're not familiar with benchmarks, they're how we measure the capabilities of particular AI models like o1 or Claude Sonnet 3.5. Each one is a standardised test designed to check a specific skill set.
+
+For example:
+
+- [MMLU](https://paperswithcode.com/dataset/mmlu) (Massive Multitask Language Understanding) measures understanding across 57 academic subjects including STEM, social science, and the humanities.
+- [HumanEval](https://arxiv.org/pdf/2107.03374v2) measures code generation skills.
+- [GPQA](https://arxiv.org/pdf/2311.12022) (Graduate-Level Google-Proof Q&A Benchmark) measures correctness on a set of questions written by PhD students and domain experts in biology, physics, and chemistry.
+
+When you run a model on a benchmark it gets a score, which allows us to create [leaderboards](https://llm-stats.com/) showing which model is currently the best for that test. To make scoring easy, the answers are usually formatted as multiple choice, true/false, or unit tests for programming tasks.
+
+Among the many problems with using benchmarks as a stand-in for “intelligence” (other than the fact they're multiple choice standardised tests – do you think that's a reasonable measure of human capabilities in the real world?), is that our current benchmarks aren't hard enough.
+
+New models routinely achieve 90%+ on the best ones we have. So there's a clear need for harder benchmarks to measure model performance against.
+
+Hence, [Humanity's Last Exam](https://lastexam.ai/).
+
+Made by ScaleAI and the Center for AI Safety, they've crowdsourced "the hardest and broadest set of questions ever" by experts across domains. 2,700 questions at the moment, some of which they're keeping private to prevent future models training on the dataset and memorising answers ahead of time. Questions like this:
+
+<BasicImage framed width="600" margin="1.5rem auto 0" src="/images/smidgeons/last-exam-1.png" alt="Samples of the diverse and challenging questions submitted to Humanity's Last Exam." />
+
+<BasicImage framed width="600" margin="0 auto" src="/images/smidgeons/last-exam-2.png" alt="Samples of the diverse and challenging questions submitted to Humanity's Last Exam." />
+
+<BasicImage framed width="600" margin="0 auto 2rem" src="/images/smidgeons/last-exam-3.png" alt="Samples of the diverse and challenging questions submitted to Humanity's Last Exam." />
+
+So far, it's doing it's job well – the highest scoring model is OpenAI's [Deep Research](https://openai.com/index/introducing-deep-research/) at 26.6%, with other common models like GPT-4o, Grok, and Claude only getting 3-4% correct. Maybe it'll last a year before we have to design the next “last exam.”
+
+#### A quick note on benchmarks and sweeping generalisations
+
+When people make sweeping statements like “language models are bullshit machines” or “ChatGPT lies,” it usually tells me they're not seriously engaged in any kind of AI/ML work or productive discourse in this space.
+
+First, because saying a machine “lies” or “bullshits” implies motivated intent in a social context, which language models don't have. Models doing statistical pattern matching aren't purposefully trying to deceive or manipulate their users.
+
+And second, broad generalisations about “AI”'s correctness, truthfulness, or usefulness is meaningless outside of a specific context. Or rather, **a specific model measured on a specific benchmark or reproducible test.**
+
+So, next time you hear someone making grand statements about AI capabilities (both critical and overhyped), ask: which model are they talking about? On what benchmark? With what prompting techniques? With what supporting infrastructure around the model? Everything is in the details, and the only way to be a sensible thinker in this space is to learn about the details.
