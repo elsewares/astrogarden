@@ -15,6 +15,14 @@ function stripMarkdown(text) {
 function stripMDXComponents(text) {
   return (
     text
+      // Convert ResourceBook components to a simpler format with image and text (handling multiline format)
+      .replace(
+        /<ResourceBook[\s\S]*?url="([^"]*)"[\s\S]*?title="([^"]*)"[\s\S]*?author="([^"]*)"[\s\S]*?image=\{([^}]*)\}[\s\S]*?>([\s\S]*?)<\/ResourceBook>/g,
+        (match, url, title, author, image, content) => {
+          const cleanContent = content.trim();
+          return `<a href="${url}"><strong>${title}</strong></a> by ${author}${cleanContent ? `\n\n${cleanContent}` : ""}`;
+        },
+      )
       // Convert BasicImage components to standard img tags
       .replace(
         /<BasicImage[^>]*src="([^"]*)"[^>]*alt="([^"]*)"[^>]*\/>/g,
@@ -25,6 +33,8 @@ function stripMDXComponents(text) {
         /<RemoteImage[^>]*src="([^"]*)"[^>]*alt="([^"]*)"[^>]*\/>/g,
         (match, src, alt) => `<img src="${src}" alt="${alt}" />`,
       )
+      // Remove Spacer components
+      .replace(/<Spacer[^>]*\/>/g, "")
       // Remove all other self-closing MDX component tags
       .replace(/<([A-Z][A-Za-z]*)[^>]*\/>/g, "")
       // Remove all other MDX component tags with content
@@ -69,12 +79,29 @@ export async function GET(context) {
         description: post.data.description,
         link: `/${post.id}/`,
       })),
-      ...now.map((post) => ({
-        title: post.data.title,
-        pubDate: post.data.date,
-        link: `/${post.id}/`,
-        content: post.body,
-      })),
+      ...now.map((post) => {
+        // Filter out import statements from content
+        const contentWithoutImports = post.body
+          .split("\n")
+          .filter((line) => !line.startsWith("import"))
+          .join("\n");
+
+        // First strip MDX components, then render markdown
+        const processedContent = parser.render(stripMDXComponents(contentWithoutImports));
+
+        return {
+          title: post.data.title,
+          pubDate: post.data.date,
+          link: `/now-${post.id}/`,
+          content: sanitizeHtml(processedContent, {
+            allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
+            allowedAttributes: {
+              ...sanitizeHtml.defaults.allowedAttributes,
+              img: ["src", "alt"],
+            },
+          }),
+        };
+      }),
       ...smidgeons.map((post) => {
         // Get first non-import, non-empty line of content
         const firstLine = post.body
@@ -86,6 +113,10 @@ export async function GET(context) {
           .split("\n")
           .filter((line) => !line.startsWith("import"))
           .join("\n");
+
+        // First strip MDX components, then render markdown
+        const processedContent = stripMDXComponents(contentWithoutImports);
+        const renderedContent = parser.render(processedContent);
 
         return {
           title: post.data.title,
@@ -101,7 +132,7 @@ export async function GET(context) {
               ? `<a href="${post.data.external.url}">${post.data.external.title}</a>\n\n`
               : post.data.citation
                 ? `<a href="${post.data.citation.url}">${post.data.citation.title}</a>\n\n`
-                : "") + stripMDXComponents(parser.render(contentWithoutImports)),
+                : "") + renderedContent,
             {
               allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
               allowedAttributes: {

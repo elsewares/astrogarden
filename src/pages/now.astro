@@ -49,15 +49,18 @@ const components = {
 		<header class="header">
 			<Title1>Now</Title1>
 			<Title2>
-				A sporadically updated log of what I'm reading, exploring, and thinking
-				about
+				A sporadically updated log of what I'm reading, exploring, and thinking about
 			</Title2>
 		</header>
 		<main>
 			{
 				renderedPosts.map(({ Content, post }) => (
 					<NowSection>
-						<h3>{post.data.title}</h3>
+						<h3>
+							<a href={`/now-${post.id}`} class="post-title-link">
+								{post.data.title}
+							</a>
+						</h3>
 						<Content components={components} />
 					</NowSection>
 				))
@@ -75,6 +78,12 @@ const components = {
 	main {
 		margin: 6rem auto var(--space-2xl);
 		max-width: 800px;
+	}
+
+	.post-title-link {
+		text-decoration: none;
+		color: inherit;
+		transition: color 0.2s ease;
 	}
 
 	@media (max-width: 768px) {
