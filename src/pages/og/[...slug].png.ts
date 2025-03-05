@@ -3,14 +3,16 @@ import satori from "satori";
 import sharp from "sharp";
 import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";
+import type { ReactNode } from "react";
 
 export async function getStaticPaths() {
-  const [essays, notes, talks, patterns, smidgeons] = await Promise.all([
+  const [essays, notes, talks, patterns, smidgeons, nowPages] = await Promise.all([
     getCollection("essays"),
     getCollection("notes"),
     getCollection("talks"),
     getCollection("patterns"),
     getCollection("smidgeons"),
+    getCollection("now"),
   ]);
 
   // Create paths for each content type
@@ -56,6 +58,14 @@ export async function getStaticPaths() {
     paths.push({
       params: { slug: entry.id },
       props: { entry, type: "smidgeon" },
+    });
+  });
+
+  // Now pages
+  nowPages.forEach((entry) => {
+    paths.push({
+      params: { slug: `now-${entry.id}` },
+      props: { entry, type: "now" },
     });
   });
 
@@ -115,6 +125,13 @@ export const GET: APIRoute = async function get({ props, request }) {
     } else {
       titleFontSize = "80px";
     }
+  }
+
+  // For 'now' type pages, set a custom description
+  let displayDescription = description;
+  if (props.type === "now") {
+    displayDescription =
+      "A sporadically updated log of what I'm reading, exploring, and thinking about";
   }
 
   // Handle cover image
@@ -192,6 +209,7 @@ export const GET: APIRoute = async function get({ props, request }) {
     await fetch("https://fonts.gstatic.com/s/lato/v24/S6uyw4BMUTPHvxk.ttf")
   ).arrayBuffer();
 
+  // Load the content
   const content = {
     type: "div",
     props: {
@@ -276,7 +294,8 @@ export const GET: APIRoute = async function get({ props, request }) {
                               },
                             },
                           },
-                          {
+                          // Only show growth stage if it exists (not present in 'now' type)
+                          growthStage && {
                             type: "p",
                             props: {
                               style: styles.eyebrow,
@@ -293,11 +312,11 @@ export const GET: APIRoute = async function get({ props, request }) {
                         children: title,
                       },
                     },
-                    description && {
+                    displayDescription && {
                       type: "p",
                       props: {
                         style: styles.description,
-                        children: description,
+                        children: displayDescription,
                       },
                     },
                   ].filter(Boolean),
@@ -407,7 +426,7 @@ export const GET: APIRoute = async function get({ props, request }) {
     },
   };
 
-  const svg = await satori(content, {
+  const svg = await satori(content as ReactNode, {
     width: 1200,
     height: 630,
     fonts: [
