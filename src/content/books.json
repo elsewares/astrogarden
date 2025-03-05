@@ -1,15 +1,20 @@
 [
   {
-    "title": "Empire of Pain",
-    "subtitle": "The Secret History of the Sackler Dynasty",
+    "title": "The Good Mother Myth",
+    "author": "Nancy Reddy",
+    "cover": "../images/books/goodmother.jpg",
+    "link": "https://www.goodreads.com/book/show/211003829-the-good-mother-myth",
+    "id": 62
+  },
+  {
+    "title": "Empire of Pain: The Secret History of the Sackler Dynasty",
     "author": "Patrick Radden Keefe",
     "cover": "../images/books/empireofpain.jpg",
     "link": "https://www.google.co.uk/books/edition/Empire_of_Pain/tN8OEAAAQBAJ?hl=en&gbpv=0",
     "id": 61
   },
   {
-    "title": "Seeing Voices",
-    "subtitle": "A Journey Into the World of the Deaf",
+    "title": "Seeing Voices: A Journey Into the World of the Deaf",
     "author": "Oliver Sacks",
     "cover": "../images/books/seeingvoices.jpg",
     "link": "https://www.google.co.uk/books/edition/Seeing_Voices/CvASwnRq2zgC?hl=en&gbpv=0",
