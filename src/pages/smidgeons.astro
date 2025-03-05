@@ -21,7 +21,7 @@ import RemoteImage from "../components/mdx/RemoteImage.astro";
 import BasicImage from "../components/mdx/BasicImage.astro";
 import Spacer from "../components/mdx/Spacer.astro";
 
-const smidgeons = await getCollection("smidgeons");
+const smidgeons = await getCollection("smidgeons", ({ data }) => !data.draft);
 
 // Sort by date in reverse chronological order
 const sortedSmidgeons = smidgeons.sort(

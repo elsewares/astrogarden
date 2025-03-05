@@ -136,6 +136,7 @@ const smidgeonsCollection = defineCollection({
       startDate: z.coerce.date(),
       type: z.literal("smidgeon"),
       topics: z.array(z.string()).optional(),
+      draft: z.boolean().optional(),
       external: z
         .object({
           title: z.string(),
@@ -155,6 +156,18 @@ const smidgeonsCollection = defineCollection({
     }),
 });
 
+const pagesCollection = defineCollection({
+  loader: glob({ pattern: "**/*.mdx", base: "./src/content/pages" }),
+  schema: () =>
+    z.object({
+      title: z.string(),
+      description: z.string().optional(),
+      updated: z.coerce.date().optional(),
+      startDate: z.coerce.date().optional(),
+      type: z.literal("page"),
+    }),
+});
+
 // This key should match your collection directory name in "src/content"
 export const collections = {
   now: nowCollection,
@@ -166,4 +179,5 @@ export const collections = {
   books: booksCollection,
   antibooks: antibooksCollection,
   smidgeons: smidgeonsCollection,
+  pages: pagesCollection,
 };
