@@ -38,6 +38,7 @@ export async function GET(context) {
   const talks = await getCollection("talks", ({ data }) => !data.draft);
   const patterns = await getCollection("patterns", ({ data }) => !data.draft);
   const smidgeons = await getCollection("smidgeons", ({ data }) => !data.draft);
+  const now = await getCollection("now", ({ data }) => !data.draft);
 
   return rss({
     title: "Maggie Appleton",
@@ -67,6 +68,12 @@ export async function GET(context) {
         pubDate: post.data.startDate,
         description: post.data.description,
         link: `/${post.id}/`,
+      })),
+      ...now.map((post) => ({
+        title: post.data.title,
+        pubDate: post.data.date,
+        link: `/${post.id}/`,
+        content: post.body,
       })),
       ...smidgeons.map((post) => {
         // Get first non-import, non-empty line of content

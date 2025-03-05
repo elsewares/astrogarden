@@ -136,6 +136,7 @@ const smidgeonsCollection = defineCollection({
       startDate: z.coerce.date(),
       type: z.literal("smidgeon"),
       topics: z.array(z.string()).optional(),
+      draft: z.boolean().optional(),
       external: z
         .object({
           title: z.string(),
