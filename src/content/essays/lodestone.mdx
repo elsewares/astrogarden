@@ -1,0 +1,48 @@
+---
+title: "Building Lodestone: A Critical Thinking Tool"
+description: "Prototyping a critical thinking tool for my own research and  non-fiction writing process"
+startDate: "2025-03-10"
+updated: "2025-03-10"
+type: "essay"
+growthStage: "evergreen"
+cover: "../../images/covers/growing@2x.png"
+topics: ["Language Models", "Artificial Intelligence", "Knowledge Work"]
+featured: true
+draft: true
+---
+
+import AssumedAudience from "../../components/mdx/AssumedAudience.astro";
+
+<AssumedAudience>
+
+Designers and engineers building AI products and
+
+</AssumedAudience>
+
+<Spacer size="xs" />
+
+<IntroParagraph>We're currently being told that AI is going to do a lot of work for is. It'll write blog posts, reports, and essays for us, [research](https://openai.com/index/introducing-deep-research/) for us, draw for us, [code](https://www.cursor.com/) for us, [develop drugs](https://pharmaceutical-journal.com/article/feature/how-ai-is-transforming-drug-discovery) for us, draft [legal documents](https://www.harvey.ai/products/assistant) for us, and think for us. Consulting firms keep [releasing](https://www.pwc.com/gx/en/issues/artificial-intelligence/ai-jobs-barometer.html) [robot-laden](https://www.mckinsey.com/mgi/our-research/a-new-future-of-work-the-race-to-deploy-ai-and-raise-skills-in-europe-and-beyond) [PDF reports](https://www3.weforum.org/docs/WEF_Jobs_of_Tomorrow_Generative_AI_2023.pdf) on which white-collar, knowledge work jobs will be automated first.<Footnote idName={1}>To spoil the surprise, credit authorisers, insurance underwriters, customer support staff, and office administrators are first on the chopping block.</Footnote> </IntroParagraph>
+
+The implication in this rhetoric is that automating away most of humanity's hard cognitive labour is net good. Why expend precious human energy thinking when we don't have to? Why not have the machines do the research, analysis, decision-making, debugging, and execution while we take a long coffee break?<Footnote idName={2}>I say this as someone spends a lot of their “working day” sipping tea and waiting for Cursor to complete requests and then evaluating its responses.</Footnote>
+
+Let's briefly put aside the fact we don't fully understand how models 'think' and 'reason', and that whatever they're doing is fundamentally different to what humans do when they 'think' and 'reason', even if the final output looks surprisingly similar and achieves the same goal.
+
+Even if we assume their outputs are just as valuable, valid, and useful as human-made outputs,<Footnote idName={3}>I'm not claiming this is broadly true, and debating whether they are or not is frankly a bit pointless outside of extremely specific tasks, contexts, and model architectures.</Footnote> offloading all our thinking work comes with the heavy price of dependence and skill degradation. We're seeing this problem actively play out in the developer community as junior [roles disappear](https://x.com/shl/status/1887484068075274347) and computer science students use ChatGPT to [do their homework](https://x.com/lxeagle17/status/1899979933096808567) rather using first principles to solve problems and debug their code. Young developers are both less skilled and less employable thanks to everyone's increasing dependence on AI coding assistants.
+
+It's useful to consider this problem though the frame of _complementary_ vs. _competitive_ cognitive artefacts. Proposed by David Krakauer in [this 2016 article](https://nautil.us/will-ai-harm-us-better-to-ask-how-well-reckon-with-our-hybrid-nature-236098/) for Nautilus, the concept draws attention to how different tools can act as enabling teachers or disabling serfs.
+
+[images of complementary artefacts vs. competitive ones]
+
+I should be more skilled after using a tool, not less.
+
+Models designed to do things for us, without involving us in the process, seem net bad. Dangerous. We're reliant on them. AI safety researchers will point out that herein lies the path to self-destruction.
+
+The line between a tool being complementary vs competitive lies in how its designed. I don't believe language models and machine learning systems are inherently competitive. But to make them complementary we have to intentionally design them to be so. We have to choose to craft interfaces and systems that both make us more capable and teach us how to work better without them.
+
+With that long introductory setup out of the way, let's get to the point. I have some questions I'm trying to answer. So I've started a little research project to contain them called Lodestone.
+
+Lodestone is meant to feed my own curiosity, but also act a guide for my future work. As an product designer and builder in this space, it's my responsibility to understand what makes a tool complementary and not competitive on a very pragmatic, system architecture, and design pattern level.
+
+Can a language model help me to think more, not less?  
+Can a model improve my critical thinking skills?  
+Can a model push me to make stronger claims, defend them with good evidence, teach me how to evaluate the quality of evidence, question my own assumptions, and draw more nuanced conclusions?
