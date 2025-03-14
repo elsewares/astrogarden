@@ -9,13 +9,14 @@ cover: "../../images/covers/growing@2x.png"
 topics: ["Language Models", "Artificial Intelligence", "Knowledge Work"]
 featured: true
 draft: true
+toc: true
 ---
 
 import AssumedAudience from "../../components/mdx/AssumedAudience.astro";
 
 <AssumedAudience>
 
-Designers and engineers building AI products and
+Designers and engineers building AI products who are interested in issues of transparency, dependency, and responsible interface design.
 
 </AssumedAudience>
 
@@ -23,13 +24,13 @@ Designers and engineers building AI products and
 
 <IntroParagraph>We're currently being told that AI is going to do a lot of work for is. It'll write blog posts, reports, and essays for us, [research](https://openai.com/index/introducing-deep-research/) for us, draw for us, [code](https://www.cursor.com/) for us, [develop drugs](https://pharmaceutical-journal.com/article/feature/how-ai-is-transforming-drug-discovery) for us, draft [legal documents](https://www.harvey.ai/products/assistant) for us, and think for us. Consulting firms keep [releasing](https://www.pwc.com/gx/en/issues/artificial-intelligence/ai-jobs-barometer.html) [robot-laden](https://www.mckinsey.com/mgi/our-research/a-new-future-of-work-the-race-to-deploy-ai-and-raise-skills-in-europe-and-beyond) [PDF reports](https://www3.weforum.org/docs/WEF_Jobs_of_Tomorrow_Generative_AI_2023.pdf) on which white-collar, knowledge work jobs will be automated first.<Footnote idName={1}>To spoil the surprise, credit authorisers, insurance underwriters, customer support staff, and office administrators are first on the chopping block.</Footnote> </IntroParagraph>
 
-The implication in this rhetoric is that automating away most of humanity's hard cognitive labour is net good. Why expend precious human energy thinking when we don't have to? Why not have the machines do the research, analysis, decision-making, debugging, and execution while we take a long coffee break?<Footnote idName={2}>I say this as someone spends a lot of their “working day” sipping tea and waiting for Cursor to complete requests and then evaluating its responses.</Footnote>
+The implication here is that automating away a large chunk of humanity's hard cognitive labour is both inevitable and mostly net good. Why expend precious human energy thinking when we don't have to? Why not have the machines do most of the research, analysis, decision-making, and debugging for us while we take long coffee breaks and occasionally check it hasn't gone off the rails?<Footnote idName={2}>I say this as someone who spends a lot of their “working day” sipping tea and waiting for Cursor to complete requests and then evaluating its responses.</Footnote>
 
-Let's briefly put aside the fact we don't fully understand how models 'think' and 'reason', and that whatever they're doing is fundamentally different to what humans do when they 'think' and 'reason', even if the final output looks surprisingly similar and achieves the same goal.
+Let's briefly put aside the fact we don't fully understand how models 'think' and 'reason', and that whatever they're doing is fundamentally different to what humans do when they 'think' and 'reason', even if the final output looks surprisingly similar and achieves the intended goal.
 
-Even if we assume their outputs are just as valuable, valid, and useful as human-made outputs,<Footnote idName={3}>I'm not claiming this is broadly true, and debating whether they are or not is frankly a bit pointless outside of extremely specific tasks, contexts, and model architectures.</Footnote> offloading all our thinking work comes with the heavy price of dependence and skill degradation. We're seeing this problem actively play out in the developer community as junior [roles disappear](https://x.com/shl/status/1887484068075274347) and computer science students use ChatGPT to [do their homework](https://x.com/lxeagle17/status/1899979933096808567) rather using first principles to solve problems and debug their code. Young developers are both less skilled and less employable thanks to everyone's increasing dependence on AI coding assistants.
+Even if we assume their outputs are just as valuable, valid, and useful as human-made outputs,<Footnote idName={3}>I'm not claiming this is broadly true, and debating whether they are or not is frankly a bit pointless outside of extremely specific tasks, contexts, and model architectures.</Footnote> offloading all our thinking work comes with the heavy price of dependence, skill degradation, and vulnerability. We're seeing this problem actively play out in the developer community as junior [roles disappear](https://x.com/shl/status/1887484068075274347) and computer science students use ChatGPT to [do their homework](https://x.com/lxeagle17/status/1899979933096808567) instead of using first principles to solve problems and debug their code. Young developers are already less skilled and less employable thanks to everyone's increasing dependence on AI coding assistants.
 
-It's useful to consider this problem though the frame of _complementary_ vs. _competitive_ cognitive artefacts. Proposed by David Krakauer in [this 2016 article](https://nautil.us/will-ai-harm-us-better-to-ask-how-well-reckon-with-our-hybrid-nature-236098/) for Nautilus, the concept draws attention to how different tools can act as enabling teachers or disabling serfs.
+It's useful to consider this problem though the frame of _complementary_ vs. _competitive_ cognitive artefacts. David Krakauer first proposed these terms in [his 2016 article](https://nautil.us/will-ai-harm-us-better-to-ask-how-well-reckon-with-our-hybrid-nature-236098/) for Nautilus. Building off Don Norman's theory of cognitive artefacts – tools that xxxx – Krakauer argues yyyyy.
 
 [images of complementary artefacts vs. competitive ones]
 
@@ -39,10 +40,18 @@ Models designed to do things for us, without involving us in the process, seem n
 
 The line between a tool being complementary vs competitive lies in how its designed. I don't believe language models and machine learning systems are inherently competitive. But to make them complementary we have to intentionally design them to be so. We have to choose to craft interfaces and systems that both make us more capable and teach us how to work better without them.
 
-With that long introductory setup out of the way, let's get to the point. I have some questions I'm trying to answer. So I've started a little research project to contain them called Lodestone.
+## The Lodestone Project
 
-Lodestone is meant to feed my own curiosity, but also act a guide for my future work. As an product designer and builder in this space, it's my responsibility to understand what makes a tool complementary and not competitive on a very pragmatic, system architecture, and design pattern level.
+With that long introductory setup out of the way, let's get to the point. I have some questions I'm trying to answer. So I've started a little research project to contain them called **Lodestone**. Named after a type of [natural magnet](https://en.wikipedia.org/wiki/Lodestone) used to make the first compasses.
 
-Can a language model help me to think more, not less?  
-Can a model improve my critical thinking skills?  
-Can a model push me to make stronger claims, defend them with good evidence, teach me how to evaluate the quality of evidence, question my own assumptions, and draw more nuanced conclusions?
+[images of lodestones]
+
+At the moment it is primarily a set of questions and a bunch of prototypes intended to address those questions. I started by wondering _Can a language model help me to think more, not less?_
+
+It's a good question, but not very specific. When I ask that, I'm thinking about contexts where I wish I were a better thinker. For me, that's almost always in writing essays like this one. Non-fiction, heavily researched, expository essays that aim to inform, persuade, and entertain. Writing these pieces requires a lot of meta-skills like asking interesting questions, paying attention to industry trends, crafting clear arguments, finding evidence to support claims, and exercising critical thinking skills.
+
+A more specific question might be _Can a model improve my expository writing and critical thinking skills?_ Better, but what kind of writing and critical thinking skills am I referencing here?
+
+So let's just say the thing in detail: _Can a model guide me to make stronger claims, defend them with good evidence, teach me how to evaluate the quality of evidence, question my own assumptions, consider and address counter-arguments, and draw more nuanced conclusions?_
+
+Lodestone is meant to feed my own curiosity, but also act a guide for my future work. As an product designer and builder in this space, it's my responsibility to understand what makes a tool complementary and not competitive on a very pragmatic level; what kinds of system architectures and design patterns encourage transparency, legibility, discoverability, and user skill-building?
