@@ -1,0 +1,55 @@
+---
+description: NPM Commands Restrictions
+globs: *.js, *.jsx, *.ts, *.tsx, package.json
+alwaysApply: false
+---
+# NPM Commands Restrictions
+
+Guidelines for recommending npm commands in this project.
+
+<rule>
+name: npm-commands-restrictions
+description: Restrict Cursor from suggesting npm run commands
+
+filters:
+  - type: content
+    pattern: "npm run|npm start|npm build"
+
+actions:
+  - type: reject
+    conditions:
+      - pattern: "npm run dev|npm run start|npm run build|npm start|npm build"
+        message: "Do not suggest running npm scripts. The developer uses an external terminal to manage the dev server."
+
+  - type: suggest
+    message: |
+      When working with npm in this project:
+      
+      1. DO suggest:
+         - npm install <package>
+         - npm install --save-dev <package>
+         - npm uninstall <package>
+         
+      2. DO NOT suggest:
+         - npm run dev
+         - npm run start
+         - npm start
+         - npm run build
+         - npm build
+         - Any other npm commands that start or build the application
+         
+      3. The developer uses a terminal outside of Cursor to manage the development server.
+
+examples:
+  - input: |
+      # Bad: Suggesting to run dev server
+      "To start the development server, run: npm run dev"
+      
+      # Good: Suggesting to install dependencies
+      "To install the required dependencies, run: npm install"
+    output: "Only suggest npm install commands, never npm run commands"
+
+metadata:
+  priority: high
+  version: 1.0
+</rule> 
