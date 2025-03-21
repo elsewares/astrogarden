@@ -1,0 +1,155 @@
+---
+import { Icon } from "astro-icon/components";
+import DueDateInput from "./DueDateInput.astro";
+import ProbabilityChart from "./ProbabilityChart.astro";
+
+// Import CSV data
+import birthProbsCSV from "./birth-probs.csv?raw";
+import firstTimeProbsCSV from "./birth-probs-firsttime.csv?raw";
+
+// Normalize CSV text by ensuring consistent line endings and trimming
+function normalizeCSV(csvText: string): string {
+	// Replace all \r\n with \n, then replace any remaining \r with \n
+	return csvText.replace(/\r\n/g, "\n").replace(/\r/g, "\n").trim();
+}
+
+// Parse CSV function with robust handling of different formats
+function parseCSV(csvText: string): Record<string, string>[] {
+	// Normalize the CSV content first
+	const normalizedCSV = normalizeCSV(csvText);
+
+	// Split by lines, ensuring consistent line breaks
+	const lines = normalizedCSV.split("\n");
+
+	if (lines.length < 2) {
+		console.error("CSV has insufficient lines:", lines);
+		return [];
+	}
+
+	// Parse headers, trim each one to remove any whitespace
+	const headerLine = lines[0];
+	const headers = headerLine.split(",").map((h: string) => h.trim());
+
+	// Process each data line
+	const result: Record<string, string>[] = [];
+	for (let i = 1; i < lines.length; i++) {
+		const line = lines[i].trim();
+		if (!line) continue; // Skip empty lines
+
+		const values = line.split(",").map((v: string) => v.trim());
+		const entry: Record<string, string> = {};
+
+		// Map each value to its header
+		headers.forEach((header: string, index: number) => {
+			// Use the empty string as key for the first column if header is empty
+			const key = header || "";
+			entry[key] = values[index] || "";
+		});
+
+		result.push(entry);
+	}
+
+	return result;
+}
+
+const regularData = parseCSV(birthProbsCSV);
+const firstTimeData = parseCSV(firstTimeProbsCSV);
+---
+
+<div class="birth-probability-container">
+	<DueDateInput />
+
+	<div class="chart-container">
+		<ProbabilityChart
+			regularCsv={JSON.stringify(regularData)}
+			firstTimeCsv={JSON.stringify(firstTimeData)}
+		/>
+	</div>
+
+	<div class="instructions">
+		<p>
+			This interactive chart shows the likelihood of spontaneous labor starting on each day of your
+			pregnancy, based on statistical data from a large sample of pregnancies.
+		</p>
+		<ul>
+			<li>
+				<strong>Blue bars</strong> show the probability of giving birth on that specific day
+			</li>
+			<li>
+				<strong>Orange line</strong> shows the cumulative probability of having given birth by that day
+			</li>
+		</ul>
+		<p>
+			Adjust your due date using the input above to see probabilities relevant to your current stage
+			of pregnancy.
+		</p>
+	</div>
+</div>
+
+<style>
+	.birth-probability-container {
+		font-family: var(--font-sans);
+		max-width: 900px;
+		margin: 0 auto;
+		padding: 1rem 0;
+	}
+
+	.chart-container {
+		margin: 1rem 0 2rem;
+		min-height: 400px;
+	}
+
+	.instructions {
+		margin-top: 2rem;
+		padding: 1.5rem;
+		background-color: #f9fafb;
+		border-radius: 0.5rem;
+		font-size: 0.95rem;
+		line-height: 1.6;
+	}
+
+	.instruction-heading {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin-bottom: 1rem;
+		color: #4f46e5;
+	}
+
+	h3 {
+		margin: 0;
+		font-size: 1.25rem;
+		font-weight: 600;
+	}
+
+	p {
+		margin: 0 0 1rem;
+		color: #374151;
+	}
+
+	ul {
+		margin: 0 0 1rem;
+		padding-left: 1.5rem;
+	}
+
+	li {
+		margin-bottom: 0.5rem;
+	}
+
+	strong {
+		font-weight: 600;
+	}
+
+	.note {
+		margin-top: 1.5rem;
+		padding: 1rem;
+		background-color: #eff6ff;
+		border-left: 4px solid #3b82f6;
+		border-radius: 0.25rem;
+	}
+
+	.note p {
+		margin: 0;
+		font-size: 0.9rem;
+	}
+</style>

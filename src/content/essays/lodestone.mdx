@@ -1,6 +1,6 @@
 ---
 title: "Building Lodestone: A Critical Thinking Tool"
-description: "Prototyping a critical thinking tool for my own research and  non-fiction writing process"
+description: "Prototyping a critical thinking tool with language models for my own research and non-fiction writing process"
 startDate: "2025-03-10"
 updated: "2025-03-10"
 type: "essay"
@@ -13,10 +13,11 @@ toc: true
 ---
 
 import AssumedAudience from "../../components/mdx/AssumedAudience.astro";
+import AcademicReference from "../../components/mdx/AcademicReference.astro";
 
 <AssumedAudience>
 
-Designers and engineers building AI products who are interested in issues of transparency, dependency, and responsible interface design.
+Designers and engineers building AI products who are interested in making models more transparent, practising responsible interface design, and enhancing our critical thinking skills.
 
 </AssumedAudience>
 
@@ -26,19 +27,36 @@ Designers and engineers building AI products who are interested in issues of tra
 
 The implication here is that automating away a large chunk of humanity's hard cognitive labour is both inevitable and mostly net good. Why expend precious human energy thinking when we don't have to? Why not have the machines do most of the research, analysis, decision-making, and debugging for us while we take long coffee breaks and occasionally check it hasn't gone off the rails?<Footnote idName={2}>I say this as someone who spends a lot of their “working day” sipping tea and waiting for Cursor to complete requests and then evaluating its responses.</Footnote>
 
-Let's briefly put aside the fact we don't fully understand how models 'think' and 'reason', and that whatever they're doing is fundamentally different to what humans do when they 'think' and 'reason', even if the final output looks surprisingly similar and achieves the intended goal.
+Let's briefly put aside the fact we don't fully understand how models 'think' and 'reason', and that whatever they're doing is fundamentally different to what humans do when they 'think' and 'reason', even if the final output looks surprisingly similar and achieves the intended goal. (Citation 2025)
 
 Even if we assume their outputs are just as valuable, valid, and useful as human-made outputs,<Footnote idName={3}>I'm not claiming this is broadly true, and debating whether they are or not is frankly a bit pointless outside of extremely specific tasks, contexts, and model architectures.</Footnote> offloading all our thinking work comes with the heavy price of dependence, skill degradation, and vulnerability. We're seeing this problem actively play out in the developer community as junior [roles disappear](https://x.com/shl/status/1887484068075274347) and computer science students use ChatGPT to [do their homework](https://x.com/lxeagle17/status/1899979933096808567) instead of using first principles to solve problems and debug their code. Young developers are already less skilled and less employable thanks to everyone's increasing dependence on AI coding assistants.
 
-It's useful to consider this problem though the frame of _complementary_ vs. _competitive_ cognitive artefacts. David Krakauer first proposed these terms in [his 2016 article](https://nautil.us/will-ai-harm-us-better-to-ask-how-well-reckon-with-our-hybrid-nature-236098/) for Nautilus. Building off Don Norman's theory of cognitive artefacts – tools that xxxx – Krakauer argues yyyyy.
+I'm especially interested in how our dependence on AI tools affects critical thinking. Delegating your cognition to an opaque model that always responds with authoritative and professional-sounding responses is becoming effortless. We're all at risk of mindlessly accepting its outputs while forgetting what thinking hard about a problem truly feels like. Scepticism, careful analysis, lateral thinking, and metacognition are muscles that atrophy without regular exercise.
 
-[images of complementary artefacts vs. competitive ones]
+Two recent studies found higher usage of generative AI tools and higher confidence in their outputs correlated with less critical thinking:
 
-I should be more skilled after using a tool, not less.
+- A Microsoft Research team (<AcademicReference title="The Impact of Generative AI on Critical Thinking: Self-Reported Reductions in Cognitive Effort and Confidence Effects From a Survey of Knowledge Workers" href="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/lee_2025_ai_critical_thinking_survey.pdf" year="2025" authors="H Lee, A Sarkar, L Tankelevitch, et al." abstract="The rise of Generative AI (GenAI) in knowledge workflows raises questions about its impact on critical thinking skills and practices. We survey 319 knowledge workers to investigate 1) when and how they perceive the enaction of critical thinking when using GenAI, and 2) when and why GenAI affects their effort to do so. Participants shared 936 first-hand examples of using GenAI in work tasks. Quantitatively, when considering both task and user-specific factors, a user’s task-specific self-confidence and confidence in GenAI are predictive of whether critical thinking is enacted and the effort of doing so in GenAI-assisted tasks. Specifically, higher confidence in GenAI is associated with less critical thinking, while higher self-confidence is associated with more critical thinking. Qualitatively, GenAI shifts the nature of critical thinking toward information verification, response integration, and task stewardship. Our insights reveal new design challenges and opportunities for developing GenAI tools for knowledge work.">Lee 2025</AcademicReference>) surveyed 319 knowledge workers on their use of generative AI and found "higher confidence in GenAI is associated with less critical thinking, while higher self-confidence is associated with more critical thinking."
+- Michael Gerlich (<AcademicReference title="AI Tools in Society: Impacts on Cognitive Offloading and the Future of Critical Thinking" href="https://www.mdpi.com/2075-4698/15/1/6" year="2025" authors="M Gerlich" abstract="The proliferation of artificial intelligence (AI) tools has transformed numerous aspects of daily life, yet its impact on critical thinking remains underexplored. This study investigates the relationship between AI tool usage and critical thinking skills, focusing on cognitive offloading as a mediating factor. Utilising a mixed-method approach, we conducted surveys and in-depth interviews with 666 participants across diverse age groups and educational backgrounds. Quantitative data were analysed using ANOVA and correlation analysis, while qualitative insights were obtained through thematic analysis of interview transcripts. The findings revealed a significant negative correlation between frequent AI tool usage and critical thinking abilities, mediated by increased cognitive offloading. Younger participants exhibited higher dependence on AI tools and lower critical thinking scores compared to older participants. Furthermore, higher educational attainment was associated with better critical thinking skills, regardless of AI usage. These results highlight the potential cognitive costs of AI tool reliance, emphasising the need for educational strategies that promote critical engagement with AI technologies. This study contributes to the growing discourse on AI’s cognitive implications, offering practical recommendations for mitigating its adverse effects on critical thinking. The findings underscore the importance of fostering critical thinking in an AI-driven world, making this research essential reading for educators, policymakers, and technologists.">Gerlich 2025</AcademicReference>) interviewed 666 participants from a range of educational backgrounds and age groups, and found "a significant negative correlation between frequent AI tool usage and critical thinking abilities, mediated by increased cognitive offloading. Younger participants exhibited higher dependence on AI tools and lower critical thinking scores compared to older participants."
 
-Models designed to do things for us, without involving us in the process, seem net bad. Dangerous. We're reliant on them. AI safety researchers will point out that herein lies the path to self-destruction.
+It doesn't feel _inevitable_ to me that machine learning models will reduce our critical thinking capacities and take on the bulk of our essential cognitive work. I think the nuance lies in how we design these models, how we decide to use them, and the affordances of the interfaces we wrap around them.
 
-The line between a tool being complementary vs competitive lies in how its designed. I don't believe language models and machine learning systems are inherently competitive. But to make them complementary we have to intentionally design them to be so. We have to choose to craft interfaces and systems that both make us more capable and teach us how to work better without them.
+## Complementary vs. Competitive Cognitive Artefacts
+
+It's useful to consider this problem though the frame of _complementary_ vs. _competitive_ cognitive artefacts. David Krakauer first proposed these terms in his prescient [2016 Nautilis article](https://nautil.us/will-ai-harm-us-better-to-ask-how-well-reckon-with-our-hybrid-nature-236098/) outlining his concerns about the trajectory of AI. Building off Don Norman's theory of [cognitive artefacts](https://www.researchgate.net/publication/213799289_Cognitive_Artifacts), Krakauer looks at historical artefacts and tools that augment and amplify our cognition by giving us “a store of memory, a mechanism for search, and an instrument of calculation.” What some of us might call [[Tools for Thought]].
+
+_Complementary_ cognitive artefacts act as teachers and coaches that expand our existing skills. When we use them, we learn new mental models and ways of thinking. Tools like abacuses, astrolabes, maps, compasses, flashcards, and memory palaces are all good examples. Even when we don't have the tool to hand, we can visualise them and continue to use their principles to solve problems. We are more capable after we've used these tools because they _complement_ our natural abilities.
+
+[Illustration of astrolabe, map, compass, abacus, language flashcards]
+
+_Competitive_ cognitive artefacts compete with our skills. They act as serfs rather than teachers. Meaning they do the cognitive work for us, without revealing their inner workings or showing us how they're solving the problem. They enhance our cognition but in a way that makes us dependent on them. When we don't have them to hand, we are no more capable than when we started. Tools like digital calculators, GPS navigation systems, translation apps, spellcheckers, and search algorithms fall into this category.
+
+[Illustration of digital calculator, GPS / google maps, chatgpt, google translate, spell check]
+
+You might read that description and instantly recognise that our current machine learning models and the interfaces we use to interact with them are the definition of competitive tools. For the most part, we cannot see how they work.<Footnote idName={1}>While most of major models have recently added visible reasoning into their web interfaces, these “reasoning” outputs only give us shallow insight into how the model is solving the problem.</Footnote> They are not very good at explaining their internal reasoning or process. Without them, you are no more capable than when you started. You may even be less skilled as you slowly forget how to do tasks without the help of AI assistance.
+
+We're becoming reliant on them in a way that then makes us beholden to the companies that own and control them. Not to mention the larger AI safety implications of outsourcing essential tasks and decision making to inscrutable, black-box systems that may have misaligned incentives that lead them to deceive or mislead us. AI safety researchers are quick to point out this is exactly how we'll blindly walk down the path of civilizational collapse and self-destruction.
+
+Just as machine learning models don't inherently threaten critical thinking, I don't believe they are inherently competitive as cognitive artefacts. The line between a tool being _complementary_ or _competitive_ lies in how its designed, and it's not a strict either/or. Every cognitive artefact sits on a spectrum between the two types. We should intentionally design them to be as complementary as possible, while accepting there's always going to be some degree of competitiveness. We can still choose to craft models and interfaces that reveal their inner workings, teach us new ways of thinking, and make us more capable in their absence.
 
 ## The Lodestone Project
 
@@ -46,12 +64,44 @@ With that long introductory setup out of the way, let's get to the point. I have
 
 [images of lodestones]
 
-At the moment it is primarily a set of questions and a bunch of prototypes intended to address those questions. I started by wondering _Can a language model help me to think more, not less?_
+At the moment this project is primarily a set of questions and a bunch of prototypes intended to address those questions. I started by asking _Can a language model help me to think more, not less?_
 
-It's a good question, but not very specific. When I ask that, I'm thinking about contexts where I wish I were a better thinker. For me, that's almost always in writing essays like this one. Non-fiction, heavily researched, expository essays that aim to inform, persuade, and entertain. Writing these pieces requires a lot of meta-skills like asking interesting questions, paying attention to industry trends, crafting clear arguments, finding evidence to support claims, and exercising critical thinking skills.
+It's a good question, but it's not very specific.
 
-A more specific question might be _Can a model improve my expository writing and critical thinking skills?_ Better, but what kind of writing and critical thinking skills am I referencing here?
+When I ask that, I'm selfishly thinking about contexts where I wish I were a better thinker. For me, that's almost always in writing essays like this one. Non-fiction, heavily researched, [expository essays](https://owl.purdue.edu/owl/general_writing/academic_writing/essay_writing/expository_essays.html) that aim to inform, persuade, and entertain.
 
-So let's just say the thing in detail: _Can a model guide me to make stronger claims, defend them with good evidence, teach me how to evaluate the quality of evidence, question my own assumptions, consider and address counter-arguments, and draw more nuanced conclusions?_
+Writing these pieces requires a lot of critical thinking meta-skills like paying attention to industry trends, asking interesting questions, crafting clear arguments, finding evidence to support claims, evaluating the quality of that evidence, questioning my own assumptions, and pre-emptively addressing counter-arguments. In short, trying really hard to be a smart person.
 
-Lodestone is meant to feed my own curiosity, but also act a guide for my future work. As an product designer and builder in this space, it's my responsibility to understand what makes a tool complementary and not competitive on a very pragmatic level; what kinds of system architectures and design patterns encourage transparency, legibility, discoverability, and user skill-building?
+A more specific version of the question might be _Can a model improve my expository writing and critical thinking skills?_
+
+Better, but what kind of writing and critical thinking skills am I referencing here?
+
+So let's just say the thing in detail: _Can a model teach me to ask deeper questions, make stronger claims, defend them with good evidence, evaluate the quality of evidence, question my own assumptions, consider and address counter-arguments, and draw more nuanced conclusions?_
+
+That's a lot of jobs to be done, but I intend to build a lots of different prototypes to explore each of those jobs. Maybe I can achieve them all within one Mega App, but I'm more inclined to explore what the ideal interface for each looks like on its own terms, before trying to slickly unify them.
+
+Lodestone is primarily meant to feed my own curiosity, but also act a guide for my future work. As an product designer and builder in this space, it's my responsibility to understand what makes a tool complementary and not competitive on a very pragmatic level; what kinds of system architectures and design patterns encourage transparency, legibility, discoverability, and user skill-building?
+
+### Version One: The Claim Maker
+
+For my first pass at a prototype, I focused on clearly identifying claims from sets of rough notes, and evaluating the evidence I had for each claim. The idea was to give myself a narrow path to walk: consider each claim one-by-one, check whether it's valid by searching for evidence, and then adapt it, ditch it, or strengthen it.
+
+[ Pics of sketches of the initial idea ]
+
+[ Screenshot of first prototype ]
+
+If checking every single claim and piece of evidence one-by-one sounds laborious, you're right. It's the kind of thing I know I _should_ do when I write, but I am just as lazy as the next person, and as a new parent I'm operating at 15% brain capacity. I need some serious cognitive help over here.
+
+The idea here was to try and make this process easier. Having an interface that prompts me to clearly identify and work through each claim is meant to take on some of that cognitive load. It's a scaffolding step that reminds me
+
+And to go even further than that, I do want to use models to do some of this labour for me, provided I'm prompted to check it and question it.
+
+I didn't make it very far into this prototype before realising it didn't feel expandable. There is so much more to crafting a piece of writing than just outlining your claims and evidence. The interface also felt a bit clunky and heavy-handed for what it did. So I quickly abandoned it and started building the next version.
+
+### Version Two: Question Nudging and Classification Labelling
+
+There were many more aspects of a writing draft I wanted to analyse beyond just claims and evidence. There are also questions, assumptions, costs, benefits, causes, consequences, and counter-arguments to consider.
+
+### Version Three: Argument Maps
+
+Once I had the labelling view complete, I wanted to try using the same structured data to display different views. Some kind of argument map felt like a clear next experiment.
