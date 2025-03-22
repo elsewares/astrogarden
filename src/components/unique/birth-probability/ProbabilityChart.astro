@@ -54,11 +54,11 @@ const { regularCsv, firstTimeCsv } = Astro.props;
 	}
 
 	.daily-color {
-		background-color: #4f46e5;
+		background-color: #4aa3b8;
 	}
 
 	.cumulative-color {
-		background-color: #f97316;
+		background-color: #9a3d76;
 	}
 
 	.legend-label {
@@ -121,7 +121,7 @@ const { regularCsv, firstTimeCsv } = Astro.props;
 	}
 
 	.current-day-line {
-		stroke: #ef4444;
+		stroke: #9a3d76;
 		stroke-width: 2;
 		stroke-dasharray: 5, 3;
 	}
@@ -133,7 +133,7 @@ const { regularCsv, firstTimeCsv } = Astro.props;
 		border-radius: 0.5rem;
 		margin: 1rem 0;
 		text-align: center;
-		color: #b91c1c;
+		color: #9a3d76;
 	}
 
 	.error-message h3 {
@@ -231,7 +231,7 @@ const { regularCsv, firstTimeCsv } = Astro.props;
 		<div class="tooltip-title">${readableLabel}${statusLabel}</div>
 		<div class="tooltip-item">
 			<span class="tooltip-label">Birth probability:</span>
-			<span class="tooltip-value" style="color: ${d.isCurrentDay ? "#ef4444" : d.isPastDay ? "#94a3b8" : "#4f46e5"};">
+			<span class="tooltip-value" style="color: ${d.isCurrentDay ? "#ef4444" : d.isPastDay ? "#94a3b8" : "#4aa3b8"};">
 				${(d.isPastDay ? d.onThisDay : d.adjustedOnThisDay !== undefined ? d.adjustedOnThisDay : d.onThisDay).toFixed(1)}%
 			</span>
 		</div>
@@ -498,7 +498,7 @@ const { regularCsv, firstTimeCsv } = Astro.props;
 				.attr("y", -margin.left + 15)
 				.attr("x", -height / 2)
 				.attr("text-anchor", "middle")
-				.attr("fill", "#4f46e5")
+				.attr("fill", "#4aa3b8")
 				.style("font-size", "12px")
 				.text("Daily Birth Probability (%)");
 
@@ -587,9 +587,9 @@ const { regularCsv, firstTimeCsv } = Astro.props;
 					return height - yLeft(Math.min(value, yLeftMax));
 				})
 				.attr("fill", (d) => {
-					if (d.isCurrentDay) return "#ef4444"; // Today's bar in red
+					if (d.isCurrentDay) return "#9a3d76"; // Today's bar in red
 					if (d.isPastDay) return "#94a3b8"; // Past days in gray
-					return "#4f46e5"; // Future days in blue
+					return "#4aa3b8"; // Future days in blue
 				})
 				.on("mouseover", function (event, d) {
 					showTooltip(event, d);
@@ -613,7 +613,7 @@ const { regularCsv, firstTimeCsv } = Astro.props;
 					.append("path")
 					.datum(relevantData)
 					.attr("fill", "none")
-					.attr("stroke", "#f97316")
+					.attr("stroke", "#9a3d76")
 					.attr("stroke-width", 3)
 					.attr("d", linePath);
 
@@ -627,7 +627,7 @@ const { regularCsv, firstTimeCsv } = Astro.props;
 					.attr("cx", (d) => x(d.displayLabel) + x.bandwidth() / 2)
 					.attr("cy", (d) => yRight(d.beforeThisPoint))
 					.attr("r", 4)
-					.attr("fill", (d) => (d.isCurrentDay ? "#ef4444" : "#f97316"))
+					.attr("fill", (d) => (d.isCurrentDay ? "#ef4444" : "#9a3d76"))
 					.on("mouseover", function (event, d) {
 						showTooltip(event, d, true);
 					})
