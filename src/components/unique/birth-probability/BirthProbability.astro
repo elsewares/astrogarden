@@ -1,6 +1,5 @@
 ---
 import { Icon } from "astro-icon/components";
-import DueDateInput from "./DueDateInput.astro";
 import ProbabilityChart from "./ProbabilityChart.astro";
 
 // Import CSV data
@@ -90,6 +89,17 @@ const firstTimeData = parseCSV(firstTimeProbsCSV);
 
 		<!-- Step 3: Chart Display -->
 		<div id="step-3" class="step chart-step">
+			<!-- Data summary -->
+			<div class="data-summary">
+				<p id="pregnancy-summary" class="summary-text">
+					You are <span id="current-weeks">--</span> weeks and <span id="current-days">--</span> days
+					pregnant. <span id="due-date-status">--</span>. There is a <span
+						id="birth-chance-tomorrow"
+						class="highlight">--</span
+					> chance you will give birth by tomorrow.
+				</p>
+			</div>
+
 			<!-- Editable controls above chart -->
 			<div class="edit-controls">
 				<div class="edit-control-group">
@@ -112,22 +122,6 @@ const firstTimeData = parseCSV(firstTimeProbsCSV);
 					firstTimeCsv={JSON.stringify(firstTimeData)}
 				/>
 			</div>
-
-			<div class="instructions">
-				<p>
-					This interactive chart shows the likelihood of spontaneous labor starting on each day of
-					your pregnancy, based on statistical data from a large sample of pregnancies.
-				</p>
-				<ul>
-					<li>
-						<strong>Blue bars</strong> show the probability of giving birth on that specific day
-					</li>
-					<li>
-						<strong>Purple line</strong> shows the cumulative probability of having given birth by that
-						day
-					</li>
-				</ul>
-			</div>
 		</div>
 	</div>
 </div>
@@ -136,8 +130,8 @@ const firstTimeData = parseCSV(firstTimeProbsCSV);
 	.birth-probability-container {
 		font-family: var(--font-sans);
 		max-width: 900px;
-		margin: 0 auto;
-		padding: 1rem 0;
+		min-width: 100%;
+		margin: 0 auto 2rem;
 	}
 
 	.progressive-container {
@@ -151,7 +145,10 @@ const firstTimeData = parseCSV(firstTimeProbsCSV);
 		transition:
 			opacity 0.5s ease-in-out,
 			height 0.5s ease-in-out;
-		margin-bottom: 2rem;
+		border: 1px solid var(--color-gray-100);
+		border-radius: 6px;
+		background: white;
+		box-shadow: var(--box-shadow-sm);
 	}
 
 	.step.active {
@@ -163,14 +160,6 @@ const firstTimeData = parseCSV(firstTimeProbsCSV);
 	.question-container {
 		text-align: center;
 		padding: 2rem 1rem;
-	}
-
-	h2 {
-		font-family: var(--font-sans);
-		font-size: 1.75rem;
-		font-weight: 600;
-		color: #111827;
-		margin-bottom: 1.5rem;
 	}
 
 	.input-group {
@@ -190,8 +179,7 @@ const firstTimeData = parseCSV(firstTimeProbsCSV);
 	}
 
 	.next-button {
-		background-color: #4aa3b8;
-		color: white;
+		fill: var(--color-sea-blue);
 		border: none;
 		border-radius: 50%;
 		width: 40px;
@@ -200,11 +188,6 @@ const firstTimeData = parseCSV(firstTimeProbsCSV);
 		align-items: center;
 		justify-content: center;
 		cursor: pointer;
-		transition: background-color 0.2s;
-	}
-
-	.next-button:hover {
-		background-color: #3b8296;
 	}
 
 	.choice-buttons {
@@ -268,41 +251,19 @@ const firstTimeData = parseCSV(firstTimeProbsCSV);
 		min-height: 400px;
 	}
 
-	.instructions {
-		margin-top: 2rem;
-		padding: 1.5rem;
-		background-color: #f9fafb;
-		border-radius: 0.5rem;
-		font-size: 0.95rem;
-		line-height: 1.6;
+	.data-summary {
+		padding: 1.25rem;
+		margin: 1.5rem 1rem;
+		text-align: center;
 	}
 
-	p {
-		margin: 0 0 1rem;
-		color: #374151;
-	}
-
-	ul {
-		margin: 0 0 1rem;
-		padding-left: 1.5rem;
-	}
-
-	li {
-		margin-bottom: 0.5rem;
-	}
-
-	strong {
-		font-weight: 600;
-	}
-
-	label {
-		font-size: 0.875rem;
-		font-weight: 500;
-		color: #4b5563;
+	.summary-text {
+		line-height: 1.5;
+		margin: 0;
 	}
 </style>
 
-<script>
+<script is:inline define:vars={{ regularData, firstTimeData }}>
 	// Wait for DOM to be fully loaded
 	document.addEventListener("DOMContentLoaded", function () {
 		// Step elements
@@ -311,8 +272,8 @@ const firstTimeData = parseCSV(firstTimeProbsCSV);
 		const step3 = document.getElementById("step-3");
 
 		// Input elements
-		const dueDateInput = document.getElementById("due-date") as HTMLInputElement;
-		const editDueDateInput = document.getElementById("edit-due-date") as HTMLInputElement;
+		const dueDateInput = document.getElementById("due-date");
+		const editDueDateInput = document.getElementById("edit-due-date");
 		const dueDateNextButton = document.getElementById("due-date-next");
 		const firstBabyYesButton = document.getElementById("first-baby-yes");
 		const firstBabyNoButton = document.getElementById("first-baby-no");
@@ -324,7 +285,7 @@ const firstTimeData = parseCSV(firstTimeProbsCSV);
 		defaultDueDate.setDate(defaultDueDate.getDate() + 14);
 
 		// Format for input (YYYY-MM-DD)
-		const formatDateForInput = (date: Date): string => {
+		const formatDateForInput = function (date) {
 			const year = date.getFullYear();
 			const month = String(date.getMonth() + 1).padStart(2, "0");
 			const day = String(date.getDate()).padStart(2, "0");
@@ -335,7 +296,7 @@ const firstTimeData = parseCSV(firstTimeProbsCSV);
 		editDueDateInput.value = formatDateForInput(defaultDueDate);
 
 		// Due date selection and move to step 2
-		dueDateNextButton?.addEventListener("click", () => {
+		dueDateNextButton?.addEventListener("click", function () {
 			const dueDate = dueDateInput.value;
 			if (!dueDate) return;
 
@@ -344,13 +305,13 @@ const firstTimeData = parseCSV(firstTimeProbsCSV);
 
 			// Animate transition to step 2
 			step1?.classList.remove("active");
-			setTimeout(() => {
+			setTimeout(function () {
 				step2?.classList.add("active");
 			}, 500);
 		});
 
 		// First baby selection handlers
-		const handleFirstBabySelection = (isFirstBaby: boolean): void => {
+		const handleFirstBabySelection = function (isFirstBaby) {
 			// Set the toggle buttons state
 			if (isFirstBaby) {
 				toggleYesButton?.classList.add("active");
@@ -365,36 +326,41 @@ const firstTimeData = parseCSV(firstTimeProbsCSV);
 
 			// Animate transition to step 3
 			step2?.classList.remove("active");
-			setTimeout(() => {
+			setTimeout(function () {
 				step3?.classList.add("active");
 			}, 500);
 		};
 
-		firstBabyYesButton?.addEventListener("click", () => handleFirstBabySelection(true));
-		firstBabyNoButton?.addEventListener("click", () => handleFirstBabySelection(false));
+		firstBabyYesButton?.addEventListener("click", function () {
+			handleFirstBabySelection(true);
+		});
+
+		firstBabyNoButton?.addEventListener("click", function () {
+			handleFirstBabySelection(false);
+		});
 
 		// Toggle button handlers for edit controls
-		toggleYesButton?.addEventListener("click", () => {
+		toggleYesButton?.addEventListener("click", function () {
 			toggleYesButton.classList.add("active");
 			toggleNoButton?.classList.remove("active");
 			calculateAndDispatchEvent();
 		});
 
-		toggleNoButton?.addEventListener("click", () => {
+		toggleNoButton?.addEventListener("click", function () {
 			toggleNoButton.classList.add("active");
 			toggleYesButton?.classList.remove("active");
 			calculateAndDispatchEvent();
 		});
 
 		// Due date edit handler
-		editDueDateInput?.addEventListener("change", () => {
+		editDueDateInput?.addEventListener("change", function () {
 			calculateAndDispatchEvent();
 		});
 
 		// Function to calculate pregnancy info and dispatch event
 		function calculateAndDispatchEvent() {
 			const dueDate = new Date(editDueDateInput.value);
-			const isFirstTimeMother = toggleYesButton?.classList.contains("active");
+			const isFirstTimeMother = toggleYesButton?.classList.contains("active") || false;
 
 			// Calculate pregnancy information
 			const today = new Date();
@@ -403,6 +369,9 @@ const firstTimeData = parseCSV(firstTimeProbsCSV);
 			const daysFromConception = 280 - daysUntilDue;
 			const currentWeek = Math.floor(daysFromConception / 7);
 			const currentDay = daysFromConception % 7;
+
+			// Update summary elements
+			updateDataSummary(currentWeek, currentDay, daysUntilDue, isFirstTimeMother);
 
 			// Dispatch event with pregnancy information
 			const event = new CustomEvent("pregnancy-data-update", {
@@ -418,8 +387,61 @@ const firstTimeData = parseCSV(firstTimeProbsCSV);
 			document.dispatchEvent(event);
 		}
 
+		// Function to update the data summary section
+		function updateDataSummary(currentWeek, currentDay, daysUntilDue, isFirstTime) {
+			// Update weeks and days
+			const weeksElement = document.getElementById("current-weeks");
+			const daysElement = document.getElementById("current-days");
+			if (weeksElement) weeksElement.textContent = currentWeek.toString();
+			if (daysElement) daysElement.textContent = currentDay.toString();
+
+			// Update due date status
+			const dueStatusElement = document.getElementById("due-date-status");
+			if (dueStatusElement) {
+				if (daysUntilDue === 0) {
+					dueStatusElement.textContent = "Today is your due date";
+				} else if (daysUntilDue > 0) {
+					dueStatusElement.textContent = `There are ${daysUntilDue} day${daysUntilDue !== 1 ? "s" : ""} to your due date`;
+				} else {
+					dueStatusElement.textContent = `You are ${Math.abs(daysUntilDue)} day${Math.abs(daysUntilDue) !== 1 ? "s" : ""} past your due date`;
+				}
+			}
+
+			// Calculate tomorrow's birth probability
+			const birthChanceElement = document.getElementById("birth-chance-tomorrow");
+			if (birthChanceElement) {
+				// Get data from the appropriate dataset
+				const csvDataToUse = isFirstTime ? firstTimeData : regularData;
+
+				// Find tomorrow's data point
+				const tomorrowIndex = csvDataToUse.findIndex(function (item) {
+					const weekStr = item[""] || "";
+					const match = weekStr.match(/(\d+)w(\d+)d/);
+					if (match) {
+						const week = parseInt(match[1], 10);
+						const day = parseInt(match[2], 10);
+						return (
+							(week === currentWeek && day === currentDay + 1) ||
+							(currentDay === 6 && week === currentWeek + 1 && day === 0)
+						);
+					}
+					return false;
+				});
+
+				if (tomorrowIndex >= 0) {
+					const tomorrowData = csvDataToUse[tomorrowIndex];
+					const beforeThisPoint = parseFloat(
+						(tomorrowData["Before This Point"] || "0").replace("%", ""),
+					);
+					birthChanceElement.textContent = `${beforeThisPoint.toFixed(1)}%`;
+				} else {
+					birthChanceElement.textContent = "unknown";
+				}
+			}
+		}
+
 		// Initialize with only step 1 visible
-		setTimeout(() => {
+		setTimeout(function () {
 			step1?.classList.add("active");
 		}, 0);
 	});
