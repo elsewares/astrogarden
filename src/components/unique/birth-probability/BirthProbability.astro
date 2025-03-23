@@ -56,229 +56,200 @@ const firstTimeData = parseCSV(firstTimeProbsCSV);
 ---
 
 <div class="birth-probability-container">
-	<div class="progressive-container">
-		<!-- Step 1: Due Date Input (Initially visible) -->
-		<div id="step-1" class="step due-date-step active">
-			<div class="question-container">
-				<h2>What is your due date?</h2>
-				<div class="input-group">
-					<input
-						type="date"
-						id="due-date"
-						class="due-date-input"
-						pattern="\d{4}-\d{2}-\d{2}"
-						required
-					/>
-					<button id="due-date-next" class="next-button">
-						<Icon name="heroicons:arrow-right" size={20} />
-					</button>
-				</div>
-			</div>
+	<!-- Single sentence with both inputs on one line -->
+	<div class="sentence-container">
+		<span class="input-text">My due date is</span>
+		<div class="date-input-wrapper">
+			<input
+				type="date"
+				id="due-date"
+				class="due-date-input"
+				pattern="\d{4}-\d{2}-\d{2}"
+				required
+			/>
+			<span class="date-display" id="date-display"></span>
+			<button class="calendar-icon">
+				<Icon name="heroicons:calendar" size={20} />
+			</button>
 		</div>
-
-		<!-- Step 2: First Baby Question -->
-		<div id="step-2" class="step first-baby-step">
-			<div class="question-container">
-				<h2>Is this your first baby?</h2>
-				<div class="choice-buttons">
-					<button id="first-baby-yes" class="choice-button">Yes</button>
-					<button id="first-baby-no" class="choice-button">No</button>
-				</div>
-			</div>
+		<span class="input-text connector">and this</span>
+		<div class="select-wrapper">
+			<select id="first-baby-select" class="first-baby-select">
+				<option value="yes">is my first child</option>
+				<option value="no">is not my first child</option>
+			</select>
+			<Icon name="heroicons:chevron-down" size={16} class="select-icon" />
 		</div>
+	</div>
+	<!-- Data summary -->
+	<div class="data-summary">
+		<p id="pregnancy-summary" class="summary-text">
+			You are <span id="current-weeks">--</span> weeks and <span id="current-days">--</span> days pregnant,
+			and <span id="due-date-status">--</span>. You have a <span
+				id="birth-chance-tomorrow"
+				class="highlight">--</span
+			> chance of giving birth by tomorrow.
+		</p>
+	</div>
 
-		<!-- Step 3: Chart Display -->
-		<div id="step-3" class="step chart-step">
-			<!-- Data summary -->
-			<div class="data-summary">
-				<p id="pregnancy-summary" class="summary-text">
-					You are <span id="current-weeks">--</span> weeks and <span id="current-days">--</span> days
-					pregnant. <span id="due-date-status">--</span>. There is a <span
-						id="birth-chance-tomorrow"
-						class="highlight">--</span
-					> chance you will give birth by tomorrow.
-				</p>
-			</div>
-
-			<!-- Editable controls above chart -->
-			<div class="edit-controls">
-				<div class="edit-control-group">
-					<label for="edit-due-date">Due date:</label>
-					<input type="date" id="edit-due-date" class="edit-due-date-input" />
-				</div>
-				<div class="edit-control-group">
-					<label>First baby:</label>
-					<div class="toggle-container">
-						<button id="toggle-yes" class="toggle-button active">Yes</button>
-						<button id="toggle-no" class="toggle-button">No</button>
-					</div>
-				</div>
-			</div>
-
-			<!-- Chart Container -->
-			<div class="chart-container">
-				<ProbabilityChart
-					regularCsv={JSON.stringify(regularData)}
-					firstTimeCsv={JSON.stringify(firstTimeData)}
-				/>
-			</div>
-		</div>
+	<!-- Chart Container -->
+	<div class="chart-container">
+		<ProbabilityChart
+			regularCsv={JSON.stringify(regularData)}
+			firstTimeCsv={JSON.stringify(firstTimeData)}
+		/>
 	</div>
 </div>
 
 <style>
 	.birth-probability-container {
-		font-family: var(--font-sans);
+		font-family: var(--font-body);
 		max-width: 900px;
 		min-width: 100%;
-		margin: 0 auto 2rem;
+		padding: 3rem 0;
 	}
 
-	.progressive-container {
-		position: relative;
-	}
-
-	.step {
-		opacity: 0;
-		height: 0;
-		overflow: hidden;
-		transition:
-			opacity 0.5s ease-in-out,
-			height 0.5s ease-in-out;
-		border: 1px solid var(--color-gray-100);
-		border-radius: 6px;
-		background: white;
-		box-shadow: var(--box-shadow-sm);
-	}
-
-	.step.active {
-		opacity: 1;
-		height: auto;
-		overflow: visible;
-	}
-
-	.question-container {
-		text-align: center;
-		padding: 2rem 1rem;
-	}
-
-	.input-group {
+	.sentence-container {
 		display: flex;
-		justify-content: center;
-		align-items: center;
-		gap: 0.5rem;
-	}
-
-	.due-date-input,
-	.edit-due-date-input {
-		padding: 0.75rem 1rem;
-		border: 1px solid #e5e7eb;
-		border-radius: 0.375rem;
-		font-size: 1rem;
-		width: 200px;
-	}
-
-	.next-button {
-		fill: var(--color-sea-blue);
-		border: none;
-		border-radius: 50%;
-		width: 40px;
-		height: 40px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		cursor: pointer;
-	}
-
-	.choice-buttons {
-		display: flex;
-		justify-content: center;
-		gap: 1rem;
-	}
-
-	.choice-button {
-		background-color: #4aa3b8;
-		color: white;
-		border: none;
-		border-radius: 0.375rem;
-		padding: 0.75rem 1.5rem;
-		font-size: 1rem;
-		cursor: pointer;
-		min-width: 100px;
-		transition: background-color 0.2s;
-	}
-
-	.choice-button:hover {
-		background-color: #3b8296;
-	}
-
-	.edit-controls {
-		display: flex;
-		justify-content: center;
-		gap: 2rem;
-		margin-bottom: 1.5rem;
 		flex-wrap: wrap;
-	}
-
-	.edit-control-group {
-		display: flex;
 		align-items: center;
 		gap: 0.5rem;
+		margin-bottom: 1.5rem;
+		font-size: var(--font-size-base);
 	}
 
-	.toggle-container {
-		display: flex;
-		border-radius: 0.375rem;
-		overflow: hidden;
-		border: 1px solid #e5e7eb;
+	.input-text {
+		font-weight: 500;
 	}
 
-	.toggle-button {
-		background-color: #f9fafb;
-		border: none;
+	.connector {
+		margin: 0 0.25rem;
+	}
+
+	.date-input-wrapper {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		border: 1px solid #e2e8f0;
+		border-radius: 4px;
 		padding: 0.5rem 1rem;
+		background: white;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+	}
+
+	.due-date-input {
+		position: absolute;
+		opacity: 0;
+		width: 100%;
+		height: 100%;
 		cursor: pointer;
-		font-size: 0.875rem;
+		z-index: 2;
+		left: 0;
+		top: 0;
 	}
 
-	.toggle-button.active {
-		background-color: #4aa3b8;
-		color: white;
+	.date-display {
+		display: inline-flex;
+		align-items: center;
+		font-weight: 500;
+		min-width: 150px;
 	}
 
-	.chart-container {
-		margin: 1rem 0 2rem;
-		min-height: 400px;
+	.calendar-icon {
+		background: none;
+		border: none;
+		padding: 0;
+		margin-left: 0.5rem;
+		color: #94a3b8;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+	}
+
+	.select-wrapper {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		border: 1px solid #e2e8f0;
+		border-radius: 4px;
+		padding: 0.5rem 1rem;
+		background: white;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+	}
+
+	.first-baby-select {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		background: none;
+		border: none;
+		padding-right: 1.5rem;
+		font-weight: 500;
+		color: inherit;
+		cursor: pointer;
+		font-family: inherit;
+		width: 100%;
+	}
+
+	.select-icon {
+		position: absolute;
+		right: 1rem;
+		top: 50%;
+		transform: translateY(-50%);
+		pointer-events: none;
+		color: #94a3b8;
 	}
 
 	.data-summary {
-		padding: 1.25rem;
-		margin: 1.5rem 1rem;
-		text-align: center;
+		text-align: left;
+	}
+
+	#pregnancy-summary {
+		font-size: var(--font-size-lg);
 	}
 
 	.summary-text {
-		line-height: 1.5;
+		line-height: 1.6;
 		margin: 0;
+	}
+
+	.highlight {
+		display: inline-block;
+		background-color: #f3e8f3;
+		color: #9a3d76;
+		padding: 0 0.5rem;
+		border-radius: 4px;
+		font-weight: 600;
+	}
+
+	.chart-container {
+		margin: 2rem 0;
+		min-height: 400px;
+	}
+
+	/* Responsive adjustments for smaller screens */
+	@media (max-width: 640px) {
+		.sentence-container {
+			gap: 0.35rem;
+		}
+
+		.date-display {
+			min-width: 160px;
+		}
+
+		.connector {
+			margin: 0.5rem 0;
+		}
 	}
 </style>
 
 <script is:inline define:vars={{ regularData, firstTimeData }}>
 	// Wait for DOM to be fully loaded
 	document.addEventListener("DOMContentLoaded", function () {
-		// Step elements
-		const step1 = document.getElementById("step-1");
-		const step2 = document.getElementById("step-2");
-		const step3 = document.getElementById("step-3");
-
 		// Input elements
 		const dueDateInput = document.getElementById("due-date");
-		const editDueDateInput = document.getElementById("edit-due-date");
-		const dueDateNextButton = document.getElementById("due-date-next");
-		const firstBabyYesButton = document.getElementById("first-baby-yes");
-		const firstBabyNoButton = document.getElementById("first-baby-no");
-		const toggleYesButton = document.getElementById("toggle-yes");
-		const toggleNoButton = document.getElementById("toggle-no");
+		const dateDisplay = document.getElementById("date-display");
+		const firstBabySelect = document.getElementById("first-baby-select");
 
 		// Set default due date (2 weeks from today)
 		const defaultDueDate = new Date();
@@ -292,75 +263,35 @@ const firstTimeData = parseCSV(firstTimeProbsCSV);
 			return `${year}-${month}-${day}`;
 		};
 
-		dueDateInput.value = formatDateForInput(defaultDueDate);
-		editDueDateInput.value = formatDateForInput(defaultDueDate);
-
-		// Due date selection and move to step 2
-		dueDateNextButton?.addEventListener("click", function () {
-			const dueDate = dueDateInput.value;
-			if (!dueDate) return;
-
-			// Update edit input to match
-			editDueDateInput.value = dueDate;
-
-			// Animate transition to step 2
-			step1?.classList.remove("active");
-			setTimeout(function () {
-				step2?.classList.add("active");
-			}, 500);
-		});
-
-		// First baby selection handlers
-		const handleFirstBabySelection = function (isFirstBaby) {
-			// Set the toggle buttons state
-			if (isFirstBaby) {
-				toggleYesButton?.classList.add("active");
-				toggleNoButton?.classList.remove("active");
-			} else {
-				toggleYesButton?.classList.remove("active");
-				toggleNoButton?.classList.add("active");
-			}
-
-			// Create and dispatch event with pregnancy data
-			calculateAndDispatchEvent();
-
-			// Animate transition to step 3
-			step2?.classList.remove("active");
-			setTimeout(function () {
-				step3?.classList.add("active");
-			}, 500);
+		// Format for display (Month Day, Year)
+		const formatDateForDisplay = function (date) {
+			return date.toLocaleDateString("en-US", {
+				month: "long",
+				day: "numeric",
+				year: "numeric",
+			});
 		};
 
-		firstBabyYesButton?.addEventListener("click", function () {
-			handleFirstBabySelection(true);
-		});
+		// Initialize date input with default value
+		dueDateInput.value = formatDateForInput(defaultDueDate);
+		dateDisplay.textContent = formatDateForDisplay(defaultDueDate);
 
-		firstBabyNoButton?.addEventListener("click", function () {
-			handleFirstBabySelection(false);
-		});
-
-		// Toggle button handlers for edit controls
-		toggleYesButton?.addEventListener("click", function () {
-			toggleYesButton.classList.add("active");
-			toggleNoButton?.classList.remove("active");
+		// Update display when date input changes
+		dueDateInput.addEventListener("change", function () {
+			const selectedDate = new Date(dueDateInput.value);
+			dateDisplay.textContent = formatDateForDisplay(selectedDate);
 			calculateAndDispatchEvent();
 		});
 
-		toggleNoButton?.addEventListener("click", function () {
-			toggleNoButton.classList.add("active");
-			toggleYesButton?.classList.remove("active");
-			calculateAndDispatchEvent();
-		});
-
-		// Due date edit handler
-		editDueDateInput?.addEventListener("change", function () {
+		// Update calculation when first baby selection changes
+		firstBabySelect.addEventListener("change", function () {
 			calculateAndDispatchEvent();
 		});
 
 		// Function to calculate pregnancy info and dispatch event
 		function calculateAndDispatchEvent() {
-			const dueDate = new Date(editDueDateInput.value);
-			const isFirstTimeMother = toggleYesButton?.classList.contains("active") || false;
+			const dueDate = new Date(dueDateInput.value);
+			const isFirstTimeMother = firstBabySelect.value === "yes";
 
 			// Calculate pregnancy information
 			const today = new Date();
@@ -399,11 +330,11 @@ const firstTimeData = parseCSV(firstTimeProbsCSV);
 			const dueStatusElement = document.getElementById("due-date-status");
 			if (dueStatusElement) {
 				if (daysUntilDue === 0) {
-					dueStatusElement.textContent = "Today is your due date";
+					dueStatusElement.textContent = "today is your due date";
 				} else if (daysUntilDue > 0) {
-					dueStatusElement.textContent = `There are ${daysUntilDue} day${daysUntilDue !== 1 ? "s" : ""} to your due date`;
+					dueStatusElement.textContent = `${daysUntilDue} day${daysUntilDue !== 1 ? "s" : ""} from your due date`;
 				} else {
-					dueStatusElement.textContent = `You are ${Math.abs(daysUntilDue)} day${Math.abs(daysUntilDue) !== 1 ? "s" : ""} past your due date`;
+					dueStatusElement.textContent = `${Math.abs(daysUntilDue)} day${Math.abs(daysUntilDue) !== 1 ? "s" : ""} past your due date`;
 				}
 			}
 
@@ -440,9 +371,12 @@ const firstTimeData = parseCSV(firstTimeProbsCSV);
 			}
 		}
 
-		// Initialize with only step 1 visible
-		setTimeout(function () {
-			step1?.classList.add("active");
-		}, 0);
+		// Initialize the calculation on page load
+		calculateAndDispatchEvent();
+
+		// Make the calendar icon work as an alternative way to open the date picker
+		document.querySelector(".calendar-icon").addEventListener("click", function () {
+			dueDateInput.showPicker();
+		});
 	});
 </script>
