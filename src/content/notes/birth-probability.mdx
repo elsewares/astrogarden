@@ -1,17 +1,16 @@
 ---
 title: "Statistically, When Will My Baby Be Born?"
 description: "A tiny tool to calculate when your baby might arrive"
-startDate: "2025-03-21"
-updated: "2025-03-21"
+startDate: "2025-03-24"
+updated: "2025-03-24"
 type: "note"
 growthStage: "evergreen"
-draft: true
 ---
 
 import BirthProbability from "../../components/unique/birth-probability/BirthProbability.astro";
 import AcademicReference from "../../components/mdx/AcademicReference.astro";
 
-<IntroParagraph>Babies aren't very good at adhering to schedules. Especially unborn babies. Once you get to 38+ weeks pregnant, based off a very rough estimated “due date,”<Footnote idName={1}>Due dates now seem a bit absurd to me after reading about the degree of variation – up to 30 days. There's uncertainty around ovulation timing, implantation time of the fertilised egg, accuracy of ultrasound measurements, and genetic variation between women.</Footnote> you are now in a limbo land of waiting. Baby could come today, or anytime within the next 4 weeks.</IntroParagraph>
+<IntroParagraph>Babies aren't very good at adhering to schedules. Especially unborn babies. Once you get to 38+ weeks pregnant, based off a very rough estimated “due date,”<Footnote idName={1}>Due dates now seem a bit absurd to me after learning how much uncertainty there is in determining them. There's uncertainty around ovulation timing, implantation time of the fertilised egg, accuracy of ultrasound measurements, and genetic variation between women.</Footnote> you are now in a limbo land of waiting. Baby could come today, or anytime within the next 4 weeks.</IntroParagraph>
 
 I'm currently in that limbo waiting phase, and spending it reading all the stats I can find on when babies tend to be born. There are surprisingly few available datasets or papers on this, but the best I could find (and get access to) was this <AcademicReference title="Use of time to event analysis to estimate the normal duration of human pregnancy" href="https://academic.oup.com/humrep/article-abstract/16/7/1497/693431" year="2001" authors="Gordon C.S. Smith" abstract="Current estimates of the average duration of human pregnancy are flawed by inaccurate estimation of the time of conception and by failure to account adequately for the effect of routine elective delivery post-term. METHODS: In this study, 1514 healthy pregnant women were studied in whom the discrepancy between the menstrual history and first trimester crown–rump length estimated gestational age was within –1 to +1 day difference. The duration of gestation was estimated using time to event analysis: non-elective delivery was taken to be the event, and elective delivery was taken to be censoring. RESULTS: The median time to non-elective delivery using the Kaplan–Meier product limit estimate was 283 days after last menstrual period (LMP) and there was no difference comparing male and female fetuses. The median was significantly greater for nulliparous women compared with multiparous women (284 versus 282 days, P < 0.0001). Multivariate analysis using Cox's proportional hazards model confirmed the independent effect of nulliparity on duration of pregnancy [hazard ratio, 0.75; 95% confidence interval (CI) 0.67–0.85] and demonstrated no effect of maternal age, previous abortions, fetal sex, high parity, or bleeding before 24 completed weeks of gestation. Bleeding in the third trimester of pregnancy was, however, associated with an earlier onset of spontaneous labour (hazard ratio, 1.38; 95% CI 1.03–1.84). CONCLUSION: This study provides a basis for predicting the probability of labour at a given gestational age at term">2001 study</AcademicReference> that looked at when 1,514 pregnant women gave birth. The data was gathered over a ten year period from 1985 and 1995 in the UK.
 
@@ -19,6 +18,6 @@ Taking key metrics from that, I made a tiny tool that shows a probability distri
 
 <BirthProbability/>
 
-Blue bars show the probability of giving birth on that specific day. The maroon line shows the cumulative probability of having given birth by that day. This is based on statistical data extrapolated from the Smith 2001 paper, but don't hold me to it too firmly. It's only one study, I am not a data analyst, and it's a fuzzy estimate at best.
+This is based on statistical data extrapolated from the [Smith 2001](https://academic.oup.com/humrep/article-abstract/16/7/1497/693431) paper, but don't hold me to it too firmly. It's only one study, I am not a data analyst, and it's a fuzzy estimate at best.
 
-If you're also waiting around for a baby to arrive, hopefully you'll find this helpful and reassuring. The TLDR is it's very normal for it to go over 40 weeks! First-time mothers only have a 33.6% chance of giving birth by 40 weeks, while mothers who have given birth before have a 42.5% chance. Risks for all the bad stuff don't go up until after 42 weeks. This piece by Evidence Based Birth has more helpful information on due dates and inductions.
+If you're also waiting around for a baby to arrive, hopefully you'll find this helpful and reassuring. The TLDR is it's very normal for it to go over 40 weeks! Risks for all the bad stuff don't go up until after 42 weeks. This piece on [due dates and induction](https://evidencebasedbirth.com/evidence-on-due-dates/) from Evidence Based Birth has more helpful information.

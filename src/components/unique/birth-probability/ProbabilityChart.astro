@@ -1,29 +1,24 @@
 ---
 export interface Props {
-	regularCsv: string;
+	multiBirthCsv: string;
 	firstTimeCsv: string;
 }
 
-const { regularCsv, firstTimeCsv } = Astro.props;
+const { multiBirthCsv, firstTimeCsv } = Astro.props;
 ---
 
 <div class="probability-chart-container">
+	<div id="chart-area" class="chart-area">
+		<div id="tooltip" class="tooltip"></div>
+	</div>
 	<div class="chart-legend">
 		<div class="legend-item">
 			<div class="legend-color daily-color"></div>
-			<div class="legend-label">Daily Birth Probability (left axis)</div>
+			<div class="legend-label">Daily Birth Probability</div>
 		</div>
 		<div class="legend-item">
 			<div class="legend-color cumulative-color"></div>
-			<div class="legend-label">Cumulative Birth Probability (right axis)</div>
-		</div>
-	</div>
-
-	<div id="chart-area" class="chart-area">
-		<div id="tooltip" class="tooltip"></div>
-		<div id="error-message" class="error-message" style="display: none;">
-			<h3>Error Loading Chart</h3>
-			<p>There was an error processing the chart data. Check browser console for details.</p>
+			<div class="legend-label">Cumulative Birth Probability</div>
 		</div>
 	</div>
 </div>
@@ -33,11 +28,20 @@ const { regularCsv, firstTimeCsv } = Astro.props;
 		width: 100%;
 	}
 
+	.chart-area {
+		width: 100%;
+		height: 400px;
+		position: relative;
+		margin-bottom: 0.5rem;
+	}
+
 	.chart-legend {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 1.5rem;
-		margin-bottom: 1rem;
+		justify-content: center;
+		justify-content: space-between;
+		gap: 2rem;
+		width: 100%;
 		font-size: 0.875rem;
 	}
 
@@ -54,21 +58,16 @@ const { regularCsv, firstTimeCsv } = Astro.props;
 	}
 
 	.daily-color {
-		background-color: #4aa3b8;
+		background-color: var(--color-sea-blue);
 	}
 
 	.cumulative-color {
-		background-color: #9a3d76;
+		background-color: var(--color-bright-crimson);
 	}
 
 	.legend-label {
-		color: #6b7280;
-	}
-
-	.chart-area {
-		width: 100%;
-		height: 400px;
-		position: relative;
+		color: var(--color-gray-600);
+		font-weight: 500;
 	}
 
 	.tooltip {
@@ -121,79 +120,26 @@ const { regularCsv, firstTimeCsv } = Astro.props;
 	}
 
 	.current-day-line {
-		stroke: #9a3d76;
+		stroke: var(--color-bright-crimson);
 		stroke-width: 2;
 		stroke-dasharray: 5, 3;
 	}
-
-	.error-message {
-		padding: 2rem;
-		background-color: #fee2e2;
-		border: 1px solid #f87171;
-		border-radius: 0.5rem;
-		margin: 1rem 0;
-		text-align: center;
-		color: #9a3d76;
-	}
-
-	.error-message h3 {
-		margin-top: 0;
-		margin-bottom: 0.5rem;
-		font-size: 1.25rem;
-		font-weight: 600;
-	}
-
-	.error-message p {
-		margin: 0;
-		font-size: 0.9rem;
-	}
 </style>
 
-<script define:vars={{ regularCsv, firstTimeCsv }} type="module">
-	// Add these helper functions for error display
-	function showError(message) {
-		console.error("Chart error:", message);
-		const errorElement = document.getElementById("error-message");
-		if (errorElement) {
-			const errorParagraph = errorElement.querySelector("p");
-			if (errorParagraph) {
-				errorParagraph.textContent = message;
-			}
-			errorElement.style.display = "block";
-		}
-	}
-
-	function hideError() {
-		const errorElement = document.getElementById("error-message");
-		if (errorElement) {
-			errorElement.style.display = "none";
-		}
-	}
-
-	// Get the CSV data from Astro props using define:vars
-	let regularCsvData = [];
+<script define:vars={{ multiBirthCsv, firstTimeCsv }} type="module">
+	let multiBirthCsvData = [];
 	let firstTimeCsvData = [];
 
 	try {
-		regularCsvData = JSON.parse(regularCsv || "[]");
-
-		if (!regularCsvData.length) {
-			showError("No data available in the regular dataset");
-		}
+		multiBirthCsvData = JSON.parse(multiBirthCsv || "[]");
 	} catch (error) {
-		console.error("Error parsing regularCsv:", error);
-		showError("Failed to parse regular dataset: " + error.message);
+		console.error("Error parsing multiBirthCsv:", error);
 	}
 
 	try {
 		firstTimeCsvData = JSON.parse(firstTimeCsv || "[]");
-
-		if (!firstTimeCsvData.length) {
-			showError("No data available in the first-time mother dataset");
-		}
 	} catch (error) {
 		console.error("Error parsing firstTimeCsv:", error);
-		showError("Failed to parse first-time mother dataset: " + error.message);
 	}
 
 	// Import D3 modules directly
@@ -212,7 +158,7 @@ const { regularCsv, firstTimeCsv } = Astro.props;
 	});
 
 	// Global tooltip functions that can be used across the chart
-	function showTooltip(event, d, isCumulative = false) {
+	function showTooltip(event, d, pregnancyData = false) {
 		if (!tooltipDiv) {
 			tooltipDiv = d3.select("#tooltip");
 		}
@@ -220,36 +166,48 @@ const { regularCsv, firstTimeCsv } = Astro.props;
 		const weekObj = parseWeek(d.week);
 		const readableLabel = formatReadableLabel(weekObj);
 
-		let statusLabel = "";
+		// Calculate the date based on the current day's data point
+		const date = new Date();
 		if (d.isCurrentDay) {
-			statusLabel = " (Today)";
-		} else if (d.isPastDay) {
-			statusLabel = " (Past)";
+			// If this is the current day, use today's date
+			date;
+		} else if (d.dayIndex !== undefined && pregnancyData) {
+			// Calculate the difference between this point and today
+			const currentDayIndex = weeksToDays(pregnancyData.currentWeek, pregnancyData.currentDay);
+			const daysDifference = d.dayIndex - currentDayIndex;
+			date.setDate(date.getDate() + daysDifference);
 		}
 
+		// Format the date
+		const formattedDate = date
+			.toLocaleDateString("en-US", {
+				month: "long",
+				day: "numeric",
+			})
+			.replace(/(\d+)$/, function (_, day) {
+				const suffix =
+					["th", "st", "nd", "rd"][day % 10 > 3 ? 0 : (day % 100) - 10 != 0 ? day % 10 : 0] || "th";
+				return day + suffix;
+			});
+
+		let statusLabel = "";
+
 		let html = `
+		<div class="tooltip-date" style="color: var(--color-gray-500); margin-bottom: 4px;">${formattedDate}</div>
 		<div class="tooltip-title">${readableLabel}${statusLabel}</div>
 		<div class="tooltip-item">
-			<span class="tooltip-label">Birth probability:</span>
-			<span class="tooltip-value" style="color: ${d.isCurrentDay ? "#ef4444" : d.isPastDay ? "#94a3b8" : "#4aa3b8"};">
+			<span class="tooltip-label">Daily probability:</span>
+			<span class="tooltip-value" style="color: ${d.isPastDay ? "var(--color-gray-500)" : "var(--color-sea-blue)"}">
 				${(d.isPastDay ? d.onThisDay : d.adjustedOnThisDay !== undefined ? d.adjustedOnThisDay : d.onThisDay).toFixed(1)}%
 			</span>
 		</div>
 	`;
 
-		if (d.adjustedCumulative !== undefined && !d.isPastDay) {
+		if (d.adjustedCumulative !== undefined) {
 			html += `
 			<div class="tooltip-item">
 				<span class="tooltip-label">Chance of birth by this day:</span>
-				<span class="tooltip-value" style="color: #f97316;">${d.beforeThisPoint.toFixed(1)}%</span>
-			</div>
-		`;
-		}
-
-		if (d.isPastDay) {
-			html += `
-			<div class="tooltip-item tooltip-past-note">
-				<span>This day has already passed</span>
+				<span class="tooltip-value" style="color: ${d.isPastDay ? "var(--color-gray-500)" : "var(--color-bright-crimson)"}">${d.beforeThisPoint.toFixed(1)}%</span>
 			</div>
 		`;
 		}
@@ -277,7 +235,6 @@ const { regularCsv, firstTimeCsv } = Astro.props;
 
 	// Parse the string to week and day
 	function parseWeek(weekString) {
-		// Match the new format 36w1d
 		const newFormatMatch = weekString.match(/(\d+)w(\d+)d/);
 		if (newFormatMatch) {
 			return {
@@ -337,6 +294,7 @@ const { regularCsv, firstTimeCsv } = Astro.props;
 					onThisDay: onThisDay,
 					afterThisPoint: afterThisPoint,
 					dayIndex: weeksToDays(weekObj.week, weekObj.day),
+					isDueDate: weekObj.week === 40 && weekObj.day === 0, // Mark the 40w0d as due date
 				};
 			});
 
@@ -357,18 +315,12 @@ const { regularCsv, firstTimeCsv } = Astro.props;
 				const currentDayPoint = processedData.find((d) => d.dayIndex >= currentDayIndex);
 
 				if (currentDayPoint) {
-					// Get the remaining probability from current day
-					const remainingProbability = currentDayPoint.afterThisPoint + currentDayPoint.onThisDay;
-
 					// Calculate adjusted probabilities for all days
 					processedData.forEach((d) => {
 						if (d.dayIndex >= currentDayIndex) {
-							// For current day and future days, use raw probabilities from CSV
-							// Don't adjust the values - just use the raw data
 							d.adjustedOnThisDay = d.onThisDay;
 							d.adjustedCumulative = d.beforeThisPoint;
 						} else {
-							// For past days, keep the same approach
 							d.adjustedOnThisDay = 0;
 							d.adjustedCumulative = 0;
 						}
@@ -383,7 +335,7 @@ const { regularCsv, firstTimeCsv } = Astro.props;
 	}
 
 	// Render the chart
-	function renderChart(data) {
+	function renderChart(data, pregnancyData) {
 		// Ensure we have data to render
 		if (!data || data.length === 0) {
 			console.error("No data available to render chart");
@@ -400,7 +352,7 @@ const { regularCsv, firstTimeCsv } = Astro.props;
 			}
 
 			// Set up dimensions
-			const margin = { top: 30, right: 60, bottom: 70, left: 60 }; // Increased margins for axes
+			const margin = { top: 30, right: 36, bottom: 50, left: 36 }; // Increased margins for axes
 			const width = chartArea.node()?.getBoundingClientRect().width || 600;
 			const height = 400 - margin.top - margin.bottom;
 
@@ -430,7 +382,6 @@ const { regularCsv, firstTimeCsv } = Astro.props;
 			});
 
 			// Add one percentage point to the max value for better visualization
-			// Use 6% as minimum even if all values are below 5%
 			const yLeftMax = Math.max(Math.ceil(maxDailyProbability + 1), 6);
 
 			// Set up scales
@@ -470,18 +421,26 @@ const { regularCsv, firstTimeCsv } = Astro.props;
 				.style("text-anchor", "end")
 				.attr("dx", "-.8em")
 				.attr("dy", ".15em")
-				.attr("transform", "rotate(-45)");
+				.attr("transform", "rotate(-45)")
+				.attr("fill", "var(--color-gray-600)");
+
+			xAxis.selectAll("line").attr("stroke", "var(--color-gray-400)");
+			xAxis.select("path").attr("stroke", "var(--color-gray-400)");
 
 			// Add left y-axis (daily probability)
-			svg.append("g").call(
+			const leftAxis = svg.append("g").call(
 				d3
 					.axisLeft(yLeft)
 					.ticks(5)
 					.tickFormat((d) => `${d}%`),
 			);
 
+			leftAxis.selectAll("text").attr("fill", "var(--color-gray-500)");
+			leftAxis.selectAll("line").attr("stroke", "var(--color-gray-400)");
+			leftAxis.select("path").attr("stroke", "var(--color-gray-400)");
+
 			// Add right y-axis (cumulative probability)
-			svg
+			const rightAxis = svg
 				.append("g")
 				.attr("transform", `translate(${chartWidth}, 0)`)
 				.call(
@@ -491,26 +450,9 @@ const { regularCsv, firstTimeCsv } = Astro.props;
 						.tickFormat((d) => `${d}%`),
 				);
 
-			// Add y-axis titles
-			svg
-				.append("text")
-				.attr("transform", "rotate(-90)")
-				.attr("y", -margin.left + 15)
-				.attr("x", -height / 2)
-				.attr("text-anchor", "middle")
-				.attr("fill", "#4aa3b8")
-				.style("font-size", "12px")
-				.text("Daily Birth Probability (%)");
-
-			svg
-				.append("text")
-				.attr("transform", "rotate(90)")
-				.attr("y", -width + margin.right - 15)
-				.attr("x", height / 2)
-				.attr("text-anchor", "middle")
-				.attr("fill", "#f97316")
-				.style("font-size", "12px")
-				.text("Cumulative Birth Probability (%)");
+			rightAxis.selectAll("text").attr("fill", "var(--color-gray-500)");
+			rightAxis.selectAll("line").attr("stroke", "var(--color-gray-400)");
+			rightAxis.select("path").attr("stroke", "var(--color-gray-400)");
 
 			// Add grid lines
 			svg
@@ -529,11 +471,14 @@ const { regularCsv, firstTimeCsv } = Astro.props;
 				.attr("x2", (d) => x(d.displayLabel) + x.bandwidth() / 2)
 				.attr("y1", 0)
 				.attr("y2", height)
-				.attr("stroke", "#e5e7eb")
-				.attr("stroke-dasharray", "3,3");
+				.attr("stroke", "#d3d3d1")
+				.attr("stroke-dasharray", "4,6")
+				.attr("stroke-linecap", "round");
 
 			// Find today's date index for reference line
 			const todayData = data.find((d) => d.isCurrentDay);
+			// Find due date (40w0d)
+			const dueDateData = data.find((d) => d.isDueDate);
 
 			// If we have today's date, add a vertical reference line
 			if (todayData) {
@@ -543,20 +488,44 @@ const { regularCsv, firstTimeCsv } = Astro.props;
 					.attr("x2", x(todayData.displayLabel) + x.bandwidth() / 2)
 					.attr("y1", 0)
 					.attr("y2", height)
-					.attr("stroke", "#ef4444") // Red line
+					.attr("stroke", "var(--color-salmon)")
 					.attr("stroke-width", 2)
-					.attr("stroke-dasharray", "5,3");
+					.attr("stroke-dasharray", "4,6")
+					.attr("stroke-linecap", "round");
 
 				// Add "Today" label
 				svg
 					.append("text")
 					.attr("x", x(todayData.displayLabel) + x.bandwidth() / 2)
-					.attr("y", -10)
+					.attr("y", -15)
 					.attr("text-anchor", "middle")
-					.attr("fill", "#ef4444")
-					.style("font-size", "12px")
-					.style("font-weight", "bold")
+					.attr("fill", "var(--color-dark-salmon)")
+					.style("font-size", "14px")
 					.text("Today");
+			}
+
+			// If we have due date, add a vertical reference line
+			if (dueDateData && (!todayData || dueDateData.displayLabel !== todayData.displayLabel)) {
+				svg
+					.append("line")
+					.attr("x1", x(dueDateData.displayLabel) + x.bandwidth() / 2)
+					.attr("x2", x(dueDateData.displayLabel) + x.bandwidth() / 2)
+					.attr("y1", 0)
+					.attr("y2", height)
+					.attr("stroke", "var(--color-gray-400)")
+					.attr("stroke-width", 2)
+					.attr("stroke-dasharray", "4,6")
+					.attr("stroke-linecap", "round");
+
+				// Add "Due Date" label
+				svg
+					.append("text")
+					.attr("x", x(dueDateData.displayLabel) + x.bandwidth() / 2)
+					.attr("y", -15)
+					.attr("text-anchor", "middle")
+					.attr("fill", "var(--color-gray-600)")
+					.style("font-size", "14px")
+					.text("Due Date");
 			}
 
 			// Add bars for daily probability - using left y-axis
@@ -568,14 +537,12 @@ const { regularCsv, firstTimeCsv } = Astro.props;
 				.attr("class", "bar")
 				.attr("x", (d) => x(d.displayLabel))
 				.attr("y", (d) => {
-					// For past days, use original onThisDay
-					// For today and future days, use adjustedOnThisDay if available
 					const value = d.isPastDay
 						? d.onThisDay
 						: d.adjustedOnThisDay !== undefined
 							? d.adjustedOnThisDay
 							: d.onThisDay;
-					return yLeft(Math.min(value, yLeftMax)); // Cap at dynamic max for display
+					return yLeft(Math.min(value, yLeftMax));
 				})
 				.attr("width", x.bandwidth())
 				.attr("height", (d) => {
@@ -587,12 +554,12 @@ const { regularCsv, firstTimeCsv } = Astro.props;
 					return height - yLeft(Math.min(value, yLeftMax));
 				})
 				.attr("fill", (d) => {
-					if (d.isCurrentDay) return "#9a3d76"; // Today's bar in red
-					if (d.isPastDay) return "#94a3b8"; // Past days in gray
-					return "#4aa3b8"; // Future days in blue
+					if (d.isCurrentDay) return "var(--color-salmon)";
+					if (d.isPastDay) return "var(--color-gray-300)";
+					return "var(--color-sea-blue)";
 				})
 				.on("mouseover", function (event, d) {
-					showTooltip(event, d);
+					showTooltip(event, d, pregnancyData);
 				})
 				.on("mousemove", function (event) {
 					moveTooltip(event);
@@ -613,7 +580,7 @@ const { regularCsv, firstTimeCsv } = Astro.props;
 					.append("path")
 					.datum(relevantData)
 					.attr("fill", "none")
-					.attr("stroke", "#9a3d76")
+					.attr("stroke", "var(--color-bright-crimson)")
 					.attr("stroke-width", 3)
 					.attr("d", linePath);
 
@@ -627,9 +594,9 @@ const { regularCsv, firstTimeCsv } = Astro.props;
 					.attr("cx", (d) => x(d.displayLabel) + x.bandwidth() / 2)
 					.attr("cy", (d) => yRight(d.beforeThisPoint))
 					.attr("r", 4)
-					.attr("fill", (d) => (d.isCurrentDay ? "#ef4444" : "#9a3d76"))
+					.attr("fill", "var(--color-bright-crimson)")
 					.on("mouseover", function (event, d) {
-						showTooltip(event, d, true);
+						showTooltip(event, d, pregnancyData, true);
 					})
 					.on("mousemove", function (event) {
 						moveTooltip(event);
@@ -649,11 +616,11 @@ const { regularCsv, firstTimeCsv } = Astro.props;
 		lastPregnancyData = pregnancyData;
 
 		// Use the appropriate dataset based on first-time mother status
-		const csvDataToUse = pregnancyData.isFirstTimeMother ? firstTimeCsvData : regularCsvData;
+		const csvDataToUse = pregnancyData.isFirstTimeMother ? firstTimeCsvData : multiBirthCsvData;
 
 		// Process and render the data
 		const processedData = processData(csvDataToUse, pregnancyData);
-		renderChart(processedData);
+		renderChart(processedData, pregnancyData);
 	});
 
 	// Handle window resize
@@ -664,20 +631,14 @@ const { regularCsv, firstTimeCsv } = Astro.props;
 			if (lastPregnancyData) {
 				const csvDataToUse = lastPregnancyData.isFirstTimeMother
 					? firstTimeCsvData
-					: regularCsvData;
+					: multiBirthCsvData;
 				const processedData = processData(csvDataToUse, lastPregnancyData);
-				renderChart(processedData);
+				renderChart(processedData, lastPregnancyData);
 			} else {
 				// If no pregnancy data has been set yet, still redraw with default data
-				const initialData = processData(regularCsvData, null);
-				renderChart(initialData);
+				const initialData = processData(multiBirthCsvData, null);
+				renderChart(initialData, null);
 			}
 		}, 250);
-	});
-
-	// Initial render with default data - we'll skip this and rely on the calculate button
-	document.addEventListener("DOMContentLoaded", function () {
-		// We no longer render a default chart here
-		// The DueDateInput component will automatically trigger the calculate button
 	});
 </script>
