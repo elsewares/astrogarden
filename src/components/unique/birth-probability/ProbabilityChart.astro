@@ -454,8 +454,47 @@ const { multiBirthCsv, firstTimeCsv } = Astro.props;
 			rightAxis.selectAll("line").attr("stroke", "var(--color-gray-400)");
 			rightAxis.select("path").attr("stroke", "var(--color-gray-400)");
 
+			// Find today's date index for reference line
+			const todayData = data.find((d) => d.isCurrentDay);
+			// Find due date (40w0d)
+			const dueDateData = data.find((d) => d.isDueDate);
+
+			// Create a group for reference lines that will render before the bars
+			const referenceLinesGroup = svg.append("g").attr("class", "reference-lines");
+
+			// If we have today's date, add a vertical reference line
+			if (todayData) {
+				referenceLinesGroup
+					.append("line")
+					.attr("x1", x(todayData.displayLabel) + x.bandwidth() / 2)
+					.attr("x2", x(todayData.displayLabel) + x.bandwidth() / 2)
+					.attr("y1", 0)
+					.attr("y2", height)
+					.attr("stroke", "var(--color-salmon)")
+					.attr("stroke-width", 2)
+					.attr("stroke-dasharray", "4,6")
+					.attr("stroke-linecap", "round");
+			}
+
+			// If we have due date, add a vertical reference line
+			if (dueDateData && (!todayData || dueDateData.displayLabel !== todayData.displayLabel)) {
+				referenceLinesGroup
+					.append("line")
+					.attr("x1", x(dueDateData.displayLabel) + x.bandwidth() / 2)
+					.attr("x2", x(dueDateData.displayLabel) + x.bandwidth() / 2)
+					.attr("y1", 0)
+					.attr("y2", height)
+					.attr("stroke", "var(--color-gray-400)")
+					.attr("stroke-width", 2)
+					.attr("stroke-dasharray", "4,6")
+					.attr("stroke-linecap", "round");
+			}
+
+			// Create a group for all the chart elements
+			const chartGroup = svg.append("g").attr("class", "chart-elements");
+
 			// Add grid lines
-			svg
+			chartGroup
 				.append("g")
 				.attr("class", "grid")
 				.selectAll("line")
@@ -475,61 +514,8 @@ const { multiBirthCsv, firstTimeCsv } = Astro.props;
 				.attr("stroke-dasharray", "4,6")
 				.attr("stroke-linecap", "round");
 
-			// Find today's date index for reference line
-			const todayData = data.find((d) => d.isCurrentDay);
-			// Find due date (40w0d)
-			const dueDateData = data.find((d) => d.isDueDate);
-
-			// If we have today's date, add a vertical reference line
-			if (todayData) {
-				svg
-					.append("line")
-					.attr("x1", x(todayData.displayLabel) + x.bandwidth() / 2)
-					.attr("x2", x(todayData.displayLabel) + x.bandwidth() / 2)
-					.attr("y1", 0)
-					.attr("y2", height)
-					.attr("stroke", "var(--color-salmon)")
-					.attr("stroke-width", 2)
-					.attr("stroke-dasharray", "4,6")
-					.attr("stroke-linecap", "round");
-
-				// Add "Today" label
-				svg
-					.append("text")
-					.attr("x", x(todayData.displayLabel) + x.bandwidth() / 2)
-					.attr("y", -15)
-					.attr("text-anchor", "middle")
-					.attr("fill", "var(--color-dark-salmon)")
-					.style("font-size", "14px")
-					.text("Today");
-			}
-
-			// If we have due date, add a vertical reference line
-			if (dueDateData && (!todayData || dueDateData.displayLabel !== todayData.displayLabel)) {
-				svg
-					.append("line")
-					.attr("x1", x(dueDateData.displayLabel) + x.bandwidth() / 2)
-					.attr("x2", x(dueDateData.displayLabel) + x.bandwidth() / 2)
-					.attr("y1", 0)
-					.attr("y2", height)
-					.attr("stroke", "var(--color-gray-400)")
-					.attr("stroke-width", 2)
-					.attr("stroke-dasharray", "4,6")
-					.attr("stroke-linecap", "round");
-
-				// Add "Due Date" label
-				svg
-					.append("text")
-					.attr("x", x(dueDateData.displayLabel) + x.bandwidth() / 2)
-					.attr("y", -15)
-					.attr("text-anchor", "middle")
-					.attr("fill", "var(--color-gray-600)")
-					.style("font-size", "14px")
-					.text("Due Date");
-			}
-
 			// Add bars for daily probability - using left y-axis
-			svg
+			chartGroup
 				.selectAll(".bar")
 				.data(data)
 				.enter()
@@ -576,7 +562,7 @@ const { multiBirthCsv, firstTimeCsv } = Astro.props;
 					.x((d) => x(d.displayLabel) + x.bandwidth() / 2)
 					.y((d) => yRight(d.beforeThisPoint));
 
-				svg
+				chartGroup
 					.append("path")
 					.datum(relevantData)
 					.attr("fill", "none")
@@ -585,7 +571,7 @@ const { multiBirthCsv, firstTimeCsv } = Astro.props;
 					.attr("d", linePath);
 
 				// Add dots for each point on the line
-				svg
+				chartGroup
 					.selectAll(".dot")
 					.data(relevantData)
 					.enter()
@@ -602,6 +588,51 @@ const { multiBirthCsv, firstTimeCsv } = Astro.props;
 						moveTooltip(event);
 					})
 					.on("mouseout", hideTooltip);
+			}
+
+			// Create a separate group for labels that will render on top
+			const labelsGroup = svg.append("g").attr("class", "labels");
+
+			// If we have today's date, add the "Today" label
+			if (todayData) {
+				labelsGroup
+					.append("text")
+					.attr("x", x(todayData.displayLabel) + x.bandwidth() / 2)
+					.attr("y", -15)
+					.attr("text-anchor", "middle")
+					.attr("fill", "var(--color-dark-salmon)")
+					.style("font-size", "14px")
+					.text("Today");
+			}
+
+			// If we have due date, add the "Due Date" label
+			if (dueDateData && (!todayData || dueDateData.displayLabel !== todayData.displayLabel)) {
+				// Calculate if dates are within 2 days of each other
+				const daysApart = todayData
+					? Math.abs(dueDateData.dayIndex - todayData.dayIndex)
+					: Infinity;
+				const isClose = daysApart <= 2;
+
+				// Add "Due Date" label with conditional y-position
+				const dueDateLabel = labelsGroup
+					.append("text")
+					.attr("x", x(dueDateData.displayLabel) + x.bandwidth() / 2)
+					.attr("y", isClose ? 8 : -15) // Move label down if dates are close
+					.attr("text-anchor", "middle")
+					.attr("fill", "var(--color-gray-600)")
+					.style("font-size", "14px")
+					.text("Due Date");
+
+				// Add background rectangle for the text
+				const bbox = dueDateLabel.node().getBBox();
+				labelsGroup
+					.insert("rect", "text:last-of-type") // Insert before the text
+					.attr("x", bbox.x - 4)
+					.attr("y", bbox.y - 2)
+					.attr("width", bbox.width + 8)
+					.attr("height", bbox.height + 4)
+					.attr("fill", "white")
+					.attr("rx", 4); // Rounded corners
 			}
 		} catch (error) {
 			console.error("Error rendering chart:", error);
