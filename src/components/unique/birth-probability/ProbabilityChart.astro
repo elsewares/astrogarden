@@ -278,21 +278,19 @@ const { multiBirthCsv, firstTimeCsv } = Astro.props;
 
 			// Process each data point
 			const processedData = parsedData.map((item) => {
-				// Get the week string from the first empty column header
-				const weekString = item[""] || "";
+				// Get the week string from the Gestation Age column
+				const weekString = item["Gestation Age"] || "";
 				const weekObj = parseWeek(weekString);
 
 				// Get values directly from the parsed data
 				const beforeThisPoint = parseFloat((item["Before This Point"] || "0").replace("%", ""));
 				const onThisDay = parseFloat((item["On This Day"] || "0").replace("%", ""));
-				const afterThisPoint = parseFloat((item["After This Point"] || "0").replace("%", ""));
 
 				return {
 					week: weekString,
 					displayLabel: formatDisplayLabel(weekObj),
 					beforeThisPoint: beforeThisPoint,
 					onThisDay: onThisDay,
-					afterThisPoint: afterThisPoint,
 					dayIndex: weeksToDays(weekObj.week, weekObj.day),
 					isDueDate: weekObj.week === 40 && weekObj.day === 0, // Mark the 40w0d as due date
 				};

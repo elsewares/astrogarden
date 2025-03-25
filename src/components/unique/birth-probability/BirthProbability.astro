@@ -35,8 +35,8 @@ function parseCSV(csvText: string): Record<string, string>[] {
 
 		// Map each value to its header
 		headers.forEach((header: string, index: number) => {
-			// Use the empty string as key for the first column if header is empty
-			const key = header || "";
+			// Use "Gestation Age" for the first column
+			const key = header || "Gestation Age";
 			entry[key] = values[index] || "";
 		});
 
@@ -414,7 +414,7 @@ const firstTimeData = parseCSV(firstTimeProbsCSV);
 		// Find tomorrow's birth probability
 		const data = isFirstBaby ? firstTimeData : multiBirthData;
 		const weekLabel = `${currentWeek}w${currentDay}d`;
-		const tomorrowData = data.find((item) => item[""] === weekLabel);
+		const tomorrowData = data.find((item) => item["Gestation Age"] === weekLabel);
 
 		if (tomorrowData) {
 			const probability = parseFloat(tomorrowData["Before This Point"].replace("%", ""));
