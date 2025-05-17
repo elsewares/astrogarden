@@ -40,20 +40,20 @@ async function createSmidgeon() {
   const frontmatter = `---
 title: "${title}"
 startDate: ${date.toISOString()}
-type: "smidgeon"
+type: "thread"
 ---
 
 `;
 
-  // Write file directly in smidgeons directory
-  const smidgeonsDir = path.join(
+  // Write file directly in threads directory
+  const threadsDir = path.join(
     __dirname,
     "..",
     "src",
     "content",
-    "smidgeons",
+    "threads",
   );
-  const filePath = path.join(smidgeonsDir, filename);
+  const filePath = path.join(threadsDir, filename);
   await fs.writeFile(filePath, frontmatter);
 
   console.log(`Created new smidgeon at: ${filePath}`);

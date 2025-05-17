@@ -6,12 +6,12 @@ import { getCollection } from "astro:content";
 import type { ReactNode } from "react";
 
 export async function getStaticPaths() {
-  const [essays, notes, talks, patterns, smidgeons, nowPages] = await Promise.all([
+  const [essays, notes, talks, patterns, threads, nowPages] = await Promise.all([
     getCollection("essays"),
     getCollection("notes"),
     getCollection("talks"),
     getCollection("patterns"),
-    getCollection("smidgeons"),
+    getCollection("threads"),
     getCollection("now"),
   ]);
 
@@ -53,11 +53,11 @@ export async function getStaticPaths() {
     });
   });
 
-  // Smidgeons
-  smidgeons.forEach((entry) => {
+  // Threads
+  threads.forEach((entry) => {
     paths.push({
       params: { slug: entry.id },
-      props: { entry, type: "smidgeon" },
+      props: { entry, type: "thread" },
     });
   });
 

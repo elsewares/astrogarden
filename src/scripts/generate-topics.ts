@@ -10,7 +10,7 @@ async function generateTopics() {
     "src/content/notes",
     "src/content/patterns",
     "src/content/talks",
-    "src/content/smidgeons",
+    "src/content/threads",
   ];
 
   const mdxFiles = await globby(contentDirs.map((dir) => `${dir}/**/*.mdx`));

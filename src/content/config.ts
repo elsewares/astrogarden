@@ -128,13 +128,13 @@ const nowCollection = defineCollection({
   }),
 });
 
-const smidgeonsCollection = defineCollection({
-  loader: glob({ pattern: "**/*.mdx", base: "./src/content/smidgeons" }),
+const threadsCollection = defineCollection({
+  loader: glob({ pattern: "**/*.mdx", base: "./src/content/threads" }),
   schema: () =>
     z.object({
       title: z.string(),
       startDate: z.coerce.date(),
-      type: z.literal("smidgeon"),
+      type: z.literal("thread"),
       topics: z.array(z.string()).optional(),
       draft: z.boolean().optional(),
       external: z
@@ -178,6 +178,6 @@ export const collections = {
   podcasts: podcastsCollection,
   books: booksCollection,
   antibooks: antibooksCollection,
-  smidgeons: smidgeonsCollection,
+  threads: threadsCollection,
   pages: pagesCollection,
 };

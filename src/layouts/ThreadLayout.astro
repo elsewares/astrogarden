@@ -6,20 +6,20 @@ import WebMentions from "../components/layouts/WebMentions.astro";
 import Topics from "../components/layouts/Topics.astro";
 
 type Props = {
-	frontmatter: CollectionEntry<"smidgeons">["data"];
+	frontmatter: CollectionEntry<"threads">["data"];
 };
 
 const { frontmatter } = Astro.props;
 const currentSlug = Astro.url.pathname.replace(/^\/|\/$/g, "");
 ---
 
-<Layout title={frontmatter.title} type="smidgeon">
+<Layout title={frontmatter.title} type="thread">
 	<header class="header-section">
 		<div class="above-title">
 			<div class="back-link">
-				<a href="/smidgeons">
+				<a href="/threads">
 					<Icon name="heroicons:arrow-left" size={16} />
-					<span>Back to Smidgeons</span>
+					<span>Back to Threads</span>
 				</a>
 			</div>
 		</div>

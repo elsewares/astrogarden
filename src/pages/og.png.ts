@@ -261,6 +261,7 @@ export const GET: APIRoute = async function get({ request }) {
     },
   };
 
+  // @ts-ignore
   const svg = await satori(content, {
     width: 1200,
     height: 630,

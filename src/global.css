@@ -1,68 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
 @font-face {
-  font-family: "Canela Deck";
-  src:
-    local("CanelaDeck-Regular"),
-    url("/fonts/CanelaDeck-Regular.woff2") format("woff2"),
-    url("/fonts/CanelaDeck-Regular.woff") format("woff");
-  font-weight: normal;
+  font-family: "Raleway";
   font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Canela Deck";
-  src:
-    local("CanelaDeck-Bold"),
-    url("/fonts/CanelaDeck-Bold.woff2") format("woff2"),
-    url("/fonts/CanelaDeck-Bold.woff") format("woff");
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Canela Deck";
-  src:
-    local("CanelaDeck-Light"),
-    url("/fonts/CanelaDeck-Light.woff2") format("woff2"),
-    url("/fonts/CanelaDeck-Light.woff") format("woff");
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Canela Text";
-  src:
-    local("CanelaText-Medium"),
-    url("/fonts/CanelaText-Medium.woff2") format("woff2"),
-    url("/fonts/CanelaText-Medium.woff") format("woff");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Canela Text";
-  src:
-    local("CanelaText-Light"),
-    url("/fonts/CanelaText-Light.woff2") format("woff2"),
-    url("/fonts/CanelaText-Light.woff") format("woff");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Canela Text";
-  src:
-    local("CanelaText-LightItalic"),
-    url("/fonts/CanelaText-LightItalic.woff2") format("woff2"),
-    url("/fonts/CanelaText-LightItalic.woff") format("woff");
-  font-weight: 300;
-  font-style: italic;
+  font-weight: 400;
   font-display: swap;
 }
 
@@ -82,10 +26,15 @@
   --space-160: 10rem;
 
   /* Colors */
-  --color-light-cream: #fcfbf7;
+  --color-pelagic: #344A58; /* #092F33FF */
+  --color-forest: #415934; /*  */
+  --color-mesa: #594A34; /* #092F33FF */
+  --color-heather: #593459; /* #092F33FF */
+  --color-caving: #1F1F1F; /* #1F1F1FFF */
+  --color-light: #fefefe;
   --color-cream: #f6f5f1;
-  --color-tinted-cream: #e6e3e1;
-  --color-black: #353534;
+  --color-tinted-cream: #e6e6e6;
+  --color-black: #343838;
   --color-gray-800: #4a4a46;
   --color-gray-600: #73706d;
   --color-gray-500: #8e8f94;
@@ -104,9 +53,9 @@
   --color-dark-salmon: #e1624f;
 
   /* Fonts */
-  --font-serif: "Canela Deck", serif;
-  --font-body: "Canela Text", serif;
-  --font-sans: "Lato", sans-serif;
+  --font-serif: "Raleway", sans-serif;
+  --font-body: "PT Sans", sans-serif;
+  --font-sans: "Raleway", sans-serif;
 
   /* Leading */
   --leading-tighter: 110%;
@@ -138,35 +87,35 @@
     6px 14px 30px -10px rgba(0, 0, 0, 0.08);
 
   /* Fluid spacing */
-  --fc-3xs-min: (var(--fc-s-min) * 0.25);
-  --fc-3xs-max: (var(--fc-s-max) * 0.25);
+  --fc-3xs-min:calc(var(--fc-s-min) * 0.25);
+  --fc-3xs-max:calc(var(--fc-s-max) * 0.25);
 
-  --fc-2xs-min: (var(--fc-s-min) * 0.5);
-  --fc-2xs-max: (var(--fc-s-max) * 0.5);
+  --fc-2xs-min:calc(var(--fc-s-min) * 0.5);
+  --fc-2xs-max:calc(var(--fc-s-max) * 0.5);
 
-  --fc-xs-min: (var(--fc-s-min) * 0.75);
-  --fc-xs-max: (var(--fc-s-max) * 0.75);
+  --fc-xs-min:calc(var(--fc-s-min) * 0.75);
+  --fc-xs-max:calc(var(--fc-s-max) * 0.75);
 
-  --fc-s-min: (var(--f-0-min, 20));
-  --fc-s-max: (var(--f-0-max, 22));
+  --fc-s-min:calc(var(--f-0-min, 20));
+  --fc-s-max:calc(var(--f-0-max, 22));
 
-  --fc-m-min: (var(--fc-s-min) * 1.5);
-  --fc-m-max: (var(--fc-s-max) * 1.5);
+  --fc-m-min:calc(var(--fc-s-min) * 1.5);
+  --fc-m-max:calc(var(--fc-s-max) * 1.5);
 
-  --fc-l-min: (var(--fc-s-min) * 2);
-  --fc-l-max: (var(--fc-s-max) * 2);
+  --fc-l-min:calc(var(--fc-s-min) * 2);
+  --fc-l-max:calc(var(--fc-s-max) * 2);
 
-  --fc-xl-min: (var(--fc-s-min) * 3);
-  --fc-xl-max: (var(--fc-s-max) * 3);
+  --fc-xl-min:calc(var(--fc-s-min) * 3);
+  --fc-xl-max:calc(var(--fc-s-max) * 3);
 
-  --fc-2xl-min: (var(--fc-s-min) * 4);
-  --fc-2xl-max: (var(--fc-s-max) * 4);
+  --fc-2xl-min:calc(var(--fc-s-min) * 4);
+  --fc-2xl-max:calc(var(--fc-s-max) * 4);
 
-  --fc-3xl-min: (var(--fc-s-min) * 6);
-  --fc-3xl-max: (var(--fc-s-max) * 6);
+  --fc-3xl-min:calc(var(--fc-s-min) * 6);
+  --fc-3xl-max:calc(var(--fc-s-max) * 6);
 
-  --fc-4xl-min: (var(--fc-s-min) * 8);
-  --fc-4xl-max: (var(--fc-s-max) * 8);
+  --fc-4xl-min:calc(var(--fc-s-min) * 8);
+  --fc-4xl-max:calc(var(--fc-s-max) * 8);
 
   /* T-shirt sizes */
   --space-3xs: calc(
@@ -393,7 +342,10 @@ iframe {
 /* _____________________ Base styles _____________________ */
 
 body {
-  background: var(--color-cream);
+  background: hsla(187, 70%, 12%, 1);
+  background: linear-gradient(90deg, var(--color-deep-ocean), var(--color-pelagic));
+  background: -moz-linear-gradient(90deg, var(--color-deep-ocean), var(--color-pelagic));
+  background: -webkit-linear-gradient(90deg, var(--color-deep-ocean), var(--color-pelagic));
   padding: var(--space-base);
   color: var(--color-black);
 }
@@ -514,7 +466,7 @@ span.metadata {
 button {
   background-color: var(---color-salmon);
   border: none;
-  border-radius: var(---border-radius-sm);
+  border-radius: var(--border-radius-sm);
   padding: var(--space-12) var(--space-24);
 }
 

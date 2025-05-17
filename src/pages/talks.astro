@@ -30,9 +30,9 @@ const sortedTalks = talks.sort(
 		<header style="margin-bottom: var(--space-xl);">
 			<TitleWithCount posts={sortedTalks}>
 				<div class="back-link" slot="header-right">
-					<a href="/garden">
+					<a href="/hyphae">
 						<Icon name="heroicons:arrow-left" size={16} />
-						<span> Back to Garden </span>
+						<span> Back to Hyphae </span>
 					</a>
 				</div>
 				Talks
@@ -134,7 +134,7 @@ const sortedTalks = talks.sort(
 		display: inline-flex;
 		align-items: center;
 		position: relative;
-		font-family: var(--font-sans);
+		font-family: var(--font-sans), sans-serif;
 		font-size: var(--font-size-xs);
 		text-transform: uppercase;
 		letter-spacing: 0.05em;

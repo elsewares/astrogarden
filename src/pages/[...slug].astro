@@ -1,6 +1,6 @@
 ---
 import PostLayout from "../layouts/PostLayout.astro";
-import SmidgeonLayout from "../layouts/SmidgeonLayout.astro";
+import ThreadLayout from "../layouts/ThreadLayout.astro";
 import ProseWrapper from "../components/layouts/ProseWrapper.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 import { render } from "astro:content";
@@ -19,8 +19,8 @@ import RemoteImage from "../components/mdx/RemoteImage.astro";
 import BasicImage from "../components/mdx/BasicImage.astro";
 import Spacer from "../components/mdx/Spacer.astro";
 
-type ContentType = "essay" | "note" | "pattern" | "talk" | "smidgeon";
-type Collections = "essays" | "notes" | "patterns" | "talks" | "smidgeons";
+type ContentType = "essay" | "note" | "pattern" | "talk" | "thread";
+type Collections = "essays" | "notes" | "patterns" | "talks" | "threads";
 
 // Add type definitions for different frontmatter types
 type BaseFrontmatter = {
@@ -29,8 +29,8 @@ type BaseFrontmatter = {
 	topics?: string[];
 };
 
-type SmidgeonFrontmatter = BaseFrontmatter & {
-	type: "smidgeon";
+type ThreadFrontmatter = BaseFrontmatter & {
+	type: "thread";
 };
 
 interface Props {
@@ -44,7 +44,7 @@ export async function getStaticPaths() {
 	const notes = await getCollection("notes");
 	const patterns = await getCollection("patterns");
 	const talks = await getCollection("talks");
-	const smidgeons = await getCollection("smidgeons");
+	const threads = await getCollection("threads");
 
 	return [
 		...essays.map((entry) => ({
@@ -63,9 +63,9 @@ export async function getStaticPaths() {
 			params: { slug: entry.id },
 			props: { entry, type: "talk" } as const,
 		})),
-		...smidgeons.map((entry) => ({
+		...threads.map((entry) => ({
 			params: { slug: entry.id },
-			props: { entry, type: "smidgeon" } as const,
+			props: { entry, type: "thread" } as const,
 		})),
 	];
 }
@@ -94,9 +94,9 @@ function hasTOC(data: any): data is { toc: boolean } {
 	return "toc" in data;
 }
 
-// Type guard for checking if frontmatter is SmidgeonFrontmatter
-function isSmidgeonFrontmatter(data: any): data is SmidgeonFrontmatter {
-	return data.type === "smidgeon";
+// Type guard for checking if frontmatter is ThreadFrontmatter
+function isThreadFrontMatter(data: any): data is ThreadFrontmatter {
+	return data.type === "thread";
 }
 
 // Prepare frontmatter data based on type
@@ -104,12 +104,12 @@ const frontmatter = entry.data;
 ---
 
 {
-	isSmidgeonFrontmatter(frontmatter) ? (
-		<SmidgeonLayout frontmatter={frontmatter}>
+	isThreadFrontMatter(frontmatter) ? (
+		<ThreadLayout frontmatter={frontmatter}>
 			<ProseWrapper>
 				<Content components={components} />
 			</ProseWrapper>
-		</SmidgeonLayout>
+		</ThreadLayout>
 	) : (
 		<PostLayout frontmatter={frontmatter} headings={headings}>
 			<ProseWrapper>

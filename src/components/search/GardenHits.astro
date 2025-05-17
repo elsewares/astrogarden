@@ -107,7 +107,7 @@ const sortedPosts = allPostData.sort((a: Post, b: Post) => {
 								conferences={post.data.conferences}
 							/>
 						)}
-						{post.data.type === "smidgeon" && post.data.title && (
+						{post.data.type === "thread" && post.data.title && (
 							<SmidgeonCard {...commonProps} title={post.data.title} />
 						)}
 					</div>

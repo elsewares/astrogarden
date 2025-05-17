@@ -21,10 +21,10 @@ import RemoteImage from "../components/mdx/RemoteImage.astro";
 import BasicImage from "../components/mdx/BasicImage.astro";
 import Spacer from "../components/mdx/Spacer.astro";
 
-const smidgeons = await getCollection("smidgeons", ({ data }) => !data.draft);
+const threads = await getCollection("threads", ({ data }) => !data.draft);
 
 // Sort by date in reverse chronological order
-const sortedSmidgeons = smidgeons.sort(
+const sortedThreads = threads.sort(
 	(a, b) => b.data.startDate.getTime() - a.data.startDate.getTime(),
 );
 
@@ -45,19 +45,19 @@ const components = {
 	Spacer,
 };
 
-// Render all smidgeons content
-const renderedSmidgeons = await Promise.all(
-	sortedSmidgeons.map(async (smidgeon: CollectionEntry<"smidgeons">) => {
+// Render all threads content
+const renderedThreads = await Promise.all(
+	sortedThreads.map(async (smidgeon: CollectionEntry<"threads">) => {
 		const { Content } = await render(smidgeon);
 		return { ...smidgeon, Content };
 	}),
 );
 ---
 
-<Layout title="Smidgeons Stream | Maggie Appleton">
+<Layout title="Threads Stream | Maggie Appleton">
 	<PageWrapper>
 		<header class="header">
-			<TitleWithCount posts={smidgeons}> Smidgeons Stream </TitleWithCount>
+			<TitleWithCount posts={threads}> Threads Stream </TitleWithCount>
 			<Title2>
 				A stream of interesting links, papers, and tiny thoughts. Roughly what I'm reading and
 				thinking about at the moment.</Title2
@@ -65,9 +65,9 @@ const renderedSmidgeons = await Promise.all(
 		</header>
 
 		<div class="page-layout">
-			<div class="smidgeons-list">
+			<div class="threads-list">
 				{
-					renderedSmidgeons.map((smidgeon, index) => (
+					renderedThreads.map((smidgeon, index) => (
 						<>
 							<article class="smidgeon-preview" id={`smidgeon-${smidgeon.id}`}>
 								<div class="metadata">
@@ -139,7 +139,7 @@ const renderedSmidgeons = await Promise.all(
 									</ProseWrapper>
 								</div>
 							</article>
-							{index !== renderedSmidgeons.length - 1 && (
+							{index !== renderedThreads.length - 1 && (
 								<div class="smidgeon-divider">
 									<Icon name="budding" size={20} />
 									<Icon name="budding" size={20} />
@@ -151,11 +151,11 @@ const renderedSmidgeons = await Promise.all(
 				}
 			</div>
 			<aside class="sidebar">
-				<div class="recent-smidgeons">
-					<h3>Recent Smidgeons</h3>
+				<div class="recent-threads">
+					<h3>Recent Threads</h3>
 					<ul>
 						{
-							renderedSmidgeons.slice(0, 8).map((recentSmidgeon) => (
+							renderedThreads.slice(0, 8).map((recentSmidgeon) => (
 								<li>
 									<a href={`#smidgeon-${recentSmidgeon.id}`}>
 										{recentSmidgeon.data.title.length > 40
@@ -168,9 +168,9 @@ const renderedSmidgeons = await Promise.all(
 					</ul>
 				</div>
 				<div class="rss-link">
-					<a href="/smidgeons.xml" title="RSS Feed for Smidgeons">
+					<a href="/threads.xml" title="RSS Feed for Threads">
 						<Icon name="heroicons:rss" size={14} />
-						<span>Smidgeons RSS Feed</span>
+						<span>Threads RSS Feed</span>
 					</a>
 				</div>
 			</aside>
@@ -194,8 +194,8 @@ const renderedSmidgeons = await Promise.all(
 		gap: var(--space-xl);
 	}
 
-	/* Smidgeons List */
-	.smidgeons-list {
+	/* Threads List */
+	.threads-list {
 		position: relative;
 		grid-column: 2;
 		width: 100%;
@@ -346,11 +346,11 @@ const renderedSmidgeons = await Promise.all(
 		grid-column: 3;
 	}
 
-	.recent-smidgeons {
+	.recent-threads {
 		padding: 0 var(--space-xs);
 	}
 
-	.recent-smidgeons h3 {
+	.recent-threads h3 {
 		font-family: var(--font-sans);
 		font-size: var(--font-size-xs);
 		font-weight: 400;
@@ -361,24 +361,24 @@ const renderedSmidgeons = await Promise.all(
 		margin-bottom: var(--space-2xs);
 	}
 
-	.recent-smidgeons ul {
+	.recent-threads ul {
 		list-style: none;
 		padding: 0;
 		margin: 0;
 	}
 
-	.recent-smidgeons li {
+	.recent-threads li {
 		margin-bottom: 0;
 	}
 
-	.recent-smidgeons a {
+	.recent-threads a {
 		color: var(--color-gray-600);
 		text-decoration: none;
 		font-family: var(--font-sans);
 		font-size: var(--font-size-sm);
 	}
 
-	.recent-smidgeons a:hover {
+	.recent-threads a:hover {
 		color: var(--color-medium-sea-blue);
 	}
 
@@ -430,7 +430,7 @@ const renderedSmidgeons = await Promise.all(
 		}
 
 		.header,
-		.smidgeons-list {
+		.threads-list {
 			width: 100%;
 			max-width: 800px;
 			margin: 0 auto var(--space-2xl);

@@ -47,7 +47,7 @@ export async function GET(context) {
   const essays = await getCollection("essays", ({ data }) => !data.draft);
   const talks = await getCollection("talks", ({ data }) => !data.draft);
   const patterns = await getCollection("patterns", ({ data }) => !data.draft);
-  const smidgeons = await getCollection("smidgeons", ({ data }) => !data.draft);
+  const threads = await getCollection("threads", ({ data }) => !data.draft);
   const now = await getCollection("now", ({ data }) => !data.draft);
 
   return rss({
@@ -102,7 +102,7 @@ export async function GET(context) {
           }),
         };
       }),
-      ...smidgeons.map((post) => {
+      ...threads.map((post) => {
         // Get first non-import, non-empty line of content
         const firstLine = post.body
           .split("\n")

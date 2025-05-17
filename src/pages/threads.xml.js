@@ -33,13 +33,13 @@ function stripMDXComponents(text) {
 }
 
 export async function GET(context) {
-  const smidgeons = await getCollection("smidgeons", ({ data }) => !data.draft);
+  const threads = await getCollection("threads", ({ data }) => !data.draft);
 
   return rss({
-    title: "Maggie Appleton's Smidgeons",
+    title: "Maggie Appleton's Threads",
     description: "A stream of interesting links, papers, and tiny thoughts",
     site: context.site,
-    items: smidgeons
+    items: threads
       .map((post) => {
         // Get first non-import, non-empty line of content
         const firstLine = post.body

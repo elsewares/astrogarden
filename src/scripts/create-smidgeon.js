@@ -38,7 +38,7 @@ async function createSmidgeon() {
   const frontmatter = `---
 title: "${title}"
 startDate: ${date.toISOString()}
-type: "smidgeon"
+type: "thread"
 ---
 
 `;
@@ -49,7 +49,7 @@ type: "smidgeon"
     "..",
     "src",
     "content",
-    "smidgeons",
+    "threads",
     year.toString(),
   );
   await fs.mkdir(yearDir, { recursive: true });

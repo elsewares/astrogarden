@@ -5,7 +5,7 @@
     viewBox="0 0 25 25">
     <style>
         .budding__cls-1 {
-            fill: var(--color-sea-blue);
+            fill: var(--color-mesa);
         }
     </style>
     <path
