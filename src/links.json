@@ -4,21 +4,21 @@
       "The Dark Forest and Generative AI"
     ],
     "slug": "ai-dark-forest",
-    "growthStage": "budding",
+    "growthStage": "soma",
     "description": "Proving you're a human on a web flooded with generative AI content",
     "outboundLinks": [
       {
         "matchedId": "dark forest theory",
         "title": "The Dark Forest and the Cozy Web",
         "slug": "cozy-web",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "An illustrated diagram exposing the inner layers of the dark and cozy web"
       },
       {
         "matchedId": "digital gardens",
         "title": "A Brief History & Ethos of the Digital Garden",
         "slug": "garden-history",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "A newly revived philosophy for publishing personal knowledge on the web"
       }
     ],
@@ -26,7 +26,7 @@
       {
         "title": "The Expanding Dark Forest and Generative AI",
         "slug": "forest-talk",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "An exploration of the problems and possible futures of flooding the web with generative AI content"
       }
     ]
@@ -37,14 +37,14 @@
       "APIs"
     ],
     "slug": "api",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Everything you need to know about what API's are and how they work",
     "outboundLinks": [],
     "inboundLinks": [
       {
         "title": "A Picture Worth a Thousand Programmes",
         "slug": "programming-pictures",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Bringing visual explanations and embodied knowledge to programming tools"
       }
     ]
@@ -55,14 +55,14 @@
       "Local, Artisan Data Storage"
     ],
     "slug": "artisan-data",
-    "growthStage": "budding",
+    "growthStage": "soma",
     "description": "Data is currently dislocated – our narratives and metaphors around it try to convince us it is immaterial",
     "outboundLinks": [
       {
         "matchedId": "Data Unions",
         "title": "Are Data Unions the Future of Data?",
         "slug": "data-unions",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "Illustrated notes on how data unions work and what problems they might solve"
       }
     ],
@@ -70,7 +70,7 @@
       {
         "title": "Are Data Unions the Future of Data?",
         "slug": "data-unions",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "Illustrated notes on how data unions work and what problems they might solve"
       }
     ]
@@ -83,35 +83,35 @@
       "Bi-Directional Links"
     ],
     "slug": "bidirectionals",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Seventy years ago we dreamed up links that would allow us to create two-way, contextual conversations. Why don't we use them on the web?",
     "outboundLinks": [
       {
         "matchedId": "Pattern Language of Project Xanadu",
         "title": "The Pattern Language of Project Xanadu",
         "slug": "xanadu-patterns",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "Project Xanadu as a pattern language, rather than a failed software project"
       },
       {
         "matchedId": "Transclusions",
         "title": "Transclusion and Transcopyright Dreams",
         "slug": "transcopyright-dreams",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "The lost permissioning and copyright system of the Web"
       },
       {
         "matchedId": "Digital Gardening",
         "title": "A Brief History & Ethos of the Digital Garden",
         "slug": "garden-history",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "A newly revived philosophy for publishing personal knowledge on the web"
       },
       {
         "matchedId": "Digital Gardening",
         "title": "A Brief History & Ethos of the Digital Garden",
         "slug": "garden-history",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "A newly revived philosophy for publishing personal knowledge on the web"
       }
     ],
@@ -119,31 +119,31 @@
       {
         "title": "A Brief History & Ethos of the Digital Garden",
         "slug": "garden-history",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "A newly revived philosophy for publishing personal knowledge on the web"
       },
       {
         "title": "Digital Gardening for Non-Technical Folks",
         "slug": "nontechnical-gardening",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "How to build a digital garden without touching code"
       },
       {
         "title": "Transclusion and Transcopyright Dreams",
         "slug": "transcopyright-dreams",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "The lost permissioning and copyright system of the Web"
       },
       {
         "title": "The Pattern Language of Project Xanadu",
         "slug": "xanadu-patterns",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "Project Xanadu as a pattern language, rather than a failed software project"
       },
       {
         "title": "A Meta-Tour of This Site",
         "slug": "metatour",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "A video tour through how I build the old version of this site"
       }
     ]
@@ -153,7 +153,7 @@
       "A Shelfish Starter Guide to Databases"
     ],
     "slug": "databases",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "The absolute minimum you need to know about data storage",
     "outboundLinks": [],
     "inboundLinks": []
@@ -166,21 +166,21 @@
       "Anthropology"
     ],
     "slug": "digital-anthropology",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "A discipline at the intersection of cultural anthropology and binary logic",
     "outboundLinks": [
       {
         "matchedId": "Quantified Self",
         "title": "Tracking Humanity",
         "slug": "tracking-humanity",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "The introduction to my thesis on the Quantified Self movement and the culture of self-tracking"
       },
       {
         "matchedId": "A Digital Anthropology Reading List",
         "title": "A Digital Anthropology Reading List",
         "slug": "digital-anth-books",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "A few favourite books from the field of digital anthropology"
       }
     ],
@@ -188,13 +188,13 @@
       {
         "title": "A Digital Anthropology Reading List",
         "slug": "digital-anth-books",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "A few favourite books from the field of digital anthropology"
       },
       {
         "title": "Tracking Humanity",
         "slug": "tracking-humanity",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "The introduction to my thesis on the Quantified Self movement and the culture of self-tracking"
       }
     ]
@@ -205,14 +205,14 @@
       "Drawing Invisible Programming Concepts"
     ],
     "slug": "drawinginvisibles1",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "A case study showing how I make illustrations for abstract programming concepts",
     "outboundLinks": [],
     "inboundLinks": [
       {
         "title": "Frequently Asked Questions",
         "slug": "FAQ",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "Questions I am often asked to answer"
       }
     ]
@@ -230,49 +230,49 @@
       "garden"
     ],
     "slug": "garden-history",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "A newly revived philosophy for publishing personal knowledge on the web",
     "outboundLinks": [
       {
         "matchedId": "Neologisms",
         "title": "Neologisms",
         "slug": "neologisms",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "A collection of interesting words that have recently been coined"
       },
       {
         "matchedId": "Cozy Web",
         "title": "The Dark Forest and the Cozy Web",
         "slug": "cozy-web",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "An illustrated diagram exposing the inner layers of the dark and cozy web"
       },
       {
         "matchedId": "Digital Gardening for Non-Technical Folks",
         "title": "Digital Gardening for Non-Technical Folks",
         "slug": "nontechnical-gardening",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "How to build a digital garden without touching code"
       },
       {
         "matchedId": "Bi-Directional Links",
         "title": "A Short History of Bi-Directional Links",
         "slug": "bidirectionals",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Seventy years ago we dreamed up links that would allow us to create two-way, contextual conversations. Why don't we use them on the web?"
       },
       {
         "matchedId": "Pattern Language",
         "title": "Pattern Languages in Programming and Interface Design",
         "slug": "pattern-languages",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "Notes on pattern languages and Christopher Alexander's legacy on software programming"
       },
       {
         "matchedId": "Bi-Directional Links",
         "title": "A Short History of Bi-Directional Links",
         "slug": "bidirectionals",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Seventy years ago we dreamed up links that would allow us to create two-way, contextual conversations. Why don't we use them on the web?"
       }
     ],
@@ -280,55 +280,55 @@
       {
         "title": "The Dark Forest and Generative AI",
         "slug": "ai-dark-forest",
-        "growthStage": "budding",
+        "growthStage": "soma",
         "description": "Proving you're a human on a web flooded with generative AI content"
       },
       {
         "title": "A Short History of Bi-Directional Links",
         "slug": "bidirectionals",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Seventy years ago we dreamed up links that would allow us to create two-way, contextual conversations. Why don't we use them on the web?"
       },
       {
         "title": "Digital Gardening for Non-Technical Folks",
         "slug": "nontechnical-gardening",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "How to build a digital garden without touching code"
       },
       {
         "title": "Transclusion and Transcopyright Dreams",
         "slug": "transcopyright-dreams",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "The lost permissioning and copyright system of the Web"
       },
       {
         "title": "The Pattern Language of Project Xanadu",
         "slug": "xanadu-patterns",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "Project Xanadu as a pattern language, rather than a failed software project"
       },
       {
         "title": "Growing the Evergreens",
         "slug": "evergreens",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the concept of 'Evergreen notes' and how to write them"
       },
       {
         "title": "Gathering Structures",
         "slug": "gathering-structures",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "How to gather people and create communities in ways that are low-stress and high-payoff"
       },
       {
         "title": "A Meta-Tour of This Site",
         "slug": "metatour",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "A video tour through how I build the old version of this site"
       },
       {
         "title": "Tending Evergreen Notes in Roam Research",
         "slug": "roam-garden",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "A walkthrough of how I manage and tend Evergreen notes in Roam"
       }
     ]
@@ -338,21 +338,21 @@
       "Growing a Human: The First 30 Weeks"
     ],
     "slug": "growing-a-human",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Reflections on the strange experience of growing a human from scratch, without any conscious understanding of how you are doing it",
     "outboundLinks": [
       {
         "matchedId": "natureculture",
         "title": "Natureculture, Moral Purity, and Cultural Boundaries",
         "slug": "natureculture",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "Why there is nothing natural about the idea of 'nature'"
       },
       {
         "matchedId": "Paleolithic Nostalgia",
         "title": "Paleolithic Nostalgia",
         "slug": "paleolithic-nostalgia",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "Longing for the paleolithic past in the Anthropocene"
       }
     ],
@@ -364,21 +364,21 @@
       "Meat Planet"
     ],
     "slug": "meat-planet",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Visualising the cultural narratives around cultured meat",
     "outboundLinks": [
       {
         "matchedId": "paleolithic nostalgia",
         "title": "Paleolithic Nostalgia",
         "slug": "paleolithic-nostalgia",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "Longing for the paleolithic past in the Anthropocene"
       },
       {
         "matchedId": "nature and culture",
         "title": "Natureculture, Moral Purity, and Cultural Boundaries",
         "slug": "natureculture",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "Why there is nothing natural about the idea of 'nature'"
       }
     ],
@@ -386,7 +386,7 @@
       {
         "title": "Problematic Proteins",
         "slug": "problematic-proteins",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "How to offend everyone with boundary-crossing steak and nuggets"
       }
     ]
@@ -396,14 +396,14 @@
       "Metaphors We Web By"
     ],
     "slug": "metaphors-web",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "A history of our metaphorical understanding of the web",
     "outboundLinks": [
       {
         "matchedId": "Project Xanadu",
         "title": "The Pattern Language of Project Xanadu",
         "slug": "xanadu-patterns",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "Project Xanadu as a pattern language, rather than a failed software project"
       }
     ],
@@ -415,35 +415,35 @@
       "gardening for non-technical people"
     ],
     "slug": "nontechnical-gardening",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "How to build a digital garden without touching code",
     "outboundLinks": [
       {
         "matchedId": "Digital Gardening",
         "title": "A Brief History & Ethos of the Digital Garden",
         "slug": "garden-history",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "A newly revived philosophy for publishing personal knowledge on the web"
       },
       {
         "matchedId": "Bi-Directional Links",
         "title": "A Short History of Bi-Directional Links",
         "slug": "bidirectionals",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Seventy years ago we dreamed up links that would allow us to create two-way, contextual conversations. Why don't we use them on the web?"
       },
       {
         "matchedId": "Bi-Directional Links",
         "title": "A Short History of Bi-Directional Links",
         "slug": "bidirectionals",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Seventy years ago we dreamed up links that would allow us to create two-way, contextual conversations. Why don't we use them on the web?"
       },
       {
         "matchedId": "obsession with linear text",
         "title": "The Linear Oppression of Note-taking Apps",
         "slug": "note-oppression",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "What we lose when our digital notes remove the freedom to move"
       }
     ],
@@ -451,7 +451,7 @@
       {
         "title": "A Brief History & Ethos of the Digital Garden",
         "slug": "garden-history",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "A newly revived philosophy for publishing personal knowledge on the web"
       }
     ]
@@ -463,14 +463,14 @@
       "paleolithic people"
     ],
     "slug": "paleolithic-nostalgia",
-    "growthStage": "seedling",
+    "growthStage": "soma",
     "description": "Longing for the paleolithic past in the Anthropocene",
     "outboundLinks": [
       {
         "matchedId": "Nature",
         "title": "Natureculture, Moral Purity, and Cultural Boundaries",
         "slug": "natureculture",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "Why there is nothing natural about the idea of 'nature'"
       }
     ],
@@ -478,19 +478,19 @@
       {
         "title": "Growing a Human: The First 30 Weeks",
         "slug": "growing-a-human",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Reflections on the strange experience of growing a human from scratch, without any conscious understanding of how you are doing it"
       },
       {
         "title": "Meat Planet: The Illustrated Notes",
         "slug": "meat-planet",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Visualising the cultural narratives around cultured meat"
       },
       {
         "title": "On Opening Essays, Conference Talks, and Jam Jars",
         "slug": "openings",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "How to open pieces of narrative non-fiction writing, conference talks, and sticky jars"
       }
     ]
@@ -501,14 +501,14 @@
       "meat and medium"
     ],
     "slug": "still-cant-draw",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "The failure of drawing materials without mediums and meat",
     "outboundLinks": [
       {
         "matchedId": "What App is That?",
         "title": "What App is That?",
         "slug": "apps",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "A guide to the apps and tools I use to create illustrations"
       }
     ],
@@ -516,7 +516,7 @@
       {
         "title": "The Best Illustration Books and Courses",
         "slug": "illustration-resources",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "My favourite resources for learning to draw and developing your visual thinking skills"
       }
     ]
@@ -529,14 +529,14 @@
       "tools for thought"
     ],
     "slug": "tools-for-thought",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "On seeing tools for thought through a historical and anthropological lens",
     "outboundLinks": [
       {
         "matchedId": "cyborgs",
         "title": "A History of Cyborgs",
         "slug": "cyborg-history",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "Notes on the history of cyborgs and why the idea still holds historical weight in Western narratives"
       }
     ],
@@ -544,19 +544,19 @@
       {
         "title": "The Finest Narrative Non-Fiction Essays",
         "slug": "narrative-essays",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "Narrative essays that I consider ideal models of the medium"
       },
       {
         "title": "Reverse Outlining with Language Models",
         "slug": "reverse-outline",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "Using language models to generate reverse outlines of writing drafts"
       },
       {
         "title": "Squish Meets Structure",
         "slug": "squish-structure",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Designing with Language Models"
       }
     ]
@@ -567,35 +567,35 @@
       "Transclusions"
     ],
     "slug": "transcopyright-dreams",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "The lost permissioning and copyright system of the Web",
     "outboundLinks": [
       {
         "matchedId": "Project Xanadu",
         "title": "The Pattern Language of Project Xanadu",
         "slug": "xanadu-patterns",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "Project Xanadu as a pattern language, rather than a failed software project"
       },
       {
         "matchedId": "Bi-Directional Links",
         "title": "A Short History of Bi-Directional Links",
         "slug": "bidirectionals",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Seventy years ago we dreamed up links that would allow us to create two-way, contextual conversations. Why don't we use them on the web?"
       },
       {
         "matchedId": "Bi-Directional Link",
         "title": "A Short History of Bi-Directional Links",
         "slug": "bidirectionals",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Seventy years ago we dreamed up links that would allow us to create two-way, contextual conversations. Why don't we use them on the web?"
       },
       {
         "matchedId": "Digital Gardening",
         "title": "A Brief History & Ethos of the Digital Garden",
         "slug": "garden-history",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "A newly revived philosophy for publishing personal knowledge on the web"
       }
     ],
@@ -603,13 +603,13 @@
       {
         "title": "A Short History of Bi-Directional Links",
         "slug": "bidirectionals",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Seventy years ago we dreamed up links that would allow us to create two-way, contextual conversations. Why don't we use them on the web?"
       },
       {
         "title": "The Pattern Language of Project Xanadu",
         "slug": "xanadu-patterns",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "Project Xanadu as a pattern language, rather than a failed software project"
       }
     ]
@@ -621,35 +621,35 @@
       "Pattern Language of Project Xanadu"
     ],
     "slug": "xanadu-patterns",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "Project Xanadu as a pattern language, rather than a failed software project",
     "outboundLinks": [
       {
         "matchedId": "Pattern Languages",
         "title": "Pattern Languages in Programming and Interface Design",
         "slug": "pattern-languages",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "Notes on pattern languages and Christopher Alexander's legacy on software programming"
       },
       {
         "matchedId": "Digital Gardening",
         "title": "A Brief History & Ethos of the Digital Garden",
         "slug": "garden-history",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "A newly revived philosophy for publishing personal knowledge on the web"
       },
       {
         "matchedId": "Transclusion and Transcopyright Dreams",
         "title": "Transclusion and Transcopyright Dreams",
         "slug": "transcopyright-dreams",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "The lost permissioning and copyright system of the Web"
       },
       {
         "matchedId": "A Short History of Bi-Directional Links",
         "title": "A Short History of Bi-Directional Links",
         "slug": "bidirectionals",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Seventy years ago we dreamed up links that would allow us to create two-way, contextual conversations. Why don't we use them on the web?"
       }
     ],
@@ -657,19 +657,19 @@
       {
         "title": "A Short History of Bi-Directional Links",
         "slug": "bidirectionals",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Seventy years ago we dreamed up links that would allow us to create two-way, contextual conversations. Why don't we use them on the web?"
       },
       {
         "title": "Metaphors We Web By",
         "slug": "metaphors-web",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "A history of our metaphorical understanding of the web"
       },
       {
         "title": "Transclusion and Transcopyright Dreams",
         "slug": "transcopyright-dreams",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "The lost permissioning and copyright system of the Web"
       }
     ]
@@ -681,21 +681,21 @@
       "FAQ"
     ],
     "slug": "FAQ",
-    "growthStage": "seedling",
+    "growthStage": "soma",
     "description": "Questions I am often asked to answer",
     "outboundLinks": [
       {
         "matchedId": "What App is That?",
         "title": "What App is That?",
         "slug": "apps",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "A guide to the apps and tools I use to create illustrations"
       },
       {
         "matchedId": "Drawing Invisible Programming Concepts",
         "title": "How to Draw Invisible Programming Concepts: Part I",
         "slug": "drawinginvisibles1",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "A case study showing how I make illustrations for abstract programming concepts"
       }
     ],
@@ -703,7 +703,7 @@
       {
         "title": "The Best Illustration Books and Courses",
         "slug": "illustration-resources",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "My favourite resources for learning to draw and developing your visual thinking skills"
       }
     ]
@@ -714,28 +714,28 @@
       "JavaScript prototype inheritance"
     ],
     "slug": "advancedjs",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Illustrated notes on advanced but fundamental topics in JavaScript",
     "outboundLinks": [
       {
         "matchedId": "JavaScript's ...spread Operator",
         "title": "JavaScript's ...spread Operator",
         "slug": "spread",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how JavaScript's spread operator works"
       },
       {
         "matchedId": "Building Custom React Hooks",
         "title": "Building Custom React Hooks",
         "slug": "customhooks",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on building custom React hooks"
       },
       {
         "matchedId": "Fixing Common Git Mistakes",
         "title": "Fixing Common Git Mistakes",
         "slug": "git-mistakes",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on common mistakes people make in Git, and how to fix them"
       }
     ],
@@ -743,31 +743,31 @@
       {
         "title": "The JAMStack, Gatsby & Contentful",
         "slug": "contentful-gatsby",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the JAMstack, Gatsby & Contentful"
       },
       {
         "title": "A Fresh Serving of JavaScript ES2019",
         "slug": "es2019",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the new language changes in JavaScript ES2019"
       },
       {
         "title": "A Fruitful Guide to JavaScript's Comparison Operators",
         "slug": "fruit-comparison",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how JavaScript's comparison operators work"
       },
       {
         "title": "What the Fork is Rust?",
         "slug": "wtf-rust",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the core concepts in Rust"
       },
       {
         "title": "A Picture Worth a Thousand Programmes",
         "slug": "programming-pictures",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Bringing visual explanations and embodied knowledge to programming tools"
       }
     ]
@@ -777,7 +777,7 @@
       "Aesthetic Command Lines with Hyper, Spaceship, and Oh My Zsh"
     ],
     "slug": "aesthetic-commands",
-    "growthStage": "evergreen",
+    "growthStage": "hyphae",
     "description": "My fairly banal, basic, but beautiful command line setup",
     "outboundLinks": [],
     "inboundLinks": []
@@ -787,7 +787,7 @@
       "Empty Pointers and Constellations of AI"
     ],
     "slug": "ai-empty-pointer",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "On the fuzziness of calling things “artificial intelligence” and moving the goalposts",
     "outboundLinks": [],
     "inboundLinks": []
@@ -797,20 +797,20 @@
       "What App is That?"
     ],
     "slug": "apps",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "A guide to the apps and tools I use to create illustrations",
     "outboundLinks": [],
     "inboundLinks": [
       {
         "title": "Why You Own an iPad and Still Can't Draw",
         "slug": "still-cant-draw",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "The failure of drawing materials without mediums and meat"
       },
       {
         "title": "Frequently Asked Questions",
         "slug": "FAQ",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "Questions I am often asked to answer"
       }
     ]
@@ -822,28 +822,28 @@
       "Babel"
     ],
     "slug": "babel",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Illustrated notes on how Babel works",
     "outboundLinks": [
       {
         "matchedId": "JSX",
         "title": "JSX is a Lovechild",
         "slug": "jsx",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how JSX in React works"
       },
       {
         "matchedId": "React is a Potato",
         "title": "Drawing the Invisible: React Explained in Five Visual Metaphors",
         "slug": "reactpotato",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Explaining React through visual metaphors"
       },
       {
         "matchedId": "How Are Compilers & Transpilers Different?",
         "title": "How Are Compilers & Transpilers Different?",
         "slug": "compilers",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how compilers and transpilers are different"
       }
     ],
@@ -851,31 +851,31 @@
       {
         "title": "How Are Compilers & Transpilers Different?",
         "slug": "compilers",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how compilers and transpilers are different"
       },
       {
         "title": "A Fresh Serving of JavaScript ES2019",
         "slug": "es2019",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the new language changes in JavaScript ES2019"
       },
       {
         "title": "A Chat with Henry Zhu on OSS & Gift Economies",
         "slug": "maintainers",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Notes from my podcast episode Open Source and Gift Economies on Maintainers Anonymous"
       },
       {
         "title": "What the Fork is the React Virtual DOM",
         "slug": "react-vdom",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how the React virtual DOM works"
       },
       {
         "title": "What the Fork is React Suspense?",
         "slug": "reactsuspense",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how React suspense works"
       }
     ]
@@ -886,14 +886,14 @@
       "second brains"
     ],
     "slug": "basb",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Illustrated notes on the Building A Second Brain course",
     "outboundLinks": [],
     "inboundLinks": [
       {
         "title": "Tending Evergreen Notes in Roam Research",
         "slug": "roam-garden",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "A walkthrough of how I manage and tend Evergreen notes in Roam"
       }
     ]
@@ -903,7 +903,7 @@
       "Statistically, When Will My Baby Be Born?"
     ],
     "slug": "birth-probability",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "A tiny tool to calculate when your baby might arrive",
     "outboundLinks": [],
     "inboundLinks": []
@@ -915,28 +915,28 @@
       "Building Gatsby Themes"
     ],
     "slug": "building-gatsby-themes",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Illustrated notes on building Gatsby themes",
     "outboundLinks": [
       {
         "matchedId": "Speaking the GraphQL Query Language",
         "title": "Speaking the GraphQL Query Language",
         "slug": "graphql",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the basics of the GraphQL query language"
       },
       {
         "matchedId": "The JAMStack, Gatsby & Contentful",
         "title": "The JAMStack, Gatsby & Contentful",
         "slug": "contentful-gatsby",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the JAMstack, Gatsby & Contentful"
       },
       {
         "matchedId": "Essential Web Security Tactics",
         "title": "Defend Your Cookies with Essential Web Security Tactics",
         "slug": "websecurity",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the essentials of web security"
       }
     ],
@@ -944,7 +944,7 @@
       {
         "title": "Illustrating Gatsby's Key Concepts",
         "slug": "illustrated-gatsby",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the key concepts of how Gatsby.js works"
       }
     ]
@@ -955,14 +955,14 @@
       "transpiler"
     ],
     "slug": "compilers",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Illustrated notes on how compilers and transpilers are different",
     "outboundLinks": [
       {
         "matchedId": "Babel",
         "title": "What the Fork is Babel?",
         "slug": "babel",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how Babel works"
       }
     ],
@@ -970,25 +970,25 @@
       {
         "title": "What the Fork is Babel?",
         "slug": "babel",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how Babel works"
       },
       {
         "title": "Fixing Common Git Mistakes",
         "slug": "git-mistakes",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on common mistakes people make in Git, and how to fix them"
       },
       {
         "title": "A Chat with Henry Zhu on OSS & Gift Economies",
         "slug": "maintainers",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Notes from my podcast episode Open Source and Gift Economies on Maintainers Anonymous"
       },
       {
         "title": "JavaScript's ...spread Operator",
         "slug": "spread",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how JavaScript's spread operator works"
       }
     ]
@@ -999,28 +999,28 @@
       "JAMStack with Gatsby & Contentful"
     ],
     "slug": "contentful-gatsby",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Illustrated notes on the JAMstack, Gatsby & Contentful",
     "outboundLinks": [
       {
         "matchedId": "JavaScript Bits You Skipped the First Time Around",
         "title": "JavaScript Bits You Skipped the First Time Around",
         "slug": "advancedjs",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on advanced but fundamental topics in JavaScript"
       },
       {
         "matchedId": "Speaking the GraphQL Query Language",
         "title": "Speaking the GraphQL Query Language",
         "slug": "graphql",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the basics of the GraphQL query language"
       },
       {
         "matchedId": "Fixing Common Git Mistakes",
         "title": "Fixing Common Git Mistakes",
         "slug": "git-mistakes",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on common mistakes people make in Git, and how to fix them"
       }
     ],
@@ -1028,37 +1028,37 @@
       {
         "title": "The Art and Craft of Gatsby Themes",
         "slug": "building-gatsby-themes",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on building Gatsby themes"
       },
       {
         "title": "Testing Apps with Cypress",
         "slug": "cypress",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how to test web apps with Cypress"
       },
       {
         "title": "Speaking the GraphQL Query Language",
         "slug": "graphql",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the basics of the GraphQL query language"
       },
       {
         "title": "Illustrating Gatsby's Key Concepts",
         "slug": "illustrated-gatsby",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the key concepts of how Gatsby.js works"
       },
       {
         "title": "Immutable Data with Immer and Personal Assistant Bots",
         "slug": "immer",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how work with immutable data in the Immer state library"
       },
       {
         "title": "Defend Your Cookies with Essential Web Security Tactics",
         "slug": "websecurity",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the essentials of web security"
       }
     ]
@@ -1070,14 +1070,14 @@
       "dark forest theory"
     ],
     "slug": "cozy-web",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "An illustrated diagram exposing the inner layers of the dark and cozy web",
     "outboundLinks": [
       {
         "matchedId": "Neologisms",
         "title": "Neologisms",
         "slug": "neologisms",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "A collection of interesting words that have recently been coined"
       }
     ],
@@ -1085,19 +1085,19 @@
       {
         "title": "The Dark Forest and Generative AI",
         "slug": "ai-dark-forest",
-        "growthStage": "budding",
+        "growthStage": "soma",
         "description": "Proving you're a human on a web flooded with generative AI content"
       },
       {
         "title": "A Brief History & Ethos of the Digital Garden",
         "slug": "garden-history",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "A newly revived philosophy for publishing personal knowledge on the web"
       },
       {
         "title": "Silent Synchronous Reading Sessions",
         "slug": "silentsessions",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "Notes on how to run silent meetings and reading sessions"
       }
     ]
@@ -1108,21 +1108,21 @@
       "Computer-Supported Collaborative Learning"
     ],
     "slug": "cscl",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "Notes on the academic field of CSCL and major papers in the discipline",
     "outboundLinks": [
       {
         "matchedId": "Roam Gardener",
         "title": "Tending Evergreen Notes in Roam Research",
         "slug": "roam-garden",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "A walkthrough of how I manage and tend Evergreen notes in Roam"
       },
       {
         "matchedId": "Pattern Languages",
         "title": "Pattern Languages in Programming and Interface Design",
         "slug": "pattern-languages",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "Notes on pattern languages and Christopher Alexander's legacy on software programming"
       }
     ],
@@ -1130,7 +1130,7 @@
       {
         "title": "The Knowledge Hydrant",
         "slug": "knowledge-hydrant",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "Illustrated notes on the Knowledge Hydrant guide to collaborative learning"
       }
     ]
@@ -1140,7 +1140,7 @@
       "Positioning Elements & Scrollytelling in CSS"
     ],
     "slug": "css-position",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "Notes on how to use the position property in CSS to make scrollytelling stories",
     "outboundLinks": [],
     "inboundLinks": []
@@ -1150,28 +1150,28 @@
       "Building Custom React Hooks"
     ],
     "slug": "customhooks",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Illustrated notes on building custom React hooks",
     "outboundLinks": [
       {
         "matchedId": "What the Fork is React Suspense?",
         "title": "What the Fork is React Suspense?",
         "slug": "reactsuspense",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how React suspense works"
       },
       {
         "matchedId": "Building VR Apps with React360",
         "title": "Building VR Apps with React360",
         "slug": "react360",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on building VR web apps with React360"
       },
       {
         "matchedId": "A Journey into Vue-Router",
         "title": "A Journey into Vue-Router",
         "slug": "vuerouter",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how routing works in Vue.js"
       }
     ],
@@ -1179,37 +1179,37 @@
       {
         "title": "JavaScript Bits You Skipped the First Time Around",
         "slug": "advancedjs",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on advanced but fundamental topics in JavaScript"
       },
       {
         "title": "Fixing Common Git Mistakes",
         "slug": "git-mistakes",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on common mistakes people make in Git, and how to fix them"
       },
       {
         "title": "What the Fork is the React Virtual DOM",
         "slug": "react-vdom",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how the React virtual DOM works"
       },
       {
         "title": "Building VR Apps with React360",
         "slug": "react360",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on building VR web apps with React360"
       },
       {
         "title": "Visually Workshopping the AWS Cloud",
         "slug": "visual-aws",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Some insights into how I collaborative with experts to create illustrated notes on technical topics"
       },
       {
         "title": "What the Fork is Rust?",
         "slug": "wtf-rust",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the core concepts in Rust"
       }
     ]
@@ -1221,20 +1221,20 @@
       "cyborg"
     ],
     "slug": "cyborg-history",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "Notes on the history of cyborgs and why the idea still holds historical weight in Western narratives",
     "outboundLinks": [],
     "inboundLinks": [
       {
         "title": "Tools for Thought as Cultural Practices, not Computational Objects",
         "slug": "tools-for-thought",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "On seeing tools for thought through a historical and anthropological lens"
       },
       {
         "title": "Tracking Humanity",
         "slug": "tracking-humanity",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "The introduction to my thesis on the Quantified Self movement and the culture of self-tracking"
       }
     ]
@@ -1244,28 +1244,28 @@
       "Testing Apps with Cypress"
     ],
     "slug": "cypress",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Illustrated notes on how to test web apps with Cypress",
     "outboundLinks": [
       {
         "matchedId": "The JAMStack, Gatsby & Contentful",
         "title": "The JAMStack, Gatsby & Contentful",
         "slug": "contentful-gatsby",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the JAMstack, Gatsby & Contentful"
       },
       {
         "matchedId": "A Fresh Serving of JavaScript ES2019",
         "title": "A Fresh Serving of JavaScript ES2019",
         "slug": "es2019",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the new language changes in JavaScript ES2019"
       },
       {
         "matchedId": "A Fruitful Guide to JavaScript's Comparison Operators",
         "title": "A Fruitful Guide to JavaScript's Comparison Operators",
         "slug": "fruit-comparison",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how JavaScript's comparison operators work"
       }
     ],
@@ -1273,13 +1273,13 @@
       {
         "title": "Immutable Data with Immer and Personal Assistant Bots",
         "slug": "immer",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how work with immutable data in the Immer state library"
       },
       {
         "title": "Defend Your Cookies with Essential Web Security Tactics",
         "slug": "websecurity",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the essentials of web security"
       }
     ]
@@ -1290,14 +1290,14 @@
       "Data Unions"
     ],
     "slug": "data-unions",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "Illustrated notes on how data unions work and what problems they might solve",
     "outboundLinks": [
       {
         "matchedId": "Local, Artisan Data Storage",
         "title": "Organic, Local, Artisan Data Storage",
         "slug": "artisan-data",
-        "growthStage": "budding",
+        "growthStage": "soma",
         "description": "Data is currently dislocated – our narratives and metaphors around it try to convince us it is immaterial"
       }
     ],
@@ -1305,7 +1305,7 @@
       {
         "title": "Organic, Local, Artisan Data Storage",
         "slug": "artisan-data",
-        "growthStage": "budding",
+        "growthStage": "soma",
         "description": "Data is currently dislocated – our narratives and metaphors around it try to convince us it is immaterial"
       }
     ]
@@ -1316,7 +1316,7 @@
       "Design Engineer"
     ],
     "slug": "design-engineers",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "Collecting people I know who work at the intersection of design and engineering, in an attempt to figure out what a design engineer is",
     "outboundLinks": [],
     "inboundLinks": []
@@ -1327,14 +1327,14 @@
       "list of books"
     ],
     "slug": "digital-anth-books",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "A few favourite books from the field of digital anthropology",
     "outboundLinks": [
       {
         "matchedId": "Digital Anthropology",
         "title": "A Brief Introduction to Digital Anthropology",
         "slug": "digital-anthropology",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "A discipline at the intersection of cultural anthropology and binary logic"
       }
     ],
@@ -1342,7 +1342,7 @@
       {
         "title": "A Brief Introduction to Digital Anthropology",
         "slug": "digital-anthropology",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "A discipline at the intersection of cultural anthropology and binary logic"
       }
     ]
@@ -1353,14 +1353,14 @@
       "dirt is matter out of place"
     ],
     "slug": "dirt",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "Mary Douglas defined dirt as matter out of place – the crossing of boundaries",
     "outboundLinks": [],
     "inboundLinks": [
       {
         "title": "Problematic Proteins",
         "slug": "problematic-proteins",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "How to offend everyone with boundary-crossing steak and nuggets"
       }
     ]
@@ -1372,20 +1372,20 @@
       "mimicking other writers"
     ],
     "slug": "echo-narcissus",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "A Hyperlink Academy writing club where we mimic the work of others",
     "outboundLinks": [],
     "inboundLinks": [
       {
         "title": "Gathering Structures",
         "slug": "gathering-structures",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "How to gather people and create communities in ways that are low-stress and high-payoff"
       },
       {
         "title": "The Finest Narrative Non-Fiction Essays",
         "slug": "narrative-essays",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "Narrative essays that I consider ideal models of the medium"
       }
     ]
@@ -1395,7 +1395,7 @@
       "The Eponymous Laws of Programming"
     ],
     "slug": "eponymous-laws",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "A collection of laws named for specific people in the field of programming",
     "outboundLinks": [],
     "inboundLinks": []
@@ -1405,28 +1405,28 @@
       "A Fresh Serving of JavaScript ES2019"
     ],
     "slug": "es2019",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Illustrated notes on the new language changes in JavaScript ES2019",
     "outboundLinks": [
       {
         "matchedId": "JavaScript Bits You Skipped the First Time Around",
         "title": "JavaScript Bits You Skipped the First Time Around",
         "slug": "advancedjs",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on advanced but fundamental topics in JavaScript"
       },
       {
         "matchedId": "What the Fork is Babel?",
         "title": "What the Fork is Babel?",
         "slug": "babel",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how Babel works"
       },
       {
         "matchedId": "JavaScript's ...spread Operator",
         "title": "JavaScript's ...spread Operator",
         "slug": "spread",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how JavaScript's spread operator works"
       }
     ],
@@ -1434,37 +1434,37 @@
       {
         "title": "Testing Apps with Cypress",
         "slug": "cypress",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how to test web apps with Cypress"
       },
       {
         "title": "Speaking the GraphQL Query Language",
         "slug": "graphql",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the basics of the GraphQL query language"
       },
       {
         "title": "Immutable Data with Immer and Personal Assistant Bots",
         "slug": "immer",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how work with immutable data in the Immer state library"
       },
       {
         "title": "JSX is a Lovechild",
         "slug": "jsx",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how JSX in React works"
       },
       {
         "title": "Instachatting with Vue & Socket.io",
         "slug": "vuesocket",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how to implement web sockets with Vue.js and Socket.io"
       },
       {
         "title": "Defend Your Cookies with Essential Web Security Tactics",
         "slug": "websecurity",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the essentials of web security"
       }
     ]
@@ -1476,21 +1476,21 @@
       "Evergreen"
     ],
     "slug": "evergreens",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Illustrated notes on the concept of 'Evergreen notes' and how to write them",
     "outboundLinks": [
       {
         "matchedId": "Roam Garden",
         "title": "Tending Evergreen Notes in Roam Research",
         "slug": "roam-garden",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "A walkthrough of how I manage and tend Evergreen notes in Roam"
       },
       {
         "matchedId": "Digital Gardening",
         "title": "A Brief History & Ethos of the Digital Garden",
         "slug": "garden-history",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "A newly revived philosophy for publishing personal knowledge on the web"
       }
     ],
@@ -1498,13 +1498,13 @@
       {
         "title": "Tending Evergreen Notes in Roam Research",
         "slug": "roam-garden",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "A walkthrough of how I manage and tend Evergreen notes in Roam"
       },
       {
         "title": "Programmable Notes",
         "slug": "programmatic-notes",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Agent-based note-taking systems that can prompt and facilitate custom workflows"
       }
     ]
@@ -1514,28 +1514,28 @@
       "A Fruitful Guide to JavaScript's Comparison Operators"
     ],
     "slug": "fruit-comparison",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Illustrated notes on how JavaScript's comparison operators work",
     "outboundLinks": [
       {
         "matchedId": "JavaScript Bits You Skipped the First Time Around",
         "title": "JavaScript Bits You Skipped the First Time Around",
         "slug": "advancedjs",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on advanced but fundamental topics in JavaScript"
       },
       {
         "matchedId": "JSX is a Lovechild",
         "title": "JSX is a Lovechild",
         "slug": "jsx",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how JSX in React works"
       },
       {
         "matchedId": "JavaScript's ...spread Operator",
         "title": "JavaScript's ...spread Operator",
         "slug": "spread",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how JavaScript's spread operator works"
       }
     ],
@@ -1543,19 +1543,19 @@
       {
         "title": "Testing Apps with Cypress",
         "slug": "cypress",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how to test web apps with Cypress"
       },
       {
         "title": "JSX is a Lovechild",
         "slug": "jsx",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how JSX in React works"
       },
       {
         "title": "JavaScript's ...spread Operator",
         "slug": "spread",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how JavaScript's spread operator works"
       }
     ]
@@ -1565,28 +1565,28 @@
       "Gathering Structures"
     ],
     "slug": "gathering-structures",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "How to gather people and create communities in ways that are low-stress and high-payoff",
     "outboundLinks": [
       {
         "matchedId": "Silent Synchronous Reading Sessions",
         "title": "Silent Synchronous Reading Sessions",
         "slug": "silentsessions",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "Notes on how to run silent meetings and reading sessions"
       },
       {
         "matchedId": "mimicking other writers",
         "title": "The Echo & Narcissus Writing Club",
         "slug": "echo-narcissus",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "A Hyperlink Academy writing club where we mimic the work of others"
       },
       {
         "matchedId": "digital gardening",
         "title": "A Brief History & Ethos of the Digital Garden",
         "slug": "garden-history",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "A newly revived philosophy for publishing personal knowledge on the web"
       }
     ],
@@ -1597,7 +1597,7 @@
       "Faking William Morris, Generative Forgery, and the Erosion of Art History"
     ],
     "slug": "generative-forgery",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "Buying fake William Morris prints on Etsy and other early signs of epistemological collapse",
     "outboundLinks": [],
     "inboundLinks": []
@@ -1610,14 +1610,14 @@
       "Gift Economy"
     ],
     "slug": "gift-economy",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "Illustrated notes on the idea of Gift Economies and cultural historys of economic exchange",
     "outboundLinks": [],
     "inboundLinks": [
       {
         "title": "A Chat with Henry Zhu on OSS & Gift Economies",
         "slug": "maintainers",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Notes from my podcast episode Open Source and Gift Economies on Maintainers Anonymous"
       }
     ]
@@ -1627,28 +1627,28 @@
       "Fixing Common Git Mistakes"
     ],
     "slug": "git-mistakes",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Illustrated notes on common mistakes people make in Git, and how to fix them",
     "outboundLinks": [
       {
         "matchedId": "Building Custom React Hooks",
         "title": "Building Custom React Hooks",
         "slug": "customhooks",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on building custom React hooks"
       },
       {
         "matchedId": "What the Fork is Rust?",
         "title": "What the Fork is Rust?",
         "slug": "wtf-rust",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the core concepts in Rust"
       },
       {
         "matchedId": "How Are Compilers & Transpilers Different?",
         "title": "How Are Compilers & Transpilers Different?",
         "slug": "compilers",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how compilers and transpilers are different"
       }
     ],
@@ -1656,25 +1656,25 @@
       {
         "title": "JavaScript Bits You Skipped the First Time Around",
         "slug": "advancedjs",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on advanced but fundamental topics in JavaScript"
       },
       {
         "title": "The JAMStack, Gatsby & Contentful",
         "slug": "contentful-gatsby",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the JAMstack, Gatsby & Contentful"
       },
       {
         "title": "Visually Workshopping the AWS Cloud",
         "slug": "visual-aws",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Some insights into how I collaborative with experts to create illustrated notes on technical topics"
       },
       {
         "title": "What the Fork is Rust?",
         "slug": "wtf-rust",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the core concepts in Rust"
       }
     ]
@@ -1684,7 +1684,7 @@
       "Pink, Soft, Glittering Developers"
     ],
     "slug": "glitter-devs",
-    "growthStage": "seedling",
+    "growthStage": "soma",
     "description": "A collection of observations on the rise of soft, sparkly, baby pink aesthetics among developers",
     "outboundLinks": [],
     "inboundLinks": []
@@ -1694,28 +1694,28 @@
       "Speaking the GraphQL Query Language"
     ],
     "slug": "graphql",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Illustrated notes on the basics of the GraphQL query language",
     "outboundLinks": [
       {
         "matchedId": "A Fresh Serving of JavaScript ES2019",
         "title": "A Fresh Serving of JavaScript ES2019",
         "slug": "es2019",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the new language changes in JavaScript ES2019"
       },
       {
         "matchedId": "The JAMStack, Gatsby & Contentful",
         "title": "The JAMStack, Gatsby & Contentful",
         "slug": "contentful-gatsby",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the JAMstack, Gatsby & Contentful"
       },
       {
         "matchedId": "Essential Web Security Tactics",
         "title": "Defend Your Cookies with Essential Web Security Tactics",
         "slug": "websecurity",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the essentials of web security"
       }
     ],
@@ -1723,25 +1723,25 @@
       {
         "title": "The Art and Craft of Gatsby Themes",
         "slug": "building-gatsby-themes",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on building Gatsby themes"
       },
       {
         "title": "The JAMStack, Gatsby & Contentful",
         "slug": "contentful-gatsby",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the JAMstack, Gatsby & Contentful"
       },
       {
         "title": "Building VR Apps with React360",
         "slug": "react360",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on building VR web apps with React360"
       },
       {
         "title": "Instachatting with Vue & Socket.io",
         "slug": "vuesocket",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how to implement web sockets with Vue.js and Socket.io"
       }
     ]
@@ -1751,14 +1751,14 @@
       "The Bare Essentials of Greensock"
     ],
     "slug": "greensock-essentials",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "Notes on the basics of the Greensock animation llibrary",
     "outboundLinks": [],
     "inboundLinks": [
       {
         "title": "GreenSock Animations with React Hooks",
         "slug": "greensock-react",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "How to use the Greensock animation library inside React using React hooks"
       }
     ]
@@ -1768,21 +1768,21 @@
       "GreenSock Animations with React Hooks"
     ],
     "slug": "greensock-react",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "How to use the Greensock animation library inside React using React hooks",
     "outboundLinks": [
       {
         "matchedId": "The Bare Essentials of Greensock",
         "title": "The Bare Essentials of Greensock",
         "slug": "greensock-essentials",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "Notes on the basics of the Greensock animation llibrary"
       },
       {
         "matchedId": "React Virtual DOM",
         "title": "What the Fork is the React Virtual DOM",
         "slug": "react-vdom",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how the React virtual DOM works"
       }
     ],
@@ -1793,21 +1793,21 @@
       "Illustrating Gatsby's Key Concepts"
     ],
     "slug": "illustrated-gatsby",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Illustrated notes on the key concepts of how Gatsby.js works",
     "outboundLinks": [
       {
         "matchedId": "JAMStack with Gatsby & Contentful",
         "title": "The JAMStack, Gatsby & Contentful",
         "slug": "contentful-gatsby",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the JAMstack, Gatsby & Contentful"
       },
       {
         "matchedId": "Building Gatsby Themes",
         "title": "The Art and Craft of Gatsby Themes",
         "slug": "building-gatsby-themes",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on building Gatsby themes"
       }
     ],
@@ -1818,21 +1818,21 @@
       "The Best Illustration Books and Courses"
     ],
     "slug": "illustration-resources",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "My favourite resources for learning to draw and developing your visual thinking skills",
     "outboundLinks": [
       {
         "matchedId": "frequently ask",
         "title": "Frequently Asked Questions",
         "slug": "FAQ",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "Questions I am often asked to answer"
       },
       {
         "matchedId": "meat and medium",
         "title": "Why You Own an iPad and Still Can't Draw",
         "slug": "still-cant-draw",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "The failure of drawing materials without mediums and meat"
       }
     ],
@@ -1843,28 +1843,28 @@
       "Immutable Data with Immer and Personal Assistant Bots"
     ],
     "slug": "immer",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Illustrated notes on how work with immutable data in the Immer state library",
     "outboundLinks": [
       {
         "matchedId": "Testing Apps with Cypress",
         "title": "Testing Apps with Cypress",
         "slug": "cypress",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how to test web apps with Cypress"
       },
       {
         "matchedId": "The JAMStack, Gatsby & Contentful",
         "title": "The JAMStack, Gatsby & Contentful",
         "slug": "contentful-gatsby",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the JAMstack, Gatsby & Contentful"
       },
       {
         "matchedId": "A Fresh Serving of JavaScript ES2019",
         "title": "A Fresh Serving of JavaScript ES2019",
         "slug": "es2019",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the new language changes in JavaScript ES2019"
       }
     ],
@@ -1872,13 +1872,13 @@
       {
         "title": "A Journey into Vue-Router",
         "slug": "vuerouter",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how routing works in Vue.js"
       },
       {
         "title": "What the Fork is xState?",
         "slug": "xstate",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how to build state machines with the xState library"
       }
     ]
@@ -1888,7 +1888,7 @@
       "Interoperable Personal Libraries and Ad Hoc Reading Groups"
     ],
     "slug": "interoperable-libraries",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "Exploring ways to build social infrastructure around books and reading on the open web",
     "outboundLinks": [],
     "inboundLinks": []
@@ -1899,14 +1899,14 @@
       "joined Elicit"
     ],
     "slug": "joining-ought",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "A new role at an AI research lab working on tools for open-ended reasoning",
     "outboundLinks": [
       {
         "matchedId": "Programmable Notes",
         "title": "Programmable Notes",
         "slug": "programmatic-notes",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Agent-based note-taking systems that can prompt and facilitate custom workflows"
       }
     ],
@@ -1914,7 +1914,7 @@
       {
         "title": "Leaving Elicit",
         "slug": "leaving-elicit",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Reflections on two years of working at Elicit and why it's time to leave"
       }
     ]
@@ -1925,28 +1925,28 @@
       "JSX"
     ],
     "slug": "jsx",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Illustrated notes on how JSX in React works",
     "outboundLinks": [
       {
         "matchedId": "JavaScript's ...spread Operator",
         "title": "JavaScript's ...spread Operator",
         "slug": "spread",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how JavaScript's spread operator works"
       },
       {
         "matchedId": "A Fruitful Guide to JavaScript's Comparison Operators",
         "title": "A Fruitful Guide to JavaScript's Comparison Operators",
         "slug": "fruit-comparison",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how JavaScript's comparison operators work"
       },
       {
         "matchedId": "A Fresh Serving of JavaScript ES2019",
         "title": "A Fresh Serving of JavaScript ES2019",
         "slug": "es2019",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the new language changes in JavaScript ES2019"
       }
     ],
@@ -1954,25 +1954,25 @@
       {
         "title": "What the Fork is Babel?",
         "slug": "babel",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how Babel works"
       },
       {
         "title": "A Fruitful Guide to JavaScript's Comparison Operators",
         "slug": "fruit-comparison",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how JavaScript's comparison operators work"
       },
       {
         "title": "What the Fork is the React Virtual DOM",
         "slug": "react-vdom",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how the React virtual DOM works"
       },
       {
         "title": "JavaScript's ...spread Operator",
         "slug": "spread",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how JavaScript's spread operator works"
       }
     ]
@@ -1982,7 +1982,7 @@
       "Fetishism & Mechanical Keyboards"
     ],
     "slug": "keyboard-fetishism",
-    "growthStage": "seedling",
+    "growthStage": "soma",
     "description": "Developer self-expression through coloured switches, keystroke actuation, and LED light displays",
     "outboundLinks": [],
     "inboundLinks": []
@@ -1992,7 +1992,7 @@
       "Plebeian Programming with Keyboard Maestro"
     ],
     "slug": "keyboard-maestro",
-    "growthStage": "seedling",
+    "growthStage": "soma",
     "description": "How to write macros without touching the terminal",
     "outboundLinks": [],
     "inboundLinks": []
@@ -2003,28 +2003,28 @@
       "the Knowledge Hydrant"
     ],
     "slug": "knowledge-hydrant",
-    "growthStage": "seedling",
+    "growthStage": "soma",
     "description": "Illustrated notes on the Knowledge Hydrant guide to collaborative learning",
     "outboundLinks": [
       {
         "matchedId": "Pattern Languages",
         "title": "Pattern Languages in Programming and Interface Design",
         "slug": "pattern-languages",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "Notes on pattern languages and Christopher Alexander's legacy on software programming"
       },
       {
         "matchedId": "Computer-Supported Collaborative Learning",
         "title": "A Naïve Exploration of Computer-Supported Collaborative Learning",
         "slug": "cscl",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "Notes on the academic field of CSCL and major papers in the discipline"
       },
       {
         "matchedId": "Computer-Supported Collaborative Learning",
         "title": "A Naïve Exploration of Computer-Supported Collaborative Learning",
         "slug": "cscl",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "Notes on the academic field of CSCL and major papers in the discipline"
       }
     ],
@@ -2032,13 +2032,13 @@
       {
         "title": "Pattern Languages in Programming and Interface Design",
         "slug": "pattern-languages",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "Notes on pattern languages and Christopher Alexander's legacy on software programming"
       },
       {
         "title": "Silent Synchronous Reading Sessions",
         "slug": "silentsessions",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "Notes on how to run silent meetings and reading sessions"
       }
     ]
@@ -2048,14 +2048,14 @@
       "Making Programming Visual, Spatial, and Learnable"
     ],
     "slug": "learnable-programming",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "What's wrong with linear, static programming mediums and how might we improve them?",
     "outboundLinks": [
       {
         "matchedId": "Pattern Language",
         "title": "Pattern Languages in Programming and Interface Design",
         "slug": "pattern-languages",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "Notes on pattern languages and Christopher Alexander's legacy on software programming"
       }
     ],
@@ -2066,14 +2066,14 @@
       "Leaving Elicit"
     ],
     "slug": "leaving-elicit",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Reflections on two years of working at Elicit and why it's time to leave",
     "outboundLinks": [
       {
         "matchedId": "joined Elicit",
         "title": "Joining Ought",
         "slug": "joining-ought",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "A new role at an AI research lab working on tools for open-ended reasoning"
       }
     ],
@@ -2084,7 +2084,7 @@
       "Language Model Sketchbook, or Why I Hate Chatbots"
     ],
     "slug": "lm-sketchbook",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "Sketchy ideas for interfaces that play with the novel capabilities of language models",
     "outboundLinks": [],
     "inboundLinks": []
@@ -2095,49 +2095,49 @@
       "Open Source Software as a Gift Economy"
     ],
     "slug": "maintainers",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Notes from my podcast episode Open Source and Gift Economies on Maintainers Anonymous",
     "outboundLinks": [
       {
         "matchedId": "Gift Economies",
         "title": "The Gift Economy",
         "slug": "gift-economy",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "Illustrated notes on the idea of Gift Economies and cultural historys of economic exchange"
       },
       {
         "matchedId": "Babel",
         "title": "What the Fork is Babel?",
         "slug": "babel",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how Babel works"
       },
       {
         "matchedId": "transpiler",
         "title": "How Are Compilers & Transpilers Different?",
         "slug": "compilers",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how compilers and transpilers are different"
       },
       {
         "matchedId": "WTF is Babel?",
         "title": "What the Fork is Babel?",
         "slug": "babel",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how Babel works"
       },
       {
         "matchedId": "Gift Economy",
         "title": "The Gift Economy",
         "slug": "gift-economy",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "Illustrated notes on the idea of Gift Economies and cultural historys of economic exchange"
       },
       {
         "matchedId": "quantified self",
         "title": "Tracking Humanity",
         "slug": "tracking-humanity",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "The introduction to my thesis on the Quantified Self movement and the culture of self-tracking"
       }
     ],
@@ -2148,7 +2148,7 @@
       "A Metaphorical Reading Collection"
     ],
     "slug": "metaphor-books",
-    "growthStage": "seedling",
+    "growthStage": "soma",
     "description": "A collection of my favourite books on conceptual metaphor theory",
     "outboundLinks": [],
     "inboundLinks": []
@@ -2158,21 +2158,21 @@
       "A Meta-Tour of This Site"
     ],
     "slug": "metatour",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "A video tour through how I build the old version of this site",
     "outboundLinks": [
       {
         "matchedId": "Digital Gardeners",
         "title": "A Brief History & Ethos of the Digital Garden",
         "slug": "garden-history",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "A newly revived philosophy for publishing personal knowledge on the web"
       },
       {
         "matchedId": "Bi-Directional Links",
         "title": "A Short History of Bi-Directional Links",
         "slug": "bidirectionals",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Seventy years ago we dreamed up links that would allow us to create two-way, contextual conversations. Why don't we use them on the web?"
       }
     ],
@@ -2184,21 +2184,21 @@
       "narrative non-fiction"
     ],
     "slug": "narrative-essays",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "Narrative essays that I consider ideal models of the medium",
     "outboundLinks": [
       {
         "matchedId": "tools for thought",
         "title": "Tools for Thought as Cultural Practices, not Computational Objects",
         "slug": "tools-for-thought",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "On seeing tools for thought through a historical and anthropological lens"
       },
       {
         "matchedId": "echoing",
         "title": "The Echo & Narcissus Writing Club",
         "slug": "echo-narcissus",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "A Hyperlink Academy writing club where we mimic the work of others"
       }
     ],
@@ -2206,7 +2206,7 @@
       {
         "title": "On Opening Essays, Conference Talks, and Jam Jars",
         "slug": "openings",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "How to open pieces of narrative non-fiction writing, conference talks, and sticky jars"
       }
     ]
@@ -2219,32 +2219,32 @@
       "natureculture"
     ],
     "slug": "natureculture",
-    "growthStage": "seedling",
+    "growthStage": "soma",
     "description": "Why there is nothing natural about the idea of 'nature'",
     "outboundLinks": [],
     "inboundLinks": [
       {
         "title": "Growing a Human: The First 30 Weeks",
         "slug": "growing-a-human",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Reflections on the strange experience of growing a human from scratch, without any conscious understanding of how you are doing it"
       },
       {
         "title": "Meat Planet: The Illustrated Notes",
         "slug": "meat-planet",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Visualising the cultural narratives around cultured meat"
       },
       {
         "title": "Paleolithic Nostalgia",
         "slug": "paleolithic-nostalgia",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "Longing for the paleolithic past in the Anthropocene"
       },
       {
         "title": "Problematic Proteins",
         "slug": "problematic-proteins",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "How to offend everyone with boundary-crossing steak and nuggets"
       }
     ]
@@ -2254,20 +2254,20 @@
       "Neologisms"
     ],
     "slug": "neologisms",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "A collection of interesting words that have recently been coined",
     "outboundLinks": [],
     "inboundLinks": [
       {
         "title": "A Brief History & Ethos of the Digital Garden",
         "slug": "garden-history",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "A newly revived philosophy for publishing personal knowledge on the web"
       },
       {
         "title": "The Dark Forest and the Cozy Web",
         "slug": "cozy-web",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "An illustrated diagram exposing the inner layers of the dark and cozy web"
       }
     ]
@@ -2277,7 +2277,7 @@
       "New Harvest & Illustrating the Cultivated Meat Podcast"
     ],
     "slug": "newharvest-podcast",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "Illustrations made for a set of episodes of the Cultivated Meat podcast",
     "outboundLinks": [],
     "inboundLinks": []
@@ -2288,14 +2288,14 @@
       "obsession with linear text"
     ],
     "slug": "note-oppression",
-    "growthStage": "seedling",
+    "growthStage": "soma",
     "description": "What we lose when our digital notes remove the freedom to move",
     "outboundLinks": [],
     "inboundLinks": [
       {
         "title": "Digital Gardening for Non-Technical Folks",
         "slug": "nontechnical-gardening",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "How to build a digital garden without touching code"
       }
     ]
@@ -2305,42 +2305,42 @@
       "On Opening Essays, Conference Talks, and Jam Jars"
     ],
     "slug": "openings",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "How to open pieces of narrative non-fiction writing, conference talks, and sticky jars",
     "outboundLinks": [
       {
         "matchedId": "narrative non-fiction",
         "title": "The Finest Narrative Non-Fiction Essays",
         "slug": "narrative-essays",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "Narrative essays that I consider ideal models of the medium"
       },
       {
         "matchedId": "paleolithic people",
         "title": "Paleolithic Nostalgia",
         "slug": "paleolithic-nostalgia",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "Longing for the paleolithic past in the Anthropocene"
       },
       {
         "matchedId": "narrative non-fiction",
         "title": "The Finest Narrative Non-Fiction Essays",
         "slug": "narrative-essays",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "Narrative essays that I consider ideal models of the medium"
       },
       {
         "matchedId": "assumed audience",
         "title": "Assumed Audiences",
         "slug": "assumed-audience",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Naming your invisible audiences to free yourself from unspoken obligations"
       },
       {
         "matchedId": "Expanding Dark Forest and Generative AI",
         "title": "The Expanding Dark Forest and Generative AI",
         "slug": "forest-talk",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "An exploration of the problems and possible futures of flooding the web with generative AI content"
       }
     ],
@@ -2351,14 +2351,14 @@
       "Painting Roam Research with Custom CSS"
     ],
     "slug": "paintingroam",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "How to customise Roam Research with your own CSS themes",
     "outboundLinks": [
       {
         "matchedId": "Roam Garden",
         "title": "Tending Evergreen Notes in Roam Research",
         "slug": "roam-garden",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "A walkthrough of how I manage and tend Evergreen notes in Roam"
       }
     ],
@@ -2371,14 +2371,14 @@
       "Pattern Languages"
     ],
     "slug": "pattern-languages",
-    "growthStage": "seedling",
+    "growthStage": "soma",
     "description": "Notes on pattern languages and Christopher Alexander's legacy on software programming",
     "outboundLinks": [
       {
         "matchedId": "The Knowledge Hydrant",
         "title": "The Knowledge Hydrant",
         "slug": "knowledge-hydrant",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "Illustrated notes on the Knowledge Hydrant guide to collaborative learning"
       }
     ],
@@ -2386,37 +2386,37 @@
       {
         "title": "A Brief History & Ethos of the Digital Garden",
         "slug": "garden-history",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "A newly revived philosophy for publishing personal knowledge on the web"
       },
       {
         "title": "The Pattern Language of Project Xanadu",
         "slug": "xanadu-patterns",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "Project Xanadu as a pattern language, rather than a failed software project"
       },
       {
         "title": "A Naïve Exploration of Computer-Supported Collaborative Learning",
         "slug": "cscl",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "Notes on the academic field of CSCL and major papers in the discipline"
       },
       {
         "title": "The Knowledge Hydrant",
         "slug": "knowledge-hydrant",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "Illustrated notes on the Knowledge Hydrant guide to collaborative learning"
       },
       {
         "title": "Making Programming Visual, Spatial, and Learnable",
         "slug": "learnable-programming",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "What's wrong with linear, static programming mediums and how might we improve them?"
       },
       {
         "title": "Silent Synchronous Reading Sessions",
         "slug": "silentsessions",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "Notes on how to run silent meetings and reading sessions"
       }
     ]
@@ -2426,28 +2426,28 @@
       "Problematic Proteins"
     ],
     "slug": "problematic-proteins",
-    "growthStage": "seedling",
+    "growthStage": "soma",
     "description": "How to offend everyone with boundary-crossing steak and nuggets",
     "outboundLinks": [
       {
         "matchedId": "Meat Planet",
         "title": "Meat Planet: The Illustrated Notes",
         "slug": "meat-planet",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Visualising the cultural narratives around cultured meat"
       },
       {
         "matchedId": "dirt is matter out of place",
         "title": "Douglas, Dirt, and Matter Out of Place",
         "slug": "dirt",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "Mary Douglas defined dirt as matter out of place – the crossing of boundaries"
       },
       {
         "matchedId": "Nature",
         "title": "Natureculture, Moral Purity, and Cultural Boundaries",
         "slug": "natureculture",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "Why there is nothing natural about the idea of 'nature'"
       }
     ],
@@ -2459,35 +2459,35 @@
       "React Virtual DOM"
     ],
     "slug": "react-vdom",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Illustrated notes on how the React virtual DOM works",
     "outboundLinks": [
       {
         "matchedId": "learning React",
         "title": "Drawing the Invisible: React Explained in Five Visual Metaphors",
         "slug": "reactpotato",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Explaining React through visual metaphors"
       },
       {
         "matchedId": "Building Custom React Hooks",
         "title": "Building Custom React Hooks",
         "slug": "customhooks",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on building custom React hooks"
       },
       {
         "matchedId": "JSX is a Lovechild",
         "title": "JSX is a Lovechild",
         "slug": "jsx",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how JSX in React works"
       },
       {
         "matchedId": "What the Fork is Babel?",
         "title": "What the Fork is Babel?",
         "slug": "babel",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how Babel works"
       }
     ],
@@ -2495,7 +2495,7 @@
       {
         "title": "GreenSock Animations with React Hooks",
         "slug": "greensock-react",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "How to use the Greensock animation library inside React using React hooks"
       }
     ]
@@ -2506,28 +2506,28 @@
       "React 360"
     ],
     "slug": "react360",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Illustrated notes on building VR web apps with React360",
     "outboundLinks": [
       {
         "matchedId": "Building Custom React Hooks",
         "title": "Building Custom React Hooks",
         "slug": "customhooks",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on building custom React hooks"
       },
       {
         "matchedId": "Speaking the GraphQL Query Language",
         "title": "Speaking the GraphQL Query Language",
         "slug": "graphql",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the basics of the GraphQL query language"
       },
       {
         "matchedId": "What the Fork is React Suspense?",
         "title": "What the Fork is React Suspense?",
         "slug": "reactsuspense",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how React suspense works"
       }
     ],
@@ -2535,13 +2535,13 @@
       {
         "title": "Building Custom React Hooks",
         "slug": "customhooks",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on building custom React hooks"
       },
       {
         "title": "What the Fork is xState?",
         "slug": "xstate",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how to build state machines with the xState library"
       }
     ]
@@ -2552,28 +2552,28 @@
       "React Suspense"
     ],
     "slug": "reactsuspense",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Illustrated notes on how React suspense works",
     "outboundLinks": [
       {
         "matchedId": "What the Fork is xState?",
         "title": "What the Fork is xState?",
         "slug": "xstate",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how to build state machines with the xState library"
       },
       {
         "matchedId": "What the Fork is Rust?",
         "title": "What the Fork is Rust?",
         "slug": "wtf-rust",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the core concepts in Rust"
       },
       {
         "matchedId": "What the Fork is Babel?",
         "title": "What the Fork is Babel?",
         "slug": "babel",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how Babel works"
       }
     ],
@@ -2581,13 +2581,13 @@
       {
         "title": "Building Custom React Hooks",
         "slug": "customhooks",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on building custom React hooks"
       },
       {
         "title": "Building VR Apps with React360",
         "slug": "react360",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on building VR web apps with React360"
       }
     ]
@@ -2597,14 +2597,14 @@
       "Reverse Outlining with Language Models"
     ],
     "slug": "reverse-outline",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "Using language models to generate reverse outlines of writing drafts",
     "outboundLinks": [
       {
         "matchedId": "Tools for Thought as Cultural Practices",
         "title": "Tools for Thought as Cultural Practices, not Computational Objects",
         "slug": "tools-for-thought",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "On seeing tools for thought through a historical and anthropological lens"
       }
     ],
@@ -2617,28 +2617,28 @@
       "Roam Gardener"
     ],
     "slug": "roam-garden",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "A walkthrough of how I manage and tend Evergreen notes in Roam",
     "outboundLinks": [
       {
         "matchedId": "Digital Garden",
         "title": "A Brief History & Ethos of the Digital Garden",
         "slug": "garden-history",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "A newly revived philosophy for publishing personal knowledge on the web"
       },
       {
         "matchedId": "second brains",
         "title": "Building a Second Brain: The Illustrated Notes",
         "slug": "basb",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the Building A Second Brain course"
       },
       {
         "matchedId": "Growing the Evergreens",
         "title": "Growing the Evergreens",
         "slug": "evergreens",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the concept of 'Evergreen notes' and how to write them"
       }
     ],
@@ -2646,19 +2646,19 @@
       {
         "title": "A Naïve Exploration of Computer-Supported Collaborative Learning",
         "slug": "cscl",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "Notes on the academic field of CSCL and major papers in the discipline"
       },
       {
         "title": "Growing the Evergreens",
         "slug": "evergreens",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the concept of 'Evergreen notes' and how to write them"
       },
       {
         "title": "Painting Roam Research with Custom CSS",
         "slug": "paintingroam",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "How to customise Roam Research with your own CSS themes"
       }
     ]
@@ -2668,28 +2668,28 @@
       "Silent Synchronous Reading Sessions"
     ],
     "slug": "silentsessions",
-    "growthStage": "seedling",
+    "growthStage": "soma",
     "description": "Notes on how to run silent meetings and reading sessions",
     "outboundLinks": [
       {
         "matchedId": "Cozy Web",
         "title": "The Dark Forest and the Cozy Web",
         "slug": "cozy-web",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "An illustrated diagram exposing the inner layers of the dark and cozy web"
       },
       {
         "matchedId": "Pattern Languages",
         "title": "Pattern Languages in Programming and Interface Design",
         "slug": "pattern-languages",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "Notes on pattern languages and Christopher Alexander's legacy on software programming"
       },
       {
         "matchedId": "the Knowledge Hydrant",
         "title": "The Knowledge Hydrant",
         "slug": "knowledge-hydrant",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "Illustrated notes on the Knowledge Hydrant guide to collaborative learning"
       }
     ],
@@ -2697,13 +2697,13 @@
       {
         "title": "Gathering Structures",
         "slug": "gathering-structures",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "How to gather people and create communities in ways that are low-stress and high-payoff"
       },
       {
         "title": "Ambient Co-presence",
         "slug": "ambient-copresence",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "Creating a subtle, peripheral, and synchronous sense of shared space and context on the web"
       }
     ]
@@ -2713,7 +2713,7 @@
       "Speculative Calendar Events"
     ],
     "slug": "speculative-events",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "Designing tentative calendar events to solve complex scheduling problems",
     "outboundLinks": [],
     "inboundLinks": []
@@ -2723,7 +2723,7 @@
       "Spinning Worlds, Seasickness, and Dealing with Vestibular Neuritis"
     ],
     "slug": "spinning",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "Gaining a strange disease and losing my ability to see straight",
     "outboundLinks": [],
     "inboundLinks": []
@@ -2734,28 +2734,28 @@
       "JavaScript's ...spread Operator"
     ],
     "slug": "spread",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Illustrated notes on how JavaScript's spread operator works",
     "outboundLinks": [
       {
         "matchedId": "JSX is a Lovechild",
         "title": "JSX is a Lovechild",
         "slug": "jsx",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how JSX in React works"
       },
       {
         "matchedId": "How Are Compilers & Transpilers Different?",
         "title": "How Are Compilers & Transpilers Different?",
         "slug": "compilers",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how compilers and transpilers are different"
       },
       {
         "matchedId": "A Fruitful Guide to JavaScript's Comparison Operators",
         "title": "A Fruitful Guide to JavaScript's Comparison Operators",
         "slug": "fruit-comparison",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how JavaScript's comparison operators work"
       }
     ],
@@ -2763,25 +2763,25 @@
       {
         "title": "JavaScript Bits You Skipped the First Time Around",
         "slug": "advancedjs",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on advanced but fundamental topics in JavaScript"
       },
       {
         "title": "A Fresh Serving of JavaScript ES2019",
         "slug": "es2019",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the new language changes in JavaScript ES2019"
       },
       {
         "title": "A Fruitful Guide to JavaScript's Comparison Operators",
         "slug": "fruit-comparison",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how JavaScript's comparison operators work"
       },
       {
         "title": "JSX is a Lovechild",
         "slug": "jsx",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how JSX in React works"
       }
     ]
@@ -2791,7 +2791,7 @@
       "Synecdoche: Drawing the Part for the Whole"
     ],
     "slug": "synecdoche",
-    "growthStage": "seedling",
+    "growthStage": "soma",
     "description": "Notes on the metaphorical varieties of synecdoche and metonymy",
     "outboundLinks": [],
     "inboundLinks": []
@@ -2801,7 +2801,7 @@
       "How to Import Academic Papers from Zotero into Tana"
     ],
     "slug": "tana-zotero",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "How to use Zotero's translator and Tana Paste formatting to easily import papers into Tana",
     "outboundLinks": [],
     "inboundLinks": []
@@ -2811,7 +2811,7 @@
       "Teenage Skeuomorphic Desktop Designs"
     ],
     "slug": "teenage-desktop",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "An archive of my high school desktop designs, circa 2009",
     "outboundLinks": [],
     "inboundLinks": []
@@ -2823,21 +2823,21 @@
       "Quantified Self"
     ],
     "slug": "tracking-humanity",
-    "growthStage": "seedling",
+    "growthStage": "soma",
     "description": "The introduction to my thesis on the Quantified Self movement and the culture of self-tracking",
     "outboundLinks": [
       {
         "matchedId": "cyborg",
         "title": "A History of Cyborgs",
         "slug": "cyborg-history",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "Notes on the history of cyborgs and why the idea still holds historical weight in Western narratives"
       },
       {
         "matchedId": "Anthropology",
         "title": "A Brief Introduction to Digital Anthropology",
         "slug": "digital-anthropology",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "A discipline at the intersection of cultural anthropology and binary logic"
       }
     ],
@@ -2845,19 +2845,19 @@
       {
         "title": "A Brief Introduction to Digital Anthropology",
         "slug": "digital-anthropology",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "A discipline at the intersection of cultural anthropology and binary logic"
       },
       {
         "title": "A Chat with Henry Zhu on OSS & Gift Economies",
         "slug": "maintainers",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Notes from my podcast episode Open Source and Gift Economies on Maintainers Anonymous"
       },
       {
         "title": "How to Become a Neo-Cartesian Cyborg",
         "slug": "neocyborgs",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "A lightening talk on second brains and cyborg embodiment"
       }
     ]
@@ -2867,28 +2867,28 @@
       "Visually Workshopping the AWS Cloud"
     ],
     "slug": "visual-aws",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Some insights into how I collaborative with experts to create illustrated notes on technical topics",
     "outboundLinks": [
       {
         "matchedId": "Building Custom React Hooks",
         "title": "Building Custom React Hooks",
         "slug": "customhooks",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on building custom React hooks"
       },
       {
         "matchedId": "Fixing Common Git Mistakes",
         "title": "Fixing Common Git Mistakes",
         "slug": "git-mistakes",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on common mistakes people make in Git, and how to fix them"
       },
       {
         "matchedId": "The Basics of Rust",
         "title": "What the Fork is Rust?",
         "slug": "wtf-rust",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the core concepts in Rust"
       }
     ],
@@ -2899,28 +2899,28 @@
       "A Journey into Vue-Router"
     ],
     "slug": "vuerouter",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Illustrated notes on how routing works in Vue.js",
     "outboundLinks": [
       {
         "matchedId": "Instachatting with Vue & Socket.io",
         "title": "Instachatting with Vue & Socket.io",
         "slug": "vuesocket",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how to implement web sockets with Vue.js and Socket.io"
       },
       {
         "matchedId": "Immutable Data with Immer and Personal Assistant Bots",
         "title": "Immutable Data with Immer and Personal Assistant Bots",
         "slug": "immer",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how work with immutable data in the Immer state library"
       },
       {
         "matchedId": "What the Fork is xState?",
         "title": "What the Fork is xState?",
         "slug": "xstate",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how to build state machines with the xState library"
       }
     ],
@@ -2928,13 +2928,13 @@
       {
         "title": "Building Custom React Hooks",
         "slug": "customhooks",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on building custom React hooks"
       },
       {
         "title": "What the Fork is xState?",
         "slug": "xstate",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how to build state machines with the xState library"
       }
     ]
@@ -2945,28 +2945,28 @@
       "Vue & Socket.io"
     ],
     "slug": "vuesocket",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Illustrated notes on how to implement web sockets with Vue.js and Socket.io",
     "outboundLinks": [
       {
         "matchedId": "Essential Web Security Tactics",
         "title": "Defend Your Cookies with Essential Web Security Tactics",
         "slug": "websecurity",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the essentials of web security"
       },
       {
         "matchedId": "Speaking the GraphQL Query Language",
         "title": "Speaking the GraphQL Query Language",
         "slug": "graphql",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the basics of the GraphQL query language"
       },
       {
         "matchedId": "A Fresh Serving of JavaScript ES2019",
         "title": "A Fresh Serving of JavaScript ES2019",
         "slug": "es2019",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the new language changes in JavaScript ES2019"
       }
     ],
@@ -2974,7 +2974,7 @@
       {
         "title": "A Journey into Vue-Router",
         "slug": "vuerouter",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how routing works in Vue.js"
       }
     ]
@@ -2985,28 +2985,28 @@
       "Essential Web Security Tactics"
     ],
     "slug": "websecurity",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Illustrated notes on the essentials of web security",
     "outboundLinks": [
       {
         "matchedId": "Testing Apps with Cypress",
         "title": "Testing Apps with Cypress",
         "slug": "cypress",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how to test web apps with Cypress"
       },
       {
         "matchedId": "The JAMStack, Gatsby & Contentful",
         "title": "The JAMStack, Gatsby & Contentful",
         "slug": "contentful-gatsby",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the JAMstack, Gatsby & Contentful"
       },
       {
         "matchedId": "A Fresh Serving of JavaScript ES2019",
         "title": "A Fresh Serving of JavaScript ES2019",
         "slug": "es2019",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the new language changes in JavaScript ES2019"
       }
     ],
@@ -3014,19 +3014,19 @@
       {
         "title": "The Art and Craft of Gatsby Themes",
         "slug": "building-gatsby-themes",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on building Gatsby themes"
       },
       {
         "title": "Speaking the GraphQL Query Language",
         "slug": "graphql",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the basics of the GraphQL query language"
       },
       {
         "title": "Instachatting with Vue & Socket.io",
         "slug": "vuesocket",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how to implement web sockets with Vue.js and Socket.io"
       }
     ]
@@ -3037,28 +3037,28 @@
       "The Basics of Rust"
     ],
     "slug": "wtf-rust",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Illustrated notes on the core concepts in Rust",
     "outboundLinks": [
       {
         "matchedId": "Building Custom React Hooks",
         "title": "Building Custom React Hooks",
         "slug": "customhooks",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on building custom React hooks"
       },
       {
         "matchedId": "Fixing Common Git Mistakes",
         "title": "Fixing Common Git Mistakes",
         "slug": "git-mistakes",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on common mistakes people make in Git, and how to fix them"
       },
       {
         "matchedId": "JavaScript Bits You Skipped the First Time Around",
         "title": "JavaScript Bits You Skipped the First Time Around",
         "slug": "advancedjs",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on advanced but fundamental topics in JavaScript"
       }
     ],
@@ -3066,19 +3066,19 @@
       {
         "title": "Fixing Common Git Mistakes",
         "slug": "git-mistakes",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on common mistakes people make in Git, and how to fix them"
       },
       {
         "title": "What the Fork is React Suspense?",
         "slug": "reactsuspense",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how React suspense works"
       },
       {
         "title": "Visually Workshopping the AWS Cloud",
         "slug": "visual-aws",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Some insights into how I collaborative with experts to create illustrated notes on technical topics"
       }
     ]
@@ -3089,28 +3089,28 @@
       "xState"
     ],
     "slug": "xstate",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Illustrated notes on how to build state machines with the xState library",
     "outboundLinks": [
       {
         "matchedId": "Building VR Apps with React360",
         "title": "Building VR Apps with React360",
         "slug": "react360",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on building VR web apps with React360"
       },
       {
         "matchedId": "A Journey into Vue-Router",
         "title": "A Journey into Vue-Router",
         "slug": "vuerouter",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how routing works in Vue.js"
       },
       {
         "matchedId": "Immutable Data with Immer and Personal Assistant Bots",
         "title": "Immutable Data with Immer and Personal Assistant Bots",
         "slug": "immer",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how work with immutable data in the Immer state library"
       }
     ],
@@ -3118,13 +3118,13 @@
       {
         "title": "What the Fork is React Suspense?",
         "slug": "reactsuspense",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how React suspense works"
       },
       {
         "title": "A Journey into Vue-Router",
         "slug": "vuerouter",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how routing works in Vue.js"
       }
     ]
@@ -3134,14 +3134,14 @@
       "Algorithmic Transparency"
     ],
     "slug": "algorithmic-transparency",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Algorithms that make their reasoning visible",
     "outboundLinks": [
       {
         "matchedId": "Epistemic Disclosure",
         "title": "Epistemic Disclosure",
         "slug": "epistemic-disclosure",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Providing clear metadata on the epistemic validity of content"
       }
     ],
@@ -3152,14 +3152,14 @@
       "Ambient Co-presence"
     ],
     "slug": "ambient-copresence",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "Creating a subtle, peripheral, and synchronous sense of shared space and context on the web",
     "outboundLinks": [
       {
         "matchedId": "Silent Synchronous Reading Sessions",
         "title": "Silent Synchronous Reading Sessions",
         "slug": "silentsessions",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "Notes on how to run silent meetings and reading sessions"
       }
     ],
@@ -3171,14 +3171,14 @@
       "assumed audience"
     ],
     "slug": "assumed-audience",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Naming your invisible audiences to free yourself from unspoken obligations",
     "outboundLinks": [],
     "inboundLinks": [
       {
         "title": "On Opening Essays, Conference Talks, and Jam Jars",
         "slug": "openings",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "How to open pieces of narrative non-fiction writing, conference talks, and sticky jars"
       }
     ]
@@ -3189,14 +3189,14 @@
       "Command K bars"
     ],
     "slug": "command-bar",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Command line bars you can quickly summon with a keyboard shortcut",
     "outboundLinks": [
       {
         "matchedId": "Programming Portals",
         "title": "Programming Portals",
         "slug": "programming-portals",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Small, scoped areas within a graphical interface that allow users to read and write simple programmes"
       }
     ],
@@ -3204,7 +3204,7 @@
       {
         "title": "Programming Portals",
         "slug": "programming-portals",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Small, scoped areas within a graphical interface that allow users to read and write simple programmes"
       }
     ]
@@ -3214,7 +3214,7 @@
       "Computational Notebooks"
     ],
     "slug": "computational-notebooks",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "Shareable, browser-based documents that can compile and run code",
     "outboundLinks": [],
     "inboundLinks": []
@@ -3224,14 +3224,14 @@
       "Daily Notes Pages"
     ],
     "slug": "daily-notes",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Daily notes as a frictionless default input for personal knowledge management systems",
     "outboundLinks": [
       {
         "matchedId": "Programmable Notes",
         "title": "Programmable Notes",
         "slug": "programmatic-notes",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Agent-based note-taking systems that can prompt and facilitate custom workflows"
       }
     ],
@@ -3242,14 +3242,14 @@
       "Epistemic Disclosure"
     ],
     "slug": "epistemic-disclosure",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Providing clear metadata on the epistemic validity of content",
     "outboundLinks": [],
     "inboundLinks": [
       {
         "title": "Algorithmic Transparency",
         "slug": "algorithmic-transparency",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Algorithms that make their reasoning visible"
       }
     ]
@@ -3259,7 +3259,7 @@
       "Folk Interfaces"
     ],
     "slug": "folk-interfaces",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "People reappropriating existing software to solve their own unique problems",
     "outboundLinks": [],
     "inboundLinks": []
@@ -3269,14 +3269,14 @@
       "Historical Trails"
     ],
     "slug": "historical-trails",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "Giving people a visible, useful trail of where they've been over the course of an exploratory journey",
     "outboundLinks": [
       {
         "matchedId": "Spatial Web Browsing",
         "title": "Spatial Web Browsing",
         "slug": "spatial-web",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Adding spatial affordances to the experience of browsing the web"
       }
     ],
@@ -3287,21 +3287,21 @@
       "Programmable Notes"
     ],
     "slug": "programmatic-notes",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Agent-based note-taking systems that can prompt and facilitate custom workflows",
     "outboundLinks": [
       {
         "matchedId": "Evergreen Notes",
         "title": "Growing the Evergreens",
         "slug": "evergreens",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the concept of 'Evergreen notes' and how to write them"
       },
       {
         "matchedId": "Evergreen",
         "title": "Growing the Evergreens",
         "slug": "evergreens",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on the concept of 'Evergreen notes' and how to write them"
       }
     ],
@@ -3309,13 +3309,13 @@
       {
         "title": "Joining Ought",
         "slug": "joining-ought",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "A new role at an AI research lab working on tools for open-ended reasoning"
       },
       {
         "title": "Daily Notes Pages",
         "slug": "daily-notes",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Daily notes as a frictionless default input for personal knowledge management systems"
       }
     ]
@@ -3325,21 +3325,21 @@
       "Programming Portals"
     ],
     "slug": "programming-portals",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Small, scoped areas within a graphical interface that allow users to read and write simple programmes",
     "outboundLinks": [
       {
         "matchedId": "Command K bars",
         "title": "Command K Bars",
         "slug": "command-bar",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Command line bars you can quickly summon with a keyboard shortcut"
       },
       {
         "matchedId": "Spatial Web Browsing",
         "title": "Spatial Web Browsing",
         "slug": "spatial-web",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Adding spatial affordances to the experience of browsing the web"
       }
     ],
@@ -3347,7 +3347,7 @@
       {
         "title": "Command K Bars",
         "slug": "command-bar",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Command line bars you can quickly summon with a keyboard shortcut"
       }
     ]
@@ -3357,20 +3357,20 @@
       "Spatial Web Browsing"
     ],
     "slug": "spatial-web",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Adding spatial affordances to the experience of browsing the web",
     "outboundLinks": [],
     "inboundLinks": [
       {
         "title": "Historical Trails",
         "slug": "historical-trails",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "Giving people a visible, useful trail of where they've been over the course of an exploratory journey"
       },
       {
         "title": "Programming Portals",
         "slug": "programming-portals",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Small, scoped areas within a graphical interface that allow users to read and write simple programmes"
       }
     ]
@@ -3380,7 +3380,7 @@
       "The Cultural Anthropology of React"
     ],
     "slug": "anthropology-react",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "An anthropological look at the cultural norms of the React community",
     "outboundLinks": [],
     "inboundLinks": []
@@ -3390,7 +3390,7 @@
       "The Block-Paved Path to Structured Data"
     ],
     "slug": "block-data",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "How block-based interfaces can help us create more structured data on the web",
     "outboundLinks": [],
     "inboundLinks": []
@@ -3401,21 +3401,21 @@
       "Expanding Dark Forest and Generative AI"
     ],
     "slug": "forest-talk",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "An exploration of the problems and possible futures of flooding the web with generative AI content",
     "outboundLinks": [
       {
         "matchedId": "The Dark Forest and Generative AI",
         "title": "The Dark Forest and Generative AI",
         "slug": "ai-dark-forest",
-        "growthStage": "budding",
+        "growthStage": "soma",
         "description": "Proving you're a human on a web flooded with generative AI content"
       },
       {
         "matchedId": "The Dark Forest and Generative AI",
         "title": "The Dark Forest and Generative AI",
         "slug": "ai-dark-forest",
-        "growthStage": "budding",
+        "growthStage": "soma",
         "description": "Proving you're a human on a web flooded with generative AI content"
       }
     ],
@@ -3423,7 +3423,7 @@
       {
         "title": "On Opening Essays, Conference Talks, and Jam Jars",
         "slug": "openings",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "How to open pieces of narrative non-fiction writing, conference talks, and sticky jars"
       }
     ]
@@ -3433,7 +3433,7 @@
       "Home-Cooked Software and Barefoot Developers"
     ],
     "slug": "home-cooked-software",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "The emerging golden age of home-cooked software, barefoot developers, and why the local-first community should help build it",
     "outboundLinks": [],
     "inboundLinks": []
@@ -3443,14 +3443,14 @@
       "How to Become a Neo-Cartesian Cyborg"
     ],
     "slug": "neocyborgs",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "A lightening talk on second brains and cyborg embodiment",
     "outboundLinks": [
       {
         "matchedId": "Tracking Humanity",
         "title": "Tracking Humanity",
         "slug": "tracking-humanity",
-        "growthStage": "seedling",
+        "growthStage": "soma",
         "description": "The introduction to my thesis on the Quantified Self movement and the culture of self-tracking"
       }
     ],
@@ -3461,21 +3461,21 @@
       "A Picture Worth a Thousand Programmes"
     ],
     "slug": "programming-pictures",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Bringing visual explanations and embodied knowledge to programming tools",
     "outboundLinks": [
       {
         "matchedId": "JavaScript prototype inheritance",
         "title": "JavaScript Bits You Skipped the First Time Around",
         "slug": "advancedjs",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on advanced but fundamental topics in JavaScript"
       },
       {
         "matchedId": "APIs",
         "title": "Meet the Robowaiter APIs Serving Us Data",
         "slug": "api",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Everything you need to know about what API's are and how they work"
       }
     ],
@@ -3483,7 +3483,7 @@
       {
         "title": "Drawing the Invisible: React Explained in Five Visual Metaphors",
         "slug": "reactpotato",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Explaining React through visual metaphors"
       }
     ]
@@ -3495,14 +3495,14 @@
       "learning React"
     ],
     "slug": "reactpotato",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Explaining React through visual metaphors",
     "outboundLinks": [
       {
         "matchedId": "A Picture Worth a Thousand Programmes",
         "title": "A Picture Worth a Thousand Programmes",
         "slug": "programming-pictures",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Bringing visual explanations and embodied knowledge to programming tools"
       }
     ],
@@ -3510,13 +3510,13 @@
       {
         "title": "What the Fork is Babel?",
         "slug": "babel",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how Babel works"
       },
       {
         "title": "What the Fork is the React Virtual DOM",
         "slug": "react-vdom",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Illustrated notes on how the React virtual DOM works"
       }
     ]
@@ -3526,14 +3526,14 @@
       "Squish Meets Structure"
     ],
     "slug": "squish-structure",
-    "growthStage": "evergreen",
+    "growthStage": "colony",
     "description": "Designing with Language Models",
     "outboundLinks": [
       {
         "matchedId": "Tools for Thought",
         "title": "Tools for Thought as Cultural Practices, not Computational Objects",
         "slug": "tools-for-thought",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "On seeing tools for thought through a historical and anthropological lens"
       }
     ],
@@ -3544,26 +3544,26 @@
       "Tools for Thought as Cultural Practices, not Computational Objects"
     ],
     "slug": "tools-thought-talk",
-    "growthStage": "budding",
+    "growthStage": "spore",
     "description": "On seeing tools for thought through a historical and anthropological lens",
     "outboundLinks": [],
     "inboundLinks": [
       {
         "title": "The Finest Narrative Non-Fiction Essays",
         "slug": "narrative-essays",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "Narrative essays that I consider ideal models of the medium"
       },
       {
         "title": "Reverse Outlining with Language Models",
         "slug": "reverse-outline",
-        "growthStage": "budding",
+        "growthStage": "spore",
         "description": "Using language models to generate reverse outlines of writing drafts"
       },
       {
         "title": "Squish Meets Structure",
         "slug": "squish-structure",
-        "growthStage": "evergreen",
+        "growthStage": "colony",
         "description": "Designing with Language Models"
       }
     ]

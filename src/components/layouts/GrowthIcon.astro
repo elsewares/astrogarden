@@ -2,7 +2,7 @@
 import { Icon } from "astro-icon/components";
 
 interface Props {
-	growthStage: "seedling" | "budding" | "evergreen";
+	growthStage: "spore" | "hyphae" | "soma" | "colony";
 	size?: string;
 }
 
@@ -10,17 +10,22 @@ const { growthStage, size = "22" } = Astro.props;
 ---
 
 {
-	growthStage === "seedling" && (
-		<Icon name="seedling" width={size} height={size} style="flex-shrink: 0;" />
+	growthStage === "spore" && (
+		<Icon name="spore" width={size} height={size} style="flex-shrink: 0;" />
 	)
 }
 {
-	growthStage === "budding" && (
-		<Icon name="budding" width={size} height={size} style="flex-shrink: 0;" />
+	growthStage === "hyphae" && (
+		<Icon name="hyphae" width={size} height={size} style="flex-shrink: 0;" />
 	)
 }
 {
-	growthStage === "evergreen" && (
-		<Icon name="evergreen" width={size} height={size} style="flex-shrink: 0;" />
+	growthStage === "soma" && (
+		<Icon name="soma" width={size} height={size} style="flex-shrink: 0;" />
 	)
 }
+{
+	growthStage === "colony" && (
+	<Icon name="colony" width={size} height={size} style="flex-shrink: 0;" />
+		)
+	}

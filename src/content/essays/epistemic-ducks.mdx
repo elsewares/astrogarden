@@ -7,7 +7,7 @@ type: "essay"
 topics:
   ["Machine Learning", "Design", "Artificial Intelligence", "Tools for Thought"]
 cover: "../../images/covers/rubberduck@2x.png"
-growthStage: "budding"
+growthStage: "spore"
 toc: true
 aliases: ["epistemic rubber ducks", "rubber duck"]
 draft: true
@@ -106,7 +106,7 @@ The industry uses “benchmarks” to measure the performance of machine learnin
 
 The task might be correctly labelling a set of images, completing a sentence with words that seem resonable to humans, or knowing the right answer to a trivia question. For example, the [WebQuestions](https://paperswithcode.com/dataset/webquestions) benchmark is a set of the most common questions asked online, such as:
 
-`{question: “What airport is in Kauai Hawaii?”, answer: "Lihue Airport"}`  
+`{question: “What airport is in Kauai Hawaii?”, answer: "Lihue Airport"}`
 `{question: “Who sang for Pink Floyd?”, answer: "David Gilmour"}`
 
 A model is given a score based on how closely its generates answers that match the ones provided in the benchmark. There are leaderboards that rank which models have performed best on each benchmark, and ML engineers compete to develop models that top these leaderboards.
@@ -344,7 +344,7 @@ Again, the output seems sensible and coherent. But with no sources or references
 
 ## Disappointing oracles
 
-4. **Our cultural narratives frame AIs as all-knowing oracles**  
+4. **Our cultural narratives frame AIs as all-knowing oracles**
    The core problem is less that these models return outright falsehoods or misleading answers, but that we expect anything else from them. The decades-long [cultural](https://en.wikipedia.org/wiki/Superintelligence:_Paths,_Dangers,_Strategies) [narrative](https://en.wikipedia.org/wiki/Life_3.0) [we've been](https://www.theverge.com/2021/10/20/22734215/ai-ask-delphi-moral-ethical-judgement-demo) [weaving](https://www.wired.com/story/lamda-sentient-ai-bias-google-blake-lemoine/) about the all-knowing, dangerously super-intelligent machine that can absorb and resurface the collective wisdom of humanity has come back to bite us in the epistemic butt. Well-known figures in the industry speak about language models as [oracles](https://www.youtube.com/watch?v=cdiD-9MMpb0&t=3770s) and journalists present them as [magic](https://www.theguardian.com/technology/2022/sep/21/ais-dark-arts-come-into-their-own#:~:text=rogramming%20a%20computer,illusion%20of%20sentience.). We're currently in the awkward middle phase where we're unsure how to calibrate future premonitions against current realities. We've come to expect omniscience from them too soon.
 
 <BasicImage
@@ -359,14 +359,14 @@ Again, the output seems sensible and coherent. But with no sources or references
 
 There are three major problems with language models that shatter our vision of the all-knowing machine:
 
-1. **Trust is an all-or-nothing game.**  
+1. **Trust is an all-or-nothing game.**
    If you can't trust _all_ of what a language model says, you can't completely trust any of it. 90 correct answers out of 100 leave you with 10 outright falsities, but you have no way of knowing which ones. This might not matter too much for low-stakes personal queries like “should I invest in double-glazed windows?,” but becomes a deal-breaker for anything remotely more important. Legal, medical, political, engineering, and policy questions all need fail-safe answers.
 
-2. **Models lack stable, situated knowledge.**  
-   One critical problem with language models we're going to have to repeatedly reckon with is their lack of _positionality_. They don't have fixed identities or social contexts in the way people do. Every conversation with a language model is a role-playing game. They take on characters based on the prompt. GPT-3 can [pretend to be a squirrel](https://www.aiweirdness.com/interview-with-a-squirrel/) in one moment, and not know what a squirrel is in the next.  
+2. **Models lack stable, situated knowledge.**
+   One critical problem with language models we're going to have to repeatedly reckon with is their lack of _positionality_. They don't have fixed identities or social contexts in the way people do. Every conversation with a language model is a role-playing game. They take on characters based on the prompt. GPT-3 can [pretend to be a squirrel](https://www.aiweirdness.com/interview-with-a-squirrel/) in one moment, and not know what a squirrel is in the next.
    There are ways we can use this to our advantage. If I tell GPT-3 it's a great mathematician, it gets much better at maths! But this quality makes it especially troublesome to treat LLMs as sources of knowledge. Because **all human knowledge is situated**. It's situated in times and places, in cultures, in histories, in social institutions, in disciplines, in specific identities, and in lived realities. There is no such thing as “the view from nowhere.”<Footnote idName={9}>If you find this statement confusing, see all of [postmodermism](https://en.wikipedia.org/wiki/Postmodernism)</Footnote> In this sense an LLM doesn't “know” anything. It can't present a consistent, coherent worldview in the way humans can.
 
-3. **Our interfaces are black boxes**  
+3. **Our interfaces are black boxes**
    The people trying to use these models as sources of truth are not the ones at fault. They arrived at an interface that told them they could ask any questions they liked into the little text box, and it would respond with answers that _sounded_ convincing and true. Plenty of them probably _were_ true. But the interface presented few or no disclaimers, accuracy stats, or ways to investigate their answer. It didn't explain how it arrived at that answer, or what data it used to get there. This is primarily because the creators of these interfaces and models _don't know_ how it arrives at an answer. Most language models are [black boxes](https://hdsr.mitpress.mit.edu/pub/f9kuryi8/release/8?from=1893&to=2341). It's a bit complex to explain why but Grant Sanderson's video series on how [neural networks](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi) learn will help.
 
 <div style={{color:"salmon"}}>

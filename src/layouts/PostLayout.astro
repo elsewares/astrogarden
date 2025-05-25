@@ -60,11 +60,12 @@ const coverImage =
 				</a>
 			</div>
 			<GrowthIcon
-				size="16"
+				size="24"
 				growthStage={frontmatter.growthStage as
-					| "budding"
-					| "evergreen"
-					| "seedling"}
+					| "spore"
+					| "hyphae"
+					| "soma"
+					| "colony"}
 			/>
 			<p>{frontmatter.growthStage}</p>
 			{frontmatter.draft && <span class="draft-label">Draft</span>}

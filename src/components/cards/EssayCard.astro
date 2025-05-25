@@ -25,7 +25,7 @@ import GrowthIcon from "../layouts/GrowthIcon.astro";
 		<p class="description">{description}</p>
 		<div class="metadata-container">
 			{growthStage && <span>Essay</span>}
-			{growthStage && <GrowthIcon size="15" growthStage={growthStage} />}
+			{growthStage && <GrowthIcon size="24" growthStage={growthStage} />}
 			<span>
 				<RelativeDate postDate={date} />
 			</span>
@@ -64,6 +64,8 @@ import GrowthIcon from "../layouts/GrowthIcon.astro";
 	}
 
 	.metadata-container :global(svg) {
+		position:relative;
+		top:0.5rem;
 		margin: 0 var(--space-2xs);
 	}
 

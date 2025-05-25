@@ -2,18 +2,20 @@
 import Tooltip from "../mdx/Tooltip.astro";
 
 interface Props {
-	stage: "evergreen" | "budding" | "seedling";
+	stage: "spore" | "hyphae" | "soma" | "colony";
 }
 
 const { stage } = Astro.props;
 
 const tooltipContent = {
-	evergreen:
-		"Evergreens are ideas I've invested significant time into. They are refined, edited, and won't significantly change – aside from the occasional trimming.",
-	budding:
-		"Buddings are ideas I've revised and worked on a bit. They're starting to grow, but still need refinement.",
-	seedling:
-		"Seedlings are ideas I've just started that are rough, unrefined, and need some time to grow.",
+	colony:
+		"Colonies are ideas that are fully formed and have been shared with the world. They represent a fusion of at least two different areas of thought. They are the most mature and developed.",
+	spore:
+		"Spores are ideas that are still in the early stages of development. They are not yet fully formed and need time to fester.",
+	hyphae:
+		"Hyphae documents are ideas that are in the process of being developed. They are not yet fully formed, but they are more developed than spores. They are like the roots of a fungus, spreading out and connecting with other ideas.",
+	soma:
+		"Soma documents are ideas that have been fully fleshed out. They are the most polished and refined.",
 };
 ---
 

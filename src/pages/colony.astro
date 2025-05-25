@@ -11,8 +11,8 @@ const essays = await getCollection("essays", ({ data }) => !data.draft);
 const notes = await getCollection("notes", ({ data }) => !data.draft);
 const patterns = await getCollection("patterns", ({ data }) => !data.draft);
 const talks = await getCollection("talks", ({ data }) => !data.draft);
-const podcasts = await getCollection("podcasts");
-// const threads = await getCollection("threads");
+// const podcasts = await getCollection("podcasts");
+const threads = await getCollection("threads");
 
 // Combine all content into one array
 const allPosts = [
@@ -20,18 +20,16 @@ const allPosts = [
 	...notes,
 	...patterns,
 	...talks,
-	...podcasts,
-	// ...threads,
+	...threads,
 ];
 ---
 
-<Layout title="The Hyphae" desc="The Garden">
+<Layout title="The Colony" desc="The Colony">
 	<PageWrapper>
 		<header style="margin-bottom: var(--space-xl);">
-			<TitleWithCount posts={allPosts}>The Hyphae</TitleWithCount>
+			<TitleWithCount posts={allPosts}>The Colony</TitleWithCount>
 			<Title2>
-				A collection of essays, notes, talks, podcasts, and half-baked
-				explorations I'm always tending to.
+				My collection of essays, code bits, notes, analyses, and other products of thought. Raw and unrefined.{" "}
 			</Title2>
 		</header>
 		<GardenFiltersAndHits allPostData={allPosts} />

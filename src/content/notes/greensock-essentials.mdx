@@ -13,7 +13,7 @@ topics:
     "Greensock",
     "Animation",
   ]
-growthStage: "budding"
+growthStage: "spore"
 ---
 
 import Center from "../../components/mdx/Center.astro";
@@ -31,7 +31,7 @@ It's usually safe to assume powerful === complex.
 
 But once I started digging in I realised the core of the library was actually quite easy to get the hang of. There's plenty of advanced mechanisms and complexity to get wrapped up in if you want to. But they're entirely optional.
 
-This is a **one-scoop-plain-vanilla introduction to Greensock**.  
+This is a **one-scoop-plain-vanilla introduction to Greensock**.
 Without any sprinkles, nuts, or advanced functionality.
 
 ### Greensock in Plain English
@@ -64,9 +64,9 @@ Here's the code to do that in Greensock:
 gsap.to(".giantRedBox", 2, { x: 20vw, scale: 1.4, background: "red" });
 ```
 
-First we target the element using it's classname: `giantRedBox`.  
-We then pass in a _duration_ that defines how long it should take the animation to move from state A to state B – here it's 2 seconds.  
-Finally we pass in an object that contains our animation _variables_:  
+First we target the element using it's classname: `giantRedBox`.
+We then pass in a _duration_ that defines how long it should take the animation to move from state A to state B – here it's 2 seconds.
+Finally we pass in an object that contains our animation _variables_:
 `{ x: 20vw, scale: 1.4, background: 'red' }`
 
 ---

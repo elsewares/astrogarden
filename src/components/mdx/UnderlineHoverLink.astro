@@ -26,7 +26,6 @@ const { href } = Astro.props;
 	}
 
 	.styled-link:focus {
-		outline: 2px solid darkblue;
 		border-radius: 2px;
 	}
 
@@ -76,11 +75,11 @@ const { href } = Astro.props;
 	.styled-link span {
 		display: inline-block;
 		transition: all 0.5s cubic-bezier(0.2, 1, 0.8, 1);
-		color: var(--color-light);
+		color: var(--color-gray-100);
 	}
 
 	.styled-link:hover span {
 		transform: translate3d(0, -2px, 0);
-		color: var(--color-gray-500);
+		color: var(--color-light);
 	}
 </style>
