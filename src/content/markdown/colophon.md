@@ -1,0 +1,38 @@
+# Anastamosis Colophon
+### Technology & Techniques
+
+The site is built on [Astro](https://astro.build), using a mix of Astro SSR components and [MDX](https://mdxjs.com/) for the bulk of the content. Client-side islands (most of which haven’t been pushed live yet as I work out how to best import different frameworks into Astro) are made with React, Angular and Svelte.
+### Content
+
+The impetus for making this site was stumbling across the digital gardens of [Maggie Appleton](https://maggieappleton.com/) and [Gwern](https://gwern.net/index), and realizing that this tool was the best for me going forward. I love working in programs like [Obsidian](https://obsidian.md/) and [Notion](https://www.notion.com/), but I need the pressure and accountability of learning and working in public, and a complete lack of guardrails for the _categories_ of writing I was engaging in.
+
+My primary brain-dump outside my skull is in the Mac-only [Bear](https://bear.app/) platform, and that’s where the majority of the raw Markdown comes from for the site. This also allows me to write on my phone anywhere, then export most of the raw material into Astro where I can add things like images. For instance, this paragraph was written while waiting for my grill to get to temperature for some ribs. 
+
+Images and icons are generated using [Midjourney v7](https://www.midjourney.com/explore?tab=random) (using only ethical prompts and images), and polished in Adobe Illustrator.
+
+As the site grows, I want to build pipelines that will simplify taking the content here and pushing it to any of the other platforms that I envision as the end-state of what gets done here. More on that when it happens.
+### Philosophy
+
+I chose the name '[anastamosis](https://en.wikipedia.org/wiki/Anastomosis)' for the site, and based the theme on fungi, because in another life I would be a mycologist, or at the very least a microbiologist. I find fungi endlessly fascinating, and in my lifetime they've gone from 'kind of like plants' in biology class to being understood as a wholly remarkable branch of life. 
+
+This site is my attempt to emulate these fascinating forms of life. My attention ranges over a wide swath of topics: semiotics, anthropology, data science, meaningful design and the humanizing of our technological state. I'm also passionate about game design, narrative theory and other artistic pursuits. Any one interest I hold doesn't deserve an entire WordPress installation with all of the bells and whistles (not to mention the setup costs and overhead). Similarly, I have definite standards for how I want to present myself on the web.  
+
+This site is my attempt to create a place where disparate realms of my interest can come together, and through a process similar to anastamosis, fuse into independent creations. Those fusions might stay here, become finished pieces on some of my other domains, or become entirely new projects. I'm reserving the right to not do **anything** with what is put here, but I'm hoping that having a repository for all of it means that the barrier to refinement and production is lowered significantly. 
+
+### Taxonomy
+
+Ideas begin as spores. Nuggets around which my brain continually nucleates, whether I like it or not.
+
+Soma (meaning 'body', not the Aldous Huxley drug) are spores that have matured enough to be considered their own thing. 
+
+Hyphae are connective tissues - the croas-pollenation of two or more spores to create a new soma. This is the primary reason I have for putting everything in this one container: to see what happens when I place Idea A next to Idea Q. 
+
+Colonies are finished products that can be transplanted or released on their own into the wild. They’ll be kept here as well to provide sustenance for the whole.
+
+### Typography
+
+The primary headline font here is Raleway. The body font is Geist Sans, from Vercel.
+
+### Custom Components
+
+A bunch of custom MDX components were created by the original author of the author of the site’s code, Maggie Appleton. Any components that I add to this collection will be presented here.
