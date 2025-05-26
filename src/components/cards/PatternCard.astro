@@ -26,8 +26,6 @@ import RelativeDate from "../layouts/RelativeDate.astro";
 </a>
 
 <style>
-
-
 	.metadata-container {
 		display: flex;
 		flex-direction: row;
@@ -50,10 +48,11 @@ import RelativeDate from "../layouts/RelativeDate.astro";
 
 	.description {
 		font-size: var(--font-size-xs);
-		color: var(--color-gray-500);
+		color: var(--color-pelagic);
 		font-family: var(--font-sans), sans-serif;
 		font-weight: 400;
 		margin-left: 14px;
+		width: 90%;
 		margin-top: var(--space-2xs);
 	}
 
@@ -99,25 +98,5 @@ import RelativeDate from "../layouts/RelativeDate.astro";
 
 	.pattern-card:hover h3 {
 		color: var(--color-crimson);
-	}
-
-	.pattern-card:hover .left-leaf {
-		transform: translateX(29px);
-		transition: transform 0.3s ease-in-out;
-	}
-
-	.pattern-card:hover .right-leaf {
-		transform: translateX(-29px);
-		transition: transform 0.3s ease-in-out;
-	}
-
-	.left-leaf {
-		transition: transform 0.3s ease-in-out;
-		will-change: transform;
-	}
-
-	.right-leaf {
-		transition: transform 0.3s ease-in-out;
-		will-change: transform;
 	}
 </style>
