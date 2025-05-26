@@ -1,12 +1,19 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap"); */
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&display=swap");
 
 @font-face {
   font-family: "Raleway";
   font-style: normal;
   font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist";
+  font-style: normal;
+  font-weight: 200;
   font-display: swap;
 }
 
@@ -54,8 +61,14 @@
 
   /* Fonts */
   --font-serif: "Raleway", sans-serif;
-  --font-body: "PT Sans", sans-serif;
-  --font-sans: "Raleway", sans-serif;
+  --font-body: "Geist", sans-serif;
+  --font-sans: "Geist", sans-serif;
+
+  --font-weight-light: 200;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
 
   /* Leading */
   --leading-tighter: 110%;
@@ -343,22 +356,22 @@ iframe {
 
 body {
   background: hsla(187, 70%, 12%, 1);
-  background: linear-gradient(90deg, var(--color-deep-ocean), var(--color-pelagic));
-  background: -moz-linear-gradient(90deg, var(--color-deep-ocean), var(--color-pelagic));
-  background: -webkit-linear-gradient(90deg, var(--color-deep-ocean), var(--color-pelagic));
+  background: linear-gradient(90deg, var(--color-pelagic), var(--color-pelagic));
+  background: -moz-linear-gradient(90deg, var(--color-pelagic), var(--color-pelagic));
+  background: -webkit-linear-gradient(90deg, var(--color-pelagic), var(--color-pelagic));
   padding: var(--space-base);
   color: var(--color-black);
 }
 
 h1,
 h2 {
-  font-family: var(--font-serif);
+  font-family: var(--font-serif), sans-serif;
   font-weight: 500;
 }
 
 h1 {
   font-size: var(--font-size-3xl);
-  font-family: var(--font-serif);
+  font-family: var(--font-serif), sans-serif;
   line-height: var(--leading-tighter);
   font-weight: normal;
   margin-bottom: var(--space-s);
@@ -375,7 +388,7 @@ h1 {
 
 h2 {
   font-size: calc(var(--font-size-xl) / 1.2);
-  font-family: var(--font-serif);
+  font-family: var(--font-serif), sans-serif;
   color: var(--color-gray-800);
   font-weight: 100;
   line-height: var(--leading-snug);
@@ -393,7 +406,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-sans);
+  font-family: var(--font-sans), sans-serif;
 }
 
 p,
@@ -401,6 +414,7 @@ ul,
 ol {
   font-family: var(--font-body);
   font-size: var(--font-size-base);
+  font-weight: var(--font-weight-light);
   width: 100%;
 }
 
@@ -415,11 +429,7 @@ code {
   border-radius: var(--border-radius-sm);
   font-size: var(--font-size-base);
   line-height: var(--leading-base);
-  font-family:
-    IBM Plex Mono,
-    Dank Mono,
-    SF Mono,
-    consolas;
+  font-family: "Geist Mono", "SF Mono", monospace;
 }
 
 /* Add styles for code blocks */
@@ -430,11 +440,7 @@ pre {
   border-radius: 0.3em;
   font-size: calc(var(--font-size-sm) * 1.1);
   line-height: var(--leading-loose);
-  font-family:
-    IBM Plex Mono,
-    Dank Mono,
-    SF Mono,
-    consolas;
+  font-family: "Geist Mono", "SF Mono", monospace;
   margin: 0 0 var(--space-m);
   tab-size: 3;
   -moz-tab-size: 3;
@@ -459,7 +465,7 @@ pre code {
 .metadata span,
 span.metadata {
   font-size: var(--font-size-sm);
-  font-family: var(--font-sans);
+  font-family: var(--font-sans), sans-serif;
   color: var(--color-gray-600);
 }
 
@@ -486,7 +492,7 @@ mark {
 
 .small-caps {
   font-size: var(--font-size-xs) !important;
-  font-family: var(--font-sans);
+  font-family: var(--font-sans), sans-serif;
   font-weight: 700;
   color: var(--color-gray-800);
   text-transform: uppercase;

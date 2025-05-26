@@ -58,5 +58,12 @@
     "cover": "../images/books/rules-of-play.webp",
     "link": "https://www.google.com/books/edition/Rules_of_Play/UM-xyczrZuQC",
     "id": 7
+  },
+  {
+    "title": "Living in the End Times",
+    "author": "Slavoj Žižek",
+    "cover": "../images/books/living-endtimes.png",
+    "link": "https://www.versobooks.com/products/2138-living-in-the-end-times",
+    "id": 9
   }
 ]
