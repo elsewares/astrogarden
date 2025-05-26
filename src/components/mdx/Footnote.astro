@@ -61,7 +61,7 @@ const { idName, isClosed } = Astro.props;
 	.footnote-number::after {
 		content: counter(footnote-counter);
 		padding: 0.15rem;
-		font-family: var(--font-sans);
+		font-family: var(--font-sans), sans-serif;
 		font-size: 1rem;
 		color: var(--color-sea-blue);
 		font-weight: 600;
@@ -83,7 +83,7 @@ const { idName, isClosed } = Astro.props;
 		font-weight: 600;
 		padding-right: var(--space-2xs);
 		color: var(--color-sea-blue);
-		font-family: var(--font-sans);
+		font-family: var(--font-sans), sans-serif;
 	}
 
 	:global(blockquote) .footnote {
