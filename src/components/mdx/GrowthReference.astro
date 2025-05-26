@@ -9,13 +9,16 @@ const { position } = Astro.props;
 ---
 
 <div class='growth-reference' style={`justify-content: ${position || 'center'}`}>
+  <div class="item taxonomy">
+    <span>Taxonomic Reference</span>
+  </div>
   <Tooltip>
     <div class="item">
       <Icon name="spore" width="24" />
       <span>Spore</span>
     </div>
     <div slot="content">
-      <p>The initial idea or concept that starts the growth process.</p>
+      <p>An initial idea or random thought that starts the growth process.</p>
     </div>
   </Tooltip>
   <div class="separator"></div>
@@ -25,7 +28,7 @@ const { position } = Astro.props;
       <span>Hyphae</span>
     </div>
     <div slot="content">
-      <p>An idea thread that joins two or more others.</p>
+      <p>An idea thread that joins two or more others - connective tissue.</p>
     </div>
   </Tooltip>
   <div class="separator"></div>
@@ -35,7 +38,7 @@ const { position } = Astro.props;
       <span>Soma</span>
     </div>
     <div slot="content">
-      <p>An idea thread that joins two or more others.</p>
+      <p>Work that has matured enough to be considered its own thing.</p>
     </div>
   </Tooltip>
   <div class="separator"></div>
@@ -45,7 +48,7 @@ const { position } = Astro.props;
       <span>Colony</span>
     </div>
     <div slot="content">
-      <p>An idea thread that joins two or more others.</p>
+      <p>A completed piece, ready for export to the wider web in one form or another.</p>
     </div>
   </Tooltip>
 </div>
@@ -74,5 +77,11 @@ const { position } = Astro.props;
     width: 1px;
     height: 20px;
     background-color: var(--color-caving, #666);
+  }
+
+  .taxonomy {
+    font-weight: 600;
+    color: var(--color-pelagic);
+    font-size: var(--font-size-sm);
   }
 </style>

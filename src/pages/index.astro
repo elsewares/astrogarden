@@ -53,7 +53,6 @@ const sortedProjects = projects
 		</header>
 
 		<Spacer size="small"/>
-		<GrowthReference />
 
 		<section>
 			<a href="/colony">
@@ -61,11 +60,12 @@ const sortedProjects = projects
 			</a>
 			<div class="subheader">
 				A collection of raw, unrefined ideas being slowly mutated, filtered, rarified and fused. {" "}
-				<a href="/garden-history" class="readmore-link">
+				<a href="/colophon" class="readmore-link">
 					Learn more
 					<Icon name="heroicons:arrow-right" size={18} />
 				</a>
 			</div>
+			<GrowthReference position="left"/>
 		</section>
 
 		<section class="garden-section">
@@ -104,7 +104,7 @@ const sortedProjects = projects
 					</h3>
 				</a>
 				<div class="subheader">
-					Less formal, more frequent observations, mostly dealing with the firehose of inspriation{" "}
+					Less formal, more frequent observations, mostly dealing with the firehose of inspiration{" "}
 				</div>
 				{
 					sortedNotes.slice(0, 12).map((note) => (
@@ -311,7 +311,7 @@ const sortedProjects = projects
 		font-size: var(--font-size-base);
 		font-weight: 300;
 		color: var(--color-gray-800);
-		margin-bottom: var(--space-m);
+		margin-bottom: var(--space-xs);
 	}
 
 	.page-header {
@@ -340,6 +340,7 @@ const sortedProjects = projects
 
 	.patterns-grid {
 		margin-left: -1.4rem;
+		grid-row-gap: 0.5rem;
 	}
 
 	.library-section {
