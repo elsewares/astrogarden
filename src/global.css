@@ -356,9 +356,9 @@ iframe {
 
 body {
   background: hsla(187, 70%, 12%, 1);
-  background: linear-gradient(90deg, var(--color-pelagic), var(--color-pelagic));
-  background: -moz-linear-gradient(90deg, var(--color-pelagic), var(--color-pelagic));
-  background: -webkit-linear-gradient(90deg, var(--color-pelagic), var(--color-pelagic));
+  background: linear-gradient(90deg, var(--color-deep-ocean), var(--color-pelagic));
+  background: -moz-linear-gradient(90deg, var(--color-deep-ocean), var(--color-pelagic));
+  background: -webkit-linear-gradient(90deg, var(--color-deep-ocean), var(--color-pelagic));
   padding: var(--space-base);
   color: var(--color-black);
 }
@@ -412,7 +412,7 @@ h6 {
 p,
 ul,
 ol {
-  font-family: var(--font-body);
+  font-family: var(--font-body), sans-serif;
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-light);
   width: 100%;
