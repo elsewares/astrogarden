@@ -10,6 +10,7 @@ import PageWrapper from "../components/layouts/PageWrapper.astro";
 const essays = await getCollection("essays", ({ data }) => !data.draft);
 const notes = await getCollection("notes", ({ data }) => !data.draft);
 const patterns = await getCollection("patterns", ({ data }) => !data.draft);
+const projects = await getCollection("projects", ({ data }) => !data.draft);
 const talks = await getCollection("talks", ({ data }) => !data.draft);
 // const podcasts = await getCollection("podcasts");
 const threads = await getCollection("threads");
@@ -19,17 +20,18 @@ const allPosts = [
 	...essays,
 	...notes,
 	...patterns,
+	...projects,
 	...talks,
 	...threads,
 ];
 ---
 
-<Layout title="The Colony" desc="The Colony">
+<Layout title="The Metacolony" desc="The Metacolony">
 	<PageWrapper>
 		<header style="margin-bottom: var(--space-xl);">
-			<TitleWithCount posts={allPosts}>The Colony</TitleWithCount>
+			<TitleWithCount posts={allPosts}>The Metacolony</TitleWithCount>
 			<Title2>
-				My collection of essays, code bits, notes, analyses, and other products of thought. Raw and unrefined.{" "}
+				The firehose of everything here, to be filtered and sifted.{" "}
 			</Title2>
 		</header>
 		<GardenFiltersAndHits allPostData={allPosts} />

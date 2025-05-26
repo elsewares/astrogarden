@@ -9,7 +9,7 @@ import { getCollection } from "astro:content";
 const books = await getCollection("books");
 ---
 
-<Layout title="Library of Maggie Appleton">
+<Layout title="Library">
 	<PageWrapper>
 		<header style="margin-bottom: var(--space-2xl);">
 			<TitleWithCount posts={books}>
@@ -17,9 +17,7 @@ const books = await getCollection("books");
 				<div style="color: var(--color-gray-300); display: inline-block">|</div>
 				<a href="/antilibrary" class="styled-link">Antilibrary</a>
 			</TitleWithCount>
-			<Title2
-				>Books I've read that significantly influenced how I see the world.</Title2
-			>
+			<Title2>Books I've read that significantly influenced how I see the world.</Title2>
 		</header>
 		<section class="bookshelf-grid">
 			{

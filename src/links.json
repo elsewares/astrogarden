@@ -22,14 +22,7 @@
         "description": "A newly revived philosophy for publishing personal knowledge on the web"
       }
     ],
-    "inboundLinks": [
-      {
-        "title": "The Expanding Dark Forest and Generative AI",
-        "slug": "forest-talk",
-        "growthStage": "colony",
-        "description": "An exploration of the problems and possible futures of flooding the web with generative AI content"
-      }
-    ]
+    "inboundLinks": []
   },
   {
     "ids": [
@@ -40,14 +33,7 @@
     "growthStage": "colony",
     "description": "Everything you need to know about what API's are and how they work",
     "outboundLinks": [],
-    "inboundLinks": [
-      {
-        "title": "A Picture Worth a Thousand Programmes",
-        "slug": "programming-pictures",
-        "growthStage": "colony",
-        "description": "Bringing visual explanations and embodied knowledge to programming tools"
-      }
-    ]
+    "inboundLinks": []
   },
   {
     "ids": [
@@ -552,12 +538,6 @@
         "slug": "reverse-outline",
         "growthStage": "spore",
         "description": "Using language models to generate reverse outlines of writing drafts"
-      },
-      {
-        "title": "Squish Meets Structure",
-        "slug": "squish-structure",
-        "growthStage": "colony",
-        "description": "Designing with Language Models"
       }
     ]
   },
@@ -763,12 +743,6 @@
         "slug": "wtf-rust",
         "growthStage": "colony",
         "description": "Illustrated notes on the core concepts in Rust"
-      },
-      {
-        "title": "A Picture Worth a Thousand Programmes",
-        "slug": "programming-pictures",
-        "growthStage": "colony",
-        "description": "Bringing visual explanations and embodied knowledge to programming tools"
       }
     ]
   },
@@ -831,13 +805,6 @@
         "slug": "jsx",
         "growthStage": "colony",
         "description": "Illustrated notes on how JSX in React works"
-      },
-      {
-        "matchedId": "React is a Potato",
-        "title": "Drawing the Invisible: React Explained in Five Visual Metaphors",
-        "slug": "reactpotato",
-        "growthStage": "colony",
-        "description": "Explaining React through visual metaphors"
       },
       {
         "matchedId": "How Are Compilers & Transpilers Different?",
@@ -2335,13 +2302,6 @@
         "slug": "assumed-audience",
         "growthStage": "colony",
         "description": "Naming your invisible audiences to free yourself from unspoken obligations"
-      },
-      {
-        "matchedId": "Expanding Dark Forest and Generative AI",
-        "title": "The Expanding Dark Forest and Generative AI",
-        "slug": "forest-talk",
-        "growthStage": "colony",
-        "description": "An exploration of the problems and possible futures of flooding the web with generative AI content"
       }
     ],
     "inboundLinks": []
@@ -2462,13 +2422,6 @@
     "growthStage": "colony",
     "description": "Illustrated notes on how the React virtual DOM works",
     "outboundLinks": [
-      {
-        "matchedId": "learning React",
-        "title": "Drawing the Invisible: React Explained in Five Visual Metaphors",
-        "slug": "reactpotato",
-        "growthStage": "colony",
-        "description": "Explaining React through visual metaphors"
-      },
       {
         "matchedId": "Building Custom React Hooks",
         "title": "Building Custom React Hooks",
@@ -2853,12 +2806,6 @@
         "slug": "maintainers",
         "growthStage": "colony",
         "description": "Notes from my podcast episode Open Source and Gift Economies on Maintainers Anonymous"
-      },
-      {
-        "title": "How to Become a Neo-Cartesian Cyborg",
-        "slug": "neocyborgs",
-        "growthStage": "spore",
-        "description": "A lightening talk on second brains and cyborg embodiment"
       }
     ]
   },
@@ -3372,199 +3319,6 @@
         "slug": "programming-portals",
         "growthStage": "colony",
         "description": "Small, scoped areas within a graphical interface that allow users to read and write simple programmes"
-      }
-    ]
-  },
-  {
-    "ids": [
-      "The Cultural Anthropology of React"
-    ],
-    "slug": "anthropology-react",
-    "growthStage": "spore",
-    "description": "An anthropological look at the cultural norms of the React community",
-    "outboundLinks": [],
-    "inboundLinks": []
-  },
-  {
-    "ids": [
-      "The Block-Paved Path to Structured Data"
-    ],
-    "slug": "block-data",
-    "growthStage": "colony",
-    "description": "How block-based interfaces can help us create more structured data on the web",
-    "outboundLinks": [],
-    "inboundLinks": []
-  },
-  {
-    "ids": [
-      "The Expanding Dark Forest and Generative AI",
-      "Expanding Dark Forest and Generative AI"
-    ],
-    "slug": "forest-talk",
-    "growthStage": "colony",
-    "description": "An exploration of the problems and possible futures of flooding the web with generative AI content",
-    "outboundLinks": [
-      {
-        "matchedId": "The Dark Forest and Generative AI",
-        "title": "The Dark Forest and Generative AI",
-        "slug": "ai-dark-forest",
-        "growthStage": "soma",
-        "description": "Proving you're a human on a web flooded with generative AI content"
-      },
-      {
-        "matchedId": "The Dark Forest and Generative AI",
-        "title": "The Dark Forest and Generative AI",
-        "slug": "ai-dark-forest",
-        "growthStage": "soma",
-        "description": "Proving you're a human on a web flooded with generative AI content"
-      }
-    ],
-    "inboundLinks": [
-      {
-        "title": "On Opening Essays, Conference Talks, and Jam Jars",
-        "slug": "openings",
-        "growthStage": "spore",
-        "description": "How to open pieces of narrative non-fiction writing, conference talks, and sticky jars"
-      }
-    ]
-  },
-  {
-    "ids": [
-      "Home-Cooked Software and Barefoot Developers"
-    ],
-    "slug": "home-cooked-software",
-    "growthStage": "colony",
-    "description": "The emerging golden age of home-cooked software, barefoot developers, and why the local-first community should help build it",
-    "outboundLinks": [],
-    "inboundLinks": []
-  },
-  {
-    "ids": [
-      "How to Become a Neo-Cartesian Cyborg"
-    ],
-    "slug": "neocyborgs",
-    "growthStage": "spore",
-    "description": "A lightening talk on second brains and cyborg embodiment",
-    "outboundLinks": [
-      {
-        "matchedId": "Tracking Humanity",
-        "title": "Tracking Humanity",
-        "slug": "tracking-humanity",
-        "growthStage": "soma",
-        "description": "The introduction to my thesis on the Quantified Self movement and the culture of self-tracking"
-      }
-    ],
-    "inboundLinks": []
-  },
-  {
-    "ids": [
-      "A Picture Worth a Thousand Programmes"
-    ],
-    "slug": "programming-pictures",
-    "growthStage": "colony",
-    "description": "Bringing visual explanations and embodied knowledge to programming tools",
-    "outboundLinks": [
-      {
-        "matchedId": "JavaScript prototype inheritance",
-        "title": "JavaScript Bits You Skipped the First Time Around",
-        "slug": "advancedjs",
-        "growthStage": "colony",
-        "description": "Illustrated notes on advanced but fundamental topics in JavaScript"
-      },
-      {
-        "matchedId": "APIs",
-        "title": "Meet the Robowaiter APIs Serving Us Data",
-        "slug": "api",
-        "growthStage": "colony",
-        "description": "Everything you need to know about what API's are and how they work"
-      }
-    ],
-    "inboundLinks": [
-      {
-        "title": "Drawing the Invisible: React Explained in Five Visual Metaphors",
-        "slug": "reactpotato",
-        "growthStage": "colony",
-        "description": "Explaining React through visual metaphors"
-      }
-    ]
-  },
-  {
-    "ids": [
-      "Drawing the Invisible: React Explained in Five Visual Metaphors",
-      "React is a Potato",
-      "learning React"
-    ],
-    "slug": "reactpotato",
-    "growthStage": "colony",
-    "description": "Explaining React through visual metaphors",
-    "outboundLinks": [
-      {
-        "matchedId": "A Picture Worth a Thousand Programmes",
-        "title": "A Picture Worth a Thousand Programmes",
-        "slug": "programming-pictures",
-        "growthStage": "colony",
-        "description": "Bringing visual explanations and embodied knowledge to programming tools"
-      }
-    ],
-    "inboundLinks": [
-      {
-        "title": "What the Fork is Babel?",
-        "slug": "babel",
-        "growthStage": "colony",
-        "description": "Illustrated notes on how Babel works"
-      },
-      {
-        "title": "What the Fork is the React Virtual DOM",
-        "slug": "react-vdom",
-        "growthStage": "colony",
-        "description": "Illustrated notes on how the React virtual DOM works"
-      }
-    ]
-  },
-  {
-    "ids": [
-      "Squish Meets Structure"
-    ],
-    "slug": "squish-structure",
-    "growthStage": "colony",
-    "description": "Designing with Language Models",
-    "outboundLinks": [
-      {
-        "matchedId": "Tools for Thought",
-        "title": "Tools for Thought as Cultural Practices, not Computational Objects",
-        "slug": "tools-for-thought",
-        "growthStage": "spore",
-        "description": "On seeing tools for thought through a historical and anthropological lens"
-      }
-    ],
-    "inboundLinks": []
-  },
-  {
-    "ids": [
-      "Tools for Thought as Cultural Practices, not Computational Objects"
-    ],
-    "slug": "tools-thought-talk",
-    "growthStage": "spore",
-    "description": "On seeing tools for thought through a historical and anthropological lens",
-    "outboundLinks": [],
-    "inboundLinks": [
-      {
-        "title": "The Finest Narrative Non-Fiction Essays",
-        "slug": "narrative-essays",
-        "growthStage": "spore",
-        "description": "Narrative essays that I consider ideal models of the medium"
-      },
-      {
-        "title": "Reverse Outlining with Language Models",
-        "slug": "reverse-outline",
-        "growthStage": "spore",
-        "description": "Using language models to generate reverse outlines of writing drafts"
-      },
-      {
-        "title": "Squish Meets Structure",
-        "slug": "squish-structure",
-        "growthStage": "colony",
-        "description": "Designing with Language Models"
       }
     ]
   }

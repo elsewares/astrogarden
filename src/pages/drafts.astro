@@ -10,8 +10,9 @@ if (import.meta.env.PROD) {
 }
 
 const essays = await getCollection("essays", ({ data }) => data.draft === true);
-const notes = await getCollection("notes", ({ data }) => data.draft === true);
+const notes = await getCollection("notes", ({ data }) => data.draft === true)
 const patterns = await getCollection("patterns", ({ data }) => data.draft === true);
+const projects = await getCollection("projects", ({ data }) => data.draft === true);
 const talks = await getCollection("talks", ({ data }) => data.draft === true);
 
 const totalDrafts = essays.length + notes.length + patterns.length + talks.length;
@@ -111,4 +112,4 @@ const totalDrafts = essays.length + notes.length + patterns.length + talks.lengt
   img {
     margin-bottom: 0.5rem;
   }
-</style> 
+</style>

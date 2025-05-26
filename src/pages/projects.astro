@@ -8,11 +8,11 @@ import PageWrapper from "../components/layouts/PageWrapper.astro";
 import MasonryGrid from "../components/layouts/MasonryGrid.astro";
 import { Icon } from "astro-icon/components";
 
-// Get all patterns that aren't drafts
-const patterns = await getCollection("patterns", ({ data }) => !data.draft);
+// Get all projects that aren't drafts
+const projects = await getCollection("projects", ({ data }) => !data.draft);
 
-// Sort patterns by date
-const sortedPatterns = patterns.sort(
+// Sort projects by date
+const sortedprojects = projects.sort(
 	(a, b) =>
 		new Date(b.data.updated).getTime() - new Date(a.data.updated).getTime(),
 );
@@ -21,11 +21,11 @@ const sortedPatterns = patterns.sort(
 <Layout title="Projects">
 	<PageWrapper>
 		<header style="margin-bottom: var(--space-xl);">
-			<TitleWithCount posts={sortedPatterns}>
+			<TitleWithCount posts={sortedprojects}>
 				<div class="back-link" slot="header-right">
 					<a href="/colony">
 						<Icon name="heroicons:arrow-left" size={16} />
-						<span> Back to the Colony </span>
+						<span> Back to the Metacolony </span>
 					</a>
 				</div>
 				Long-Term Projects
@@ -35,15 +35,15 @@ const sortedPatterns = patterns.sort(
 		<MasonryGrid>
 			<div class="grid-sizer"></div>
 			{
-				sortedPatterns.map((pattern) => (
+				sortedprojects.map((project) => (
 					<div class="grid-item">
 						<PatternCard
-							id={pattern.id}
-							slug={pattern.id}
-							title={pattern.data.title}
-							growthStage={pattern.data.growthStage}
-							date={pattern.data.updated}
-							description={pattern.data.description}
+							id={project.id}
+							slug={project.id}
+							title={project.data.title}
+							growthStage={project.data.growthStage}
+							date={project.data.updated}
+							description={project.data.description}
 						/>
 					</div>
 				))

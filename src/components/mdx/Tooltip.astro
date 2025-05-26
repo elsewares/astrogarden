@@ -15,7 +15,7 @@ const { maxWidth = 400 } = Astro.props;
 
 <style is:global>
 	.tippy-box[data-theme~="custom"] {
-		font-family: var(--font-sans);
+		font-family: var(--font-sans), sans-serif;
 		font-size: var(--font-size-sm);
 		line-height: var(--leading-snug);
 		word-break: break-word;
@@ -27,7 +27,7 @@ const { maxWidth = 400 } = Astro.props;
 	}
 
 	.tippy-box[data-theme~="custom"] * {
-		font-family: var(--font-sans);
+		font-family: var(--font-sans), sans-serif;
 		font-size: var(--font-size-sm);
 		line-height: var(--leading-snug);
 		color: var(--color-gray-800);

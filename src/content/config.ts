@@ -54,6 +54,22 @@ const patternsCollection = defineCollection({
     }),
 });
 
+const projectsCollection = defineCollection({
+  loader: glob({ pattern: "**/*.mdx", base: "./src/content/projects" }),
+  schema: () =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      url: z.string(),
+      updated: z.coerce.date(),
+      startDate: z.coerce.date(),
+      type: z.literal("project"),
+      topics: z.array(z.string()).optional(),
+      growthStage: z.string(),
+      draft: z.boolean().optional(),
+    }),
+});
+
 const talksCollection = defineCollection({
   loader: glob({ pattern: "**/*.mdx", base: "./src/content/talks" }),
   schema: ({ image }) =>
@@ -174,6 +190,7 @@ export const collections = {
   notes: notesCollection,
   essays: essaysCollection,
   patterns: patternsCollection,
+  projects: projectsCollection,
   talks: talksCollection,
   podcasts: podcastsCollection,
   books: booksCollection,

@@ -1,0 +1,78 @@
+---
+import { Icon } from "astro-icon/components";
+import Tooltip from "./Tooltip.astro";
+interface Props {
+  position?: "left" | "center" | "right";
+}
+
+const { position } = Astro.props;
+---
+
+<div class='growth-reference' style={`justify-content: ${position || 'center'}`}>
+  <Tooltip>
+    <div class="item">
+      <Icon name="spore" width="24" />
+      <span>Spore</span>
+    </div>
+    <div slot="content">
+      <p>The initial idea or concept that starts the growth process.</p>
+    </div>
+  </Tooltip>
+  <div class="separator"></div>
+  <Tooltip>
+    <div class="item">
+      <Icon name="hyphae" width="24" />
+      <span>Hyphae</span>
+    </div>
+    <div slot="content">
+      <p>An idea thread that joins two or more others.</p>
+    </div>
+  </Tooltip>
+  <div class="separator"></div>
+  <Tooltip>
+    <div class="item">
+      <Icon name="soma" width="24" />
+      <span>Soma</span>
+    </div>
+    <div slot="content">
+      <p>An idea thread that joins two or more others.</p>
+    </div>
+  </Tooltip>
+  <div class="separator"></div>
+  <Tooltip>
+    <div class="item">
+      <Icon name="colony" width="24" />
+      <span>Colony</span>
+    </div>
+    <div slot="content">
+      <p>An idea thread that joins two or more others.</p>
+    </div>
+  </Tooltip>
+</div>
+
+<style>
+  .growth-reference {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    height: 40px;
+    margin: 0 auto;
+  }
+
+  .growth-reference .item span {
+    font-family: var(--font-sans), sans-serif;
+  }
+
+  .item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .separator {
+    width: 1px;
+    height: 20px;
+    background-color: var(--color-caving, #666);
+  }
+</style>

@@ -98,6 +98,14 @@ const sortedPosts = allPostData.sort((a: Post, b: Post) => {
 								description={post.data.description}
 							/>
 						)}
+						{post.data.type === "project" && (
+							<PatternCard
+								{...commonProps}
+								title={post.data.title}
+								growthStage={post.data.growthStage}
+								description={post.data.description}
+							/>
+						)}
 						{post.data.type === "talk" && (
 							<TalkCard
 								{...commonProps}

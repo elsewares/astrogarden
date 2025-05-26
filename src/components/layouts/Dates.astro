@@ -22,15 +22,15 @@ const isRecentUpdate = hasStartDate ? dateDifference <= 3 : true;
 	{
 		!hasStartDate || isRecentUpdate ? (
 			<span>
-				Planted <RelativeDate postDate={updated} />
+				Spawned <RelativeDate postDate={updated} />
 			</span>
 		) : (
 			<Fragment>
 				<span>
-					Planted <RelativeDate postDate={startDate} />
+					Spawned <RelativeDate postDate={startDate} />
 				</span>
 				<span>
-					Last tended <RelativeDate postDate={updated} />
+					Last mutated <RelativeDate postDate={updated} />
 				</span>
 			</Fragment>
 		)
@@ -47,8 +47,8 @@ const isRecentUpdate = hasStartDate ? dateDifference <= 3 : true;
 
 	.dates span {
 		display: inline-block;
-		font-family: var(--font-sans);
-		font-size: var(--font-size-xs);
+		font-family: var(--font-sans), sans-serif;
+		font-size: var(--font-size-sm);
 		color: var(--color-gray-600);
 		letter-spacing: 0.01em;
 		font-weight: 400;

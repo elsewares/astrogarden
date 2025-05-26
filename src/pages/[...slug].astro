@@ -43,6 +43,7 @@ export async function getStaticPaths() {
 	const essays = await getCollection("essays");
 	const notes = await getCollection("notes");
 	const patterns = await getCollection("patterns");
+	const projects = await getCollection("projects");
 	const talks = await getCollection("talks");
 	const threads = await getCollection("threads");
 
@@ -58,6 +59,10 @@ export async function getStaticPaths() {
 		...patterns.map((entry) => ({
 			params: { slug: entry.id },
 			props: { entry, type: "pattern" } as const,
+		})),
+		...projects.map((entry) => ({
+			params: { slug: entry.id },
+			props: { entry, type: "project" } as const,
 		})),
 		...talks.map((entry) => ({
 			params: { slug: entry.id },

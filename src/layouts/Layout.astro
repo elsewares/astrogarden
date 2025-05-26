@@ -55,42 +55,38 @@ declare global {
 		<link
 			rel="apple-touch-icon"
 			sizes="180x180"
-			href="/images/favicon/apple-touch-icon.png"
+			href="/images/elsewares-logo.svg"
 		/>
 		<link
 			rel="icon"
-			type="image/png"
+			type="image/svg"
 			sizes="32x32"
-			href="/images/favicon/favicon-32x32.png"
+			href="/images/elsewares-logo.svg"
 		/>
 		<link
 			rel="icon"
-			type="image/png"
+			type="image/svg"
 			sizes="16x16"
-			href="/images/favicon/favicon-16x16.png"
+			href="/images/elsewares-logo.svg"
 		/>
 		<link rel="manifest" href="/manifest.json" />
 		<link
 			rel="alternate"
 			type="application/rss+xml"
-			title="Maggie Appleton's RSS Feed"
+			title="anastamosis RSS Feed"
 			href="/rss.xml"
 		/>
 		<link
 			rel="webmention"
-			href="https://webmention.io/maggieappleton.com/webmention"
+			href="https://webmention.io/anastamosis.io/webmention"
 		/>
 
 		<link
 			rel="pingback"
-			href="https://webmention.io/maggieappleton.com/xmlrpc"
+			href="https://webmention.io/anastamosis.io/xmlrpc"
 		/>
-		<link rel="me" href="https://bsky.app/profile/maggieappleton.com" />
+		<link rel="me" href="https://bsky.app/profile/anastamosis.io" />
 		<link rel="canonical" href={canonicalURL} />
-		<script
-			type="text/partytown"
-			async
-			src="https://www.googletagmanager.com/gtag/js?id=G-PT3NSRSMLT"></script>
 		<script type="text/partytown">
 			window.dataLayer = window.dataLayer || [];
 			function gtag() {
@@ -102,32 +98,26 @@ declare global {
 		<SEO
 			title={title}
 			description={desc ||
-				"Maggie's digital garden filled with visual essays on programming, design, and anthropology"}
+				"A collection of disparate threads of thought from the brain behind elsewares.io"}
 			canonical={canonicalURL}
 			openGraph={{
 				basic: {
 					type: "website",
 					url: canonicalURL,
-					title: title || "Maggie Appleton",
+					title: title || "anastamosis.io",
 					image: ogImageURL.toString(),
 				},
 				optional: {
 					locale: "en_GB",
 					description:
 						desc ||
-						"Maggie's digital garden filled with visual essays on programming, design, and anthropology",
+						"A collection of disparate threads of thought from the brains behind elsewares.io",
 				},
 				image: {
-					alt: title || "Maggie Appleton's digital garden",
+					alt: title || "anastamosis.io",
 					width: 1200,
 					height: 630,
 				},
-			}}
-			twitter={{
-				creator: "@mappletons",
-				card: "summary_large_image",
-				image: ogImageURL.toString(),
-				imageAlt: title || "Maggie Appleton's digital garden",
 			}}
 		/>
 	</head>
