@@ -355,10 +355,11 @@ iframe {
 /* _____________________ Base styles _____________________ */
 
 body {
-  background: hsla(187, 70%, 12%, 1);
-  background: linear-gradient(90deg, var(--color-deep-ocean), var(--color-pelagic));
-  background: -moz-linear-gradient(90deg, var(--color-deep-ocean), var(--color-pelagic));
-  background: -webkit-linear-gradient(90deg, var(--color-deep-ocean), var(--color-pelagic));
+  /*background: hsla(187, 70%, 12%, 1);*/
+  /*background: linear-gradient(90deg, var(--color-deep-ocean), var(--color-pelagic));*/
+  /*background: -moz-linear-gradient(90deg, var(--color-deep-ocean), var(--color-pelagic));*/
+  /*background: -webkit-linear-gradient(90deg, var(--color-deep-ocean), var(--color-pelagic));*/
+  background-color: var(--color-light);
   padding: var(--space-base);
   color: var(--color-black);
 }

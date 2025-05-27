@@ -19,8 +19,8 @@ import RemoteImage from "../components/mdx/RemoteImage.astro";
 import BasicImage from "../components/mdx/BasicImage.astro";
 import Spacer from "../components/mdx/Spacer.astro";
 
-type ContentType = "essay" | "note" | "pattern" | "talk" | "thread";
-type Collections = "essays" | "notes" | "patterns" | "talks" | "threads";
+type ContentType = "essay" | "note" | "project" | "thread";
+type Collections = "essays" | "notes" | "projects" | "threads";
 
 // Add type definitions for different frontmatter types
 type BaseFrontmatter = {
@@ -42,9 +42,7 @@ interface Props {
 export async function getStaticPaths() {
 	const essays = await getCollection("essays");
 	const notes = await getCollection("notes");
-	const patterns = await getCollection("patterns");
 	const projects = await getCollection("projects");
-	const talks = await getCollection("talks");
 	const threads = await getCollection("threads");
 
 	return [
@@ -56,17 +54,9 @@ export async function getStaticPaths() {
 			params: { slug: entry.id },
 			props: { entry, type: "note" } as const,
 		})),
-		...patterns.map((entry) => ({
-			params: { slug: entry.id },
-			props: { entry, type: "pattern" } as const,
-		})),
 		...projects.map((entry) => ({
 			params: { slug: entry.id },
 			props: { entry, type: "project" } as const,
-		})),
-		...talks.map((entry) => ({
-			params: { slug: entry.id },
-			props: { entry, type: "talk" } as const,
 		})),
 		...threads.map((entry) => ({
 			params: { slug: entry.id },

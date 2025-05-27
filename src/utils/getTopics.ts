@@ -4,12 +4,13 @@ import { slugifyTopic, deslugifyTopic } from "./slugifyTopic";
 export async function getAllTopics() {
   const essays = await getCollection("essays", ({ data }) => !data.draft);
   const notes = await getCollection("notes", ({ data }) => !data.draft);
-  const patterns = await getCollection("patterns", ({ data }) => !data.draft);
-  const talks = await getCollection("talks", ({ data }) => !data.draft);
-  const podcasts = await getCollection("podcasts");
+  // const patterns = await getCollection("patterns", ({ data }) => !data.draft);
+  const projects = await getCollection("projects", ({ data }) => !data.draft);
+  // const talks = await getCollection("talks", ({ data }) => !data.draft);
+  // const podcasts = await getCollection("podcasts");
 
   // Combine all content
-  const allContent = [...essays, ...notes, ...patterns, ...talks, ...podcasts];
+  const allContent = [...essays, ...notes, ...projects];
 
   // Get all unique topics
   const topics = new Set<string>();
@@ -29,11 +30,9 @@ export async function getAllTopics() {
 export async function getPostsForTopic(topicSlug: string) {
   const essays = await getCollection("essays", ({ data }) => !data.draft);
   const notes = await getCollection("notes", ({ data }) => !data.draft);
-  const patterns = await getCollection("patterns", ({ data }) => !data.draft);
-  const talks = await getCollection("talks", ({ data }) => !data.draft);
-  const podcasts = await getCollection("podcasts");
+  const projects = await getCollection("projects", ({ data }) => !data.draft);
 
-  const allContent = [...essays, ...notes, ...patterns, ...talks, ...podcasts];
+  const allContent = [...essays, ...notes, ...projects];
   const topic = deslugifyTopic(topicSlug);
 
   return allContent.filter((post) => {
