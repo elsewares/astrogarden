@@ -8,10 +8,11 @@ interface Props {
 const { position } = Astro.props;
 ---
 
-<div class='growth-reference' style={`justify-content: ${position || 'center'}`}>
+<div class='growth-reference mobile-only'>
   <div class="item taxonomy">
     <span>Taxonomic Reference</span>
   </div>
+  <br class="mobile-only" />
   <Tooltip>
     <div class="item">
       <Icon name="spore" width="24" />
@@ -57,7 +58,7 @@ const { position } = Astro.props;
   .growth-reference {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
     gap: 1rem;
     height: 40px;
     margin: 0 auto;
@@ -83,5 +84,27 @@ const { position } = Astro.props;
     font-weight: 600;
     color: var(--color-pelagic);
     font-size: var(--font-size-sm);
+  }
+
+  .mobile-only {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .growth-reference {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .item {
+      justify-content: center;
+    }
+    .separator {
+      display: none;
+    }
+    .mobile-only {
+      display: block;
+    }
   }
 </style>
