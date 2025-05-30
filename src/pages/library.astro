@@ -7,6 +7,8 @@ import TitleWithCount from "../components/layouts/TitleWithCount.astro";
 import { getCollection } from "astro:content";
 
 const books = await getCollection("books");
+const antibooks = await getCollection("antibooks");
+const showAntibooks = antibooks.length > 0;
 ---
 
 <Layout title="Library">
@@ -15,7 +17,7 @@ const books = await getCollection("books");
 			<TitleWithCount posts={books}>
 				Library
 				<div style="color: var(--color-gray-300); display: inline-block">|</div>
-				<a href="/antilibrary" class="styled-link">Antilibrary</a>
+				{ showAntibooks ? <a href="/antilibrary" class="styled-link">Antilibrary</a> : <span class="styled-link">Antilibrary</span> }
 			</TitleWithCount>
 			<Title2>Books I've read that significantly influenced how I see the world.</Title2>
 		</header>

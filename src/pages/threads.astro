@@ -47,9 +47,9 @@ const components = {
 
 // Render all threads content
 const renderedThreads = await Promise.all(
-	sortedThreads.map(async (smidgeon: CollectionEntry<"threads">) => {
-		const { Content } = await render(smidgeon);
-		return { ...smidgeon, Content };
+	sortedThreads.map(async (thread: CollectionEntry<"threads">) => {
+		const { Content } = await render(thread);
+		return { ...thread, Content };
 	}),
 );
 ---
@@ -59,51 +59,50 @@ const renderedThreads = await Promise.all(
 		<header class="header">
 			<TitleWithCount posts={threads}> Threads Stream </TitleWithCount>
 			<Title2>
-				A stream of interesting links, papers, and tiny thoughts. Roughly what I'm reading and
-				thinking about at the moment.</Title2
-			>
+				Links, papers, and tiny thoughts. Roughly what I'm reading and thinking about at the moment.
+			</Title2>
 		</header>
 
 		<div class="page-layout">
 			<div class="threads-list">
 				{
-					renderedThreads.map((smidgeon, index) => (
+					renderedThreads.map((thread, index) => (
 						<>
-							<article class="smidgeon-preview" id={`smidgeon-${smidgeon.id}`}>
+							<article class="thread-preview" id={`threads-${thread.id}`}>
 								<div class="metadata">
 									<div class="date-permalink">
 										<a
-											href={`/${smidgeon.id}`}
+											href={`/${thread.id}`}
 											class="permalink"
-											title="Permalink to this smidgeon"
+											title="Permalink to this thread"
 										>
 											<div class="permalink-button">
 												<Icon name="heroicons:link" size={16} />
 											</div>
 										</a>
-										<time datetime={smidgeon.data.startDate.toISOString()}>
-											{smidgeon.data.startDate.toLocaleDateString("en-US", {
+										<time datetime={thread.data.startDate.toISOString()}>
+											{thread.data.startDate.toLocaleDateString("en-US", {
 												year: "numeric",
 												month: "long",
 												day: "numeric",
 											})}
 										</time>
 									</div>
-									{smidgeon.data.topics && <Topics topics={smidgeon.data.topics} />}
+									{thread.data.topics && <Topics topics={thread.data.topics} />}
 								</div>
 								<div class="content">
 									{/* External Link Format */}
-									{smidgeon.data.external && (
-										<a href={smidgeon.data.external.url} target="_blank" rel="noopener noreferrer">
+									{thread.data.external && (
+										<a href={thread.data.external.url} target="_blank" rel="noopener noreferrer">
 											<div class="reference-card">
 												<h1 class="content-header">
-													{smidgeon.data.external.title}
+													{thread.data.external.title}
 													<Icon name="heroicons:arrow-top-right-on-square" size={16} />
 												</h1>
-												{smidgeon.data.external.author && (
+												{thread.data.external.author && (
 													<p class="byline">
 														<Icon name="heroicons:user" size={14} />
-														{smidgeon.data.external.author}
+														{thread.data.external.author}
 													</p>
 												)}
 											</div>
@@ -111,22 +110,22 @@ const renderedThreads = await Promise.all(
 									)}
 
 									{/* Academic Paper Format */}
-									{smidgeon.data.citation && (
-										<a href={smidgeon.data.citation.url} target="_blank" rel="noopener noreferrer">
+									{thread.data.citation && (
+										<a href={thread.data.citation.url} target="_blank" rel="noopener noreferrer">
 											<div class="reference-card">
 												<div class="citation-header">
 													<h1 class="content-header">
-														{smidgeon.data.citation.title}{" "}
+														{thread.data.citation.title}{" "}
 														<Icon name="heroicons:arrow-top-right-on-square" size={16} />
 													</h1>
 													<div class="citation-metadata">
 														<p class="byline">
 															<Icon name="heroicons:users" size={14} />
-															{smidgeon.data.citation.authors.join(", ")}
+															{thread.data.citation.authors.join(", ")}
 														</p>
 														<p class="journal-info byline">
 															<Icon name="heroicons:academic-cap" size={14} />
-															{smidgeon.data.citation.journal} ({smidgeon.data.citation.year})
+															{thread.data.citation.journal} ({thread.data.citation.year})
 														</p>
 													</div>
 												</div>
@@ -135,12 +134,12 @@ const renderedThreads = await Promise.all(
 									)}
 
 									<ProseWrapper>
-										<smidgeon.Content components={components} />
+										<thread.Content components={components} />
 									</ProseWrapper>
 								</div>
 							</article>
 							{index !== renderedThreads.length - 1 && (
-								<div class="smidgeon-divider">
+								<div class="thread-divider">
 									<Icon name="spore" size={20} />
 									<Icon name="spore" size={20} />
 									<Icon name="spore" size={20} />
@@ -155,24 +154,24 @@ const renderedThreads = await Promise.all(
 					<h3>Recent Threads</h3>
 					<ul>
 						{
-							renderedThreads.slice(0, 8).map((recentSmidgeon) => (
+							renderedThreads.slice(0, 8).map((recentThread) => (
 								<li>
-									<a href={`#smidgeon-${recentSmidgeon.id}`}>
-										{recentSmidgeon.data.title.length > 40
-											? `${recentSmidgeon.data.title.slice(0, 40)}...`
-											: recentSmidgeon.data.title}
+									<a href={`#thread-${recentThread.id}`}>
+										{recentThread.data.title.length > 40
+											? `${recentThread.data.title.slice(0, 40)}...`
+											: recentThread.data.title}
 									</a>
 								</li>
 							))
 						}
 					</ul>
 				</div>
-				<div class="rss-link">
-					<a href="/threads.xml" title="RSS Feed for Threads">
-						<Icon name="heroicons:rss" size={14} />
-						<span>Threads RSS Feed</span>
-					</a>
-				</div>
+				<!--<div class="rss-link">-->
+				<!--	<a href="/threads.xml" title="RSS Feed for Threads">-->
+				<!--		<Icon name="heroicons:rss" size={14} />-->
+				<!--		<span>Threads RSS Feed</span>-->
+				<!--	</a>-->
+				<!--</div>-->
 			</aside>
 		</div>
 	</PageWrapper>
@@ -204,8 +203,8 @@ const renderedThreads = await Promise.all(
 		gap: var(--space-2xl);
 	}
 
-	/* Smidgeon Preview */
-	.smidgeon-preview {
+	/* Thread Preview */
+	.thread-preview {
 		position: relative;
 		width: 100%;
 	}
@@ -329,7 +328,7 @@ const renderedThreads = await Promise.all(
 	}
 
 	/* Divider */
-	.smidgeon-divider {
+	.thread-divider {
 		display: flex;
 		justify-content: center;
 		color: var(--color-sea-blue);

@@ -80,7 +80,7 @@ const sortedProjects = projects
 					Opinionated, longform narrative writing.
 				</div>
 				<div class="essays-grid">
-					{
+					{ sortedEssays.length > 0 ?
 						sortedEssays.map((essay) => (
 							<EssayCard
 								id={essay.id}
@@ -91,7 +91,7 @@ const sortedProjects = projects
 								date={essay.data.updated}
 								description={essay.data.description}
 							/>
-						))
+						)) : <h1>Soon.</h1>
 					}
 				</div>
 			</section>
@@ -138,18 +138,20 @@ const sortedProjects = projects
 					</h3>
 				</a>
 				<div class="subheader">
-					The alluvial plain of the metacolony.{" "}
+					The alluvial plain of the Metacolony.{" "}
 				</div>
 				<div class="patterns-grid">
 					{
 						sortedProjects.map((pattern) => (
-							<PatternCard
-								slug={pattern.id}
-								title={pattern.data.title}
-								growthStage={pattern.data.growthStage}
-								date={pattern.data.updated}
-								description={pattern.data.description}
-							/>
+							<a href={`${pattern.data.url}`} target="_blank">
+								<PatternCard
+									slug={pattern.id}
+									title={pattern.data.title}
+									growthStage={pattern.data.growthStage}
+									date={pattern.data.updated}
+									description={pattern.data.description}
+								/>
+							</a>
 						))
 					}
 				</div>
@@ -202,7 +204,7 @@ const sortedProjects = projects
 	}
 
 	.readmore-link:hover {
-		color: lighten(var(--color-pelagic));
+		color: var(--color-pelagic);
 		cursor: pointer;
 	}
 

@@ -36,7 +36,7 @@ export async function GET(context) {
   const threads = await getCollection("threads", ({ data }) => !data.draft);
 
   return rss({
-    title: "Maggie Appleton's Threads",
+    title: "Threads",
     description: "A stream of interesting links, papers, and tiny thoughts",
     site: context.site,
     items: threads
