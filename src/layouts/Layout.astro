@@ -1,6 +1,8 @@
 ---
 import Footer from "../components/layouts/Footer.astro";
 import Navbar from "../components/layouts/navbar/Navbar.astro";
+import GoogleTags from "../components/layouts/GoogleTags.astro";
+
 import { SEO } from "astro-seo";
 import "../global.css";
 
@@ -42,16 +44,10 @@ declare global {
 	}
 }
 ---
-
-<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<meta
-			name="google-site-verification"
-			content="DQjzoQ_jeforeKNzt5jAvs0u0_gxGJKYoaYfpGdXt2A"
-		/>
 		<link
 			rel="apple-touch-icon"
 			sizes="180x180"
@@ -85,16 +81,8 @@ declare global {
 			rel="pingback"
 			href="https://webmention.io/anastamosis.io/xmlrpc"
 		/>
-		<link rel="me" href="https://bsky.app/profile/anastamosis.io" />
+		<link rel="me" href="https://github.com/elsewares" />
 		<link rel="canonical" href={canonicalURL} />
-		<script type="text/partytown">
-			window.dataLayer = window.dataLayer || [];
-			function gtag() {
-				dataLayer.push(arguments);
-			}
-			gtag("js", new Date());
-			gtag("config", "G-PT3NSRSMLT");
-		</script>
 		<SEO
 			title={title}
 			description={desc ||
@@ -120,6 +108,7 @@ declare global {
 				},
 			}}
 		/>
+		<GoogleTags />
 	</head>
 	<body>
 		<Navbar />
@@ -135,5 +124,5 @@ declare global {
 			}
 		</style>
 		<script async src="https://platform.twitter.com/widgets.js"></script>
-	</body>
+		</body>
 </html>
