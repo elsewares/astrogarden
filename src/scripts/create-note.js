@@ -6,7 +6,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const CONTENT_PATH = path.join(__dirname, "..", "src", "content", "notes");
+const CONTENT_PATH = path.join(__dirname, "..", "content", "notes");
 
 async function createNote() {
   // Get title from input
@@ -51,9 +51,9 @@ title: "${title}"
 description: "${description}"
 startDate: ${date.toISOString()}
 updateDate: ${date.toISOString()}
-type: "note"
 topics: []
 aliases: []
+type: "note"
 growthStage: "spore"
 ---
 
