@@ -14,7 +14,7 @@ async function fetchWebmentions(since, perPage = 100) {
   let hasMore = true;
 
   while (hasMore) {
-    let url = `https://webmention.io/api/mentions.jf2?domain=maggieappleton.com&token=${TOKEN}&per-page=${perPage}&page=${page}`;
+    let url = `https://webmention.io/api/mentions.jf2?domain=anastamosis.io&token=${TOKEN}&per-page=${perPage}&page=${page}`;
     if (since) {
       // Ensure we're not using a future date
       const sinceDate = new Date(since);

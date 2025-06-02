@@ -7,13 +7,13 @@ import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-async function createSmidgeon() {
+async function createThread() {
   // Get title from user
   const { title } = await inquirer.prompt([
     {
       type: "input",
       name: "title",
-      message: "What is the title of your smidgeon?",
+      message: "What is the title of your thread?",
       validate: (input) => {
         if (input.trim() === "") {
           return "Title cannot be empty";
@@ -58,7 +58,7 @@ type: "thread"
   const filePath = path.join(yearDir, filename);
   await fs.writeFile(filePath, frontmatter);
 
-  console.log(`Created new smidgeon at: ${filePath}`);
+  console.log(`Created new thread at: ${filePath}`);
 }
 
-createSmidgeon().catch(console.error);
+createThread().catch(console.error);

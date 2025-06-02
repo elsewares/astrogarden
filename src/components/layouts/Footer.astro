@@ -17,24 +17,21 @@ import UnderlineHoverLink from "../mdx/UnderlineHoverLink.astro";
 				<a rel="me" href="https://bsky.app/profile/anastamosis.io">
 					<Icon name="bluesky" size={32} />
 				</a>
-				<!--<a rel="me" href="https://github.com/MaggieAppleton">-->
-				<!--	<Icon name="github" size={32} />-->
-				<!--</a>-->
-				<!--<a rel="me" href="https://uk.linkedin.com/in/maggieappleton">-->
-				<!--	<Icon name="linkedin" size={32} />-->
-				<!--</a>-->
-				<!--<a rel="me" href="https://dribbble.com/mappleton">-->
-				<!--	<Icon name="dribbble" size={32} />-->
-				<!--</a>-->
-				<!--<a rel="me" href="https://twitter.com/Mappletons">-->
-				<!--	<Icon name="twitter" size={32} />-->
-				<!--</a>-->
+				<a rel="me" href="https://github.com/elsewares">
+					<Icon name="github" size={32} />
+				</a>
+				<a rel="me" href="https://uk.linkedin.com/in/maggieappleton">
+					<Icon name="linkedin" size={32} />
+				</a>
+				<a rel="me" href="https://elsewares.io">
+					<span>ᐰ</span>
+				</a>
 				<!--<a rel="me" href="https://indieweb.social/@maggie">-->
 				<!--	<Icon name="mastodon" size={32} />-->
 				<!--</a>-->
 			</div>
 			<span class="copyright">
-				© {new Date().getFullYear()} anastamosis.io. All rights reserved. Made with <Icon name="heroicons:heart" size={16} /> by <a href="https://elsewares.io">elsewares.io</a>.
+				© {new Date().getFullYear()} anastamosis.io. All rights reserved. Made with <span class="three-poisons">࿋</span> by <a href="https://elsewares.io">elsewares.io</a>
 			</span>
 		</div>
 		<ul class="sitemap-list">
@@ -71,6 +68,12 @@ import UnderlineHoverLink from "../mdx/UnderlineHoverLink.astro";
 		grid-gap: var(--space-xs);
 	}
 
+	.social-media-icons span {
+		font-size: 1.5rem;
+		font-weight: 600;
+		font-family: var(--font-sans), sans-serif;
+	}
+
 	.social-media-icons a {
 		color: var(--color-gray-400);
 		padding: 0;
@@ -78,12 +81,16 @@ import UnderlineHoverLink from "../mdx/UnderlineHoverLink.astro";
 		display: block;
 	}
 
-	.social-media-icons [data-icon] {
+	.social-media-icons [data-icon], .social-media-icons span {
 		color: var(--color-gray-400);
 		transition: all 0.3s ease-in-out;
 	}
 
 	.social-media-icons a:hover [data-icon] {
+		color: var(--color-bright-crimson);
+	}
+
+	.social-media-icons a:hover span {
 		color: var(--color-bright-crimson);
 	}
 
@@ -167,5 +174,10 @@ import UnderlineHoverLink from "../mdx/UnderlineHoverLink.astro";
 		padding: var(--space-xl) 0;
 		border-top: 1px solid var(--color-gray-300);
 		z-index: -1;
+	}
+
+	.three-poisons {
+		color: var(--color-crimson);
+		font-size: 1.5rem;
 	}
 </style>
