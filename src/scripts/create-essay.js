@@ -54,8 +54,8 @@ async function createEssay() {
   const frontMatter = `---
     title: "${title}"
     description: "${description}"
-    startDate: ${date.toISOString()}
-    updateDate: ${date.toISOString()}
+    startDate: "${new Date().toDateString()}"
+    updateDate: "${new Date().toDateString()}"
     cover: "@images/covers/bacterium@2x.png" // Default cover image
     type: "essay"
     growthStage: "spore"

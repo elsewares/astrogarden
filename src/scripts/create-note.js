@@ -49,8 +49,8 @@ async function createNote() {
   const frontMatter = `---
 title: "${title}"
 description: "${description}"
-startDate: ${date.toISOString()}
-updateDate: ${date.toISOString()}
+startDate: "${new Date().toDateString()}"
+updateDate: "${new Date().toDateString()}"
 cover: "@images/bacterium@2x.png" // Default cover image
 topics: []
 aliases: []
