@@ -56,7 +56,7 @@ async function createEssay() {
     description: "${description}"
     startDate: ${date.toISOString()}
     updateDate: ${date.toISOString()}
-    cover: "@images/covers/meatplanet-cover@2x.png" // Default cover image
+    cover: "@images/covers/bacterium@2x.png" // Default cover image
     type: "essay"
     growthStage: "spore"
     featured: ${featured}

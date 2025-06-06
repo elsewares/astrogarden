@@ -51,6 +51,7 @@ title: "${title}"
 description: "${description}"
 startDate: ${date.toISOString()}
 updateDate: ${date.toISOString()}
+cover: "@images/bacterium@2x.png" // Default cover image
 topics: []
 aliases: []
 type: "note"
