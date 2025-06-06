@@ -1,6 +1,17 @@
 [
   {
     "ids": [
+      "Introducing Hopper: COBOL -> TypeScript -> COBOL Library",
+      "Hopper COBOL to TypeScript library"
+    ],
+    "slug": "introducing-hopper-cobol-typescript-cobol-library-1748826200219",
+    "growthStage": "spore",
+    "description": "Trying to save technical inertia from itself is HARD.",
+    "outboundLinks": [],
+    "inboundLinks": []
+  },
+  {
+    "ids": [
       "Rust, FFS.",
       "JavaScript prototype inheritance"
     ],
