@@ -50,7 +50,7 @@ async function createNote() {
 title: "${title}"
 description: "${description}"
 startDate: "${new Date().toDateString()}"
-updateDate: "${new Date().toDateString()}"
+updated: "${new Date().toDateString()}"
 cover: "@images/bacterium@2x.png" // Default cover image
 topics: []
 aliases: []

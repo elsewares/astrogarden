@@ -55,7 +55,7 @@ async function createEssay() {
     title: "${title}"
     description: "${description}"
     startDate: "${new Date().toDateString()}"
-    updateDate: "${new Date().toDateString()}"
+    updated: "${new Date().toDateString()}"
     cover: "@images/covers/bacterium@2x.png" // Default cover image
     type: "essay"
     growthStage: "spore"
