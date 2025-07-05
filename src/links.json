@@ -1,6 +1,16 @@
 [
   {
     "ids": [
+      "The City"
+    ],
+    "slug": "the-city",
+    "growthStage": "soma",
+    "description": "Notes on My Dream Life",
+    "outboundLinks": [],
+    "inboundLinks": []
+  },
+  {
+    "ids": [
       "Introducing Hopper: COBOL -> TypeScript -> COBOL Library",
       "Hopper COBOL to TypeScript library"
     ],

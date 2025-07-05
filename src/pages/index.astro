@@ -8,10 +8,9 @@ import SmallTitle2 from "../components/mdx/typography/SmallTitle2.astro";
 import EssayCard from "../components/cards/EssayCard.astro";
 import BookCard from "../components/cards/BookCard.astro";
 import PatternCard from "../components/cards/PatternCard.astro";
-import UnderlineHoverLink from "../components/mdx/UnderlineHoverLink.astro";
 import GrowthIcon from "../components/layouts/GrowthIcon.astro";
 import PageWrapper from "../components/layouts/PageWrapper.astro";
-import GrowthReference from "../components/mdx/GrowthReference.astro";
+import MixotronicComponent from "../components/react/mixotronic.component";
 
 const essays = await getCollection(
 	"essays",
@@ -154,6 +153,9 @@ const sortedProjects = projects
 						))
 					}
 				</div>
+				<!--<div class="mxtrnic">-->
+				<!--	<MixotronicComponent client:visible />-->
+				<!--</div>-->
 			</section>
 
 			<section class="library-section">
