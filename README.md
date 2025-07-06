@@ -1,6 +1,6 @@
-# Maggieappleton.com, Version 3
+# anastamosis.io, Version 1.0.0
 
-This is the source code for maggieappleton.com, a digital garden filled with growing notes, essays,
+This is the source code for anastamosis.io, a digital garden filled with growing notes, essays,
 and design patterns.
 
 It's open source to let people poke around and get ideas for their own garden. However, I'd rather

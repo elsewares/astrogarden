@@ -2,6 +2,7 @@
 import Footer from "../components/layouts/Footer.astro";
 import Navbar from "../components/layouts/navbar/Navbar.astro";
 import GoogleTags from "../components/layouts/GoogleTags.astro";
+import { ClientRouter } from 'astro:transitions';
 
 import { SEO } from "astro-seo";
 import "../global.css";
@@ -109,6 +110,7 @@ declare global {
 			}}
 		/>
 		<GoogleTags />
+		<ClientRouter />
 	</head>
 	<body>
 		<Navbar />

@@ -9,6 +9,7 @@ import linkMaps from "../links.json";
 import GrowthIcon from "../components/layouts/GrowthIcon.astro";
 import Dates from "../components/layouts/Dates.astro";
 import Topics from "../components/layouts/Topics.astro";
+import { fade, slide } from "astro:transitions";
 
 // You'll need to find Astro alternatives for these React components:
 // - BackToTop
@@ -43,54 +44,56 @@ const coverImage = frontmatter.type === "essay" ? frontmatter.cover?.src : undef
 	type={frontmatter.type}
 	coverImage={coverImage}
 >
-	<header class="header-section">
-		<div class="above-title">
-			<div class="back-link">
-				<a href={`/${frontmatter.type}s`}>
-					<Icon name="heroicons:arrow-left" size={16} />
-					<span>
+	<div transition:animate="fade">
+		<header class="header-section">
+			<div class="above-title">
+				<div class="back-link">
+					<a href={`/${frontmatter.type}s`}>
+						<Icon name="heroicons:arrow-left" size={16} />
+						<span>
 						{
 							frontmatter.type.charAt(0).toUpperCase() +
-								frontmatter.type.slice(1)
+							frontmatter.type.slice(1)
 						}s
 					</span>
-				</a>
+					</a>
+				</div>
+				<GrowthIcon
+					size="24"
+					growthStage={frontmatter.growthStage as
+						| "spore"
+						| "hyphae"
+						| "soma"
+						| "colony"}
+				/>
+				<p>{frontmatter.growthStage}</p>
+				{frontmatter.draft && <span class="draft-label">Draft</span>}
 			</div>
-			<GrowthIcon
-				size="24"
-				growthStage={frontmatter.growthStage as
-					| "spore"
-					| "hyphae"
-					| "soma"
-					| "colony"}
-			/>
-			<p>{frontmatter.growthStage}</p>
-			{frontmatter.draft && <span class="draft-label">Draft</span>}
-		</div>
-		<div class="title-container">
-			<h1>{frontmatter.title}</h1>
-			{frontmatter.description && <p>{frontmatter.description}</p>}
-		</div>
-		<div class="metadata">
-			{frontmatter.topics && <Topics topics={frontmatter.topics} />}
-			<Dates
-				startDate={frontmatter.startDate instanceof Date
-					? frontmatter.startDate.toISOString()
-					: frontmatter.startDate}
-				updated={frontmatter.updated instanceof Date
-					? frontmatter.updated.toISOString()
-					: frontmatter.updated}
-			/>
-		</div>
-	</header>
+			<div class="title-container">
+				<h1>{frontmatter.title}</h1>
+				{frontmatter.description && <p>{frontmatter.description}</p>}
+			</div>
+			<div class="metadata">
+				{frontmatter.topics && <Topics topics={frontmatter.topics} />}
+				<Dates
+					startDate={frontmatter.startDate instanceof Date
+						? frontmatter.startDate.toISOString()
+						: frontmatter.startDate}
+					updated={frontmatter.updated instanceof Date
+						? frontmatter.updated.toISOString()
+						: frontmatter.updated}
+				/>
+			</div>
+		</header>
 
-	<main class="styled-main">
-		<slot />
-	</main>
+		<main class="styled-main">
+			<slot />
+		</main>
 
-	{backlinks.length ? <Backlinks backlinks={backlinks} /> : null}
+		{backlinks.length ? <Backlinks backlinks={backlinks} /> : null}
 
-	<WebMentions postSlug={currentSlug} hasBacklinks={backlinks.length > 0} />
+		<WebMentions postSlug={currentSlug} hasBacklinks={backlinks.length > 0} />
+	</div>
 </Layout>
 
 <style>

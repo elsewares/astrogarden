@@ -8,15 +8,15 @@ import { remarkWikiLink } from "./src/plugins/remark-wiki-link";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://maggieappleton.com",
+  site: "https://anastamosis.io",
   image: {
-    domains: ["res.cloudinary.com"],
+    domains: ["elsewares.io", "anastamosis.io", "mixotronic.com"],
   },
   integrations: [
     mdx({
       remarkPlugins: [remarkWikiLink],
       shikiConfig: {
-        theme: "night-owl",
+        theme: "vitesse-dark",
         wrap: true,
       },
     }),
