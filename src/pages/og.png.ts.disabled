@@ -1,0 +1,178 @@
+/**
+ * Open Graph Image Generation for Astro
+ * Generates dynamic Open Graph images for the site using company branding
+ */
+
+import fs from "fs/promises";
+import satori from "satori";
+import sharp from "sharp";
+import type { APIRoute } from "astro";
+
+// Site branding styles
+const styles = {
+  title: {
+    fontSize: "64px",
+    fontFamily: "Inter",
+    fontWeight: "bold",
+    width: "100%",
+    color: "#1a1a1a",
+    lineHeight: "1.1",
+    margin: "0",
+  },
+  description: {
+    fontSize: "28px",
+    fontFamily: "Inter",
+    fontWeight: "normal",
+    width: "100%",
+    color: "#666666",
+    marginTop: "20px",
+    lineHeight: "1.4",
+  },
+  eyebrow: {
+    fontSize: "16px",
+    fontFamily: "Inter",
+    textTransform: "uppercase",
+    color: "#888888",
+    letterSpacing: "0.1em",
+    fontWeight: "500",
+  },
+  logoContainer: {
+    position: "absolute",
+    right: "64px",
+    top: "50%",
+    transform: "translateY(-50%)",
+    width: "120px",
+    height: "120px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+};
+
+async function getLogoSVG() {
+  try {
+    const logoSvg = await fs.readFile("./public/images/elsewares-logo.svg", "utf-8");
+    return logoSvg;
+  } catch (error) {
+    console.error("[OG] Error loading logo:", error);
+    return null;
+  }
+}
+
+export const GET: APIRoute = async function get({ request }) {
+  const url = new URL(request.url);
+  const title = url.searchParams.get("title") || "anastamosis.io";
+  const description =
+    url.searchParams.get("description") ||
+    "A collection of disparate threads of thought from the brain behind elsewares.io";
+
+  // Load a simple font that should work
+  const fontResponse = await fetch('https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ8.ttf');
+  const fontData = await fontResponse.arrayBuffer();
+
+  const content = {
+    type: "div",
+    props: {
+      style: {
+        height: "100%",
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        backgroundColor: "#ffffff",
+        padding: "64px",
+        justifyContent: "center",
+        position: "relative",
+      },
+      children: [
+        {
+          type: "div",
+          props: {
+            style: {
+              display: "flex",
+              flexDirection: "column",
+              width: "65%",
+              maxWidth: "700px",
+            },
+            children: [
+              {
+                type: "p",
+                props: {
+                  style: styles.eyebrow,
+                  children: "anastamosis.io",
+                },
+              },
+              {
+                type: "h1",
+                props: {
+                  style: styles.title,
+                  children: title,
+                },
+              },
+              {
+                type: "p",
+                props: {
+                  style: styles.description,
+                  children: description,
+                },
+              },
+            ],
+          },
+        },
+        {
+          type: "div",
+          props: {
+            style: {
+              position: "absolute",
+              right: "64px",
+              top: "50%",
+              transform: "translateY(-50%)",
+              width: "120px",
+              height: "120px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              border: "3px solid #1a1a1a",
+              borderRadius: "50%",
+              backgroundColor: "#f8f8f8",
+            },
+            children: {
+              type: "div",
+              props: {
+                style: {
+                  fontSize: "24px",
+                  fontFamily: "Inter",
+                  fontWeight: "bold",
+                  color: "#1a1a1a",
+                },
+                children: "E",
+              },
+            },
+          },
+        },
+      ].filter(Boolean),
+    },
+  };
+
+  // @ts-ignore
+  const svg = await satori(content, {
+    width: 1200,
+    height: 630,
+    fonts: [
+      {
+        name: 'Inter',
+        data: fontData,
+        weight: 400,
+        style: 'normal',
+      },
+    ],
+  });
+
+  const png = await sharp(Buffer.from(svg)).png().toBuffer();
+
+  return new Response(png, {
+    headers: {
+      "Content-Type": "image/png",
+      "Cache-Control": "public, max-age=31536000, immutable",
+    },
+  });
+};

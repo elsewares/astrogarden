@@ -18,23 +18,18 @@ const { title, desc, type, coverImage } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 
-// Generate OG image URL
-const currentPath = Astro.url.pathname;
-const contentId = currentPath.split("/").filter(Boolean).join("/");
-
-// Use localhost URL in development, production URL otherwise
+// Generate OG image URL with fallback strategy
 const baseUrl = import.meta.env.DEV ? "http://localhost:4321" : Astro.site;
 
-// Construct OG image URL - now just using the content ID directly
-const ogImageURL = type
-	? new URL(`/og/${contentId}.png`, baseUrl)
-	: new URL(`/og.png`, baseUrl);
+let ogImageURL: URL;
 
-// Only add search params for non-content pages (like the homepage)
-if (!type) {
-	if (title) ogImageURL.searchParams.set("title", title);
-	if (desc) ogImageURL.searchParams.set("description", desc);
-	if (coverImage) ogImageURL.searchParams.set("coverImage", coverImage);
+// Primary: Use cover image if available (for essays)
+if (coverImage) {
+	ogImageURL = new URL(coverImage, baseUrl);
+} 
+// Secondary & Tertiary: Use company logo for all other cases
+else {
+	ogImageURL = new URL("/images/elsewares-logo.svg", baseUrl);
 }
 
 // Google Analytics type declarations
