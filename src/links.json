@@ -30,5 +30,16 @@
     "description": "In which I try to learn Rust, and fail.",
     "outboundLinks": [],
     "inboundLinks": []
+  },
+  {
+    "ids": [
+      "The Treasury of Web Development Ideas",
+      "JavaScript prototype inheritance"
+    ],
+    "slug": "the-treasury-of-web-ideas",
+    "growthStage": "spore",
+    "description": "An uncurated list of ideas that I have/will have pursue(d).",
+    "outboundLinks": [],
+    "inboundLinks": []
   }
 ]
